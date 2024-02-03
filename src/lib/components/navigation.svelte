@@ -62,7 +62,7 @@
 
 	{#if menuOpen}
 		<div
-			class="fixed left-0 top-0 z-50 flex h-full w-full flex-col backdrop-blur-lg backdrop-grayscale"
+			class="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-hermes-100 lg:bg-transparent lg:backdrop-blur-lg lg:backdrop-grayscale"
 			in:tweenIn
 			out:tweenOut
 		>
