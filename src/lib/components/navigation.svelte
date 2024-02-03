@@ -2,6 +2,7 @@
 	import gsap from 'gsap';
 	import MenuIcon from '$lib/icons/menu.icon.svelte';
 	import CloseIcon from '$lib/icons/close.icon.svelte';
+	import { onMount } from 'svelte';
 
 	const items = [
 		{ name: 'Home', href: '/' },
@@ -22,12 +23,6 @@
 			duration: 1,
 			opacity: 0,
 			yPercent: -100,
-			ease: 'power1.out'
-		});
-
-		tl.from('#navigation-close-button', {
-			opacity: 0,
-			duration: 0.5,
 			ease: 'power1.out'
 		});
 
@@ -52,6 +47,16 @@
 			tick: (t: any, u: number) => tl.progress(u)
 		};
 	};
+
+	const handleKeydown = (event: KeyboardEvent) => {
+		if (event.key === 'Escape') {
+			toggleMenu();
+		}
+	};
+
+	onMount(() => {
+		window.addEventListener('keydown', handleKeydown);
+	});
 </script>
 
 <nav class="mx-auto flex w-full max-w-7xl">
@@ -62,7 +67,7 @@
 
 	{#if menuOpen}
 		<div
-			class="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-hermes-100 lg:bg-transparent lg:backdrop-blur-lg lg:backdrop-grayscale"
+			class="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-hermes-100 lg:bg-transparent lg:backdrop-blur-lg"
 			in:tweenIn
 			out:tweenOut
 		>
