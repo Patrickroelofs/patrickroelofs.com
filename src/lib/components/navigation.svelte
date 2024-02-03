@@ -82,6 +82,8 @@
 	});
 </script>
 
+<svelte:window />
+
 <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-6">
 	<h1 class="font-serif text-3xl font-black">Patrick Roelofs</h1>
 	<button id="navigation-open-button" on:click={toggleMenu} class="flex items-center gap-2 text-xl">
