@@ -1,13 +1,14 @@
 <script>
 	import gsap from 'gsap';
 	import MenuIcon from '$lib/icons/menu.icon.svelte';
+	import CloseIcon from '$lib/icons/close.icon.svelte';
 
 	const items = [
 		{ name: 'Home', href: '/' },
-		{ name: 'Blog', href: '/blog' },
-		{ name: 'About', href: '/about' },
-		{ name: 'Projects', href: '/projects' },
-		{ name: 'Contact', href: '/contact' }
+		{ name: 'Blog', href: '/' },
+		{ name: 'About', href: '/' },
+		{ name: 'Projects', href: '/' },
+		{ name: 'Contact', href: '/' }
 	];
 
 	let menuOpen = false;
@@ -29,6 +30,11 @@
 			duration: 0.5,
 			ease: 'power1.out'
 		});
+
+		return {
+			duration: 1000,
+			tick: (t) => tl.progress(t)
+		};
 	};
 
 	const tweenOut = (node) => {
@@ -42,7 +48,7 @@
 		});
 
 		return {
-			duration: 1 * 1000,
+			duration: 1000,
 			tick: (t, u) => tl.progress(u)
 		};
 	};
@@ -50,7 +56,7 @@
 
 <nav class="mx-auto flex w-full max-w-7xl">
 	<button id="navigation-open-button" on:click={toggleMenu} class="flex items-center gap-2 p-4">
-		<span class="font-bold uppercase">Menu</span>
+		<span class="min-w-12 font-bold uppercase">Menu</span>
 		<MenuIcon class="w-8" />
 	</button>
 
@@ -60,13 +66,14 @@
 			in:tweenIn
 			out:tweenOut
 		>
-			<div class="mx-auto w-full max-w-7xl p-4">
+			<div class="mx-auto w-full max-w-7xl">
 				<button
 					id="navigation-close-button"
 					on:click={toggleMenu}
 					class="flex items-center gap-2 p-4"
 				>
-					<span class="font-bold uppercase">Close</span>
+					<span class="min-w-12 font-bold uppercase">Close</span>
+					<CloseIcon class="relative -left-1 w-8" />
 				</button>
 			</div>
 			<ul
