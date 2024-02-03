@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import gsap from 'gsap';
 	import MenuIcon from '$lib/icons/menu.icon.svelte';
 	import CloseIcon from '$lib/icons/close.icon.svelte';
@@ -15,7 +15,7 @@
 
 	const toggleMenu = () => (menuOpen = !menuOpen);
 
-	const tweenIn = (node) => {
+	const tweenIn = (node: gsap.TweenTarget) => {
 		let tl = gsap.timeline();
 
 		tl.from(node, {
@@ -33,11 +33,11 @@
 
 		return {
 			duration: 1000,
-			tick: (t) => tl.progress(t)
+			tick: (t: number) => tl.progress(t)
 		};
 	};
 
-	const tweenOut = (node) => {
+	const tweenOut = (node: gsap.TweenTarget) => {
 		let tl = gsap.timeline();
 
 		tl.to(node, {
@@ -49,7 +49,7 @@
 
 		return {
 			duration: 1000,
-			tick: (t, u) => tl.progress(u)
+			tick: (t: any, u: number) => tl.progress(u)
 		};
 	};
 </script>
