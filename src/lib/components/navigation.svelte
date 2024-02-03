@@ -1,0 +1,90 @@
+<script>
+	import gsap from 'gsap';
+	import MenuIcon from '$lib/icons/menu.icon.svelte';
+
+	const items = [
+		{ name: 'Home', href: '/' },
+		{ name: 'Blog', href: '/blog' },
+		{ name: 'About', href: '/about' },
+		{ name: 'Projects', href: '/projects' },
+		{ name: 'Contact', href: '/contact' }
+	];
+
+	let menuOpen = false;
+
+	const toggleMenu = () => (menuOpen = !menuOpen);
+
+	const tweenIn = (node) => {
+		let tl = gsap.timeline();
+
+		tl.from(node, {
+			duration: 1,
+			opacity: 0,
+			yPercent: -100,
+			ease: 'power1.out'
+		});
+
+		tl.from('#navigation-close-button', {
+			opacity: 0,
+			duration: 0.5,
+			ease: 'power1.out'
+		});
+	};
+
+	const tweenOut = (node) => {
+		let tl = gsap.timeline();
+
+		tl.to(node, {
+			duration: 1,
+			opacity: 0,
+			yPercent: -100,
+			ease: 'power1.out'
+		});
+
+		return {
+			duration: 1 * 1000,
+			tick: (t, u) => tl.progress(u)
+		};
+	};
+</script>
+
+<nav class="mx-auto flex w-full max-w-7xl">
+	<button id="navigation-open-button" on:click={toggleMenu} class="flex items-center gap-2 p-4">
+		<span class="font-bold uppercase">Menu</span>
+		<MenuIcon class="w-8" />
+	</button>
+
+	{#if menuOpen}
+		<div
+			class="fixed left-0 top-0 z-50 flex h-full w-full flex-col backdrop-blur-lg backdrop-grayscale"
+			in:tweenIn
+			out:tweenOut
+		>
+			<div class="mx-auto w-full max-w-7xl p-4">
+				<button
+					id="navigation-close-button"
+					on:click={toggleMenu}
+					class="flex items-center gap-2 p-4"
+				>
+					<span class="font-bold uppercase">Close</span>
+				</button>
+			</div>
+			<ul
+				class="mx-auto mb-24 flex h-full w-full max-w-7xl flex-col justify-center gap-6 px-6 lg:gap-12"
+			>
+				{#each items as item, index}
+					<li>
+						<a href={item.href} class="group flex gap-4">
+							<span class="text-lg">{index + 1}</span>
+							<span
+								class="font-serif text-4xl font-black transition-all duration-300 ease-in-out group-hover:font-light lg:text-8xl"
+							>
+								{item.name}
+							</span>
+						</a>
+					</li>
+				{/each}
+			</ul>
+		</div>
+	{/if}
+</nav>
