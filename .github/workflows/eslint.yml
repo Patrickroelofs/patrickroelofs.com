@@ -35,7 +35,7 @@ jobs:
           npm install eslint@8.10.0
           npm install @typescript-eslint/eslint-plugin@^6.0.0
           npm install eslint-plugin-perfectionist@^2.5.0
-          npm install "@typescript-eslint/parser@^6.0.0
+          npm install @typescript-eslint/parser@^6.0.0
           npm install eslint-plugin-svelte@^2.35.1
           npm install @microsoft/eslint-formatter-sarif@2.1.7
 
