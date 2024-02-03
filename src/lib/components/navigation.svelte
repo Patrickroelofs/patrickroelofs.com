@@ -2,7 +2,7 @@
 	import gsap from 'gsap';
 	import MenuIcon from '$lib/icons/menu.icon.svelte';
 	import CloseIcon from '$lib/icons/close.icon.svelte';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	const items = [
 		{ name: 'Home', href: '/' },
@@ -14,16 +14,35 @@
 
 	let menuOpen = false;
 
-	const toggleMenu = () => (menuOpen = !menuOpen);
+	const toggleMenu = () => {
+		menuOpen = !menuOpen;
+		document.body.classList.toggle('overflow-hidden');
+	};
 
 	const tweenIn = (node: gsap.TweenTarget) => {
 		let tl = gsap.timeline();
+		let tlChildren = gsap.timeline({ delay: 0.8 });
+
+		tl.from('#navigation-wrapper', {
+			duration: 1,
+			opacity: 0,
+			ease: 'expo.inOut'
+		});
 
 		tl.from(node, {
 			duration: 1,
-			opacity: 0,
 			yPercent: -100,
-			ease: 'power1.out'
+			ease: 'expo.inOut'
+		});
+
+		const children = document.querySelectorAll('#navigation-list li');
+		children.forEach((child, index) => {
+			tlChildren.from(child, {
+				opacity: 0,
+				xPercent: -10,
+				ease: 'back.inOut(1.7)',
+				duration: 0.25
+			});
 		});
 
 		return {
@@ -39,7 +58,7 @@
 			duration: 1,
 			opacity: 0,
 			yPercent: -100,
-			ease: 'power1.out'
+			ease: 'expo.inOut'
 		});
 
 		return {
@@ -57,46 +76,53 @@
 	onMount(() => {
 		window.addEventListener('keydown', handleKeydown);
 	});
+
+	onDestroy(() => {
+		window.removeEventListener('keydown', handleKeydown);
+	});
 </script>
 
-<nav class="mx-auto flex w-full max-w-7xl">
-	<button id="navigation-open-button" on:click={toggleMenu} class="flex items-center gap-2 p-4">
+<nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-6">
+	<h1 class="font-serif text-3xl font-black">Patrick Roelofs</h1>
+	<button id="navigation-open-button" on:click={toggleMenu} class="flex items-center gap-2 text-xl">
 		<span class="min-w-12 font-bold uppercase">Menu</span>
 		<MenuIcon class="w-8" />
 	</button>
 
 	{#if menuOpen}
 		<div
+			id="navigation-wrapper"
 			class="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-hermes-100 lg:bg-transparent lg:backdrop-blur-lg"
-			in:tweenIn
-			out:tweenOut
 		>
-			<div class="mx-auto w-full max-w-7xl">
-				<button
-					id="navigation-close-button"
-					on:click={toggleMenu}
-					class="flex items-center gap-2 p-4"
+			<div in:tweenIn out:tweenOut>
+				<div class="mx-auto flex w-full max-w-7xl justify-end pt-3">
+					<button
+						id="navigation-close-button"
+						on:click={toggleMenu}
+						class="flex items-center gap-2 p-4"
+					>
+						<span class="min-w-12 font-bold uppercase">Close</span>
+						<CloseIcon class="relative -left-1 w-8" />
+					</button>
+				</div>
+				<ul
+					id="navigation-list"
+					class="mx-auto mb-24 flex h-full w-full max-w-7xl flex-col justify-center gap-6 px-6 lg:gap-12"
 				>
-					<span class="min-w-12 font-bold uppercase">Close</span>
-					<CloseIcon class="relative -left-1 w-8" />
-				</button>
+					{#each items as item, index}
+						<li>
+							<a href={item.href} class="group flex gap-4">
+								<span class="text-lg">{index + 1}</span>
+								<span
+									class="font-serif text-4xl font-black transition-all duration-300 ease-in-out group-hover:font-light lg:text-8xl"
+								>
+									{item.name}
+								</span>
+							</a>
+						</li>
+					{/each}
+				</ul>
 			</div>
-			<ul
-				class="mx-auto mb-24 flex h-full w-full max-w-7xl flex-col justify-center gap-6 px-6 lg:gap-12"
-			>
-				{#each items as item, index}
-					<li>
-						<a href={item.href} class="group flex gap-4">
-							<span class="text-lg">{index + 1}</span>
-							<span
-								class="font-serif text-4xl font-black transition-all duration-300 ease-in-out group-hover:font-light lg:text-8xl"
-							>
-								{item.name}
-							</span>
-						</a>
-					</li>
-				{/each}
-			</ul>
 		</div>
 	{/if}
 </nav>
