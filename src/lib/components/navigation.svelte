@@ -2,7 +2,6 @@
 	import gsap from 'gsap';
 	import MenuIcon from '$lib/icons/menu.icon.svelte';
 	import CloseIcon from '$lib/icons/close.icon.svelte';
-	import { onDestroy, onMount } from 'svelte';
 
 	const items = [
 		{ name: 'Home', href: '/' },
@@ -66,20 +65,6 @@
 			tick: (t: any, u: number) => tl.progress(u)
 		};
 	};
-
-	const handleKeydown = (event: KeyboardEvent) => {
-		if (event.key === 'Escape') {
-			toggleMenu();
-		}
-	};
-
-	onMount(() => {
-		window.addEventListener('keydown', handleKeydown);
-	});
-
-	onDestroy(() => {
-		window.removeEventListener('keydown', handleKeydown);
-	});
 </script>
 
 <svelte:window />
