@@ -79,7 +79,7 @@
 	{#if menuOpen}
 		<div
 			id="navigation-wrapper"
-			class="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-hermes-100 lg:bg-transparent lg:backdrop-blur-lg"
+			class="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-transparent backdrop-blur-lg"
 		>
 			<div in:tweenIn out:tweenOut>
 				<div class="mx-auto flex w-full max-w-7xl justify-end pt-3">
