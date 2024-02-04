@@ -65,9 +65,15 @@
 			tick: (t: any, u: number) => tl.progress(u)
 		};
 	};
+
+	const onkeydown = (event: KeyboardEvent) => {
+		if (event.key === 'Escape' && menuOpen) {
+			toggleMenu();
+		}
+	};
 </script>
 
-<svelte:window />
+<svelte:window on:keydown={onkeydown} />
 
 <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-6">
 	<h1 class="font-serif text-3xl font-black">Patrick Roelofs</h1>
