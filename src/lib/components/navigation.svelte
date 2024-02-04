@@ -35,7 +35,7 @@
 		});
 
 		const children = document.querySelectorAll('#navigation-list li');
-		children.forEach((child, index) => {
+		children.forEach((child) => {
 			tlChildren.from(child, {
 				opacity: 0,
 				xPercent: -10,
@@ -53,9 +53,14 @@
 	const tweenOut = (node: gsap.TweenTarget) => {
 		let tl = gsap.timeline();
 
-		tl.to(node, {
+		tl.to('#navigation-wrapper', {
 			duration: 1,
 			opacity: 0,
+			ease: 'expo.inOut'
+		});
+
+		tl.to(node, {
+			duration: 1,
 			yPercent: -100,
 			ease: 'expo.inOut'
 		});
@@ -76,8 +81,12 @@
 <svelte:window on:keydown={onkeydown} />
 
 <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-6">
-	<h1 class="font-serif text-3xl font-black">Patrick Roelofs</h1>
-	<button id="navigation-open-button" on:click={toggleMenu} class="flex items-center gap-2 text-xl">
+	<h1 class="font-serif text-lg font-black md:text-3xl">Patrick Roelofs</h1>
+	<button
+		id="navigation-open-button"
+		on:click={toggleMenu}
+		class="flex items-center gap-2 text-base md:text-xl"
+	>
 		<span class="min-w-12 font-bold uppercase">Menu</span>
 		<MenuIcon class="w-8" />
 	</button>
@@ -85,14 +94,14 @@
 	{#if menuOpen}
 		<div
 			id="navigation-wrapper"
-			class="fixed left-0 top-0 z-50 flex h-full w-full flex-col bg-transparent backdrop-blur-lg"
+			class="fixed left-0 top-0 z-50 flex h-screen w-screen flex-col overflow-y-auto bg-transparent backdrop-blur-lg"
 		>
 			<div in:tweenIn out:tweenOut>
 				<div class="mx-auto flex w-full max-w-7xl justify-end pt-3">
 					<button
 						id="navigation-close-button"
 						on:click={toggleMenu}
-						class="flex items-center gap-2 p-4"
+						class="flex items-center gap-2 p-4 text-base md:text-xl"
 					>
 						<span class="min-w-12 font-bold uppercase">Close</span>
 						<CloseIcon class="relative -left-1 w-8" />
