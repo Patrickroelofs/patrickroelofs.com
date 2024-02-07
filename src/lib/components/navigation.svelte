@@ -11,7 +11,7 @@
 		{ name: 'Contact', href: '/' }
 	];
 
-	let menuOpen = true;
+	let menuOpen = false;
 
 	const toggleMenu = () => {
 		menuOpen = !menuOpen;
@@ -80,15 +80,24 @@
 
 <svelte:window on:keydown={onkeydown} />
 
-<nav class="absolute top-0 w-full">
+<nav class="relative top-0 w-full">
 	<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6">
-		<h1 class="font-serif text-lg font-black md:text-3xl">Patrick Roelofs</h1>
+		<a href="/" class="group">
+			<h1
+				class="font-serif text-lg font-black transition-all duration-300 ease-in-out group-hover:font-normal md:text-3xl"
+			>
+				Patrick Roelofs
+			</h1>
+		</a>
 		<button
 			id="navigation-open-button"
 			on:click={toggleMenu}
-			class="flex items-center gap-2 text-base md:text-xl"
+			class="group flex items-center gap-2 text-base md:text-xl"
 		>
-			<span class="min-w-12 font-bold uppercase">Menu</span>
+			<span
+				class="min-w-12 font-bold uppercase transition-all duration-300 ease-in-out group-hover:font-normal"
+				>Menu</span
+			>
 			<MenuIcon class="w-8" />
 		</button>
 
@@ -102,9 +111,12 @@
 						<button
 							id="navigation-close-button"
 							on:click={toggleMenu}
-							class="flex items-center gap-2 p-4 text-base md:text-xl"
+							class="group flex items-center gap-2 p-4 text-base md:text-xl"
 						>
-							<span class="min-w-12 font-bold uppercase">Close</span>
+							<span
+								class="min-w-12 font-bold uppercase transition-all duration-300 ease-in-out group-hover:font-normal"
+								>Close</span
+							>
 							<CloseIcon class="relative -left-1 w-8" />
 						</button>
 					</div>
@@ -117,7 +129,7 @@
 								<a href={item.href} class="group flex gap-4">
 									<span class="text-lg">{index + 1}</span>
 									<span
-										class="font-serif text-4xl font-black transition-all duration-300 ease-in-out group-hover:font-light lg:text-8xl"
+										class="relative font-serif text-4xl font-black transition-all duration-300 ease-in-out group-hover:font-light lg:text-8xl"
 									>
 										{item.name}
 									</span>
