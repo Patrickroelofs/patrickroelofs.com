@@ -19,15 +19,17 @@
 	});
 </script>
 
-<header class="relative mx-auto mt-12 flex h-auto max-w-7xl items-center lg:mt-36">
-	<div class="flex flex-col gap-8 lg:flex-row">
+<header
+	class="relative mx-auto mt-12 flex h-auto max-w-7xl items-center justify-center xl:mt-36 xl:justify-start"
+>
+	<div class="flex flex-col gap-8 xl:flex-row">
 		<p
-			class="z-10 max-w-6xl text-balance px-4 pt-0 text-center font-serif text-3xl leading-normal lg:px-0 lg:pt-32 lg:text-left lg:text-7xl lg:leading-normal"
+			class="z-10 max-w-6xl text-balance px-4 pt-0 text-center font-serif text-3xl leading-normal xl:px-0 xl:pt-20 xl:text-left xl:text-7xl xl:leading-normal"
 		>
 			A front-end developer with a passion for user experiences.
 		</p>
 		<div
-			class="right-0 mx-auto w-96 overflow-hidden bg-gradient-to-br from-hermes-200 to-hermes-300 lg:absolute lg:h-[512px] lg:w-[512px] lg:rounded-full"
+			class="right-0 mx-auto w-96 overflow-hidden bg-gradient-to-br from-hermes-200 to-hermes-300 xl:absolute xl:h-[512px] xl:w-[512px] xl:rounded-full"
 		>
 			<img bind:this={image} src="/images/patrick.png" alt="" />
 		</div>
