@@ -1,7 +1,7 @@
 <script lang="ts">
 	import gsap from 'gsap';
-	import MenuIcon from '$lib/icons/menu.icon.svelte';
-	import CloseIcon from '$lib/icons/close.icon.svelte';
+	import MenuIcon from '$lib/icons/menu.svelte';
+	import CloseIcon from '$lib/icons/close.svelte';
 
 	const items = [
 		{ name: 'Home', href: '/' },
