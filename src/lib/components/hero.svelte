@@ -20,7 +20,7 @@
 </script>
 
 <header
-	class="relative mx-auto mb-44 mt-16 flex h-[512px] max-w-7xl items-center justify-center xl:justify-start"
+	class="relative mx-auto mb-[25vh] mt-16 flex h-[512px] max-w-7xl items-center justify-center xl:justify-start"
 >
 	<div class="flex flex-col gap-8 xl:flex-row">
 		<p

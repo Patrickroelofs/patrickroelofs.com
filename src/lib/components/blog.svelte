@@ -3,17 +3,23 @@
 
 	const items = [
 		{
-			title: 'First blog post First blog post First blog post First blog post'
+			title: 'First blog post',
+			description:
+				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum est quis inventore sapiente! Autem neque libero molestias exercitationem similique ea ipsum odit soluta!'
 		},
 		{
-			title: 'Second blog post'
+			title: 'Second blog post',
+			description:
+				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum est quis inventore sapiente! Autem neque libero molestias exercitationem similique ea ipsum odit soluta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum est quis inventore sapiente! Autem neque libero molestias exercitationem similique ea ipsum odit soluta!'
 		}
 	];
 </script>
 
-<div class="mx-auto max-w-7xl px-4">
-	<div class="flex flex-col justify-between gap-8 md:flex-row md:items-center">
-		<h2 class="mb-4 font-serif text-6xl font-bold">Blog</h2>
+<div class="mx-auto mb-[25vh] px-4">
+	<div
+		class="mx-auto flex max-w-screen-2xl flex-col justify-between gap-8 md:flex-row md:items-center"
+	>
+		<h2 class="mb-4 font-serif text-5xl font-bold md:text-8xl">Blog</h2>
 		<div class="flex w-full">
 			<span class="relative h-1 w-full rounded-full bg-black">
 				<svg
@@ -36,7 +42,7 @@
 		</p>
 	</div>
 
-	<ul class="mt-12">
+	<ul class="mx-0 mt-12 flex flex-col gap-8 md:mx-16">
 		{#each items as item, index}
 			<Blogitem {item} {index} />
 		{/each}
