@@ -14,6 +14,11 @@ export default {
       title: 'Description',
       name: 'description',
       type: 'string'
+    },
+    {
+      title: 'Thumbnail',
+      name: 'thumbnail',
+      type: 'image',
     }
   ],
   type: 'document',

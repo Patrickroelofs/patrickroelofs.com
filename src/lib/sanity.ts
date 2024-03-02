@@ -19,7 +19,8 @@ export const getAllBlogPosts = async (): Promise<AllBlogPosts> => {
   const query = `*[_type == "Blog"] | order(publishedAt desc) {
     title,
     description,
-    slug
+    slug,
+    "thumbnail": thumbnail.asset->url
   }`;
 
   return await client.fetch(query);

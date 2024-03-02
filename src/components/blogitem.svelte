@@ -3,7 +3,6 @@
 	import gsap from 'gsap';
 
 	export let item: SingleBlogPost;
-	console.log(item);
 	export let index: number;
 
 	const MouseOver = (event: any) => {
@@ -57,7 +56,7 @@
 		</div>
 		<img
 			aria-hidden="true"
-			src="https://placekitten.com/256/144"
+			src={item.thumbnail}
 			alt=""
 			class="pointer-events-none absolute right-64 hidden h-[236px] w-[420px] rounded-lg object-cover object-center opacity-0 shadow-2xl 2xl:block"
 		/>

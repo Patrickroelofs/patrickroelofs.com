@@ -3,6 +3,7 @@ import * as z from 'zod';
 export const allBlogPostsSchema = z.array(
   z.object({
     description: z.string(),
+    thumbnail: z.string(),
     title: z.string(),
     slug: z.string(),
   })
