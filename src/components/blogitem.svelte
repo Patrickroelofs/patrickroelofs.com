@@ -1,7 +1,9 @@
 <script lang="ts">
+	import type { SingleBlogPost } from '$lib/types';
 	import gsap from 'gsap';
 
-	export let item: any;
+	export let item: SingleBlogPost;
+	console.log(item);
 	export let index: number;
 
 	const MouseOver = (event: any) => {
@@ -35,7 +37,7 @@
 		on:mouseleave={MouseLeave}
 		on:focus={MouseOver}
 		on:focusout={MouseLeave}
-		href="#"
+		href="/blog/{item.slug}"
 		class="group relative flex items-center justify-between border-b-2 border-black py-6 transition-all duration-300 ease-in-out"
 	>
 		<div class="flex gap-16">

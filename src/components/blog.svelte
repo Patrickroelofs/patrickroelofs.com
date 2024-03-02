@@ -1,18 +1,8 @@
 <script lang="ts">
+	import type { AllBlogPosts } from '$lib/types';
 	import Blogitem from './blogitem.svelte';
 
-	const items = [
-		{
-			title: 'First blog post',
-			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum est quis inventore sapiente! Autem neque libero molestias exercitationem similique ea ipsum odit soluta!'
-		},
-		{
-			title: 'Second blog post',
-			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum est quis inventore sapiente! Autem neque libero molestias exercitationem similique ea ipsum odit soluta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum est quis inventore sapiente! Autem neque libero molestias exercitationem similique ea ipsum odit soluta!'
-		}
-	];
+	export let data: { posts: AllBlogPosts };
 </script>
 
 <div class="mx-auto mb-[25vh] px-4">
@@ -43,7 +33,7 @@
 	</div>
 
 	<ul class="mx-0 mt-12 flex flex-col gap-8 md:mx-16">
-		{#each items as item, index}
+		{#each data.posts as item, index}
 			<Blogitem {item} {index} />
 		{/each}
 	</ul>
