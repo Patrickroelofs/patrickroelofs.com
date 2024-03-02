@@ -10,10 +10,10 @@
 			const y = (window.innerHeight / 2 - e.clientY) / 90;
 
 			gsap.to(image, {
+				ease: 'power1.out',
 				duration: 0.5,
 				x: x,
-				y: y,
-				ease: 'power1.out'
+				y: y
 			});
 		});
 	});
@@ -31,7 +31,7 @@
 		<div
 			class="right-0 top-0 mx-auto w-96 overflow-hidden bg-gradient-to-br from-hermes-200 to-hermes-300 xl:absolute xl:h-[512px] xl:w-[512px] xl:rounded-full"
 		>
-			<img bind:this={image} src="/images/patrick.png" alt="" />
+			<img src="/images/patrick.png" bind:this={image} alt="" />
 		</div>
 	</div>
 </header>
