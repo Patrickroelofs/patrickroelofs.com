@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { SingleBlogPost } from '$lib/types';
+
+	import { urlFor } from '$lib/urlBuilder';
 	import gsap from 'gsap';
 
 	export let item: SingleBlogPost;
@@ -10,10 +12,10 @@
 		const img = event.target.querySelector('img');
 
 		tl.to(img, {
-			opacity: 1,
-			scale: 1.2,
+			ease: 'power1.inOut',
 			duration: 0.5,
-			ease: 'power1.inOut'
+			opacity: 1,
+			scale: 1.2
 		});
 	};
 
@@ -22,22 +24,22 @@
 		const img = event.target.querySelector('img');
 
 		tl.to(img, {
-			opacity: 0,
-			scale: 1,
+			ease: 'power1.inOut',
 			duration: 0.5,
-			ease: 'power1.inOut'
+			opacity: 0,
+			scale: 1
 		});
 	};
 </script>
 
 <li>
 	<a
-		on:mouseover={MouseOver}
+		class="group relative flex items-center justify-between border-b-2 border-black py-6 transition-all duration-300 ease-in-out"
 		on:mouseleave={MouseLeave}
-		on:focus={MouseOver}
+		on:mouseover={MouseOver}
 		on:focusout={MouseLeave}
 		href="/blog/{item.slug}"
-		class="group relative flex items-center justify-between border-b-2 border-black py-6 transition-all duration-300 ease-in-out"
+		on:focus={MouseOver}
 	>
 		<div class="flex gap-16">
 			<p
@@ -55,20 +57,20 @@
 			</div>
 		</div>
 		<img
-			aria-hidden="true"
-			src={item.thumbnail}
-			alt=""
 			class="pointer-events-none absolute right-64 hidden h-[236px] w-[420px] rounded-lg object-cover object-center opacity-0 shadow-2xl 2xl:block"
+			src={urlFor(item.thumbnail).width(420).url()}
+			aria-hidden="true"
+			alt=""
 		/>
 		<span class="flex w-1/3 justify-end transition-all duration-300 ease-in-out group-hover:pr-4">
 			<div class="w-8 md:w-16">
-				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
 					<path
 						d="M4 12H20M20 12L16 8M20 12L16 16"
+						stroke-linejoin="round"
+						stroke-linecap="round"
 						stroke="#000000"
 						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
 					/>
 				</svg>
 			</div>

@@ -1,9 +1,10 @@
 <script lang="ts">
-	import Hero from '../components/hero.svelte';
-	import Blog from '../components/blog.svelte';
 	import type { AllBlogPosts } from '$lib/types';
 
-	export let data: AllBlogPosts;
+	import Hero from '../components/hero.svelte';
+	import Blog from '../components/blog.svelte';
+
+	export let data: { posts: AllBlogPosts };
 </script>
 
 <Hero />
