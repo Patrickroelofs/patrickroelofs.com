@@ -11,7 +11,9 @@ export const allBlogPostsSchema = z.array(
 		}),
 		description: z.string(),
 		title: z.string(),
-		slug: z.string()
+		slug: z.object({
+			current: z.string()
+		})
 	})
 );
 
@@ -27,3 +29,14 @@ export const AssetSchema = z.object({
 });
 
 export type Asset = z.infer<typeof AssetSchema>;
+
+export const BlogPostSchema = z.object({
+	thumbnail: AssetSchema,
+	description: z.string(),
+	title: z.string(),
+	slug: z.object({
+		current: z.string()
+	})
+});
+
+export type BlogPost = z.infer<typeof BlogPostSchema>;

@@ -1,9 +1,13 @@
 export default {
   fields: [
     {
-      type: 'string',
+      type: 'slug',
       title: 'Slug',
       name: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      }
     },
     {
       type: 'string',
