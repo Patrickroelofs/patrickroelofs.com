@@ -67,7 +67,7 @@
 		});
 
 		return {
-			tick: (t: any, u: number) => tl.progress(u),
+			tick: (t: unknown, u: number) => tl.progress(u),
 			duration: 1000
 		};
 	};
