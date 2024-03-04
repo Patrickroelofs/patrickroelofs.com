@@ -1,6 +1,6 @@
 # Patrickroelofs.com
-A personal website developed in Svelte, tailwind, GSAP and Sanity. With a focus on Accessibility and Experience.
 
+A personal website developed in Svelte, tailwind, GSAP and Sanity. With a focus on Accessibility and Experience.
 
 ## Developing
 

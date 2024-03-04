@@ -1,32 +1,31 @@
 /** @type { import("eslint").Linter.Config } */
 module.exports = {
+	root: true,
 	extends: [
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:svelte/recommended',
-		'prettier',
-		'plugin:perfectionist/recommended-line-length'
+		'prettier'
 	],
-	overrides: [
-		{
-			parserOptions: {
-				parser: '@typescript-eslint/parser'
-			},
-			parser: 'svelte-eslint-parser',
-			files: ['*.svelte']
-		}
-	],
+	parser: '@typescript-eslint/parser',
+	plugins: ['@typescript-eslint'],
 	parserOptions: {
-		extraFileExtensions: ['.svelte'],
 		sourceType: 'module',
-		ecmaVersion: 2020
+		ecmaVersion: 2020,
+		extraFileExtensions: ['.svelte']
 	},
 	env: {
 		browser: true,
 		es2017: true,
 		node: true
 	},
-	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint'],
-	root: true
+	overrides: [
+		{
+			files: ['*.svelte'],
+			parser: 'svelte-eslint-parser',
+			parserOptions: {
+				parser: '@typescript-eslint/parser'
+			}
+		}
+	]
 };

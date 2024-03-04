@@ -4,18 +4,24 @@
 
 	let image: HTMLImageElement;
 
-	onMount(() => {
-		window.addEventListener('mousemove', (e) => {
-			const x = (window.innerWidth / 2 - e.clientX) / 90;
-			const y = (window.innerHeight / 2 - e.clientY) / 90;
+	const moveEvent = (e: MouseEvent) => {
+		const x = (window.innerWidth / 2 - e.clientX) / 90;
+		const y = (window.innerHeight / 2 - e.clientY) / 90;
 
-			gsap.to(image, {
-				ease: 'power1.out',
-				duration: 0.5,
-				x: x,
-				y: y
-			});
+		gsap.to(image, {
+			ease: 'power1.out',
+			duration: 0.5,
+			x: x,
+			y: y
 		});
+	};
+
+	onMount(() => {
+		window.addEventListener('mousemove', moveEvent);
+
+		return () => {
+			window.removeEventListener('mousemove', moveEvent);
+		};
 	});
 </script>
 

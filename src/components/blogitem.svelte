@@ -7,9 +7,10 @@
 	export let item: SingleBlogPost;
 	export let index: number;
 
-	const MouseOver = (event: any) => {
+	const MouseOver = (event: MouseEvent) => {
 		const tl = gsap.timeline();
-		const img = event.target.querySelector('img');
+		const target = event.currentTarget as HTMLElement;
+		const img = target.querySelector('img');
 
 		tl.to(img, {
 			ease: 'power1.inOut',
@@ -19,9 +20,36 @@
 		});
 	};
 
-	const MouseLeave = (event: any) => {
+	const MouseLeave = (event: MouseEvent) => {
 		const tl = gsap.timeline();
-		const img = event.target.querySelector('img');
+		const target = event.currentTarget as HTMLElement;
+		const img = target.querySelector('img');
+
+		tl.to(img, {
+			ease: 'power1.inOut',
+			duration: 0.5,
+			opacity: 0,
+			scale: 1
+		});
+	};
+
+	const Focus = (event: FocusEvent) => {
+		const tl = gsap.timeline();
+		const target = event.currentTarget as HTMLElement;
+		const img = target.querySelector('img');
+
+		tl.to(img, {
+			ease: 'power1.inOut',
+			duration: 0.5,
+			opacity: 1,
+			scale: 1.2
+		});
+	};
+
+	const FocusOut = (event: FocusEvent) => {
+		const tl = gsap.timeline();
+		const target = event.currentTarget as HTMLElement;
+		const img = target.querySelector('img');
 
 		tl.to(img, {
 			ease: 'power1.inOut',
@@ -35,11 +63,11 @@
 <li>
 	<a
 		class="group relative flex items-center justify-between border-b-2 border-black py-6 transition-all duration-300 ease-in-out"
+		href={`/blog/${item.slug.current}`}
 		on:mouseleave={MouseLeave}
 		on:mouseover={MouseOver}
-		on:focusout={MouseLeave}
-		href={`/blog/${item.slug.current}`}
-		on:focus={MouseOver}
+		on:focusout={FocusOut}
+		on:focus={Focus}
 	>
 		<div class="flex gap-16">
 			<p

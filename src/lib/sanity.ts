@@ -8,7 +8,8 @@ export const sanityClient = () => {
 	const config = {
 		projectId: PUBLIC_SANITY_PROJECT_ID,
 		dataset: PUBLIC_SANITY_DATASET,
-		apiVersion: '2024-02-06'
+		apiVersion: '2024-02-06',
+		useCdn: true
 	};
 
 	return createClient(config);
