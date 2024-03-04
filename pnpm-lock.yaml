@@ -9,8 +9,8 @@ devDependencies:
     specifier: ^5.0.17
     version: 5.0.17
   '@fontsource-variable/unbounded':
-    specifier: ^5.0.18
-    version: 5.0.18
+    specifier: ^5.0.19
+    version: 5.0.19
   '@sanity/client':
     specifier: ^6.15.1
     version: 6.15.1
@@ -374,8 +374,8 @@ packages:
     resolution: {integrity: sha512-sa80nNnqF8kzhBvqusWiL9vlPMVpdmOwMmDBup46Jggsr1VBqo+YuzwB36Ls+X6uHJtb8Yv3ALBHL/zGmT862A==}
     dev: true
 
-  /@fontsource-variable/unbounded@5.0.18:
-    resolution: {integrity: sha512-kPeSuW9i/IbZH06DVBHMFOHN195vFO6irESgEvxdSTclxmuD5yaTOL3svnXn3Ddy4Tm6C9V6z0qiBs/1CHxlPw==}
+  /@fontsource-variable/unbounded@5.0.19:
+    resolution: {integrity: sha512-dUCv4CT2jZh1j5+/1O5ViTrT0Q86UzH1i3L42sAKHHLM/2+twRBRjbz/4G5PwPTp3Khp6eO7YTcmrJ5u0/7v5A==}
     dev: true
 
   /@humanwhocodes/config-array@0.11.14:
