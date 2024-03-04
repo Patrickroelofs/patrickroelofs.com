@@ -22,7 +22,7 @@ export default {
 				serif: ['Unbounded Variable', 'serif']
 			},
 			backgroundImage: {
-				texture: "url('./images/noise.png')"
+				texture: "url('https://images.patrickroelofs.com/noise.png')"
 			}
 		}
 	},

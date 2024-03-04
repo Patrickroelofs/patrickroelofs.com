@@ -31,7 +31,7 @@
 		<div
 			class="right-0 top-0 mx-auto w-96 overflow-hidden bg-gradient-to-br from-hermes-200 to-hermes-300 xl:absolute xl:h-[512px] xl:w-[512px] xl:rounded-full"
 		>
-			<img src="/images/patrick.png" bind:this={image} alt="" />
+			<img src="https://images.patrickroelofs.com/patrick.png" bind:this={image} alt="" />
 		</div>
 	</div>
 </header>

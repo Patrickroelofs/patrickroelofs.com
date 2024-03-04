@@ -38,7 +38,7 @@
 		on:mouseleave={MouseLeave}
 		on:mouseover={MouseOver}
 		on:focusout={MouseLeave}
-		href="/blog/{item.slug}"
+		href="#"
 		on:focus={MouseOver}
 	>
 		<div class="flex gap-16">
