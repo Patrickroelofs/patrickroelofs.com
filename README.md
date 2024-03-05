@@ -4,11 +4,13 @@ A personal website developed in Svelte, tailwind, GSAP and Sanity. With a focus 
 
 ## Developing
 
-Once you've created a project and installed dependencies with `pnpm install`, start a development server:
+Install dependencies with `pnpm install`, start a development server:
 
 ```bash
 pnpm run dev
 ```
+
+set environment variables in `.env` as described in `.env.example`.
 
 ## Building
 
@@ -19,5 +21,3 @@ pnpm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
