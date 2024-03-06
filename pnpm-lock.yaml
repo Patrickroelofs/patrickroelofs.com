@@ -57,8 +57,8 @@ devDependencies:
     specifier: ^2.35.1
     version: 2.35.1(eslint@8.57.0)(svelte@4.2.12)
   groq:
-    specifier: ^3.31.0
-    version: 3.31.0
+    specifier: ^3.32.0
+    version: 3.32.0
   gsap:
     specifier: ^3.12.5
     version: 3.12.5
@@ -1820,8 +1820,8 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /groq@3.31.0:
-    resolution: {integrity: sha512-GKJtR3ICQJCt2V135g70HLtoizADsuP7ikb1s1CF8RS1O8uPXbSYxtMcqqWpMDSAxyxD6YA86TfV7TLf1t1cPQ==}
+  /groq@3.32.0:
+    resolution: {integrity: sha512-yK3XQapMcXFP4QyVAF/ceRAwfkKbJJFaDt1y4GBxhJ6tDp/9I8bPkDPv/h016CvegOsaUDy68VKGF/LpGX7b+g==}
     engines: {node: '>=18'}
     dev: true
 
