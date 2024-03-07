@@ -14,7 +14,7 @@
 	"devDependencies": {
 		"@fontsource-variable/inter": "^5.0.17",
 		"@fontsource-variable/unbounded": "^5.0.19",
-		"@sanity/client": "^6.15.1",
+		"@sanity/client": "^6.15.3",
 		"@sanity/image-url": "^1.0.2",
 		"@sveltejs/adapter-vercel": "^5.1.0",
 		"@sveltejs/kit": "^2.5.2",

@@ -12,8 +12,8 @@ devDependencies:
     specifier: ^5.0.19
     version: 5.0.19
   '@sanity/client':
-    specifier: ^6.15.1
-    version: 6.15.1
+    specifier: ^6.15.3
+    version: 6.15.3
   '@sanity/image-url':
     specifier: ^1.0.2
     version: 1.0.2
@@ -607,8 +607,8 @@ packages:
     dev: true
     optional: true
 
-  /@sanity/client@6.15.1:
-    resolution: {integrity: sha512-WA85uX8FX7PbWyDyQiTsRn75OLt1GNtQPTzlHyNymAfItDgVmbP7Cwk5aH2B+7gMSkAK7wuK9Ea2YyHl7Kl2WA==}
+  /@sanity/client@6.15.3:
+    resolution: {integrity: sha512-7P6OMUeXr87aDzWHlXhP4QXYm02f9jc8f5xr736Er3RybuhSg+ZnetoxBFWhzlV6QA1F0fiC/8yGJKVJmrO+sg==}
     engines: {node: '>=14.18'}
     dependencies:
       '@sanity/eventsource': 5.0.1
