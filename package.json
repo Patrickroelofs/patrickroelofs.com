@@ -15,7 +15,7 @@
 		"@fontsource-variable/inter": "^5.0.17",
 		"@fontsource-variable/unbounded": "^5.0.19",
 		"@sveltejs/adapter-vercel": "^5.1.0",
-		"@sveltejs/kit": "^2.5.2",
+		"@sveltejs/kit": "^2.5.3",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/eslint": "8.56.5",
