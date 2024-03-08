@@ -1,5 +1,8 @@
 <script lang="ts">
+	import type { BlogPostType } from '$lib/retrieveBlogPosts';
 	import Blogitem from './blogitem.svelte';
+
+	export let data: { posts: BlogPostType[] };
 </script>
 
 <div class="mx-auto mb-[25vh] px-4">

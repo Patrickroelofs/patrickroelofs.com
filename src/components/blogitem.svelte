@@ -1,10 +1,8 @@
 <script lang="ts">
-	import type { SingleBlogPost } from '$lib/types';
-
-	import { urlFor } from '$lib/urlBuilder';
+	import type { BlogPostType } from '$lib/retrieveBlogPosts';
 	import gsap from 'gsap';
 
-	export let item: SingleBlogPost;
+	export let item: BlogPostType;
 	export let index: number;
 
 	const MouseOver = (event: MouseEvent) => {
@@ -63,7 +61,7 @@
 <li>
 	<a
 		class="group relative flex items-center justify-between border-b-2 border-black py-6 transition-all duration-300 ease-in-out"
-		href={`/blog/${item.slug.current}`}
+		href={`/blog/${item.metadata.slug}`}
 		on:mouseleave={MouseLeave}
 		on:mouseover={MouseOver}
 		on:focusout={FocusOut}
@@ -76,20 +74,20 @@
 				0{index + 1}
 			</p>
 			<div class="flex w-full max-w-xl flex-col gap-4">
-				<p class="mr-4 text-xl font-medium md:text-3xl">{item.title}</p>
+				<p class="mr-4 text-xl font-medium md:text-3xl">{item.metadata.title}</p>
 				<p
 					class="line-clamp-3 text-ellipsis leading-normal opacity-40 transition-all duration-300 ease-in-out group-hover:opacity-100"
 				>
-					{item.description}
+					{item.metadata.description}
 				</p>
 			</div>
 		</div>
-		<img
+		<!-- <img
 			class="pointer-events-none absolute right-64 hidden h-[236px] w-[420px] rounded-lg object-cover object-center opacity-0 shadow-2xl 2xl:block"
 			src={urlFor(item.thumbnail).width(420).url()}
 			aria-hidden="true"
 			alt=""
-		/>
+		/> -->
 		<span class="flex w-1/3 justify-end transition-all duration-300 ease-in-out group-hover:pr-4">
 			<div class="w-8 md:w-16">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
