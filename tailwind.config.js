@@ -21,10 +21,29 @@ export default {
 				sans: ['Inter Variable', 'sans-serif'],
 				serif: ['Unbounded Variable', 'serif']
 			},
+			fontSize: {
+				'title-clamp': 'clamp(2rem, 4vw, 5.5rem)'
+			},
 			backgroundImage: {
 				texture: "url('https://images.patrickroelofs.com/noise.png')"
 			}
-		}
+		},
+		typography: (theme) => ({
+			DEFAULT: {
+				css: {
+					color: theme('black'),
+					fontFamily: theme('fontFamily.sans').join(', '),
+					h1: {
+						fontFamily: theme('fontFamily.serif').join(', '),
+						maxWidth: theme('maxWidth.7xl'),
+						margin: '0 auto',
+						fontWeight: theme('fontWeight.bold'),
+						fontSize: theme('fontSize.title-clamp'),
+						textWrap: 'pretty'
+					}
+				}
+			}
+		})
 	},
 	plugins: [require('@tailwindcss/typography')],
 	content: ['./src/**/*.{html,js,svelte,ts}']

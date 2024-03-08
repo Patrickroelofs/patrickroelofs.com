@@ -2,4 +2,8 @@
 	export let data: any;
 </script>
 
-<svelte:component this={data.component} />
+<main>
+	<div class="prose mt-16 px-4">
+		<svelte:component this={data.component} />
+	</div>
+</main>
