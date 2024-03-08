@@ -1,9 +1,5 @@
 <script lang="ts">
-	import type { AllBlogPosts } from '$lib/types';
-
 	import Blogitem from './blogitem.svelte';
-
-	export let data: { posts: AllBlogPosts };
 </script>
 
 <div class="mx-auto mb-[25vh] px-4">
