@@ -61,7 +61,7 @@
 <li>
 	<a
 		class="group relative flex items-center justify-between border-b-2 border-black py-6 transition-all duration-300 ease-in-out"
-		href="/"
+		href={`/blog/${item.metadata.slug}`}
 		on:mouseleave={MouseLeave}
 		on:mouseover={MouseOver}
 		on:focusout={FocusOut}

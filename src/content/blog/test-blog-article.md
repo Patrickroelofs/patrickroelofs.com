@@ -5,10 +5,4 @@ date: '08/03/2024'
 published: true
 ---
 
-# Hello World
-
-How are you doing?
-
-```js
-console.log();
-```
+# Test blog article 1

@@ -17,7 +17,6 @@ type GetAllBlogPostsProps = {
 };
 
 export const getAllBlogPosts = async ({ includeUnpublished }: GetAllBlogPostsProps) => {
-	console.log(includeUnpublished);
 	const files = import.meta.glob('/src/content/blog/*.{md,svx,svelte.md}');
 
 	const posts = await Promise.all(
@@ -41,4 +40,22 @@ export const getAllBlogPosts = async ({ includeUnpublished }: GetAllBlogPostsPro
 	filteredPosts.sort((a, b) => (new Date(a.metadata.date) > new Date(b.metadata.date) ? -1 : 1));
 
 	return filteredPosts;
+};
+
+export const getSingleBlogPost = async ({ slug }: { slug: string }) => {
+	const files = import.meta.glob('/src/content/blog/*.{md,svx,svelte.md}');
+
+	for (const [path, resolver] of Object.entries(files)) {
+		if (slugFromPath(path) === slug) {
+			const post = (await resolver()) as {
+				default: unknown;
+				metadata: BlogPostType['metadata'];
+			};
+
+			return {
+				component: post.default,
+				metadata: post.metadata
+			};
+		}
+	}
 };
