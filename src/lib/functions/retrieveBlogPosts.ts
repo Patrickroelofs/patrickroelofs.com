@@ -6,6 +6,7 @@ type BlogPostMetadataType = {
 	date: string;
 	description: string;
 	published: boolean;
+	thumbnail: string;
 };
 
 export type BlogPostType = {

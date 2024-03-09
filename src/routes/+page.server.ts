@@ -1,4 +1,4 @@
-import { getAllBlogPosts } from '../lib/retrieveBlogPosts';
+import { getAllBlogPosts } from '../lib/functions/retrieveBlogPosts';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {

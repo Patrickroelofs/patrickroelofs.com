@@ -30,18 +30,7 @@ export default {
 		},
 		typography: (theme) => ({
 			DEFAULT: {
-				css: {
-					color: theme('black'),
-					fontFamily: theme('fontFamily.sans').join(', '),
-					h1: {
-						fontFamily: theme('fontFamily.serif').join(', '),
-						maxWidth: theme('maxWidth.7xl'),
-						margin: '0 auto',
-						fontWeight: theme('fontWeight.bold'),
-						fontSize: theme('fontSize.title-clamp'),
-						textWrap: 'pretty'
-					}
-				}
+				css: {}
 			}
 		})
 	},

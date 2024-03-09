@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { BlogPostType } from '$lib/retrieveBlogPosts';
+	import type { BlogPostType } from '$lib/functions/retrieveBlogPosts';
 	import gsap from 'gsap';
 
 	export let item: BlogPostType;
@@ -82,12 +82,12 @@
 				</p>
 			</div>
 		</div>
-		<!-- <img
+		<img
 			class="pointer-events-none absolute right-64 hidden h-[236px] w-[420px] rounded-lg object-cover object-center opacity-0 shadow-2xl 2xl:block"
-			src={urlFor(item.thumbnail).width(420).url()}
+			src={item.metadata.thumbnail}
 			aria-hidden="true"
 			alt=""
-		/> -->
+		/>
 		<span class="flex w-1/3 justify-end transition-all duration-300 ease-in-out group-hover:pr-4">
 			<div class="w-8 md:w-16">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
