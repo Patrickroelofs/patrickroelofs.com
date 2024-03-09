@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { BlogPostType } from '$lib/functions/retrieveBlogPosts';
+	import type { Post } from '$lib/functions/getAllBlogPosts';
 	import gsap from 'gsap';
 
-	export let item: BlogPostType;
+	export let item: Post;
 	export let index: number;
 
 	const MouseOver = (event: MouseEvent) => {
@@ -61,7 +61,7 @@
 <li>
 	<a
 		class="group relative flex items-center justify-between border-b-2 border-black py-6 transition-all duration-300 ease-in-out"
-		href={`/blog/${item.metadata.slug}`}
+		href={`/blog/${item.meta.slug}`}
 		on:mouseleave={MouseLeave}
 		on:mouseover={MouseOver}
 		on:focusout={FocusOut}
@@ -74,17 +74,17 @@
 				0{index + 1}
 			</p>
 			<div class="flex w-full max-w-xl flex-col gap-4">
-				<p class="mr-4 text-xl font-medium md:text-3xl">{item.metadata.title}</p>
+				<p class="mr-4 text-xl font-medium md:text-3xl">{item.meta.title}</p>
 				<p
 					class="line-clamp-3 text-ellipsis leading-normal opacity-40 transition-all duration-300 ease-in-out group-hover:opacity-100"
 				>
-					{item.metadata.description}
+					{item.meta.description}
 				</p>
 			</div>
 		</div>
 		<img
 			class="pointer-events-none absolute right-64 hidden h-[236px] w-[420px] rounded-lg object-cover object-center opacity-0 shadow-2xl 2xl:block"
-			src={item.metadata.thumbnail}
+			src={item.meta.thumbnail}
 			aria-hidden="true"
 			alt=""
 		/>

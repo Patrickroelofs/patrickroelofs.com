@@ -1,12 +1,22 @@
-import { getSingleBlogPost } from '$lib/functions/retrieveBlogPosts';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params }) => {
-	const post = await getSingleBlogPost({
-		slug: params.slug
-	});
+	const { slug } = params;
 
-	return {
-		...post
-	};
+	try {
+		const post = await import(`../../../content/blog/${slug}.md`);
+
+		return {
+			content: post.default,
+			meta: {
+				...post.metadata,
+				slug
+			}
+		};
+	} catch (err) {
+		return {
+			status: 500,
+			error: 'Could not load post...'
+		};
+	}
 };
