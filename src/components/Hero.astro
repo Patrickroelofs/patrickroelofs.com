@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets'
+---
+
+<header class="relative mx-auto mb-[25vh] mt-16 flex h-[725px] max-w-screen-2xl items-center px-4">
+	<div class="flex flex-col gap-8 xl:flex-row">
+		<p
+			class="z-10 mb-16 max-w-4xl text-balance px-0 pt-0 text-left font-serif text-7xl leading-normal"
+		>
+			A <span class="font-black">front-end developer</span> with a passion for user experiences.
+		</p>
+	</div>
+	<div
+		class="absolute right-0 top-0 mx-auto aspect-square w-[725px] overflow-hidden rounded-full bg-gradient-to-br from-hermes-200 to-hermes-300"
+	>
+		<Image
+			alt=""
+			class="h-full w-full object-cover"
+			height={725}
+			loading="eager"
+			src="https://images.patrickroelofs.com/patrick.png"
+			width={725}
+		/>
+	</div>
+</header>
