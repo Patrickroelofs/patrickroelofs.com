@@ -1,3 +1,24 @@
 ---
 import '@fontsource-variable/domine'
+import '@fontsource-variable/unbounded'
+
+import BackgroundElements from '../components/BackgroundElements.astro'
+import Navigation from '../components/Navigation.astro'
 ---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+		<meta content="width=device-width" name="viewport" />
+		<meta content={Astro.generator} name="generator" />
+		<title>Astro</title>
+	</head>
+	<body class="bg-hermes-100 font-serif">
+		<Navigation />
+
+		<slot />
+
+		<BackgroundElements />
+	</body>
+</html>

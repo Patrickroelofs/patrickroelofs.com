@@ -14,6 +14,9 @@ dependencies:
   '@fontsource-variable/domine':
     specifier: ^5.0.17
     version: 5.0.17
+  '@fontsource-variable/unbounded':
+    specifier: ^5.0.19
+    version: 5.0.19
   astro:
     specifier: ^4.4.15
     version: 4.4.15(typescript@5.4.2)
@@ -688,6 +691,10 @@ packages:
 
   /@fontsource-variable/domine@5.0.17:
     resolution: {integrity: sha512-efwP7r6vnHwfpSCEmEY37luhVvgK2PXNm8N4MI30f9gurlVUHRCiiJFTiZJPSnEoYon7fQB0/yq8IRihF40Heg==}
+    dev: false
+
+  /@fontsource-variable/unbounded@5.0.19:
+    resolution: {integrity: sha512-dUCv4CT2jZh1j5+/1O5ViTrT0Q86UzH1i3L42sAKHHLM/2+twRBRjbz/4G5PwPTp3Khp6eO7YTcmrJ5u0/7v5A==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
