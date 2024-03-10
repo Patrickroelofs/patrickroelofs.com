@@ -1,17 +1,26 @@
 ---
 import '@fontsource-variable/domine'
 import '@fontsource-variable/unbounded'
+import { SEO } from 'astro-seo'
 
 import Navigation from '../components/Navigation.astro'
 ---
 
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
-		<meta content="width=device-width" name="viewport" />
-		<meta content={Astro.generator} name="generator" />
-		<title>Astro</title>
+		<SEO
+			charset="utf-8"
+			description="Patrick Roelofs is a front-end developer and designer from the Netherlands."
+			extend={{
+				meta: [
+					{
+						content: 'width=device-width, initial-scale=1.0',
+						name: 'viewport'
+					}
+				]
+			}}
+			title="Patrick Roelofs"
+		/>
 	</head>
 	<body class="bg-hermes-100 font-serif">
 		<Navigation />

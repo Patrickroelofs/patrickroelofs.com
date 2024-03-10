@@ -20,6 +20,7 @@
 		"@fontsource-variable/domine": "^5.0.17",
 		"@fontsource-variable/unbounded": "^5.0.19",
 		"astro": "^4.4.15",
+		"astro-seo": "^0.8.3",
 		"sharp": "^0.33.2",
 		"tailwindcss": "^3.4.1",
 		"typescript": "^5.4.2"
