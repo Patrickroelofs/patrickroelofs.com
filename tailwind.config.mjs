@@ -6,9 +6,6 @@ export default {
 	plugins: [],
 	theme: {
 		extend: {
-			backgroundImage: {
-				texture: "url('https://images.patrickroelofs.com/noise.png')"
-			},
 			colors: {
 				hermes: {
 					50: 'oklch(97.42% 0.01 58.22)',
