@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets'
+
+import patrickImage from '../../public/images/patrick.png'
 ---
 
 <header class="relative mx-auto mb-[25vh] mt-16 flex h-[725px] max-w-screen-2xl items-center px-4">
@@ -16,10 +18,9 @@ import { Image } from 'astro:assets'
 		<Image
 			alt=""
 			class="h-full w-full object-cover"
-			height={725}
 			loading="eager"
-			src="https://images.patrickroelofs.com/patrick.png?w=725&q=80"
-			width={725}
+			src={patrickImage}
+			width={1000}
 		/>
 	</div>
 </header>
