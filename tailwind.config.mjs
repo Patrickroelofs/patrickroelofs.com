@@ -3,7 +3,7 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	plugins: [],
+	plugins: [require('@tailwindcss/typography')],
 	theme: {
 		extend: {
 			colors: {
@@ -24,7 +24,61 @@ export default {
 			fontFamily: {
 				display: ['Unbounded Variable', ...defaultTheme.fontFamily.sans],
 				serif: ['Domine Variable', ...defaultTheme.fontFamily.serif]
-			}
+			},
+			fontSize: {
+				'title-clamp': 'clamp(2rem, 4vw, 5.5rem)'
+			},
+			typography: (theme) => ({
+				DEFAULT: {
+					css: {
+						blockquote: {
+							borderLeftColor: theme('colors.hermes.600'),
+							color: theme('colors.black')
+						},
+						fontSize: theme('fontSize.xl'),
+						h1: {
+							color: theme('colors.black'),
+							fontFamily: theme('fontFamily.display').join(', '),
+							fontWeight: theme('fontWeight.medium'),
+							lineHeight: theme('lineHeight.normal')
+						},
+						h2: {
+							color: theme('colors.black'),
+							fontFamily: theme('fontFamily.display').join(', '),
+							fontWeight: theme('fontWeight.medium'),
+							lineHeight: theme('lineHeight.normal')
+						},
+						h3: {
+							color: theme('colors.black'),
+							fontFamily: theme('fontFamily.display').join(', '),
+							fontWeight: theme('fontWeight.medium'),
+							lineHeight: theme('lineHeight.normal')
+						},
+						h4: {
+							color: theme('colors.black'),
+							fontFamily: theme('fontFamily.display').join(', '),
+							fontWeight: theme('fontWeight.medium'),
+							lineHeight: theme('lineHeight.normal')
+						},
+						h5: {
+							color: theme('colors.black'),
+							fontFamily: theme('fontFamily.display').join(', '),
+							fontWeight: theme('fontWeight.medium'),
+							lineHeight: theme('lineHeight.normal')
+						},
+						h6: {
+							color: theme('colors.black'),
+							fontFamily: theme('fontFamily.display').join(', '),
+							fontWeight: theme('fontWeight.medium'),
+							lineHeight: theme('lineHeight.normal')
+						},
+						maxWidth: '75ch',
+						p: {
+							color: theme('colors.black')
+						}
+					}
+				}
+			})
 		}
 	}
 }
