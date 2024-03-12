@@ -7,7 +7,7 @@ const allPosts = await getCollection('blog')
 
 <div class="mx-auto mb-[25vh] max-w-screen-2xl px-4">
 	<div class="mx-auto flex flex-col justify-between gap-8 md:flex-row md:items-center">
-		<h2 class="mb-4 font-serif text-5xl font-bold md:text-8xl">Blog</h2>
+		<h2 class="mb-4 font-display text-5xl font-bold md:text-8xl">Blog</h2>
 		<div class="flex w-full">
 			<span class="relative h-1 w-full rounded-full bg-black"></span>
 		</div>
@@ -26,10 +26,7 @@ const allPosts = await getCollection('blog')
 								0{index + 1}
 							</p>
 							<div class="flex w-full max-w-xl flex-col gap-4">
-								<p class="mr-4 text-xl font-medium md:text-3xl">{post.data.title}</p>
-								<p class="line-clamp-3 text-ellipsis leading-normal transition-all duration-300 ease-in-out">
-									{post.data.description}
-								</p>
+								<p class="mr-4 font-display text-xl font-medium md:text-3xl">{post.data.title}</p>
 							</div>
 						</div>
 						<Image
