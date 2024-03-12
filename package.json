@@ -14,7 +14,7 @@
 		"format": "npm run prettier:write && npm run lint"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.5.7",
+		"@astrojs/check": "^0.5.8",
 		"@astrojs/rss": "^4.0.5",
 		"@astrojs/tailwind": "^5.1.0",
 		"@astrojs/vercel": "^7.3.6",
