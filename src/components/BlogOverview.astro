@@ -6,7 +6,7 @@ const allPosts = await getCollection('blog')
 ---
 
 <div class="mx-auto mb-[25vh] max-w-screen-2xl px-4">
-	<div class="mx-auto flex flex-col justify-between gap-8 md:flex-row md:items-center">
+	<div class="mx-auto flex flex-row items-center justify-between gap-8">
 		<h2 class="mb-4 font-display text-5xl font-bold md:text-8xl">Blog</h2>
 		<div class="flex w-full">
 			<span class="relative h-1 w-full rounded-full bg-black"></span>
@@ -21,12 +21,12 @@ const allPosts = await getCollection('blog')
 						class="group relative flex items-center justify-between border-b-2 border-black py-6 transition-all duration-300 ease-in-out"
 						href={`/blog/${post.slug}`}
 					>
-						<div class="flex gap-16">
+						<div class="flex items-center gap-16">
 							<p class="text-4xl font-bold transition-all duration-300 ease-in-out group-hover:pl-4 md:text-8xl">
 								0{index + 1}
 							</p>
 							<div class="flex w-full max-w-xl flex-col gap-4">
-								<p class="mr-4 font-display text-xl font-medium md:text-3xl">{post.data.title}</p>
+								<p class="mr-4 text-2xl font-medium md:text-4xl">{post.data.title}</p>
 							</div>
 						</div>
 						<Image

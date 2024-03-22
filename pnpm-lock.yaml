@@ -20,6 +20,9 @@ dependencies:
   '@fontsource-variable/domine':
     specifier: ^5.0.17
     version: 5.0.17
+  '@fontsource-variable/inter':
+    specifier: ^5.0.17
+    version: 5.0.17
   '@fontsource-variable/unbounded':
     specifier: ^5.0.19
     version: 5.0.19
@@ -746,6 +749,10 @@ packages:
 
   /@fontsource-variable/domine@5.0.17:
     resolution: {integrity: sha512-efwP7r6vnHwfpSCEmEY37luhVvgK2PXNm8N4MI30f9gurlVUHRCiiJFTiZJPSnEoYon7fQB0/yq8IRihF40Heg==}
+    dev: false
+
+  /@fontsource-variable/inter@5.0.17:
+    resolution: {integrity: sha512-sa80nNnqF8kzhBvqusWiL9vlPMVpdmOwMmDBup46Jggsr1VBqo+YuzwB36Ls+X6uHJtb8Yv3ALBHL/zGmT862A==}
     dev: false
 
   /@fontsource-variable/unbounded@5.0.19:

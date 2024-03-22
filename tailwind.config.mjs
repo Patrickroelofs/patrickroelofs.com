@@ -23,9 +23,10 @@ export default {
 			},
 			fontFamily: {
 				display: ['Unbounded Variable', ...defaultTheme.fontFamily.sans],
-				serif: ['Domine Variable', ...defaultTheme.fontFamily.serif]
+				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans]
 			},
 			fontSize: {
+				'hero-clamp': 'clamp(3rem, 4vw, 3.5rem)',
 				'title-clamp': 'clamp(2rem, 4vw, 5.5rem)'
 			},
 			typography: (theme) => ({
