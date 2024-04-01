@@ -23,7 +23,7 @@ export default {
 			},
 			fontFamily: {
 				display: ['Unbounded Variable', ...defaultTheme.fontFamily.sans],
-				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans]
+				sans: ['Work Sans Variable', ...defaultTheme.fontFamily.sans]
 			},
 			fontSize: {
 				'hero-clamp': 'clamp(3rem, 4vw, 3.5rem)',
