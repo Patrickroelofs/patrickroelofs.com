@@ -1,10 +1,21 @@
 ---
-import AboutSection from '../components/AboutSection.astro'
-import Hero from '../components/Hero.astro'
+import { Image } from 'astro:assets'
+
+import patrickImage from '../images/patrick.png'
 import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout>
-	<Hero />
-	<AboutSection />
+	<div class="flex h-screen flex-col justify-between">
+		<h1 class="text-center text-[11.5vw] font-black text-[#ff6200]">Patrick Roelofs</h1>
+		<div class="flex justify-end">
+			<Image
+				alt="Patrick Roelofs"
+				class="w-[750px]"
+				loading="eager"
+				src={patrickImage}
+				width={1024}
+			/>
+		</div>
+	</div>
 </BaseLayout>

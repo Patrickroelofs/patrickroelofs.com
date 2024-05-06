@@ -1,10 +1,6 @@
 ---
 import '@fontsource-variable/work-sans'
-import '@fontsource-variable/unbounded'
 import { SEO } from 'astro-seo'
-
-import Footer from '../components/Footer.astro'
-import Navigation from '../components/Navigation.astro'
 ---
 
 <html lang="en">
@@ -32,10 +28,6 @@ import Navigation from '../components/Navigation.astro'
 		<meta content="#f9e4d6" name="theme-color" />
 	</head>
 	<body class="bg-hermes-100 font-sans">
-		<Navigation />
-
 		<slot />
-
-		<Footer />
 	</body>
 </html>

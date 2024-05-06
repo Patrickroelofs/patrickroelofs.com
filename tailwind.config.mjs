@@ -22,64 +22,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				display: ['Unbounded Variable', ...defaultTheme.fontFamily.sans],
 				sans: ['Work Sans Variable', ...defaultTheme.fontFamily.sans]
-			},
-			fontSize: {
-				'hero-clamp': 'clamp(3rem, 4vw, 3.5rem)',
-				'title-clamp': 'clamp(2rem, 4vw, 5.5rem)'
-			},
-			typography: (theme) => ({
-				DEFAULT: {
-					css: {
-						blockquote: {
-							borderLeftColor: theme('colors.hermes.600'),
-							color: theme('colors.black')
-						},
-						fontSize: theme('fontSize.xl'),
-						h1: {
-							color: theme('colors.black'),
-							fontFamily: theme('fontFamily.display').join(', '),
-							fontWeight: theme('fontWeight.medium'),
-							lineHeight: theme('lineHeight.normal')
-						},
-						h2: {
-							color: theme('colors.black'),
-							fontFamily: theme('fontFamily.display').join(', '),
-							fontWeight: theme('fontWeight.medium'),
-							lineHeight: theme('lineHeight.normal')
-						},
-						h3: {
-							color: theme('colors.black'),
-							fontFamily: theme('fontFamily.display').join(', '),
-							fontWeight: theme('fontWeight.medium'),
-							lineHeight: theme('lineHeight.normal')
-						},
-						h4: {
-							color: theme('colors.black'),
-							fontFamily: theme('fontFamily.display').join(', '),
-							fontWeight: theme('fontWeight.medium'),
-							lineHeight: theme('lineHeight.normal')
-						},
-						h5: {
-							color: theme('colors.black'),
-							fontFamily: theme('fontFamily.display').join(', '),
-							fontWeight: theme('fontWeight.medium'),
-							lineHeight: theme('lineHeight.normal')
-						},
-						h6: {
-							color: theme('colors.black'),
-							fontFamily: theme('fontFamily.display').join(', '),
-							fontWeight: theme('fontWeight.medium'),
-							lineHeight: theme('lineHeight.normal')
-						},
-						maxWidth: '75ch',
-						p: {
-							color: theme('colors.black')
-						}
-					}
-				}
-			})
+			}
 		}
 	}
 }
