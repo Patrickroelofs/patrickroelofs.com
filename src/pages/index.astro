@@ -6,15 +6,15 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout>
-		<div class="bg-hermes-300 h-48"></div>
+		<div class="bg-hermes-300 h-16 lg:h-48"></div>
 		<div class="max-w-screen-xl mx-auto flex flex-col lg:flex-row md:gap-16 lg:gap-16 justify-between">
 			<div class="w-full px-4 mt-8">
-				<span class="text-3xl">😗</span>
+				<span class="block text-5xl -mt-16 lg:-mt-20">😗</span>
 				<h1 class="font-bold text-7xl mb-2">Patrick Roelofs</h1>
 				<p class="text-lg text-pretty mb-4 max-w-2xl">As a front-end developer, I'm passionate about pushing cutting-edge technologies. I love experimenting with new tools and frameworks to create innovative products. My goal is to craft products that improve the user experience, enhance functionality, and drive innovation.</p>
 			</div>
 			<div class="w-full bg-hermes-200 lg:-my-32 max-w-[480px] mx-auto">
-				<Image alt="" class="object-cover w-full h-full" loading="eager" src={ProfilePhoto} />
+				<Image alt="" class="w-full object-bottom h-full object-cover" loading="eager" src={ProfilePhoto} />
 			</div>
-		</div>
+	</div>
 </BaseLayout>
