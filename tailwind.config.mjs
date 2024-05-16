@@ -22,8 +22,49 @@ export default {
 				}
 			},
 			fontFamily: {
-				sans: ['Work Sans Variable', ...defaultTheme.fontFamily.sans]
+				display: ['Geologica Variable', ...defaultTheme.fontFamily.serif],
+				sans: ['Figtree Variable', ...defaultTheme.fontFamily.sans] 
+			},
+		},
+		fontSize: () => {
+			/**
+			 * Tailwind CSS Font Clamp function
+			 * 
+			 * @module tailwindConfig
+			 * @see {@link https://davidhellmann.com/blog/development/tailwindcss-fluid-typography-with-css-clamp}
+			*/
+			const screenMin = 20
+			const screenMax = 96
+
+			const calcMulti = (multiMin = 0, multiMax = null) => {
+				return {
+					fsMax: 1.25 * Math.pow(1.2, multiMax || multiMin),
+					fsMin: 1.125 * Math.pow(1.125, multiMin),
+				}
 			}
-		}
+			
+			const clamp = (multiMin = 0, multiMax = null) => {
+				const _calcMulti = calcMulti(multiMin, multiMax || multiMin)
+				const _fsMin = _calcMulti.fsMin
+				const _fsMax = _calcMulti.fsMax
+				return `clamp(${_fsMin}rem, calc(${_fsMin}rem + (${_fsMax} - ${_fsMin}) * ((100vw - ${screenMin}rem) / (${screenMax} - ${screenMin}))), ${_fsMax}rem)`
+			}
+
+			return {
+				'2xl': clamp(3),
+				'3xl': clamp(4),
+				'4xl': clamp(5),
+				'5xl': clamp(6),
+				'6xl': clamp(7),
+				'7xl': clamp(8),
+				'8xl': clamp(9),
+				'9xl': clamp(10),
+				base: clamp(0),
+				lg: clamp(1),
+				sm: clamp(-1),
+				xl: clamp(2),
+				xs: clamp(-2),
+			}
+		},
 	}
 }

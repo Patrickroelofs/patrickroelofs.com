@@ -1,21 +1,20 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from 'astro:assets';
 
-import patrickImage from '../images/patrick.png'
+import ProfilePhoto from "../images/patrick.png"
 import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout>
-	<div class="flex h-screen flex-col justify-between">
-		<h1 class="text-center text-[11.5vw] font-black text-[#ff6200]">Patrick Roelofs</h1>
-		<div class="flex justify-end">
-			<Image
-				alt="Patrick Roelofs"
-				class="w-[750px]"
-				loading="eager"
-				src={patrickImage}
-				width={1024}
-			/>
+		<div class="bg-hermes-300 h-48"></div>
+		<div class="max-w-screen-xl mx-auto flex flex-col lg:flex-row md:gap-16 lg:gap-16 justify-between">
+			<div class="w-full px-4 mt-8">
+				<span class="text-3xl">😗</span>
+				<h1 class="font-bold text-7xl mb-2">Patrick Roelofs</h1>
+				<p class="text-lg text-pretty mb-4 max-w-2xl">As a front-end developer, I'm passionate about pushing cutting-edge technologies. I love experimenting with new tools and frameworks to create innovative products. My goal is to craft products that improve the user experience, enhance functionality, and drive innovation.</p>
+			</div>
+			<div class="w-full bg-hermes-200 lg:-my-32 max-w-[480px] mx-auto">
+				<Image alt="" class="object-cover w-full h-full" loading="eager" src={ProfilePhoto} />
+			</div>
 		</div>
-	</div>
 </BaseLayout>
