@@ -1,8 +1,9 @@
 ---
-const { fill, size } = Astro.props
+const { class: className, fill, size } = Astro.props
 ---
 
 <svg
+	class={className}
 	fill={fill || '#000000'}
 	height={size}
 	viewBox="0 0 256 256"

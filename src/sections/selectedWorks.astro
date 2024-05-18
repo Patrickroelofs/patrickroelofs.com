@@ -1,0 +1,23 @@
+---
+import Project from '../components/project.astro'
+import patrickroelofs from '../images/projects/patrickroelofs.com.png'
+import tracktr from '../images/projects/tracktr.jpg'
+import vsCodeFavorites from '../images/projects/vscode-favorites.png'
+---
+
+<div class="mx-auto flex w-full max-w-screen-xl flex-col gap-4 px-4">
+	<h2 class="w-1/3 text-2xl font-bold">Selected works</h2>
+	<div class="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
+		<Project
+			href="https://github.com/Patrickroelofs/vscode-favorites"
+			imageSrc={vsCodeFavorites}
+			title="Visual Studio Code Favorites"
+		/>
+		<Project
+			href="https://github.com/Patrickroelofs/patrickroelofs.com"
+			imageSrc={patrickroelofs}
+			title="Patrickroelofs.com"
+		/>
+		<Project href="https://github.com/Tracktr/tracktr-client" imageSrc={tracktr} title="Tracktr" />
+	</div>
+</div>
