@@ -3,13 +3,13 @@ import Image from 'astro/components/Image.astro'
 
 import ArrowDownRight from '../icons/phosphor/arrow-down-right.astro'
 
-const { href, imageSrc, title } = Astro.props
+const { href, imageSrc, target, title } = Astro.props
 ---
 
 <a
 	class="group flex w-full flex-col items-center justify-center rounded-sm bg-hermes-200 px-8 pt-8"
 	href={href}
-	target="_blank"
+	target={target}
 >
 	<div class="flex items-center justify-center">
 		<Image
