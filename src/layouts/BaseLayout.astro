@@ -1,6 +1,7 @@
 ---
 import '@fontsource-variable/figtree'
 import { SEO } from 'astro-seo'
+import  SpeedInsights  from '@vercel/speed-insights/astro'
 ---
 
 <html lang="en">
@@ -29,5 +30,7 @@ import { SEO } from 'astro-seo'
 	</head>
 	<body class="bg-hermes-100 font-sans">
 		<slot />
+
+		<SpeedInsights />
 	</body>
 </html>
