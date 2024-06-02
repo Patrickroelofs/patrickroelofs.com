@@ -21,7 +21,7 @@
 		"@fontsource-variable/figtree": "^5.0.21",
 		"@tailwindcss/typography": "^0.5.12",
 		"astro": "^4.4.15",
-		"astro-seo": "^0.8.3",
+		"astro-seo": "^0.8.4",
 		"sharp": "^0.33.3",
 		"tailwindcss": "^3.4.3",
 		"typescript": "^5.4.3"
