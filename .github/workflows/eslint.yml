@@ -40,9 +40,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - uses: sibiraj-s/action-eslint@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          eslint-args: '--ignore-path=.gitignore --quiet'
-          extensions: 'js,ts,astro'
-          annotations: true
+      - name: Run ESLint
+        run: eslint . --ext .js,.ts,.astro,.mdx,.md,.json,.yml,.yaml,.cjs,.mjs,.jsx,.tsx
