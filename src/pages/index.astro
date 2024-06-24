@@ -1,18 +1,113 @@
 ---
+import { Image } from 'astro:assets'
+
+import Footer from '../components/footer.astro'
+import Project from '../components/project.astro'
+import ArrowBendDownRight from '../icons/phosphor/arrow-bend-down-right.astro'
+import ArrowSquareOut from '../icons/phosphor/arrow-square-out.astro'
+import ProfilePhoto from '../images/patrick.png'
+import patrickroelofs from '../images/projects/patrickroelofs.com.png'
+import tracktr from '../images/projects/tracktr.jpg'
+import vsCodeFavorites from '../images/projects/vscode-favorites.png'
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Bio from '../sections/bio.astro'
-import Footer from '../sections/footer.astro'
-import Hero from '../sections/hero.astro'
-import SelectedWorks from '../sections/selectedWorks.astro'
 ---
 
 <BaseLayout>
 	<main>
 		<div class="h-16 bg-hermes-300 lg:h-48"></div>
 		<div class="flex flex-col gap-16 lg:gap-48">
-			<Hero />
-			<Bio />
-			<SelectedWorks />
+			<div
+				class="mx-auto flex max-w-screen-xl flex-col justify-between md:gap-16 lg:flex-row lg:gap-16"
+			>
+				<div class="mt-8 w-full px-4">
+					<span class="-mt-16 block text-5xl lg:-mt-20">😗</span>
+					<span class="sr-only">A short description about</span>
+					<h1 class="mb-2 text-7xl font-bold">Patrick Roelofs</h1>
+					<p class="mb-4 max-w-2xl text-pretty text-lg">
+						As a front-end developer, I'm passionate about pushing cutting-edge technologies. I love
+						experimenting with new tools and frameworks to create innovative products. My goal is to
+						craft products that improve the user experience, enhance functionality, and drive
+						innovation.
+					</p>
+
+					<div class="mt-8 flex flex-row gap-4">
+						<ArrowBendDownRight size="32" />
+						<a
+							class="text-lg font-bold hover:underline focus:underline focus:outline-none"
+							href="#footer"
+						>
+							Contact
+						</a>
+					</div>
+				</div>
+				<div class="mx-auto w-full max-w-[480px] bg-hermes-200 lg:-mt-32">
+					<Image
+						alt=""
+						class="h-full w-full object-cover object-bottom"
+						loading="eager"
+						src={ProfilePhoto}
+					/>
+				</div>
+			</div>
+
+			<div class="mx-auto flex w-full max-w-screen-xl flex-col gap-2 px-4 lg:flex-row lg:gap-0">
+				<h2 class="w-1/3 text-2xl font-bold">Bio</h2>
+				<div class="flex flex-col gap-4 text-balance text-base">
+					<p>
+						I graduated in 2023 with a degree in web development from
+						<a
+							class="inline-flex gap-0.5 font-medium hover:underline"
+							href="https://www.han.nl/"
+							target="_blank"
+						>
+							HAN Arnhem
+							<span class="flex flex-col justify-center">
+								<ArrowSquareOut size="20" />
+							</span>
+						</a>. After completing my studies, I joined
+						<a
+							class="inline-flex gap-0.5 font-medium hover:underline"
+							href="https://www.iquality.nl/"
+							target="_blank"
+						>
+							Iquality
+							<span class="flex flex-col justify-center">
+								<ArrowSquareOut size="20" />
+							</span>
+						</a>, where I have since worked on several customer websites and applications.
+					</p>
+					<p>
+						As a versatile developer, I leverage my creativity and expertise to deliver exceptional
+						results on every project. My multidisciplinary background enables me to approach
+						challenges from different angles, ensuring innovative and effective outcomes. As a
+						front-end developer I am committed to creating seamless and engaging user experiences.
+					</p>
+				</div>
+			</div>
+
+			<div class="mx-auto flex w-full max-w-screen-xl flex-col gap-4 px-4">
+				<h2 class="w-1/3 text-2xl font-bold">Selected works</h2>
+				<div class="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
+					<Project
+						href="https://github.com/Patrickroelofs/vscode-favorites"
+						imageSrc={vsCodeFavorites}
+						target="_blank"
+						title="Visual Studio Code Favorites"
+					/>
+					<Project
+						href="https://github.com/Patrickroelofs/patrickroelofs.com"
+						imageSrc={patrickroelofs}
+						target="_blank"
+						title="Patrickroelofs.com"
+					/>
+					<Project
+						href="https://github.com/Tracktr/tracktr-client"
+						imageSrc={tracktr}
+						target="_blank"
+						title="Tracktr"
+					/>
+				</div>
+			</div>
 		</div>
 	</main>
 	<Footer />
