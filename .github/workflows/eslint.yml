@@ -41,7 +41,7 @@ jobs:
         run: pnpm install
 
       - name: Run ESLint
-        run: pnpm run eslint:lint -- --format json --output-file eslint-report.json
+        run: pnpm run eslint:lint --ext .astro,.js,.ts . --format json-with-metadata --output-file eslint-report.json
 
       - name: Install reviewdog
         run: |
