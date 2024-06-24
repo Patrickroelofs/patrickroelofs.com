@@ -16,6 +16,7 @@ const { href, imageSrc, target, title } = Astro.props
 			alt=""
 			class="rounded-sm object-cover transition-transform duration-300 ease-in-out md:group-hover:scale-110"
 			height={480}
+			loading="eager"
 			src={imageSrc || 'https://via.placeholder.com/680x480'}
 			width={680}
 		/>
