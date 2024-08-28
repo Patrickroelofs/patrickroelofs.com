@@ -10,7 +10,7 @@
 body {
     -webkit-font-smoothing: antialiased;
     font-family: var(--font-figtree), system-ui;
-    background-color: var(--primary-200);
+    background-color: var(--primary-100);
 }
 
 img, picture, video, canvas, svg {
