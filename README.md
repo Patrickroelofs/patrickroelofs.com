@@ -11,7 +11,6 @@ This project is a personal portfolio website to showcase my work and skills. The
 Project is created with:
 
 - Astro
-- Tailwind
 - Typescript
 
 ## Setup

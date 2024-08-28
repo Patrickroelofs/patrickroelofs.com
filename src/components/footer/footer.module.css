@@ -1,0 +1,6 @@
+.footer {
+    margin-top: 32px;
+    background: var(--primary-200);
+    padding-bottom: 2rem;
+    padding-top: 3rem;
+}

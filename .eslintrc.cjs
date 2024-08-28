@@ -8,7 +8,7 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:astro/recommended',
 		'plugin:astro/jsx-a11y-strict',
-		'plugin:perfectionist/recommended-natural'
+		'plugin:perfectionist/recommended-natural-legacy'
 	],
 	overrides: [
 		{
@@ -49,5 +49,8 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module'
 	},
+	plugins: [
+		'perfectionist',
+	],
 	rules: {}
 }

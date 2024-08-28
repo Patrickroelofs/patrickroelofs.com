@@ -1,23 +1,13 @@
 ---
 import '@fontsource-variable/figtree'
-import { SEO } from 'astro-seo'
 ---
 
 <html lang="en">
 	<head>
-		<SEO
-			charset="utf-8"
-			description="Patrick Roelofs is a front-end developer and designer from the Netherlands."
-			extend={{
-				meta: [
-					{
-						content: 'width=device-width, initial-scale=1.0',
-						name: 'viewport'
-					}
-				]
-			}}
-			title="Patrick Roelofs"
-		/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Patrick Roelofs</title>
+		<meta name="description" content="Patrick Roelofs is a front-end developer and designer from the Netherlands.">
 
 		<link href="/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
 		<link href="/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
@@ -27,7 +17,7 @@ import { SEO } from 'astro-seo'
 		<meta content="#f9e4d6" name="msapplication-TileColor" />
 		<meta content="#f9e4d6" name="theme-color" />
 	</head>
-	<body class="bg-hermes-100 font-sans">
+	<body>
 		<slot />
 	</body>
 </html>
