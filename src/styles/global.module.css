@@ -9,7 +9,7 @@
 
 body {
     -webkit-font-smoothing: antialiased;
-    font-family: var(--font-figtree), system-ui;
+    font-family: var(--font-figtree), sans-serif;
     background-color: var(--primary-100);
 }
 

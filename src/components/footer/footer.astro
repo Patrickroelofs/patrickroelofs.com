@@ -1,5 +1,7 @@
 ---
 import styles from './footer.module.css';
+
+import Arrow from '../../images/icons/arrow.astro';
 ---
 
 <footer class={styles.footer}>
@@ -7,6 +9,9 @@ import styles from './footer.module.css';
 		<div class={styles.wrapper}>
 			<h2 class={styles.header}>Interested in working together?</h2>
 				<ul class={styles.list}>
+					<li>
+						<Arrow />
+					</li>
 					<li>
 						<a href="mailto:contact@patrickroelofs.com" class={styles.link}>Email</a>
 					</li>

@@ -1,0 +1,26 @@
+.emoji {
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.backdrop {
+    position: relative;
+    background-color: var(--primary-300);
+    height: 12rem;
+    width: 100vw;
+    overflow: hidden;
+
+    &:hover {
+        .emoji {
+            rotate: 24deg;
+        }
+    }
+}
+
+.title {
+    padding: 0 12px;
+    font-size: 8rem;
+    position: absolute;
+    bottom: -1.8rem;
+    color: var(--primary-950);
+}
