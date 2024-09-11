@@ -7,6 +7,16 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@storyblok/astro':
+        specifier: ^5.0.2
+        version: 5.0.2(astro@4.15.4(rollup@4.21.2)(typescript@5.6.2))
+      '@storyblok/js':
+        specifier: ^3.1.4
+        version: 3.1.4
+      vite:
+        specifier: ^5.4.4
+        version: 5.4.4
     devDependencies:
       '@astrojs/check':
         specifier: ^0.7.0
@@ -685,6 +695,17 @@ packages:
   '@shikijs/vscode-textmate@9.2.2':
     resolution: {integrity: sha512-TMp15K+GGYrWlZM8+Lnj9EaHEFmOen0WJBrfa17hF7taDOYthuPPV0GWzfd/9iMij0akS/8Yw2ikquH7uVi/fg==}
 
+  '@storyblok/astro@5.0.2':
+    resolution: {integrity: sha512-/jSU5E8ziBDb8y2hsgUpeMwuuPNCVbXAIe7kDHnHqeg6n8yGhbxG0LE8pCsNn6N9KmUfPib1GB2VqoF0t7bpXQ==}
+    peerDependencies:
+      astro: ^3.0.0 || ^4.0.0
+
+  '@storyblok/js@3.1.4':
+    resolution: {integrity: sha512-Uh+ESR4xF+8C7veSiVA3IeYNqPdwRDOxJdqyGHAVBZ7OuQ2SzZkW3eAKax2TiX8W4DPSljIKvI6MKpvEG3KwWA==}
+
+  '@storyblok/richtext@2.0.0':
+    resolution: {integrity: sha512-yJm5BgWrCRGUdwZtviPgGno3rLXcnEvjK1bL1Ut4GmU1UOEVLC42m543EtrrOBVGDZdRPD9dK8ObgyHp6zNwqw==}
+
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -1057,6 +1078,10 @@ packages:
     resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
     engines: {node: '>=14.16'}
 
+  camelcase@8.0.0:
+    resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
+    engines: {node: '>=16'}
+
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
 
@@ -1158,6 +1183,10 @@ packages:
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+
+  consola@3.2.3:
+    resolution: {integrity: sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==}
+    engines: {node: ^14.18.0 || >=16.10.0}
 
   console-control-strings@1.1.0:
     resolution: {integrity: sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==}
@@ -2074,6 +2103,9 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
+  lodash.mergewith@4.6.2:
+    resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
+
   lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
 
@@ -2900,6 +2932,9 @@ packages:
   stop-iteration-iterator@1.0.0:
     resolution: {integrity: sha512-iCGQj+0l0HOdZ2AEeBADlsRC+vsnDsZsbdSiH1yNSjcfKM7fdpCMfqAL/dwF5BLiw/XhRft/Wax6zQbhq2BcjQ==}
     engines: {node: '>= 0.4'}
+
+  storyblok-js-client@6.9.2:
+    resolution: {integrity: sha512-31GM5X/SIP4eJsSMCpAnaPDRmmUotSSWD3Umnuzf3CGqjyakot2Gv5QmuV23fRM7TCDUQlg5wurROmAzkKMKKg==}
 
   string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
@@ -4036,6 +4071,22 @@ snapshots:
 
   '@shikijs/vscode-textmate@9.2.2': {}
 
+  '@storyblok/astro@5.0.2(astro@4.15.4(rollup@4.21.2)(typescript@5.6.2))':
+    dependencies:
+      '@storyblok/js': 3.1.4
+      astro: 4.15.4(rollup@4.21.2)(typescript@5.6.2)
+      camelcase: 8.0.0
+      lodash.mergewith: 4.6.2
+
+  '@storyblok/js@3.1.4':
+    dependencies:
+      '@storyblok/richtext': 2.0.0
+      storyblok-js-client: 6.9.2
+
+  '@storyblok/richtext@2.0.0':
+    dependencies:
+      consola: 3.2.3
+
   '@trysound/sax@0.2.0': {}
 
   '@types/babel__core@7.20.5':
@@ -4587,6 +4638,8 @@ snapshots:
 
   camelcase@7.0.1: {}
 
+  camelcase@8.0.0: {}
+
   caniuse-api@3.0.0:
     dependencies:
       browserslist: 4.23.3
@@ -4682,6 +4735,8 @@ snapshots:
   common-ancestor-path@1.0.1: {}
 
   concat-map@0.0.1: {}
+
+  consola@3.2.3: {}
 
   console-control-strings@1.1.0: {}
 
@@ -5773,6 +5828,8 @@ snapshots:
 
   lodash.merge@4.6.2: {}
 
+  lodash.mergewith@4.6.2: {}
+
   lodash.truncate@4.4.2: {}
 
   lodash.uniq@4.5.0: {}
@@ -6832,6 +6889,8 @@ snapshots:
   stop-iteration-iterator@1.0.0:
     dependencies:
       internal-slot: 1.0.7
+
+  storyblok-js-client@6.9.2: {}
 
   string-width@4.2.3:
     dependencies:
