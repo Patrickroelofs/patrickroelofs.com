@@ -1,0 +1,27 @@
+---
+import styles from './footer.module.css';
+
+import Arrow from '../../images/icons/arrow.astro';
+---
+
+<footer class={styles.footer}>
+	<div class={styles.container}>
+		<div class={styles.wrapper}>
+			<h2 class={styles.header}>Interested in working together?</h2>
+				<ul class={styles.list}>
+					<li>
+						<Arrow />
+					</li>
+					<li>
+						<a href="mailto:contact@patrickroelofs.com" class={styles.link}>Email</a>
+					</li>
+					<li>
+						<a href="https://www.linkedin.com/in/patrick-roelofs/" class={styles.link}>Linkedin</a>
+					</li>
+					<li>
+						<a href="https://github.com/Patrickroelofs" class={styles.link}>Github</a>
+					</li>
+				</ul>
+		</div>
+	</div>
+</footer>
