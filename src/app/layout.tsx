@@ -16,7 +16,13 @@ export default function RootLayout({
 }>): ReactNode {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        style={{
+          background: 'var(--color-hermes-100)',
+        }}
+      >
+        {children}
+      </body>
     </html>
   );
 }
