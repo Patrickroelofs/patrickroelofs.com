@@ -1,5 +1,5 @@
-export default function Home() {
-  return (
-    <p>Hello World</p>
-  );
+import { type ReactNode } from 'react';
+
+export default function Home(): ReactNode {
+  return <p>Hello World</p>;
 }
