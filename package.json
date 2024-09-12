@@ -12,8 +12,7 @@
     "prettier:fix": "prettier --write .",
     "start": "next start",
     "stylelint:check": "stylelint '**/*.{css,scss}'",
-    "stylelint:fix": "stylelint '**/*.{css,scss}' --fix",
-    "prepare": "husky && husky install"
+    "stylelint:fix": "stylelint '**/*.{css,scss}' --fix"
   },
   "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
@@ -31,15 +30,10 @@
     "eslint-config-next": "14.2.10",
     "eslint-plugin-react": "^7.36.1",
     "globals": "^15.9.0",
-    "husky": "^9.1.6",
     "prettier": "3.3.3",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1",
     "typescript": "^5",
     "typescript-eslint": "^8.5.0"
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --cache --fix && prettier --write",
-    "*.{css,scss}": "stylelint --fix"
   }
 }
