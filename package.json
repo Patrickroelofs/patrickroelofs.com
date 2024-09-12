@@ -3,22 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
   },
+  "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
+    "next": "14.2.10",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.10"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/js": "^9.10.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.10"
+    "@vercel/style-guide": "^6.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.10",
+    "eslint-plugin-react": "^7.36.1",
+    "globals": "^15.9.0",
+    "prettier": "3.3.3",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard": "^36.0.1",
+    "typescript": "^5",
+    "typescript-eslint": "^8.5.0"
   }
 }
