@@ -1,0 +1,9 @@
+---
+import styles from '@components/link/link.module.css'
+
+const { href, text } = Astro.props
+---
+
+<a href={href} class={styles.link}>
+	{text}
+</a>
