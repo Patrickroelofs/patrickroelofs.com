@@ -1,0 +1,51 @@
+---
+import { useStoryblokApi } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+import '@fontsource-variable/figtree'
+import '@styles/variables.css'
+import '@styles/global.css'
+
+
+export async function getStaticPaths() {
+	const storyblokApi = useStoryblokApi()
+
+	const { data } = await storyblokApi.get('cdn/links', {
+		version: 'draft'
+	})
+	let links = data.links
+	links = Object.values(links)
+
+	return links.map((link) => {
+		return {
+			params: {
+				slug: link.slug === 'home' ? undefined : link.slug
+			}
+		}
+	})
+}
+
+const { slug } = Astro.params
+
+const storyblokApi = useStoryblokApi()
+
+const { data } = await storyblokApi.get(
+	`cdn/stories/${slug === undefined ? 'home' : slug}`,
+	{
+		version: 'draft'
+	}
+)
+
+const story = data.story
+---
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Patrick Roelofs</title>
+</head>
+<body>
+<StoryblokComponent blok={story.content} />
+</body>
+</html>
