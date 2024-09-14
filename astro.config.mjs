@@ -4,7 +4,24 @@ import { loadEnv } from "vite";
 import vercel from "@astrojs/vercel/static";
 import storyblok from "@storyblok/astro";
 import basicSsl from "@vitejs/plugin-basic-ssl";
-import { removeStoryblokAttributes } from "./src/utils/removeStoryblokAttributes";
+
+function removeStoryblokAttributes(htmlString) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, "text/html");
+
+  const dataBlokElements = doc.querySelectorAll("[data-blok-c]");
+  const dataBlokUIDElements = doc.querySelectorAll("[data-blok-uid]");
+
+  dataBlokElements.forEach((element) => {
+    element.removeAttribute("data-blok-c");
+  });
+
+  dataBlokUIDElements.forEach((element) => {
+    element.removeAttribute("data-blok-uid");
+  });
+
+  return doc.body.innerHTML;
+}
 
 const env = loadEnv("", process.cwd(), "STORYBLOK");
 
@@ -21,21 +38,22 @@ export default defineConfig({
     }),
   ],
   vite: {
-    plugins: [
-      basicSsl(),
-      {
-        name: "remove-data-blok-c",
-        enforce: "post",
-        transformIndexHtml(html) {
-          if (process.env.NODE_ENV === "production") {
-            return removeStoryblokAttributes(html);
-          }
-          return html;
-        },
-      },
-    ],
+    plugins: [basicSsl()],
     server: {
       https: true,
+    },
+    build: {
+      rollupOptions: {
+        plugins: [
+          {
+            name: "removeStoryblokAttributes",
+            enforce: "post",
+            transformIndexHtml(html) {
+              return removeStoryblokAttributes(html);
+            },
+          },
+        ],
+      },
     },
   },
 });
