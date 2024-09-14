@@ -24,3 +24,7 @@ pnpm-debug.log*
 
 # jetbrains
 .idea/
+
+# storyblok
+component-types-sb.d.ts
+components.304607.json
