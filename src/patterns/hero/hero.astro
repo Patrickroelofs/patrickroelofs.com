@@ -1,0 +1,56 @@
+---
+import styles from "./hero.module.css"
+
+const images = [
+    {src: 'https://placehold.co/600x400', alt: 'Image 1'},
+    {src: 'https://placehold.co/600x401', alt: 'Image 2'},
+    {src: 'https://placehold.co/600x402', alt: 'Image 3'},
+];
+---
+
+<header class={styles.header}>
+    <div class={styles.wrapper}>
+        <p class={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur.</p>
+        <div class={styles.imageWrapper}>
+            <p class={styles.heroTitle}>PATRICK</p>
+            <p class={styles.heroSubtitle}>ROELOFS</p>
+            <div class={styles.carousel}>
+                <div class:list={[styles.carouselImages, "carousel-wrapper"]}>
+                    {images.map((image) => (
+                            <img src={image.src} alt={image.alt} class:list={[styles.image, 'carousel-image']}/>
+                    ))}
+                </div>
+            </div>
+
+            <div class={styles.buttonWrapper}>
+                <div class={styles.buttonText}>1/4</div>
+                <button class={styles.buttonIcon} id="nextButton">
+                    <svg width="60" height="28" viewBox="0 0 60 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M-7.94375e-07 14C-7.61916e-07 13.6287 0.143664 13.2726 0.399391 13.0101C0.655118 12.7476 1.00196 12.6001 1.36361 12.6001L55.3439 12.6001L45.3981 2.39115C45.2714 2.26108 45.1709 2.10667 45.1023 1.93673C45.0337 1.76679 44.9984 1.58465 44.9984 1.40071C44.9984 1.21676 45.0337 1.03462 45.1023 0.86468C45.1709 0.694739 45.2714 0.540327 45.3981 0.41026C45.5247 0.280193 45.6752 0.17702 45.8407 0.106628C46.0062 0.0362361 46.1836 3.93374e-06 46.3628 3.94941e-06C46.542 3.96507e-06 46.7194 0.0362362 46.8849 0.106628C47.0505 0.17702 47.2009 0.280193 47.3276 0.41026L59.6001 13.0096C59.7269 13.1396 59.8274 13.294 59.8961 13.4639C59.9647 13.6339 60 13.816 60 14C60 14.184 59.9647 14.3661 59.8961 14.5361C59.8274 14.706 59.7269 14.8604 59.6001 14.9904L47.3276 27.5897C47.0717 27.8524 46.7247 28 46.3628 28C46.001 28 45.6539 27.8524 45.3981 27.5897C45.1422 27.3271 44.9984 26.9708 44.9984 26.5993C44.9984 26.2278 45.1422 25.8715 45.3981 25.6089L55.3439 15.3999L1.36361 15.3999C1.00196 15.3999 0.655118 15.2524 0.399391 14.9899C0.143664 14.7274 -8.26833e-07 14.3713 -7.94375e-07 14Z"
+                              fill="#A23648"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    let currentItem = 1;
+    const carousel = document.querySelector(".carousel-wrapper") as HTMLElement;
+    const items = document.querySelectorAll('.carousel-image');
+    const nextButton = document.getElementById('nextButton');
+    const totalItems = items.length;
+
+    function nextItem() {
+        currentItem = currentItem % totalItems + 1;
+        carousel.style.transform = `translateX(-${(currentItem - 1) * 100}%)`;
+    }
+    
+    if (nextButton) {
+        nextButton.addEventListener('click', nextItem);
+    }
+</script>
