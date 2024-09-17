@@ -38,8 +38,3 @@ yarn-error.log*
 
 # Jetbrains
 .idea
-
-# Sanity
-.sanity/
-sanity.types.ts
-schema.json

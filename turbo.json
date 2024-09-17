@@ -19,11 +19,6 @@
         "^lint"
       ]
     },
-    "typegen": {
-      "dependsOn": [
-        "^typegen"
-      ]
-    },
     "dev": {
       "cache": false,
       "persistent": true
