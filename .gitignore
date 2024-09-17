@@ -41,3 +41,5 @@ yarn-error.log*
 
 # Sanity
 .sanity/
+sanity.types.ts
+schema.json

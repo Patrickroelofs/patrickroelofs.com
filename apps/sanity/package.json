@@ -1,5 +1,5 @@
 {
-  "name": "patrickroelofscom",
+  "name": "sanity.patrickroelofs.com",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
@@ -9,7 +9,7 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "typegen": "sanity schema extract && sanity typegen generate"
   },
   "keywords": [
     "sanity"
@@ -27,11 +27,5 @@
     "eslint": "^8.6.0",
     "prettier": "^3.0.2",
     "typescript": "^5.1.6"
-  },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100,
-    "bracketSpacing": false,
-    "singleQuote": true
   }
 }
