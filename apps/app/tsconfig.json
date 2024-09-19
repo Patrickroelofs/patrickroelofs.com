@@ -6,9 +6,6 @@
       "@styles/*": [
         "./src/styles/*"
       ],
-      "@components/*": [
-        "./src/components/*"
-      ],
       "@patterns/*": [
         "./src/patterns/*"
       ],

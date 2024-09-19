@@ -16,6 +16,7 @@
     "astro": "^4.15.6",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "@repo/components": "workspace:*"
   }
 }
