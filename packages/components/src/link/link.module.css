@@ -1,0 +1,27 @@
+.icon {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+.link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-3xs);
+	color: var(--color-black);
+	font-size: var(--font-size-base);
+	text-underline-offset: 2px;
+
+	&:hover {
+		color: var(--color-red);
+	}
+
+	&:focus {
+		color: var(--color-red);
+		outline: 2px solid var(--color-red);
+
+		.icon {
+			fill: var(--color-red);
+		}
+	}
+}

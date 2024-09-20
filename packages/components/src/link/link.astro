@@ -1,0 +1,25 @@
+---
+import styles from './link.module.css'
+import accessibilityStyles from '../common/accessibility.module.css'
+import External from '../icons/external.astro'
+import {type HTMLAttributes} from 'astro/types'
+
+interface Props extends HTMLAttributes<'a'> {
+  external?: boolean
+}
+
+const {
+  external = false,
+  ...rest
+} = Astro.props
+---
+
+<a href={rest.href} class={styles.link} {...rest}>
+  <span><slot /></span>
+  {external && (
+    <External class={styles.icon} />
+  )}
+  {rest.target === '_blank' && (
+    <span class={accessibilityStyles.visuallyHidden}> (opens in new tab)</span>
+  )}
+</a>
