@@ -14,6 +14,10 @@
 
 	&:hover {
 		color: var(--color-red);
+
+		.icon {
+			fill: var(--color-red);
+		}
 	}
 
 	&:focus {

@@ -1,0 +1,29 @@
+---
+import styles from './navigation.module.css'
+import Section from '../section/section.astro'
+import NavigationLink from './navigationLink.astro'
+---
+
+<header>
+  <Section class={styles.wrapper}>
+    <a href="#" class={styles.logo}>
+      Patrick Roelofs
+    </a>
+    <nav>
+      <ul class={styles.navList}>
+        <li>
+          <NavigationLink href="#" iconPosition="topLeft">Home</NavigationLink>
+        </li>
+        <li>
+          <NavigationLink href="#" iconPosition="bottomLeft">Tools</NavigationLink>
+        </li>
+        <li>
+          <NavigationLink href="#" iconPosition="topRight">Projects</NavigationLink>
+        </li>
+        <li>
+          <NavigationLink href="#" iconPosition="bottomRight">Contact</NavigationLink>
+        </li>
+      </ul>
+    </nav>
+  </Section>
+</header>

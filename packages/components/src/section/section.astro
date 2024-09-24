@@ -1,7 +1,19 @@
 ---
+import type {HTMLAttributes} from 'astro/types'
 import styles from './section.module.css'
+
+interface Props extends HTMLAttributes<'section'> {
+  
+}
+
+const {
+  class: className
+} = Astro.props
 ---
 
-<section class={styles.section}>
+<section class:list={[
+  styles.section,
+  className
+]}>
   <slot />
 </section>
