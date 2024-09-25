@@ -1,18 +1,19 @@
 ---
 import styles from './navigation.module.css'
-import Section from '../section/section.astro'
+import Section from '../../components/section/section.astro'
 import NavigationLink from './navigationLink.astro'
-import Star from '../icons/star.astro'
+import Star from '../../components/icons/star.astro'
+import Link from '../../components/link/link.astro'
 ---
 
 <header>
   <Section class={styles.wrapper}>
-    <a href="/" class={styles.logo}>
+    <Link href="/apps/app/public" class={styles.logo}>
       Patrick Roelofs
       <span class={styles.star} aria-hidden="true">
         <Star />
       </span>
-    </a>
+    </Link>
     <nav>
       <ul class={styles.navList}>
         <li>
@@ -22,10 +23,10 @@ import Star from '../icons/star.astro'
           <NavigationLink href="#" iconPosition="bottomLeft">Tools</NavigationLink>
         </li>
         <li>
-          <NavigationLink href="#" iconPosition="topRight">Projects</NavigationLink>
+          <NavigationLink href="#" iconPosition="topRight">Blog</NavigationLink>
         </li>
         <li>
-          <NavigationLink href="#" iconPosition="bottomRight">Contact</NavigationLink>
+          <NavigationLink href="#" iconPosition="bottomRight">Projects</NavigationLink>
         </li>
       </ul>
     </nav>

@@ -21,18 +21,6 @@
 	--space-2xl: clamp(4.5rem, 4.375rem + 0.625vw, 5rem);
 	--space-3xl: clamp(6.75rem, 6.5625rem + 0.9375vw, 7.5rem);
 
-	/* Spacing One up Pairs */
-	--space-3xs-2xs: clamp(0.3125rem, 0.2344rem + 0.3906vw, 0.625rem);
-	--space-2xs-xs: clamp(0.5625rem, 0.4688rem + 0.4688vw, 0.9375rem);
-	--space-xs-s: clamp(0.875rem, 0.7813rem + 0.4688vw, 1.25rem);
-	--space-xs-l: clamp(0.75rem, 0.2831rem + 2.2169vw, 2.5rem);
-	--space-s-m: clamp(1.125rem, 0.9375rem + 0.9375vw, 1.875rem);
-	--space-s-l: clamp(1.125rem, 0.6264rem + 2.4176vw, 2.5rem);
-	--space-m-l: clamp(1.6875rem, 1.4844rem + 1.0156vw, 2.5rem);
-	--space-l-xl: clamp(2.25rem, 1.875rem + 1.875vw, 3.75rem);
-	--space-xl-2xl: clamp(3.375rem, 2.9688rem + 2.0313vw, 5rem);
-	--space-2xl-3xl: clamp(4.5rem, 3.75rem + 3.75vw, 7.5rem);
-
 	/* Typography */
 	--font-size-xss: clamp(0.7901rem, 0.7877rem + 0.0123vw, 0.8rem);
 	--font-size-xs: clamp(0.8889rem, 0.8611rem + 0.1389vw, 1rem);
@@ -45,6 +33,6 @@
 
 	/* Grid */
 	--grid-max-width: 100.00rem;
-	--grid-gutter: var(--space-xs-l, clamp(0.75rem, 0.2831rem + 2.2169vw, 2.5rem));
+	--grid-gutter: clamp(0.75rem, 0.2831rem + 2.2169vw, 2.5rem);
 	--grid-columns: 13;
 }

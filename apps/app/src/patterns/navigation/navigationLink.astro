@@ -1,7 +1,8 @@
 ---
 import type {HTMLAttributes} from 'astro/types'
 import styles from './navigation.module.css'
-import Arrow from '../icons/arrow.astro'
+import Arrow from '../../components/icons/arrow.astro'
+import Link from '../../components/link/link.astro'
 
 interface Props extends HTMLAttributes<'a'> {
   iconPosition: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
@@ -10,9 +11,9 @@ interface Props extends HTMLAttributes<'a'> {
 const {href, iconPosition} = Astro.props
 ---
 
-<a href={href} class={styles.navItem}>
+<Link href={href} class={styles.navItem}>
   <slot />
   <span class:list={[styles.navItemIcon, styles[iconPosition]]}>
     <Arrow />
   </span>
-</a>
+</Link>

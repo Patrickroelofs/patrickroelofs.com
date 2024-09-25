@@ -1,6 +1,6 @@
 ---
 import styles from './link.module.css'
-import accessibilityStyles from '../common/accessibility.module.css'
+import accessibility from '../../styles/accessibility.module.css'
 import External from '../icons/external.astro'
 import {type HTMLAttributes} from 'astro/types'
 
@@ -10,16 +10,17 @@ interface Props extends HTMLAttributes<'a'> {
 
 const {
   external = false,
+  class: className,
   ...rest
 } = Astro.props
 ---
 
-<a href={rest.href} class={styles.link} {...rest}>
-  <span><slot /></span>
+<a href={rest.href} class:list={[className ?? styles.link]} {...rest}>
+  <slot />
   {external && (
     <External class={styles.icon} />
   )}
   {rest.target === '_blank' && (
-    <span class={accessibilityStyles.visuallyHidden}> (opens in new tab)</span>
+    <span class={accessibility.visuallyHidden}> (opens in new tab)</span>
   )}
 </a>
