@@ -2,12 +2,16 @@
 import styles from './navigation.module.css'
 import Section from '../section/section.astro'
 import NavigationLink from './navigationLink.astro'
+import Star from '../icons/star.astro'
 ---
 
 <header>
   <Section class={styles.wrapper}>
-    <a href="#" class={styles.logo}>
+    <a href="/" class={styles.logo}>
       Patrick Roelofs
+      <span class={styles.star} aria-hidden="true">
+        <Star />
+      </span>
     </a>
     <nav>
       <ul class={styles.navList}>
