@@ -95,3 +95,10 @@
 	right: -16px;
 	rotate: -48deg;
 }
+
+@media (width <= 768px) {
+	.wrapper {
+		flex-direction: column;
+		padding-bottom: var(--space-m);
+	}
+}
