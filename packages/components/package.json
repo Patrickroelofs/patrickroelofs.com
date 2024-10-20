@@ -4,28 +4,23 @@
   "sideEffects": false,
   "license": "MIT",
   "exports": {
-    "./button": {
-      "types": "./src/button.tsx",
-      "import": "./dist/button.mjs",
-      "require": "./dist/button.js"
-    }
+    "./css/*": "./src/css/*",
+    "./paragraph": "./src/paragraph/paragraph.tsx"
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
     "lint": "eslint . --max-warnings 0",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
     "@patrickroelofs/eslint-config": "workspace:*",
+    "@patrickroelofs/typescript-config": "workspace:*",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "eslint": "^8.57.0",
-    "@patrickroelofs/typescript-config": "workspace:*",
-    "tsup": "^8.0.2",
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
     "react": "^18.2.0"
   },
   "publishConfig": {

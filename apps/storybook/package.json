@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@patrickroelofs/eslint-config": "workspace:*",
+    "@patrickroelofs/stylelint-config": "workspace:*",
     "@storybook/addon-actions": "^8.2.6",
     "@storybook/addon-essentials": "^8.2.6",
     "@storybook/addon-links": "^8.2.6",

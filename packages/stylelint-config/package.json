@@ -1,0 +1,12 @@
+{
+  "name": "@patrickroelofs/stylelint-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "stylelint-config.js"
+  ],
+  "devDependencies": {
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
