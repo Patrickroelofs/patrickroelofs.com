@@ -10,7 +10,6 @@ export interface HeadingProps
   children: ReactNode;
   tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  color?: "red" | "blue" | "yellow";
 }
 
 const heading = cva(styles.heading, {

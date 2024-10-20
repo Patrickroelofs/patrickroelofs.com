@@ -16,11 +16,7 @@ export default meta;
 type Story = StoryObj<typeof Paragraph>;
 
 export const Primary: Story = {
-  render: (props) => (
-    <Paragraph color={props.color} size={props.size} {...props}>
-      {props.children}
-    </Paragraph>
-  ),
+  render: (props) => <Paragraph {...props}>{props.children}</Paragraph>,
   name: "Paragraph",
   args: {
     children: "Hello world",
