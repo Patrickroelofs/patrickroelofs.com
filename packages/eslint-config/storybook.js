@@ -14,7 +14,6 @@ const project = resolve(process.cwd(), "tsconfig.json");
 module.exports = {
   extends: [
     "plugin:storybook/recommended",
-    "plugin:mdx/recommended",
     ...[
       "@vercel/style-guide/eslint/node",
       "@vercel/style-guide/eslint/typescript",
