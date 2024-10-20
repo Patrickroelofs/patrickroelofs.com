@@ -5,9 +5,8 @@ const meta: Meta<typeof Paragraph> = {
   title: "Components/Paragraph",
   component: Paragraph,
   argTypes: {
-    size: {
-      options: ["large", "medium", "small"],
-      control: { type: "radio" },
+    children: {
+      control: { type: "text" },
     },
   },
 };
@@ -18,8 +17,8 @@ type Story = StoryObj<typeof Paragraph>;
 
 export const Primary: Story = {
   render: (props) => (
-    <Paragraph size={props.size} {...props}>
-      Hello
+    <Paragraph color={props.color} size={props.size} {...props}>
+      {props.children}
     </Paragraph>
   ),
   name: "Paragraph",

@@ -5,7 +5,8 @@
   "license": "MIT",
   "exports": {
     "./css/*": "./src/css/*",
-    "./paragraph": "./src/paragraph/paragraph.tsx"
+    "./paragraph": "./src/paragraph/paragraph.tsx",
+    "./heading": "./src/heading/heading.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -20,6 +21,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@fontsource-variable/public-sans": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "react": "^18.2.0"
   },
