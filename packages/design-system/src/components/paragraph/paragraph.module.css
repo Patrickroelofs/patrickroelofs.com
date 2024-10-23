@@ -1,3 +1,11 @@
 .paragraph {
+	font-size: var(--font-size-base)
+}
 
+.small {
+	font-size: var(--font-size-sm)
+}
+
+.large {
+	font-size: var(--font-size-md)
 }

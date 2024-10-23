@@ -20,6 +20,6 @@ export const Primary: Story = {
   name: "Paragraph",
   args: {
     children: "Hello world",
-    size: "medium",
+    size: "base",
   },
 };

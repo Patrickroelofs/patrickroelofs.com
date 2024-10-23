@@ -8,23 +8,17 @@ export interface ParagraphProps
   extends HTMLAttributes<HTMLParagraphElement>,
     VariantProps<typeof paragraph> {
   children: ReactNode;
-  size?: "large" | "medium" | "small";
-  color?: "yellow" | "red" | "blue";
+  size?: "large" | "base" | "small";
 }
 
 const paragraph = cva(styles.paragraph, {
   defaultVariants: {
-    size: "medium",
+    size: undefined,
   },
   variants: {
-    color: {
-      blue: styles.blue,
-      red: styles.red,
-      yellow: styles.yellow,
-    },
     size: {
+      base: undefined,
       large: styles.large,
-      medium: styles.medium,
       small: styles.small,
     },
   },
@@ -33,7 +27,6 @@ const paragraph = cva(styles.paragraph, {
 export function Paragraph({
   children,
   className,
-  color,
   size,
   ...other
 }: ParagraphProps): React.ReactElement {
@@ -42,7 +35,6 @@ export function Paragraph({
       {...other}
       className={paragraph({
         className,
-        color,
         size,
       })}
     >
