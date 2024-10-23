@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Heading } from "@patrickroelofs/components/heading";
+import { Heading } from "@patrickroelofs/design-system/heading";
 
 const meta: Meta<typeof Heading> = {
-  title: "Components/Heading",
+  title: "Primitives/Heading",
   component: Heading,
   argTypes: {
     children: {

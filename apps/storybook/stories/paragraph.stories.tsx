@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Paragraph } from "@patrickroelofs/components/paragraph";
+import { Paragraph } from "@patrickroelofs/design-system/paragraph";
 
 const meta: Meta<typeof Paragraph> = {
-  title: "Components/Paragraph",
+  title: "Primitives/Paragraph",
   component: Paragraph,
   argTypes: {
     children: {

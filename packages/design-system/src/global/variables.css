@@ -1,0 +1,48 @@
+:root {
+	/* Colors */
+	--color-sand: #f9e4d6;
+	--color-black: #010301;
+	--color-blue: #2d2691;
+	--color-red: #a23648;
+	--color-yellow: #fccf00;
+	--color-white: #FAF5F7;
+
+	/* Fonts */
+	--font-family: 'Public Sans Variable', sans-serif;
+	--font-size-xs: clamp(0.8681rem, 0.9603rem + -0.4612vw, 0.96rem);
+	--font-size-sm: clamp(1.0417rem, 1.2005rem + -0.7941vw, 1.2rem);
+	--font-size-base: clamp(1.25rem, 1.5008rem + -1.2539vw, 1.5rem);
+	--font-size-md: clamp(1.5rem, 1.8762rem + -1.8809vw, 1.875rem);
+	--font-size-lg: clamp(1.8rem, 2.3455rem + -2.7273vw, 2.3438rem);
+	--font-size-xl: clamp(2.16rem, 2.9321rem + -3.8605vw, 2.9297rem);
+	--font-size-xxl: clamp(2.592rem, 3.6655rem + -5.3673vw, 3.6621rem);
+	--font-size-xxxl: clamp(3.1104rem, 4.5822rem + -7.3592vw, 4.5776rem);
+
+	/* Spacing */
+	--space-3xs: clamp(0.3125rem, 0.3752rem + -0.3135vw, 0.375rem);
+	--space-2xs: clamp(0.625rem, 0.7504rem + -0.627vw, 0.75rem);
+	--space-xs: clamp(0.9375rem, 1.1256rem + -0.9404vw, 1.125rem);
+	--space-s: clamp(1.25rem, 1.5008rem + -1.2539vw, 1.5rem);
+	--space-m: clamp(1.875rem, 2.2512rem + -1.8809vw, 2.25rem);
+	--space-l: clamp(2.5rem, 3.0016rem + -2.5078vw, 3rem);
+	--space-xl: clamp(3.75rem, 4.5024rem + -3.7618vw, 4.5rem);
+	--space-2xl: clamp(5rem, 6.0031rem + -5.0157vw, 6rem);
+	--space-3xl: clamp(7.5rem, 9.0047rem + -7.5235vw, 9rem);
+
+	/* One-up pairs */
+	--space-3xs-2xs: clamp(0.3125rem, 0.7514rem + -2.1944vw, 0.75rem);
+	--space-2xs-xs: clamp(0.625rem, 1.1266rem + -2.5078vw, 1.125rem);
+	--space-xs-s: clamp(0.9375rem, 1.5018rem + -2.8213vw, 1.5rem);
+	--space-s-m: clamp(1.25rem, 2.2531rem + -5.0157vw, 2.25rem);
+	--space-m-l: clamp(1.875rem, 3.0035rem + -5.6426vw, 3rem);
+	--space-l-xl: clamp(2.5rem, 4.5063rem + -10.0313vw, 4.5rem);
+	--space-xl-2xl: clamp(3.75rem, 6.0071rem + -11.2853vw, 6rem);
+	--space-2xl-3xl: clamp(5rem, 9.0125rem + -20.0627vw, 9rem);
+
+	--space-s-l: clamp(1.25rem, 0.7705rem + 2.3973vw, 3rem);
+
+	/* Grid */
+	--grid-max-width: 93.00rem;
+	--grid-gutter: var(--space-s-l, clamp(1.25rem, 0.7705rem + 2.3973vw, 3rem));
+	--grid-columns: 12;
+}

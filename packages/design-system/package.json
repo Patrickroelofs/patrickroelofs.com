@@ -1,12 +1,13 @@
 {
-  "name": "@patrickroelofs/components",
+  "name": "@patrickroelofs/design-system",
   "version": "0.0.0",
   "sideEffects": false,
   "license": "MIT",
   "exports": {
-    "./css/*": "./src/css/*",
-    "./paragraph": "./src/paragraph/paragraph.tsx",
-    "./heading": "./src/heading/heading.tsx"
+    "./globals": "./src/global/globals.css",
+    "./container": "./src/components/container/container.tsx",
+    "./paragraph": "./src/components/paragraph/paragraph.tsx",
+    "./heading": "./src/components/heading/heading.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

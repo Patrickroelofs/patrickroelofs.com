@@ -29,6 +29,7 @@ const heading = cva(styles.heading, {
 export function Heading({
   as,
   children,
+  className,
   tag,
   ...other
 }: HeadingProps): React.ReactElement {
@@ -38,6 +39,7 @@ export function Heading({
     <HeadingTag
       className={heading({
         as: as || tag || "h2",
+        className,
       })}
       {...other}
     >

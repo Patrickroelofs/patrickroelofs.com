@@ -32,6 +32,7 @@ const paragraph = cva(styles.paragraph, {
 
 export function Paragraph({
   children,
+  className,
   color,
   size,
   ...other
@@ -40,6 +41,7 @@ export function Paragraph({
     <p
       {...other}
       className={paragraph({
+        className,
         color,
         size,
       })}
