@@ -34,7 +34,7 @@ module.exports = {
   ],
   ignorePatterns: [
     'tailwind.config.js',
-    'src/app/(payload)/**/*.{ts,tsx}',
+    'src/app/(payload)/**/*',
     'payload-types.ts',
   ],
 };
