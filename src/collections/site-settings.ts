@@ -30,6 +30,7 @@ export const SiteSettings: GlobalConfig = {
           label: 'Icon',
           type: 'select',
           options: icons.map((icon) => icon.pascal_name),
+          required: true,
         },
         {
           name: 'platform',

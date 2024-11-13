@@ -22,5 +22,12 @@ export default buildConfig({
       connectionString: process.env.POSTGRES_URI ?? '',
     },
   }),
+  admin: {
+    livePreview: {
+      url: 'http://localhost:3000',
+      globals: ['site-settings'],
+      collections: [],
+    },
+  },
   sharp,
 });

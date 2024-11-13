@@ -1,7 +1,7 @@
 import React, { type ReactElement } from 'react';
 import Link, { type LinkProps } from 'next/link';
 import Image, { type StaticImageData } from 'next/image';
-import squiggly from '@/icons/squiggly.svg';
+import squiggly from '@/images/squiggly.svg';
 
 function NavigationLink({
   children,
