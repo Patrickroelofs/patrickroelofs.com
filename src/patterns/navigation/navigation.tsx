@@ -23,7 +23,7 @@ export function Navigation({ title }: NavigationProps): ReactElement {
     <nav className="mx-auto mb-xs mt-xs flex max-w-screen-2xl justify-between px-md">
       <div className="flex w-full items-center justify-between">
         <Link
-          href="/public"
+          href="/"
           className="group relative font-serif text-xl font-semibold"
         >
           <h1>

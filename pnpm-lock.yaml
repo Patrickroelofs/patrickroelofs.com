@@ -49,8 +49,8 @@ importers:
         version: 0.33.5
     devDependencies:
       '@payloadcms/graphql':
-        specifier: ^3.0.0-beta.130
-        version: 3.0.0-canary.ff8c8fd(graphql@16.9.0)(payload@3.0.0-beta.130(graphql@16.9.0)(monaco-editor@0.52.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(typescript@5.6.3))(typescript@5.6.3)
+        specifier: 3.0.0-beta.130
+        version: 3.0.0-beta.130(graphql@16.9.0)(payload@3.0.0-beta.130(graphql@16.9.0)(monaco-editor@0.52.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(typescript@5.6.3))(typescript@5.6.3)
       '@types/node':
         specifier: ^20
         version: 20.17.6
@@ -1054,13 +1054,6 @@ packages:
     peerDependencies:
       graphql: ^16.8.1
       payload: 3.0.0-beta.130
-
-  '@payloadcms/graphql@3.0.0-canary.ff8c8fd':
-    resolution: {integrity: sha512-0T05Ni47uhmovPZAVyhyflKWOeIEAJ0vaBhz4ys/yXWhuDvmz57WoKpYXo2y0l0+7KGCV4iPpoYUtI0efMlMdg==}
-    hasBin: true
-    peerDependencies:
-      graphql: ^16.8.1
-      payload: 3.0.0-canary.ff8c8fd
 
   '@payloadcms/next@3.0.0-beta.130':
     resolution: {integrity: sha512-m+74aSgluDR0ZhFj3x+crelYEvKQ0siIrQm0fuWnfAtyaCaNiwgJAwFSwdzlteeRi6cOXgbkn0qMaRJjSWST6A==}
@@ -3509,11 +3502,6 @@ packages:
       typescript:
         optional: true
 
-  ts-essentials@7.0.3:
-    resolution: {integrity: sha512-8+gr5+lqO3G84KdiTSMRLtuyJ+nTBVRKuCrK4lidMPdVeEp0uqC875uE5NMcaA7YYMN7XsNiFQuMvasF8HT/xQ==}
-    peerDependencies:
-      typescript: '>=3.7.0'
-
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
@@ -3531,11 +3519,6 @@ packages:
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
-
-  tsx@4.17.0:
-    resolution: {integrity: sha512-eN4mnDA5UMKDt4YZixo9tBioibaMBpoxBkD+rIPAjVmYERSG0/dWEY1CEFuV89CgASlKL499q8AhmkMnnjtOJg==}
-    engines: {node: '>=18.0.0'}
-    hasBin: true
 
   tsx@4.19.2:
     resolution: {integrity: sha512-pOUl6Vo2LUq/bSa8S5q7b91cgNSjctn9ugq/+Mvow99qW6x/UZYwzxy/3NmqoT66eHYfCVvFvACC58UBPFf28g==}
@@ -4649,17 +4632,6 @@ snapshots:
       pluralize: 8.0.0
       ts-essentials: 10.0.3(typescript@5.6.3)
       tsx: 4.19.2
-    transitivePeerDependencies:
-      - typescript
-
-  '@payloadcms/graphql@3.0.0-canary.ff8c8fd(graphql@16.9.0)(payload@3.0.0-beta.130(graphql@16.9.0)(monaco-editor@0.52.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(typescript@5.6.3))(typescript@5.6.3)':
-    dependencies:
-      graphql: 16.9.0
-      graphql-scalars: 1.22.2(graphql@16.9.0)
-      payload: 3.0.0-beta.130(graphql@16.9.0)(monaco-editor@0.52.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(typescript@5.6.3)
-      pluralize: 8.0.0
-      ts-essentials: 7.0.3(typescript@5.6.3)
-      tsx: 4.17.0
     transitivePeerDependencies:
       - typescript
 
@@ -7447,10 +7419,6 @@ snapshots:
     optionalDependencies:
       typescript: 5.6.3
 
-  ts-essentials@7.0.3(typescript@5.6.3):
-    dependencies:
-      typescript: 5.6.3
-
   ts-interface-checker@0.1.13: {}
 
   tsconfig-paths@3.15.0:
@@ -7468,13 +7436,6 @@ snapshots:
     dependencies:
       tslib: 1.14.1
       typescript: 5.6.3
-
-  tsx@4.17.0:
-    dependencies:
-      esbuild: 0.23.1
-      get-tsconfig: 4.8.1
-    optionalDependencies:
-      fsevents: 2.3.3
 
   tsx@4.19.2:
     dependencies:
