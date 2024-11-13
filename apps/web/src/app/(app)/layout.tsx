@@ -1,5 +1,5 @@
 import { type ReactElement, type ReactNode } from 'react';
-import '../styles/globals.css';
+import '../../styles/globals.css';
 import '@fontsource-variable/lora';
 import '@fontsource-variable/lora/wght-italic.css';
 import '@fontsource-variable/instrument-sans/wdth.css';

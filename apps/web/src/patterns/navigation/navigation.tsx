@@ -14,7 +14,11 @@ function NavigationLink({
   );
 }
 
-export function Navigation(): ReactElement {
+interface NavigationProps {
+  title: string;
+}
+
+export function Navigation({ title }: NavigationProps): ReactElement {
   return (
     <nav className="mx-auto mb-xs mt-xs flex max-w-screen-2xl justify-between px-md">
       <div className="flex w-full items-center justify-between">
@@ -23,7 +27,7 @@ export function Navigation(): ReactElement {
           className="group relative font-serif text-xl font-semibold"
         >
           <h1>
-            Patrick Roelofs
+            {title}
             <span className="invisible absolute -bottom-3xs left-0 w-full opacity-0 transition-all duration-150 ease-in-out group-hover:visible group-hover:opacity-100">
               <Image src={squiggly as StaticImageData} alt="" />
             </span>

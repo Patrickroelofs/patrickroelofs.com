@@ -28,8 +28,13 @@ module.exports = {
       rules: {
         'import/no-default-export': 'off',
         'import/prefer-default-export': ['error', { target: 'any' }],
+        '@typescript-eslint/no-unsafe-call': 'off',
       },
     },
   ],
-  ignorePatterns: ['tailwind.config.js'],
+  ignorePatterns: [
+    'tailwind.config.js',
+    'src/app/(payload)/**/*.{ts,tsx}',
+    'payload-types.ts',
+  ],
 };
