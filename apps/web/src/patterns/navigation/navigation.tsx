@@ -16,15 +16,15 @@ function NavigationLink({
 
 export function Navigation(): ReactElement {
   return (
-    <nav className="px-md flex max-w-screen-2xl mx-auto justify-between mt-xs mb-xs">
-      <div className="flex justify-between items-center w-full">
+    <nav className="mx-auto mb-xs mt-xs flex max-w-screen-2xl justify-between px-md">
+      <div className="flex w-full items-center justify-between">
         <Link
           href="/"
-          className="font-serif font-semibold text-xl relative group"
+          className="group relative font-serif text-xl font-semibold"
         >
           <h1>
             Patrick Roelofs
-            <span className="absolute -bottom-3xs w-full left-0 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-150">
+            <span className="invisible absolute -bottom-3xs left-0 w-full opacity-0 transition-all duration-150 ease-in-out group-hover:visible group-hover:opacity-100">
               <Image src={squiggly as StaticImageData} alt="" />
             </span>
           </h1>
