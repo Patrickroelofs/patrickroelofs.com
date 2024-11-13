@@ -1,4 +1,5 @@
 import { type GlobalConfig } from 'payload';
+import { icons } from '@phosphor-icons/core';
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
@@ -24,6 +25,12 @@ export const SiteSettings: GlobalConfig = {
       label: 'Social Media Links',
       type: 'array',
       fields: [
+        {
+          name: 'icon',
+          label: 'Icon',
+          type: 'select',
+          options: icons.map((icon) => icon.pascal_name),
+        },
         {
           name: 'platform',
           label: 'Platform',

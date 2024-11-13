@@ -1,18 +1,18 @@
 import React, { type ReactElement } from 'react';
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
 import { Hero } from '@/patterns/hero/hero';
 import { Navigation } from '@/patterns/navigation/navigation';
 import { payload } from '@/utils/get-payload-instance';
 import { getGlobalConfiguration } from '@/utils/get-global-configuration';
+import { Footer } from '@/patterns/footer/footer';
 import { type SiteSetting } from '../../../payload-types';
 
-
 export async function generateMetadata(): Promise<Metadata> {
-  const globals =  await getGlobalConfiguration();
+  const globals = await getGlobalConfiguration();
 
   return {
-    ...globals
-  }
+    ...globals,
+  };
 }
 
 async function Home(): Promise<ReactElement> {
@@ -23,7 +23,10 @@ async function Home(): Promise<ReactElement> {
   return (
     <>
       <Navigation title={globals.siteTitle} />
-      <Hero />
+      <main className="relative z-10 rounded-b-3xl bg-sand shadow-2xl">
+        <Hero />
+      </main>
+      <Footer socialMediaLinks={globals.socialMediaLinks} />
     </>
   );
 }

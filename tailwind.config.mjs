@@ -33,6 +33,7 @@ export default {
     colors: {
       sand: '#f9e4d6',
       black: '#010301',
+      "black-lightened": "#252424",
       blue: '#2d2691',
       red: '#a23648',
       yellow: '#fccf00',
