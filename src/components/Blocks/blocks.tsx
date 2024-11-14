@@ -21,6 +21,7 @@ function Blocks({ blocks }: BlocksProps): ReactElement {
         if (blockType in blockComponents) {
           const BlockComponent = blockComponents[blockType];
 
+          // @ts-expect-error: BlockComponent type is not correctly inferred
           return <BlockComponent key={block.id} {...block} />;
         }
 
