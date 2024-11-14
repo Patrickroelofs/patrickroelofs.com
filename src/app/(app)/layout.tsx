@@ -4,6 +4,7 @@ import '@fontsource-variable/lora';
 import '@fontsource-variable/lora/wght-italic.css';
 import '@fontsource-variable/instrument-sans/wdth.css';
 import '@fontsource-variable/instrument-sans/wdth-italic.css';
+import { Navigation } from '@/patterns/navigation/navigation';
 
 function RootLayout({
   children,
@@ -12,7 +13,10 @@ function RootLayout({
 }>): ReactElement {
   return (
     <html lang="en">
-      <body className="bg-sand">{children}</body>
+      <body className="bg-sand">
+        <Navigation title="Patrick Roelofs" />
+        {children}
+      </body>
     </html>
   );
 }

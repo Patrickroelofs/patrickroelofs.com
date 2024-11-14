@@ -14,6 +14,7 @@ export function Icon({ type, ...props }: CustomIconProps): ReactElement {
     case 'GithubLogo':
       return <GithubLogo {...props.props} />;
     default:
-      return <></>;
+      // TODO: Handle this case better
+      return <p>No Icon was found... Thats an oopsie!</p>;
   }
 }

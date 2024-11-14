@@ -5,6 +5,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
 import { SiteSettings } from '@/collections/site-settings';
+import { Pages } from '@/collections/pages';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -12,7 +13,7 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   editor: lexicalEditor(),
   globals: [SiteSettings],
-  collections: [],
+  collections: [Pages],
   secret: process.env.PAYLOAD_SECRET ?? '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

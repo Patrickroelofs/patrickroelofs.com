@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation pnpm run generate:types && next build",
-    "check": "prettier --check apps/web",
+    "check": "prettier --check .",
     "dev": "cross-env NODE_OPTIONS=\"${NODE_OPTIONS} --no-deprecation\" next dev --turbopack",
-    "format": "prettier --write apps/web && eslint --fix .",
+    "format": "prettier --write . && eslint --fix .",
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types",
     "lint": "next lint",

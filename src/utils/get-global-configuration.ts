@@ -9,5 +9,5 @@ export async function getGlobalConfiguration(): Promise<Metadata> {
   return {
     title: globals.siteTitle,
     description: globals.siteDescription,
-  }
+  };
 }
