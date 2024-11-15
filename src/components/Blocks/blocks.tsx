@@ -1,6 +1,7 @@
 import { type ReactElement } from 'react';
 import { Hero } from '@/patterns/hero/hero';
 import { Paragraph } from '@/components/Paragraph/paragraph';
+import { Section } from '@/components/Section/section';
 import { type Page } from '../../../payload-types';
 
 interface BlocksProps {
@@ -21,8 +22,12 @@ function Blocks({ blocks }: BlocksProps): ReactElement {
         if (blockType in blockComponents) {
           const BlockComponent = blockComponents[blockType];
 
-          // @ts-expect-error: BlockComponent type is not correctly inferred
-          return <BlockComponent key={block.id} {...block} />;
+          return (
+            <Section key={block.id}>
+              {/* @ts-expect-error - This is a dynamic component */}
+              <BlockComponent {...block} />
+            </Section>
+          );
         }
 
         return null;
