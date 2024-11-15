@@ -2,6 +2,8 @@ import React, { type ReactElement } from 'react';
 import Link, { type LinkProps } from 'next/link';
 import Image, { type StaticImageData } from 'next/image';
 import squiggly from '@/images/squiggly.svg';
+import { payload } from '@/utils/get-payload-instance';
+import { type Page } from '../../../payload-types';
 
 function NavigationLink({
   children,
@@ -18,7 +20,22 @@ interface NavigationProps {
   title: string;
 }
 
-export function Navigation({ title }: NavigationProps): ReactElement {
+export async function Navigation({
+  title,
+}: NavigationProps): Promise<ReactElement> {
+  const navigation = await payload.findGlobal({
+    slug: 'site-settings',
+    select: {
+      navigationLinks: true,
+    },
+    populate: {
+      pages: {
+        title: true,
+        slug: true,
+      },
+    },
+  });
+
   return (
     <nav className="mx-auto mb-xs mt-xs flex max-w-screen-2xl justify-between px-md">
       <div className="flex w-full items-center justify-between">
@@ -35,10 +52,20 @@ export function Navigation({ title }: NavigationProps): ReactElement {
         </Link>
 
         <ul className="flex gap-sm">
-          <NavigationLink href="#">Projects</NavigationLink>
-          <NavigationLink href="#">Blog</NavigationLink>
-          <NavigationLink href="#">Photography</NavigationLink>
-          <NavigationLink href="#">Contact</NavigationLink>
+          {navigation.navigationLinks?.map((item) => {
+            const { page } = item as {
+              page: Page;
+            };
+
+            return (
+              <NavigationLink
+                key={item.id}
+                href={`/${page.slug === 'home' ? '' : page.slug}`}
+              >
+                {page.title}
+              </NavigationLink>
+            );
+          })}
         </ul>
       </div>
     </nav>

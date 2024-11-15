@@ -21,6 +21,20 @@ export const SiteSettings: GlobalConfig = {
       required: true,
     },
     {
+      name: 'navigationLinks',
+      label: 'Main Navigation Links',
+      type: 'array',
+      fields: [
+        {
+          name: 'page',
+          label: 'Page',
+          type: 'relationship',
+          relationTo: 'pages',
+          required: true,
+        },
+      ],
+    },
+    {
       name: 'socialMediaLinks',
       label: 'Social Media Links',
       type: 'array',
