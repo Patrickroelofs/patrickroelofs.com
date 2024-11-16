@@ -24,6 +24,7 @@
     "@payloadcms/ui": "3.0.0-beta.130",
     "@phosphor-icons/core": "^2.1.1",
     "@phosphor-icons/react": "^2.1.7",
+    "@vercel/analytics": "^1.4.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.9.0",
     "next": "15.0.3",

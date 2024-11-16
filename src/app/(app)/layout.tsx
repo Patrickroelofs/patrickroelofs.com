@@ -4,6 +4,7 @@ import '@fontsource-variable/lora';
 import '@fontsource-variable/lora/wght-italic.css';
 import '@fontsource-variable/instrument-sans/wdth.css';
 import '@fontsource-variable/instrument-sans/wdth-italic.css';
+import { Analytics } from '@vercel/analytics/next';
 import { Navigation } from '@/patterns/navigation/navigation';
 
 function RootLayout({
@@ -16,6 +17,7 @@ function RootLayout({
       <body className="bg-sand">
         <Navigation title="Patrick Roelofs" />
         {children}
+        <Analytics />
       </body>
     </html>
   );
