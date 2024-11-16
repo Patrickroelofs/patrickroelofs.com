@@ -1,4 +1,5 @@
 import { type CollectionConfig } from 'payload';
+import { revalidatePath } from 'next/cache';
 import { Hero } from '@/blocks/hero';
 import { Paragraph } from '@/blocks/paragraph';
 
@@ -40,4 +41,21 @@ export const Pages: CollectionConfig = {
       type: 'tabs',
     },
   ],
+  hooks: {
+    afterChange: [
+      ({
+        doc,
+      }: {
+        doc: {
+          slug: string;
+        };
+      }) => {
+        if (doc.slug === 'home') {
+          revalidatePath('/');
+        } else {
+          revalidatePath(`/${doc.slug}`);
+        }
+      },
+    ],
+  },
 };
