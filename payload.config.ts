@@ -5,9 +5,9 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
 import { s3Storage } from '@payloadcms/storage-s3';
-import { SiteSettings } from '@/collections/site-settings';
-import { Pages } from '@/collections/pages';
-import { Media } from '@/collections/media';
+import { SiteSettings } from '@/payload/collections/site-settings';
+import { Pages } from '@/payload/collections/pages';
+import { Media } from '@/payload/collections/media';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);

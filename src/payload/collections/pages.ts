@@ -1,7 +1,7 @@
 import { type CollectionConfig } from 'payload';
 import { revalidatePath } from 'next/cache';
-import { Hero } from '@/blocks/hero';
-import { Paragraph } from '@/blocks/paragraph';
+import { Hero } from '@/payload/blocks/hero';
+import { Paragraph } from '@/payload/blocks/paragraph';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
