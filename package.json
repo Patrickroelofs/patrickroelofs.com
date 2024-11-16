@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=--no-deprecation pnpm run generate:types && && pnpm run generate:importmap && next build",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation pnpm run generate:types && pnpm run generate:importmap && next build",
     "check": "prettier --check .",
     "dev": "cross-env NODE_OPTIONS=\"${NODE_OPTIONS} --no-deprecation\" next dev --turbopack",
     "format": "prettier --write . && eslint --fix .",
