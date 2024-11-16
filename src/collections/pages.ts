@@ -1,7 +1,6 @@
 import { type CollectionConfig } from 'payload';
 import { Hero } from '@/blocks/hero';
 import { Paragraph } from '@/blocks/paragraph';
-import { revalidatePage } from '@/hooks/revalidate-page';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -41,7 +40,4 @@ export const Pages: CollectionConfig = {
       type: 'tabs',
     },
   ],
-  hooks: {
-    afterChange: [revalidatePage],
-  },
 };
