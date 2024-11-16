@@ -18,12 +18,12 @@ export const revalidate = async (args: {
       );
     } else {
       payload.logger.error(
-        `Error revalidating page '${slug}' in collection '${collection}': ${res}`,
+        `Error revalidating page '${slug}' in collection '${collection}'`,
       );
     }
   } catch (err: unknown) {
     payload.logger.error(
-      `Error hitting revalidate route for page '${slug}' in collection '${collection}': ${err}`,
+      `Error hitting revalidate route for page '${slug}' in collection '${collection}'`,
     );
   }
 };
