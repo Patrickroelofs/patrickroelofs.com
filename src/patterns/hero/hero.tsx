@@ -1,12 +1,22 @@
 import { type ReactElement } from 'react';
 import Image from 'next/image';
-import heroImage from '@/images/hero.jpg';
+import type { Page, Media } from '../../../payload-types';
 
-export function Hero(): ReactElement {
+type HeroProps = Extract<Page['blocks'][0], { blockType: 'hero' }>;
+
+export function Hero(props: HeroProps): ReactElement {
+  const { image } = props as { image: Media };
+
   return (
     <header className="mx-auto max-w-screen-2xl">
       <div className="align-center flex justify-center px-xs">
-        <Image src={heroImage} alt="" className="mx-auto w-full rounded-3xl" />
+        <Image
+          width={1440}
+          height={960}
+          src={image.url ?? ''}
+          alt=""
+          className="mx-auto w-full rounded-3xl"
+        />
       </div>
       <p className="py-lg text-center font-serif text-3xl">
         <span className="font-semibold">Frontend developer</span> with a passion

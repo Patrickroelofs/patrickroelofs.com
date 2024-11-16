@@ -6,5 +6,12 @@ export const Hero: Block = {
     plural: 'Heroes',
   },
   slug: 'hero',
-  fields: [],
+  fields: [
+    {
+      name: 'image',
+      label: 'Image',
+      type: 'relationship',
+      relationTo: 'media',
+    },
+  ],
 };
