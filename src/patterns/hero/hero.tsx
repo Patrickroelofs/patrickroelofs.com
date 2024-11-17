@@ -14,7 +14,7 @@ export function Hero(props: HeroProps): ReactElement {
           <Image
             width={1440}
             height={960}
-            src={`${process.env.VERCEL_PROJECT_PRODUCTION_URL ?? ''}${image.url ?? ''}`}
+            src={image.url ?? ''}
             alt=""
             className="mx-auto w-full rounded-3xl"
           />
