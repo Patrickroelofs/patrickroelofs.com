@@ -4,7 +4,7 @@ import { postgresAdapter } from '@payloadcms/db-postgres';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
-import { s3Storage } from '@payloadcms/storage-s3';
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
 import { SiteSettings } from '@/payload/collections/site-settings';
 import { Pages } from '@/payload/collections/pages';
 import { Media } from '@/payload/collections/media';
@@ -27,22 +27,12 @@ export default buildConfig({
   }),
   sharp,
   plugins: [
-    s3Storage({
+    vercelBlobStorage({
+      enabled: true,
       collections: {
-        media: {
-          prefix: 'media',
-        },
+        [Media.slug]: true,
       },
-      bucket: process.env.S3_BUCKET ?? '',
-      config: {
-        forcePathStyle: true,
-        credentials: {
-          accessKeyId: process.env.S3_ACCESS_KEY_ID ?? '',
-          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY ?? '',
-        },
-        region: process.env.S3_REGION,
-        endpoint: process.env.S3_ENDPOINT,
-      },
+      token: process.env.BLOB_READ_WRITE_TOKEN ?? '',
     }),
   ],
 });
