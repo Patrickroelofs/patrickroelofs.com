@@ -14,7 +14,7 @@ export function Hero(props: HeroProps): ReactElement {
           <Image
             width={1440}
             height={960}
-            src={image.url ?? ''}
+            src={`${process.env.NEXT_PUBLIC_URL ?? ''}${image.url ?? ''}`}
             alt=""
             className="mx-auto w-full rounded-3xl"
           />
