@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'patrickroelofs.dev',
       },
+      {
+        protocol: 'https',
+        hostname: 'yrbnbekprjwfbnaixtec.supabase.co/storage/v1/s3',
+      },
     ],
   },
 };
