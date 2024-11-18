@@ -8,7 +8,10 @@ import { type Page } from '../../../../../payload-types';
 function PageClient({ page }: { page: Page }): ReactElement {
   const { data } = useLivePreview<Page>({
     initialData: page,
-    serverURL: process.env.NEXT_PUBLIC_SERVER_URL ?? '',
+    serverURL:
+      process.env.NEXT_PUBLIC_SERVER_URL ??
+      process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+      '',
   });
 
   const { blocks } = data;
