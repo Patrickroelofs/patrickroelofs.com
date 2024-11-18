@@ -4,9 +4,6 @@ import { icons } from '@phosphor-icons/core';
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
   label: 'Site Settings',
-  access: {
-    read: () => true,
-  },
   fields: [
     {
       name: 'siteTitle',

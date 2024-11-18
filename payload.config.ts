@@ -17,6 +17,17 @@ export default buildConfig({
   globals: [SiteSettings],
   collections: [Pages, Media],
   secret: process.env.PAYLOAD_SECRET ?? '',
+  admin: {
+    livePreview: {
+      url: ({ data }) =>
+        `${process.env.NEXT_PUBLIC_SERVER_URL ?? ''}/api/preview?url=${encodeURIComponent(
+          `${process.env.NEXT_PUBLIC_SERVER_URL ?? ''}/${
+            data.slug !== 'home' ? (data.slug as string) : ''
+          }`,
+        )}`,
+      collections: ['pages'],
+    },
+  },
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },

@@ -1,5 +1,6 @@
 import { type Metadata } from 'next';
-import { type ReactElement } from 'react';
+import React, { type ReactElement } from 'react';
+import { draftMode } from 'next/headers';
 import { getGlobalConfiguration } from '@/utils/get-global-configuration';
 import { payload } from '@/utils/get-payload-instance';
 import { PageClient } from '@/app/(app)/(pages)/[slug]/page.client';
@@ -10,6 +11,7 @@ async function Page({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<ReactElement> {
+  const { isEnabled: draft } = await draftMode();
   const { slug = 'home' } = await params;
   let page: Page | null = null;
 
@@ -17,6 +19,7 @@ async function Page({
     page = await payload
       .find({
         collection: 'pages',
+        draft,
         where: {
           slug: {
             equals: slug,

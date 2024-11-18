@@ -9,8 +9,11 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug'],
     useAsTitle: 'title',
   },
-  access: {
-    read: () => true,
+  versions: {
+    drafts: {
+      autosave: true,
+    },
+    maxPerDoc: 10,
   },
   fields: [
     {
@@ -21,8 +24,8 @@ export const Pages: CollectionConfig = {
     },
     {
       name: 'title',
-      required: true,
       type: 'text',
+      required: true,
     },
     {
       tabs: [
@@ -34,6 +37,30 @@ export const Pages: CollectionConfig = {
               blocks: [Hero, Paragraph],
               required: true,
               type: 'blocks',
+            },
+          ],
+        },
+        {
+          label: 'Metadata',
+          fields: [
+            {
+              name: 'meta',
+              type: 'group',
+              fields: [
+                {
+                  name: 'description',
+                  type: 'textarea',
+                },
+                {
+                  name: 'keywords',
+                  type: 'text',
+                },
+                {
+                  name: 'ogImage',
+                  type: 'relationship',
+                  relationTo: 'media',
+                },
+              ],
             },
           ],
         },
