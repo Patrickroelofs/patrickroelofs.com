@@ -14,6 +14,12 @@ export async function GET(
   const { searchParams } = new URL(req.url);
   const url = searchParams.get('url');
 
+  if (!url) {
+    return new Response('Missing url parameter', {
+      status: 400,
+    });
+  }
+
   draft.enable();
   redirect(url);
 }
