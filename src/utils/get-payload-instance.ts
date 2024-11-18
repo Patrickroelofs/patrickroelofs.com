@@ -1,6 +1,6 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities';
+import { getPayload } from 'payload';
 import config from '@payload-config';
 
-export const payload = await getPayloadHMR({
+export const payload = await getPayload({
   config,
 });
