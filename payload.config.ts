@@ -20,8 +20,8 @@ export default buildConfig({
   admin: {
     livePreview: {
       url: ({ data }) =>
-        `${process.env.NEXT_PUBLIC_SERVER_URL ?? ''}/api/preview?url=${encodeURIComponent(
-          `${process.env.NEXT_PUBLIC_SERVER_URL ?? ''}/${
+        `${process.env.NEXT_PUBLIC_URL ?? ''}/api/preview?url=${encodeURIComponent(
+          `${process.env.NEXT_PUBLIC_URL ?? ''}/${
             data.slug !== 'home' ? (data.slug as string) : ''
           }`,
         )}`,
