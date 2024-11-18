@@ -11,14 +11,15 @@ function PageClient({ page }: { page: Page }): ReactElement {
     serverURL:
       process.env.VERCEL_ENV === 'production'
         ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL ?? ''}`
-        : (process.env.NEXT_PUBLIC_SERVER_URL ?? ''),
+        : (process.env.NEXT_PUBLIC_VERCEL_URL ?? ''),
   });
 
   /* eslint-disable no-console -- testing purposes */
   console.log(
+    'Debug env variables',
     process.env.VERCEL_ENV === 'production'
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL ?? ''}`
-      : (process.env.NEXT_PUBLIC_SERVER_URL ?? ''),
+      : (process.env.NEXT_PUBLIC_VERCEL_URL ?? ''),
   );
 
   const { blocks } = data;
