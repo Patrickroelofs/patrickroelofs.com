@@ -12,6 +12,13 @@ export const Hero: Block = {
       label: 'Image',
       type: 'relationship',
       relationTo: 'media',
+      required: true,
+    },
+    {
+      name: 'text',
+      label: 'Text',
+      type: 'textarea',
+      required: true,
     },
   ],
 };

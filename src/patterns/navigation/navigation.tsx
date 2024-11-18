@@ -37,12 +37,9 @@ export async function Navigation({
   });
 
   return (
-    <nav className="mx-auto mb-xs mt-xs flex max-w-screen-2xl justify-between px-md">
+    <nav className="mx-auto mb-xs mt-xs flex max-w-screen-2xl justify-between px-lg">
       <div className="flex w-full items-center justify-between">
-        <Link
-          href="/"
-          className="group relative font-serif text-xl font-semibold"
-        >
+        <Link href="/" className="group relative text-xl font-semibold">
           <h1>
             {title}
             <span className="invisible absolute -bottom-3xs left-0 w-full opacity-0 transition-all duration-150 ease-in-out group-hover:visible group-hover:opacity-100">

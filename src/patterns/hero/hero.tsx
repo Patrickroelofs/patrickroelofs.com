@@ -1,31 +1,37 @@
 import { type ReactElement } from 'react';
 import Image from 'next/image';
+import { Warning } from '@/components/Warning/warning';
 import type { Page, Media } from '../../../payload-types';
 
 type HeroProps = Extract<Page['blocks'][0], { blockType: 'hero' }>;
 
 export function Hero(props: HeroProps): ReactElement {
-  const { image } = props as { image: Media };
+  const { image, text } = props as { image: Media | null; text: string | null };
 
   return (
     <header className="mx-auto max-w-screen-2xl">
-      <div className="align-center flex justify-center px-xs">
-        {image.url ? (
+      <div className="align-center flex justify-center">
+        {image !== null ? (
           <Image
             width={1440}
             height={960}
             src={image.url ?? ''}
-            alt=""
+            alt={image.alt ?? ''}
             className="mx-auto w-full rounded-3xl"
           />
         ) : (
-          <p>No image selected</p>
+          <Warning message="No image provided" />
         )}
       </div>
-      <p className="py-lg text-center font-serif text-3xl">
-        <span className="font-semibold">Frontend developer</span> with a passion
-        for <span className="italic">creating</span>.
-      </p>
+      <div className="mx-auto max-w-screen-xl pt-sm">
+        {text !== null ? (
+          <p className="text-pretty text-2xl font-medium tracking-tight">
+            {text}
+          </p>
+        ) : (
+          <Warning message="No text provided" />
+        )}
+      </div>
     </header>
   );
 }
