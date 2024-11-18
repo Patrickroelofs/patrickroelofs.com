@@ -17,7 +17,7 @@ function RootLayout({
     <html lang="en">
       <body className="bg-sand">
         <Navigation title="Patrick Roelofs" />
-        {children}
+        <main>{children}</main>
         <Footer />
         <Analytics />
       </body>

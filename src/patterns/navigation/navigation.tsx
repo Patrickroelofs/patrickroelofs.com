@@ -1,7 +1,5 @@
 import React, { type ReactElement } from 'react';
 import Link, { type LinkProps } from 'next/link';
-import Image, { type StaticImageData } from 'next/image';
-import squiggly from '@/images/squiggly.svg';
 import { payload } from '@/utils/get-payload-instance';
 import { type Page } from '../../../payload-types';
 
@@ -40,12 +38,7 @@ export async function Navigation({
     <nav className="mx-auto mb-xs mt-xs flex max-w-screen-2xl justify-between px-lg">
       <div className="flex w-full items-center justify-between">
         <Link href="/" className="group relative text-xl font-semibold">
-          <h1>
-            {title}
-            <span className="invisible absolute -bottom-3xs left-0 w-full opacity-0 transition-all duration-150 ease-in-out group-hover:visible group-hover:opacity-100">
-              <Image src={squiggly as StaticImageData} alt="" />
-            </span>
-          </h1>
+          <h1>{title}</h1>
         </Link>
 
         <ul className="flex gap-sm">
