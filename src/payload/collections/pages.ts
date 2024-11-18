@@ -77,6 +77,8 @@ export const Pages: CollectionConfig = {
           slug: string;
         };
       }) => {
+        if (!doc.slug) return;
+
         if (doc.slug === 'home') {
           revalidatePath('/');
         } else {
