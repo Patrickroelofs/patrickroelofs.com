@@ -3,6 +3,7 @@ import { revalidatePath } from 'next/cache';
 import { Hero } from '@/payload/blocks/hero';
 import { Paragraph } from '@/payload/blocks/paragraph';
 import { LargeMovableTitle } from '@/payload/blocks/large-movable-title';
+import { slugField } from '@/payload/fields/slug';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -17,12 +18,6 @@ export const Pages: CollectionConfig = {
     maxPerDoc: 10,
   },
   fields: [
-    {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
-    },
     {
       name: 'title',
       type: 'text',
@@ -60,6 +55,7 @@ export const Pages: CollectionConfig = {
         },
       ],
     },
+    slugField(),
   ],
   hooks: {
     afterChange: [
