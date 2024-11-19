@@ -26,6 +26,26 @@ export default buildConfig({
           }`,
         )}`,
       collections: ['pages'],
+      breakpoints: [
+        {
+          name: 'mobile',
+          height: 667,
+          label: 'Mobile',
+          width: 375,
+        },
+        {
+          name: 'tablet',
+          height: 1024,
+          label: 'Tablet',
+          width: 768,
+        },
+        {
+          name: 'desktop',
+          height: 1080,
+          label: 'Desktop',
+          width: 1920,
+        },
+      ],
     },
   },
   typescript: {

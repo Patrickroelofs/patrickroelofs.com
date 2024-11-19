@@ -28,6 +28,7 @@ export const Pages: CollectionConfig = {
       required: true,
     },
     {
+      type: 'tabs',
       tabs: [
         {
           label: 'Content',
@@ -41,23 +42,15 @@ export const Pages: CollectionConfig = {
           ],
         },
         {
-          label: 'Metadata',
+          label: 'SEO',
           fields: [
             {
               name: 'meta',
               type: 'group',
               fields: [
                 {
-                  name: 'description',
-                  type: 'textarea',
-                },
-                {
-                  name: 'keywords',
-                  type: 'text',
-                },
-                {
-                  name: 'ogImage',
-                  type: 'relationship',
+                  name: 'opengraphImage',
+                  type: 'upload',
                   relationTo: 'media',
                 },
               ],
@@ -65,7 +58,6 @@ export const Pages: CollectionConfig = {
           ],
         },
       ],
-      type: 'tabs',
     },
   ],
   hooks: {

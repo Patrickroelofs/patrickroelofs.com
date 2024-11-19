@@ -6,11 +6,20 @@ export const Media: CollectionConfig = {
     staticDir: '',
     imageSizes: [
       {
-        name: 'default',
-        width: undefined,
-        height: undefined,
+        name: 'thumbnail',
+        width: 650,
+        height: 650,
+        position: 'centre',
+      },
+      {
+        name: 'medium',
+        width: 1200,
+        height: 1200,
+        position: 'centre',
       },
     ],
+    adminThumbnail: 'thumbnail',
+    mimeTypes: ['image/*'],
   },
   fields: [
     {

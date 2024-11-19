@@ -12,12 +12,12 @@ export async function Footer(): Promise<ReactElement> {
   });
 
   return (
-    <footer>
+    <footer className="px-sm">
       <div className="mx-auto mt-3xl w-full max-w-screen-xl py-lg">
         <div className="mb-md">
           <Link
             href="mailto:contact@patrickroelofs.com"
-            className="text-2xl font-medium hover:underline"
+            className="text-lg font-medium hover:underline md:text-2xl"
           >
             Contact@patrickroelofs.com
           </Link>
