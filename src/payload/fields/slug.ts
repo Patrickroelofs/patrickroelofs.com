@@ -22,6 +22,7 @@ export const slugField: Slug = (_fieldToUse = 'title', overrides = {}) =>
       },
       index: true,
       label: 'Slug',
+      required: true,
     },
     overrides,
   );
