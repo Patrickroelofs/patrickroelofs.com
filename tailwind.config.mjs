@@ -17,6 +17,8 @@ export default {
       '2xl': 'var(--step-3)',
       '3xl': 'var(--step-4)',
       '4xl': 'var(--step-5)',
+      '5xl': 'var(--step-6)',
+      '6xl': 'var(--step-7)',
     },
     spacing: {
       0: '0',
@@ -29,15 +31,23 @@ export default {
       xl: 'var(--space-xl)',
       '2xl': 'var(--space-2xl)',
       '3xl': 'var(--space-3xl)',
+      '4xl': 'var(--space-4xl)',
+      '5xl': 'var(--space-5xl)',
+      '6xl': 'var(--space-6xl)',
+      '7xl': 'var(--space-7xl)',
+      '8xl': 'var(--space-8xl)',
+      '9xl': 'var(--space-9xl)',
     },
     colors: {
       sand: '#f9e4d6',
+      'sand-darkened': '#eca97d',
       black: '#010301',
       'black-lightened': '#252424',
       blue: '#2d2691',
       red: '#a23648',
       yellow: '#fccf00',
       white: '#faf5f7',
+      transparent: 'transparent',
     },
     extend: {
       fontFamily: {

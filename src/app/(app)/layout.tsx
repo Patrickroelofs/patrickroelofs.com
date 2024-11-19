@@ -5,8 +5,8 @@ import '@fontsource-variable/lora/wght-italic.css';
 import '@fontsource-variable/instrument-sans/wdth.css';
 import '@fontsource-variable/instrument-sans/wdth-italic.css';
 import { Analytics } from '@vercel/analytics/next';
-import { Navigation } from '@/patterns/navigation/navigation';
-import { Footer } from '@/patterns/footer/footer';
+import { Navigation } from '@/components/navigation/navigation';
+import { Footer } from '@/components/footer/footer';
 
 function RootLayout({
   children,

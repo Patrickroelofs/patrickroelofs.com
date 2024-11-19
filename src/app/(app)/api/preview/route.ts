@@ -28,7 +28,7 @@ export async function GET(
     });
   }
 
-  const userReq = await fetch(
+  const userReq: Response = await fetch(
     `${process.env.NEXT_PUBLIC_URL ?? ''}/api/users/me`,
     {
       headers: {
@@ -40,11 +40,10 @@ export async function GET(
     },
   );
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- TODO: Fix this
-  const userRes = await userReq.json();
+  const userRes: unknown = await userReq.json();
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- TODO: Fix this
-  if (!userReq.ok || !userRes?.user) {
+  // @ts-expect-error -- TODO: Figure this type out
+  if (!userReq.ok || !userRes.user) {
     draft.disable();
     return new Response('You are not allowed to preview this page', {
       status: 403,

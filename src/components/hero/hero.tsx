@@ -1,6 +1,6 @@
 import { type ReactElement } from 'react';
 import Image from 'next/image';
-import { Warning } from '@/components/Warning/warning';
+import { Warning } from '@/components/warning/warning';
 import type { Page, Media } from '../../../payload-types';
 
 type HeroProps = Extract<Page['blocks'][0], { blockType: 'hero' }>;

@@ -2,6 +2,7 @@ import { type CollectionConfig } from 'payload';
 import { revalidatePath } from 'next/cache';
 import { Hero } from '@/payload/blocks/hero';
 import { Paragraph } from '@/payload/blocks/paragraph';
+import { LargeMovableTitle } from '@/payload/blocks/large-movable-title';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -35,7 +36,7 @@ export const Pages: CollectionConfig = {
           fields: [
             {
               name: 'blocks',
-              blocks: [Hero, Paragraph],
+              blocks: [Hero, Paragraph, LargeMovableTitle],
               required: true,
               type: 'blocks',
             },
