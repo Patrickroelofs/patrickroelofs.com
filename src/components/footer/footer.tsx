@@ -1,6 +1,6 @@
 import { type ReactElement } from 'react';
 import Link from 'next/link';
-import { Icon } from '@/components/Icon/icon';
+import { Icon } from '@/components/icon/icon';
 import { payload } from '@/utils/get-payload-instance';
 
 export async function Footer(): Promise<ReactElement> {

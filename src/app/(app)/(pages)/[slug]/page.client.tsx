@@ -2,7 +2,7 @@
 
 import React, { type ReactElement } from 'react';
 import { useLivePreview } from '@payloadcms/live-preview-react';
-import { Blocks } from '@/components/Blocks/blocks';
+import { Blocks } from '@/components/blocks/blocks';
 import { type Page } from '../../../../../payload-types';
 
 function PageClient({ page }: { page: Page }): ReactElement {
