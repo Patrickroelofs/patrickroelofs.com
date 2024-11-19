@@ -37,7 +37,7 @@ export async function Navigation({
   return (
     <nav className="mx-auto mb-xs mt-xs flex max-w-screen-2xl justify-between px-lg">
       <div className="flex w-full items-center justify-between">
-        <Link href="/public" className="group relative text-xl font-semibold">
+        <Link href="/" className="group relative text-xl font-semibold">
           <h1>{title}</h1>
         </Link>
 
