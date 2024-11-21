@@ -1,9 +1,5 @@
 import React, { type ReactElement } from 'react';
-import {
-  GithubLogo,
-  LinkedinLogo,
-  ArrowSquareOut,
-} from '@phosphor-icons/react/dist/ssr';
+import * as icons from '@phosphor-icons/react/dist/ssr';
 import { type IconProps } from '@phosphor-icons/react';
 
 interface CustomIconProps extends IconProps {
@@ -11,15 +7,13 @@ interface CustomIconProps extends IconProps {
 }
 
 export function Icon({ iconType, ...props }: CustomIconProps): ReactElement {
-  switch (iconType) {
-    case 'LinkedinLogo':
-      return <LinkedinLogo {...props} />;
-    case 'GithubLogo':
-      return <GithubLogo {...props} />;
-    case 'ArrowSquareOut':
-      return <ArrowSquareOut {...props} />;
-    default:
-      // TODO: Handle this case better
-      return <p>No Icon was found... Thats an oopsie!</p>;
+  const IconComponent = iconType
+    ? (icons as Record<string, React.ElementType>)[iconType]
+    : false;
+
+  if (!IconComponent) {
+    return <span>Icon not found</span>;
   }
+
+  return <IconComponent {...props} />;
 }
