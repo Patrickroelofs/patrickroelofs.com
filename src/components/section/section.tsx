@@ -6,7 +6,9 @@ interface SectionProps {
 
 function Section({ children }: SectionProps): ReactElement {
   return (
-    <section className="mx-auto max-w-screen-2xl px-md">{children}</section>
+    <section className="px-fluid-md mx-auto max-w-screen-2xl">
+      {children}
+    </section>
   );
 }
 

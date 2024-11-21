@@ -1,8 +1,7 @@
-import { type ReactElement } from 'react';
+import { type ComponentType, type ReactElement } from 'react';
 import { Hero } from '@/components/hero/hero';
 import { Paragraph } from '@/components/paragraph/paragraph';
 import { Section } from '@/components/section/section';
-import { LargeMovableTitle } from '@/components/largeMovableTitle/large-movable-title';
 import { type Page } from '../../../payload-types';
 
 interface BlocksProps {
@@ -12,7 +11,6 @@ interface BlocksProps {
 const blockComponents = {
   hero: Hero,
   paragraph: Paragraph,
-  'large-movable-title': LargeMovableTitle,
 };
 
 function Blocks({ blocks }: BlocksProps): ReactElement {
@@ -22,7 +20,7 @@ function Blocks({ blocks }: BlocksProps): ReactElement {
         const { blockType } = block;
 
         if (blockType in blockComponents) {
-          const BlockComponent = blockComponents[blockType];
+          const BlockComponent = blockComponents[blockType] as ComponentType;
 
           return (
             <Section key={block.id}>

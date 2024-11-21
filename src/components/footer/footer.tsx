@@ -12,18 +12,18 @@ export async function Footer(): Promise<ReactElement> {
   });
 
   return (
-    <footer className="px-sm">
-      <div className="mx-auto mt-3xl w-full max-w-screen-xl py-lg">
-        <div className="mb-md">
+    <footer className="px-fluid-sm">
+      <div className="mt-fluid-3xl pt-fluid-lg mx-auto w-full max-w-screen-xl">
+        <div className="mb-fluid-md">
           <Link
             href="mailto:contact@patrickroelofs.com"
-            className="text-lg font-medium hover:underline md:text-2xl"
+            className="text-fluid-lg md:text-fluid-2xl font-medium hover:underline"
           >
             Contact@patrickroelofs.com
           </Link>
         </div>
 
-        <ul className="flex gap-lg text-xl">
+        <ul className="text-fluid-xl gap-fluid-lg flex">
           {socialMediaLinks?.map((link) => (
             <li key={link.platform}>
               <Link
@@ -31,7 +31,7 @@ export async function Footer(): Promise<ReactElement> {
                 href={link.url}
                 target="_blank"
                 aria-label={`external link to ${link.platform}`}
-                className="flex items-center gap-2xs hover:underline focus:underline"
+                className="gap-fluid-2xs flex items-center hover:underline focus:underline"
               >
                 <Icon iconType={link.icon} />
                 <span className="text-base">{link.platform}</span>
@@ -39,6 +39,9 @@ export async function Footer(): Promise<ReactElement> {
             </li>
           ))}
         </ul>
+        <h2 className="text-fluid-8xl h-64 overflow-clip text-center font-bold">
+          Thanks
+        </h2>
       </div>
     </footer>
   );

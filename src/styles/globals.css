@@ -12,6 +12,8 @@
     --step-5: clamp(2.8rem, calc(1.94rem + 4.28vw), 5.26rem);
     --step-6: clamp(3.3592rem, 2.0884rem + 6.354vw, 7.0128rem);
     --step-7: clamp(4.0311rem, 2.1817rem + 9.2469vw, 9.3481rem);
+    --step-8: clamp(4.8373rem, 2.1856rem + 13.2585vw, 12.461rem);
+    --step-9: clamp(5.8048rem, 2.0463rem + 18.7925vw, 16.6104rem);
 
     --space-3xs: clamp(0.31rem, calc(0.31rem + 0vw), 0.31rem);
     --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);

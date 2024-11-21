@@ -35,13 +35,13 @@ export async function Navigation({
   });
 
   return (
-    <nav className="mx-auto mb-xs mt-xs flex max-w-screen-2xl justify-between px-lg">
+    <nav className="mb-fluid-xs mt-fluid-xs px-fluid-lg mx-auto flex max-w-screen-2xl justify-between">
       <div className="flex w-full items-center justify-between">
-        <Link href="/" className="group relative text-xl font-semibold">
+        <Link href="/" className="text-fluid-xl group relative font-semibold">
           <h1>{title}</h1>
         </Link>
 
-        <ul className="flex gap-sm">
+        <ul className="gap-fluid-sm flex">
           {navigation.navigationLinks?.map((item) => {
             const { page } = item as {
               page: Page;

@@ -17,15 +17,15 @@ export function Hero(props: HeroProps): ReactElement {
             height={960}
             src={image.url ?? ''}
             alt={image.alt ?? ''}
-            className="mx-auto w-full rounded-3xl"
+            className="rounded-fluid-3xl mx-auto w-full"
           />
         ) : (
           <Warning message="No image provided" />
         )}
       </div>
-      <div className="mx-auto max-w-screen-xl pt-sm">
+      <div className="pt-fluid-sm mx-auto max-w-screen-xl">
         {text !== null ? (
-          <p className="text-pretty text-2xl font-medium tracking-tight">
+          <p className="text-fluid-2xl text-pretty font-medium tracking-tight">
             {text}
           </p>
         ) : (
