@@ -1,7 +1,6 @@
 import { type CollectionConfig } from 'payload';
 import { revalidatePath } from 'next/cache';
 import { Hero } from '@/payload/blocks/hero';
-import { Paragraph } from '@/payload/blocks/paragraph';
 import { slugField } from '@/payload/fields/slug';
 
 export const Pages: CollectionConfig = {
@@ -30,25 +29,9 @@ export const Pages: CollectionConfig = {
           fields: [
             {
               name: 'blocks',
-              blocks: [Hero, Paragraph],
+              blocks: [Hero],
               required: true,
               type: 'blocks',
-            },
-          ],
-        },
-        {
-          label: 'SEO',
-          fields: [
-            {
-              name: 'meta',
-              type: 'group',
-              fields: [
-                {
-                  name: 'opengraphImage',
-                  type: 'upload',
-                  relationTo: 'media',
-                },
-              ],
             },
           ],
         },

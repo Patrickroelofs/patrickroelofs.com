@@ -35,7 +35,7 @@ export async function Navigation({
   });
 
   return (
-    <nav className="mb-fluid-xs mt-fluid-xs px-fluid-lg mx-auto flex max-w-screen-2xl justify-between">
+    <nav className="mb-fluid-xs mt-fluid-xs px-fluid-lg mx-auto flex max-w-(--breakpoint-2xl) justify-between">
       <div className="flex w-full items-center justify-between">
         <Link href="/" className="text-fluid-xl group relative font-semibold">
           <h1>{title}</h1>

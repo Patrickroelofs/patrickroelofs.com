@@ -1,6 +1,5 @@
 import { type ReactElement } from 'react';
 import Image from 'next/image';
-import { Warning } from '@/components/warning/warning';
 import type { Page, Media } from '../../../payload-types';
 
 type HeroProps = Extract<Page['blocks'][0], { blockType: 'hero' }>;
@@ -9,7 +8,7 @@ export function Hero(props: HeroProps): ReactElement {
   const { image, text } = props as { image: Media | null; text: string | null };
 
   return (
-    <header className="mx-auto max-w-screen-2xl">
+    <header className="mx-auto max-w-(--breakpoint-2xl)">
       <div className="align-center flex justify-center">
         {image !== null ? (
           <Image
@@ -20,17 +19,20 @@ export function Hero(props: HeroProps): ReactElement {
             className="rounded-fluid-3xl mx-auto w-full"
           />
         ) : (
-          <Warning message="No image provided" />
+          <Image
+            width={1440}
+            height={960}
+            src="https://placehold.co/1440x960/png"
+            alt=""
+          />
         )}
       </div>
-      <div className="pt-fluid-sm mx-auto max-w-screen-xl">
-        {text !== null ? (
-          <p className="text-fluid-2xl text-pretty font-medium tracking-tight">
-            {text}
-          </p>
-        ) : (
-          <Warning message="No text provided" />
-        )}
+      <div className="pt-fluid-sm mx-auto max-w-(--breakpoint-xl)">
+        <p className="text-fluid-2xl font-medium tracking-tight text-pretty">
+          {text
+            ? text
+            : 'No text has been provided, so here is a sample of what it would look like.'}
+        </p>
       </div>
     </header>
   );

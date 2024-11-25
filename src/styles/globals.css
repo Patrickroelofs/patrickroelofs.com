@@ -1,38 +1,48 @@
-@layer components {
-  /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+@import 'tailwindcss';
 
-  :root {
-    --step--2: clamp(0.7rem, calc(0.81rem + -0.13vw), 0.78rem);
-    --step--1: clamp(0.94rem, calc(0.94rem + 0vw), 0.94rem);
-    --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-    --step-1: clamp(1.35rem, calc(1.24rem + 0.55vw), 1.67rem);
-    --step-2: clamp(1.62rem, calc(1.41rem + 1.05vw), 2.22rem);
-    --step-3: clamp(1.94rem, calc(1.59rem + 1.77vw), 2.96rem);
-    --step-4: clamp(2.33rem, calc(1.77rem + 2.81vw), 3.95rem);
-    --step-5: clamp(2.8rem, calc(1.94rem + 4.28vw), 5.26rem);
-    --step-6: clamp(3.3592rem, 2.0884rem + 6.354vw, 7.0128rem);
-    --step-7: clamp(4.0311rem, 2.1817rem + 9.2469vw, 9.3481rem);
-    --step-8: clamp(4.8373rem, 2.1856rem + 13.2585vw, 12.461rem);
-    --step-9: clamp(5.8048rem, 2.0463rem + 18.7925vw, 16.6104rem);
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+@theme {
+  --font-serif: Lora Variable, ui-serif, Georgia, Cambria, 'Times New Roman',
+    Times, serif;
+  --font-sans: Instrument Sans Variable, ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-    --space-3xs: clamp(0.31rem, calc(0.31rem + 0vw), 0.31rem);
-    --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
-    --space-xs: clamp(0.88rem, calc(0.85rem + 0.11vw), 0.94rem);
-    --space-s: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-    --space-m: clamp(1.69rem, calc(1.62rem + 0.33vw), 1.88rem);
-    --space-l: clamp(2.25rem, calc(2.16rem + 0.43vw), 2.5rem);
-    --space-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem);
-    --space-2xl: clamp(4.5rem, calc(4.33rem + 0.87vw), 5rem);
-    --space-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
-    --space-4xl: clamp(7.875rem, 7.5707rem + 1.5217vw, 8.75rem);
-    --space-5xl: clamp(9rem, 8.6522rem + 1.7391vw, 10rem);
-    --space-6xl: clamp(10.125rem, 9.7337rem + 1.9565vw, 11.25rem);
-    --space-7xl: clamp(11.25rem, 10.8152rem + 2.1739vw, 12.5rem);
-    --space-8xl: clamp(12.375rem, 11.8967rem + 2.3913vw, 13.75rem);
-    --space-9xl: clamp(13.5rem, 12.9783rem + 2.6087vw, 15rem);
-  }
+  --text-fluid-xs: clamp(0.7rem, calc(0.81rem + -0.13vw), 0.78rem);
+  --text-fluid-sm: clamp(0.94rem, calc(0.94rem + 0vw), 0.94rem);
+  --text-fluid-base: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  --text-fluid-lg:  clamp(1.35rem, calc(1.24rem + 0.55vw), 1.67rem);
+  --text-fluid-xl: clamp(1.62rem, calc(1.41rem + 1.05vw), 2.22rem);
+  --text-fluid-2xl: clamp(1.94rem, calc(1.59rem + 1.77vw), 2.96rem);
+  --text-fluid-3xl: clamp(2.33rem, calc(1.77rem + 2.81vw), 3.95rem);
+  --text-fluid-4xl: clamp(2.8rem, calc(1.94rem + 4.28vw), 5.26rem);
+  --text-fluid-5xl: clamp(3.3592rem, 2.0884rem + 6.354vw, 7.0128rem);
+  --text-fluid-6xl: clamp(4.0311rem, 2.1817rem + 9.2469vw, 9.3481rem);
+  --text-fluid-7xl: clamp(4.8373rem, 2.1856rem + 13.2585vw, 12.461rem);
+  --text-fluid-8xl: clamp(5.8048rem, 2.0463rem + 18.7925vw, 16.6104rem);
+
+  --spacing-fluid-3xs: clamp(0.31rem, calc(0.31rem + 0vw), 0.31rem);
+  --spacing-fluid-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
+  --spacing-fluid-xs: clamp(0.88rem, calc(0.85rem + 0.11vw), 0.94rem);
+  --spacing-fluid-sm: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  --spacing-fluid-md: clamp(1.69rem, calc(1.62rem + 0.33vw), 1.88rem);
+  --spacing-fluid-lg: clamp(2.25rem, calc(2.16rem + 0.43vw), 2.5rem);
+  --spacing-fluid-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem);
+  --spacing-fluid-2xl: clamp(4.5rem, calc(4.33rem + 0.87vw), 5rem);
+  --spacing-fluid-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
+  --spacing-fluid-4xl: clamp(7.875rem, 7.5707rem + 1.5217vw, 8.75rem);
+  --spacing-fluid-5xl: clamp(9rem, 8.6522rem + 1.7391vw, 10rem);
+  --spacing-fluid-6xl: clamp(10.125rem, 9.7337rem + 1.9565vw, 11.25rem);
+  --spacing-fluid-7xl: clamp(11.25rem, 10.8152rem + 2.1739vw, 12.5rem);
+  --spacing-fluid-8xl: clamp(12.375rem, 11.8967rem + 2.3913vw, 13.75rem);
+  --spacing-fluid-9xl: clamp(13.5rem, 12.9783rem + 2.6087vw, 15rem);
+
+  --color-sand: #f9e4d6;
+  --color-sand-darkened: #eca97d;
+  --color-black: #010301;
+  --color-black-lightened: #252424;
+  --color-blue: #2d2691;
+  --color-red: #a23648;
+  --color-yellow: #fccf00;
+  --color-white: #faf5f7;
+  --color-transparent: transparent;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

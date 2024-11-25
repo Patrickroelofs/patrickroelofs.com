@@ -1,13 +1,16 @@
 import { deepMerge, type Field } from 'payload';
 
-type Slug = (fieldToUse?: string, overrides?: Partial<Field>) => Field;
+type Slug = (overrides?: Partial<Field>) => Field;
 
-// TODO: Auto update the slug field based on the title field
-export const slugField: Slug = (_fieldToUse = 'title', overrides = {}) =>
+export const slugField: Slug = (overrides = {}) =>
   deepMerge(
     {
+      label: 'Slug',
       name: 'slug',
       type: 'text',
+      unique: true,
+      index: true,
+      required: true,
       admin: {
         position: 'sidebar',
       },
@@ -20,9 +23,6 @@ export const slugField: Slug = (_fieldToUse = 'title', overrides = {}) =>
 
         return 'Invalid slug. Must be kebab-case (lowercase, words separated by hyphens)';
       },
-      index: true,
-      label: 'Slug',
-      required: true,
     },
     overrides,
   );

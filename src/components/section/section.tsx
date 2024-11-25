@@ -6,7 +6,7 @@ interface SectionProps {
 
 function Section({ children }: SectionProps): ReactElement {
   return (
-    <section className="px-fluid-md mx-auto max-w-screen-2xl">
+    <section className="px-fluid-md mx-auto max-w-(--breakpoint-2xl)">
       {children}
     </section>
   );

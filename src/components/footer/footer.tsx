@@ -13,7 +13,7 @@ export async function Footer(): Promise<ReactElement> {
 
   return (
     <footer className="px-fluid-sm">
-      <div className="mt-fluid-3xl pt-fluid-lg mx-auto w-full max-w-screen-xl">
+      <div className="mt-fluid-3xl pt-fluid-lg mx-auto w-full max-w-7xl">
         <div className="mb-fluid-md">
           <Link
             href="mailto:contact@patrickroelofs.com"

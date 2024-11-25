@@ -1,6 +1,5 @@
 import { type ComponentType, type ReactElement } from 'react';
 import { Hero } from '@/components/hero/hero';
-import { Paragraph } from '@/components/paragraph/paragraph';
 import { Section } from '@/components/section/section';
 import { type Page } from '../../../payload-types';
 
@@ -10,7 +9,6 @@ interface BlocksProps {
 
 const blockComponents = {
   hero: Hero,
-  paragraph: Paragraph,
 };
 
 function Blocks({ blocks }: BlocksProps): ReactElement {
