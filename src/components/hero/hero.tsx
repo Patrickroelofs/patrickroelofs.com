@@ -16,7 +16,7 @@ export function Hero(props: HeroProps): ReactElement {
             height={960}
             src={image.url ?? ''}
             alt={image.alt ?? ''}
-            className="rounded-fluid-3xl mx-auto w-full"
+            className="mx-auto w-full rounded-3xl"
           />
         ) : (
           <Image
