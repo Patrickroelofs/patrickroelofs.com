@@ -40,7 +40,6 @@ yarn-error.log*
 next-env.d.ts
 
 # payload
-payload-types.ts
 payload.sqlite
 /media
 
