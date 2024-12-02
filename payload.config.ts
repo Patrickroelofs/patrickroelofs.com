@@ -5,7 +5,6 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
-import { sqliteAdapter } from '@payloadcms/db-sqlite';
 import { Pages } from '@/payload/collections/pages';
 import { Media } from '@/payload/collections/media';
 import { Footer } from '@/payload/globals/footer';
@@ -55,23 +54,14 @@ export default buildConfig({
     autoGenerate: true,
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  db:
-    process.env.VERCEL_ENV === 'production'
-      ? postgresAdapter({
-          pool: {
-            connectionString: process.env.POSTGRES_URI ?? '',
-          },
-        })
-      : sqliteAdapter({
-          client: {
-            url: 'file:./payload.sqlite',
-          },
-        }),
-
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.POSTGRES_URI ?? '',
+    },
+  }),
   sharp,
   plugins: [
     vercelBlobStorage({
-      enabled: process.env.VERCEL_ENV === 'production',
       collections: {
         [Media.slug]: true,
       },
