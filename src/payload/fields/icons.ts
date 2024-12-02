@@ -1,9 +1,9 @@
 import { deepMerge, type Field } from 'payload';
 import { icons } from '@phosphor-icons/core';
 
-type iconField = (overrides?: Partial<Field>) => Field;
+type IconField = (overrides?: Partial<Field>) => Field;
 
-export const iconField: iconField = (overrides = {}) =>
+export const iconField: IconField = (overrides = {}) =>
   deepMerge(
     {
       name: 'icon',
