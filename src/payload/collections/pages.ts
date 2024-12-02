@@ -2,7 +2,6 @@ import { type CollectionConfig } from 'payload';
 import { revalidatePath } from 'next/cache';
 import { Hero } from '@/payload/blocks/hero';
 import { slugField } from '@/payload/fields/slug';
-import { CustomColumns } from '@/payload/blocks/custom-columns';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -30,7 +29,7 @@ export const Pages: CollectionConfig = {
           fields: [
             {
               name: 'blocks',
-              blocks: [Hero, CustomColumns],
+              blocks: [Hero],
               required: true,
               type: 'blocks',
             },

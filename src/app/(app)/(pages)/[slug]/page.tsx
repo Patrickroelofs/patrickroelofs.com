@@ -1,7 +1,6 @@
 import { type Metadata } from 'next';
 import React, { type ReactElement } from 'react';
 import { draftMode } from 'next/headers';
-import { getGlobalConfiguration } from '@/utils/get-global-configuration';
 import { payload } from '@/utils/get-payload-instance';
 import { PageClient } from '@/app/(app)/(pages)/[slug]/page.client';
 import { type Page } from '../../../../../payload-types';
@@ -82,10 +81,13 @@ export async function generateStaticParams(): Promise<unknown> {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const globals = await getGlobalConfiguration();
+  const globals = await payload.findGlobal({
+    slug: 'SEO',
+  });
 
   return {
-    ...globals,
+    title: globals.siteTitle,
+    description: globals.siteDescription,
   };
 }
 

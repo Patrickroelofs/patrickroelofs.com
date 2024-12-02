@@ -10,7 +10,7 @@
   --text-fluid-xs: clamp(0.7rem, calc(0.81rem + -0.13vw), 0.78rem);
   --text-fluid-sm: clamp(0.94rem, calc(0.94rem + 0vw), 0.94rem);
   --text-fluid-base: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-  --text-fluid-lg:  clamp(1.35rem, calc(1.24rem + 0.55vw), 1.67rem);
+  --text-fluid-lg: clamp(1.35rem, calc(1.24rem + 0.55vw), 1.67rem);
   --text-fluid-xl: clamp(1.62rem, calc(1.41rem + 1.05vw), 2.22rem);
   --text-fluid-2xl: clamp(1.94rem, calc(1.59rem + 1.77vw), 2.96rem);
   --text-fluid-3xl: clamp(2.33rem, calc(1.77rem + 2.81vw), 3.95rem);

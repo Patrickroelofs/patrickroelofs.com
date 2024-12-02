@@ -6,16 +6,18 @@ import { buildConfig } from 'payload';
 import sharp from 'sharp';
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
 import { sqliteAdapter } from '@payloadcms/db-sqlite';
-import { SiteSettings } from '@/payload/collections/site-settings';
 import { Pages } from '@/payload/collections/pages';
 import { Media } from '@/payload/collections/media';
+import { Footer } from '@/payload/globals/footer';
+import { Navigation } from '@/payload/globals/navigation';
+import { SEO } from '@/payload/globals/seo';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default buildConfig({
   editor: lexicalEditor(),
-  globals: [SiteSettings],
+  globals: [SEO, Navigation, Footer],
   collections: [Pages, Media],
   secret: process.env.PAYLOAD_SECRET ?? '',
   admin: {
@@ -50,6 +52,7 @@ export default buildConfig({
     },
   },
   typescript: {
+    autoGenerate: true,
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db:

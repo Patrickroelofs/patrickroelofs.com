@@ -6,25 +6,6 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Column".
- */
-export type Column =
-  | {
-      width: '25' | '33' | '50' | '66' | '75' | '100';
-      blocks?:
-        | {
-            text?: string | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'simpleText';
-          }[]
-        | null;
-      id?: string | null;
-    }[]
-  | null;
-
 export interface Config {
   auth: {
     users: UserAuthOperations;
@@ -50,10 +31,14 @@ export interface Config {
     defaultIDType: number;
   };
   globals: {
-    'site-settings': SiteSetting;
+    SEO: SEO;
+    navigation: Navigation;
+    footer: Footer;
   };
   globalsSelect: {
-    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+    SEO: SEOSelect<false> | SEOSelect<true>;
+    navigation: NavigationSelect<false> | NavigationSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
   user: User & {
@@ -89,21 +74,13 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
-  blocks: (
-    | {
-        image: number | Media;
-        text: string;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero';
-      }
-    | {
-        columns?: Column;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'customColumns';
-      }
-  )[];
+  blocks: {
+    image: number | Media;
+    text: string;
+    id?: string | null;
+    blockName?: string | null;
+    blockType: 'hero';
+  }[];
   slug: string;
   updatedAt: string;
   createdAt: string;
@@ -242,29 +219,6 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        customColumns?:
-          | T
-          | {
-              columns?:
-                | T
-                | {
-                    width?: T;
-                    blocks?:
-                      | T
-                      | {
-                          simpleText?:
-                            | T
-                            | {
-                                text?: T;
-                                id?: T;
-                                blockName?: T;
-                              };
-                        };
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
       };
   slug?: T;
   updatedAt?: T;
@@ -363,18 +317,36 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "site-settings".
+ * via the `definition` "SEO".
  */
-export interface SiteSetting {
+export interface SEO {
   id: number;
-  siteTitle: string;
-  siteDescription: string;
+  siteTitle?: string | null;
+  siteDescription?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation".
+ */
+export interface Navigation {
+  id: number;
   navigationLinks?:
     | {
         page: number | Page;
         id?: string | null;
       }[]
     | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
   socialMediaLinks?:
     | {
         icon:
@@ -1900,17 +1872,35 @@ export interface SiteSetting {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "site-settings_select".
+ * via the `definition` "SEO_select".
  */
-export interface SiteSettingsSelect<T extends boolean = true> {
+export interface SEOSelect<T extends boolean = true> {
   siteTitle?: T;
   siteDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation_select".
+ */
+export interface NavigationSelect<T extends boolean = true> {
   navigationLinks?:
     | T
     | {
         page?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
   socialMediaLinks?:
     | T
     | {

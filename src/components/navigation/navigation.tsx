@@ -22,7 +22,7 @@ export async function Navigation({
   title,
 }: NavigationProps): Promise<ReactElement> {
   const navigation = await payload.findGlobal({
-    slug: 'site-settings',
+    slug: 'navigation',
     select: {
       navigationLinks: true,
     },

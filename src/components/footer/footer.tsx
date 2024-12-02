@@ -5,7 +5,7 @@ import { payload } from '@/utils/get-payload-instance';
 
 export async function Footer(): Promise<ReactElement> {
   const { socialMediaLinks } = await payload.findGlobal({
-    slug: 'site-settings',
+    slug: 'footer',
     select: {
       socialMediaLinks: true,
     },
