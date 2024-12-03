@@ -1,5 +1,6 @@
 import { type ComponentType, type ReactElement } from 'react';
 import { Hero } from '@/components/hero/hero';
+import { PinnedLayout } from '@/components/pinned-layout/pinned-layout';
 import { type Page } from '../../../payload-types';
 
 interface BlocksProps {
@@ -8,6 +9,7 @@ interface BlocksProps {
 
 const blockComponents = {
   hero: Hero,
+  pinnedLayout: PinnedLayout,
 };
 
 function Blocks({ blocks }: BlocksProps): ReactElement {

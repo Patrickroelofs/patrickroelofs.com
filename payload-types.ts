@@ -74,13 +74,43 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
-  blocks: {
-    image: number | Media;
-    text: string;
-    id?: string | null;
-    blockName?: string | null;
-    blockType: 'hero';
-  }[];
+  blocks: (
+    | {
+        image: number | Media;
+        text: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero';
+      }
+    | {
+        content: {
+          pinTitleTo: 'left' | 'right';
+          title: string;
+          blocks?: unknown[] | null;
+        };
+        modifiers: {
+          spacing:
+            | 'fluid-3xs'
+            | 'fluid-2xs'
+            | 'fluid-xs'
+            | 'fluid-sm'
+            | 'fluid-md'
+            | 'fluid-lg'
+            | 'fluid-xl'
+            | 'fluid-2xl'
+            | 'fluid-3xl'
+            | 'fluid-4xl'
+            | 'fluid-5xl'
+            | 'fluid-6xl'
+            | 'fluid-7xl'
+            | 'fluid-8xl'
+            | 'fluid-9xl';
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'pinnedLayout';
+      }
+  )[];
   slug: string;
   updatedAt: string;
   createdAt: string;
@@ -216,6 +246,24 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               image?: T;
               text?: T;
+              id?: T;
+              blockName?: T;
+            };
+        pinnedLayout?:
+          | T
+          | {
+              content?:
+                | T
+                | {
+                    pinTitleTo?: T;
+                    title?: T;
+                    blocks?: T | {};
+                  };
+              modifiers?:
+                | T
+                | {
+                    spacing?: T;
+                  };
               id?: T;
               blockName?: T;
             };

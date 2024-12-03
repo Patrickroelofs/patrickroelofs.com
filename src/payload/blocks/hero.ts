@@ -5,7 +5,6 @@ export const Hero: Block = {
     singular: 'Hero',
     plural: 'Heroes',
   },
-  imageURL: `${process.env.NEXT_PUBLIC_VERCEL_BLOB ?? ''}/admin_thumbnails/hero_thumbnail-ngCfr9shvnGbNlXCgluHPJznWKm1Fc.png`,
   slug: 'hero',
   fields: [
     {
