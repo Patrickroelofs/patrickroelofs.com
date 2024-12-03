@@ -1,4 +1,4 @@
-/* Note: this config is a fallback to add safeList support to tailwind 4.0 beta 1, it should be removed when an alternative is available */
+/* TODO: this config is a fallback to add safeList support to tailwind 4.0 beta 1, it should be removed when an alternative is available */
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
