@@ -102,7 +102,7 @@ export interface Page {
             [k: string]: unknown;
           };
         };
-        modifiers: {
+        options: {
           spacing:
             | 'fluid-3xs'
             | 'fluid-2xs'
@@ -273,7 +273,7 @@ export interface PagesSelect<T extends boolean = true> {
                     title?: T;
                     richText?: T;
                   };
-              modifiers?:
+              options?:
                 | T
                 | {
                     spacing?: T;

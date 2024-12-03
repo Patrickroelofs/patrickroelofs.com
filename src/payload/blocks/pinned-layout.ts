@@ -38,8 +38,8 @@ export const PinnedLayout: Block = {
           ],
         },
         {
-          name: 'modifiers',
-          label: 'Modifiers',
+          name: 'options',
+          label: 'Options',
           fields: [spacingField()],
         },
       ],
