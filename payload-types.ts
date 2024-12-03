@@ -86,7 +86,21 @@ export interface Page {
         content: {
           pinTitleTo: 'left' | 'right';
           title: string;
-          blocks?: unknown[] | null;
+          richText: {
+            root: {
+              type: string;
+              children: {
+                type: string;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          };
         };
         modifiers: {
           spacing:
@@ -257,7 +271,7 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     pinTitleTo?: T;
                     title?: T;
-                    blocks?: T | {};
+                    richText?: T;
                   };
               modifiers?:
                 | T

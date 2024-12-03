@@ -1,5 +1,6 @@
 import { type ReactElement } from 'react';
 import { cva } from 'class-variance-authority';
+import { OptionsAsObject, spacingOptions } from '@/utils/spacing-options';
 import type { Page } from '../../../payload-types';
 
 type PinnedLayoutProps = Extract<
@@ -15,23 +16,7 @@ const pinnedLayoutWrapper = cva(
         left: [''],
         right: ['flex-row-reverse'],
       },
-      spacing: {
-        'fluid-3xs': 'my-fluid-3xs',
-        'fluid-2xs': 'my-fluid-2xs',
-        'fluid-xs': 'my-fluid-xs',
-        'fluid-sm': 'my-fluid-sm',
-        'fluid-md': 'my-fluid-md',
-        'fluid-lg': 'my-fluid-lg',
-        'fluid-xl': 'my-fluid-xl',
-        'fluid-2xl': 'my-fluid-2xl',
-        'fluid-3xl': 'my-fluid-3xl',
-        'fluid-4xl': 'my-fluid-4xl',
-        'fluid-5xl': 'my-fluid-5xl',
-        'fluid-6xl': 'my-fluid-6xl',
-        'fluid-7xl': 'my-fluid-7xl',
-        'fluid-8xl': 'my-fluid-8xl',
-        'fluid-9xl': 'my-fluid-9xl',
-      },
+      spacing: OptionsAsObject(spacingOptions, 'my-'),
     },
   },
 );
