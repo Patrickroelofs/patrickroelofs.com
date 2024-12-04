@@ -86,21 +86,26 @@ export interface Page {
         content: {
           pinTitleTo: 'left' | 'right';
           title: string;
-          richText: {
-            root: {
-              type: string;
-              children: {
+          blocks: {
+            content: {
+              root: {
                 type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
                 version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
+              };
+              [k: string]: unknown;
             };
-            [k: string]: unknown;
-          };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'richText';
+          }[];
         };
         options: {
           spacing:
@@ -123,6 +128,26 @@ export interface Page {
         id?: string | null;
         blockName?: string | null;
         blockType: 'pinnedLayout';
+      }
+    | {
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'richText';
       }
   )[];
   slug: string;
@@ -271,13 +296,30 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     pinTitleTo?: T;
                     title?: T;
-                    richText?: T;
+                    blocks?:
+                      | T
+                      | {
+                          richText?:
+                            | T
+                            | {
+                                content?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                        };
                   };
               options?:
                 | T
                 | {
                     spacing?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        richText?:
+          | T
+          | {
+              content?: T;
               id?: T;
               blockName?: T;
             };

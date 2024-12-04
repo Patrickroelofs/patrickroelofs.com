@@ -15,7 +15,7 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default buildConfig({
-  editor: lexicalEditor(),
+  editor: lexicalEditor({}),
   globals: [SEO, Navigation, Footer],
   collections: [Pages, Media],
   secret: process.env.PAYLOAD_SECRET ?? '',
