@@ -35,7 +35,7 @@ jobs:
 
       - name: Install ESLint
         run: |
-          pnpm install @microsoft/eslint-formatter-sarif@3.1.0 eslint eslint-config-next @vercel/style-guide
+          pnpm install @microsoft/eslint-formatter-sarif@3.1.0 eslint eslint-config-next @vercel/style-guide @typescript-eslint/eslint-plugin @typescript-eslint/parser
 
       - name: Run ESLint
         env:
