@@ -25,7 +25,6 @@ export function PinnedLayout(props: PinnedLayoutProps): ReactElement {
   const { title, pinTitleTo, richText } = props.content;
   const { spacing } = props.options;
 
-  console.log(richText);
   return (
     <div
       className={pinnedLayoutWrapper({
