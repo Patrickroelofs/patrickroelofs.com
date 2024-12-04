@@ -35,15 +35,12 @@ jobs:
 
       - name: Install ESLint
         run: |
-          pnpm install @microsoft/eslint-formatter-sarif@3.1.0
+          pnpm install @microsoft/eslint-formatter-sarif@3.1.0 eslint eslint-config-next @vercel/style-guide
 
       - name: Run ESLint
         env:
           SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
-        run: pnpm exec eslint .
-          --config .eslintrc.cjs
-          --format @microsoft/eslint-formatter-sarif
-          --output-file eslint-results.sarif
+        run: pnpm exec eslint . --config .eslintrc.cjs --format @microsoft/eslint-formatter-sarif --output-file eslint-results.sarif
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
