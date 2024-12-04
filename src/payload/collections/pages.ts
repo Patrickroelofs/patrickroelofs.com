@@ -3,7 +3,6 @@ import { revalidatePath } from 'next/cache';
 import { Hero } from '@/payload/blocks/hero';
 import { slugField } from '@/payload/fields/slug';
 import { PinnedLayout } from '@/payload/blocks/pinned-layout';
-import { RichText } from '@/payload/blocks/rich-text';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -31,7 +30,7 @@ export const Pages: CollectionConfig = {
           fields: [
             {
               name: 'blocks',
-              blocks: [Hero, PinnedLayout, RichText],
+              blocks: [Hero, PinnedLayout],
               required: true,
               type: 'blocks',
             },
