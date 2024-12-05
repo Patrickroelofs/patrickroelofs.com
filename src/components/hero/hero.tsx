@@ -21,7 +21,7 @@ export function Hero(props: HeroProps): ReactElement {
         )}
       </div>
       <div className="pt-fluid-sm mx-auto max-w-(--breakpoint-xl)">
-        <p className="text-fluid-2xl font-medium tracking-tight text-pretty">
+        <p className="text-fluid-2xl px-4 font-medium tracking-tight text-pretty">
           {text}
         </p>
       </div>

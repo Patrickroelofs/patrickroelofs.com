@@ -11,7 +11,7 @@ type PinnedLayoutProps = Extract<
 >;
 
 const pinnedLayoutWrapper = cva(
-  ['flex mx-auto max-w-(--breakpoint-2xl) w-full gap-fluid-lg'],
+  ['mx-auto max-w-(--breakpoint-2xl) w-full gap-fluid-lg px-4', 'lg:flex'],
   {
     variants: {
       pinTitleTo: {
@@ -34,12 +34,12 @@ export function PinnedLayout(props: PinnedLayoutProps): ReactElement {
         spacing,
       })}
     >
-      <div className="w-1/4">
+      <div className="mb-fluid-md lg:w-1/3">
         <h2 className="text-fluid-2xl sticky top-12 font-medium tracking-tight text-pretty">
           {title}
         </h2>
       </div>
-      <div className="w-3/4">
+      <div className="lg:w-2/3">
         <Blocks blocks={blocks} />
       </div>
     </div>
