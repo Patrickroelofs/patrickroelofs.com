@@ -1,12 +1,16 @@
 import { type ComponentType, type ReactElement } from 'react';
 import { Hero } from '@/components/hero/hero';
-// eslint-disable-next-line import/no-cycle -- TODO: Fix circular dependency if possible
+// eslint-disable-next-line import/no-cycle -- TODO: Fix cycle if possible
 import { PinnedLayout } from '@/components/pinned-layout/pinned-layout';
-import { RichText } from '@/components/rich-text/rich-text';
-import { type Page } from '../../../payload-types';
+import { RichText } from '@/components/rich-text/rich-test';
+import {
+  type HeroType,
+  type PinnedLayoutType,
+  type RichTextType,
+} from '../../../payload-types';
 
 interface BlocksProps {
-  blocks: Page['blocks'][0][];
+  blocks: (HeroType | PinnedLayoutType | RichTextType)[] | null | undefined;
 }
 
 const blockComponents = {
@@ -15,7 +19,11 @@ const blockComponents = {
   richText: RichText,
 };
 
-function Blocks({ blocks }: BlocksProps): ReactElement {
+function Blocks({ blocks }: BlocksProps): ReactElement | null {
+  if (blocks === null || blocks === undefined) {
+    return null;
+  }
+
   return (
     <>
       {blocks.map((block) => {

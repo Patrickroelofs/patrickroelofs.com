@@ -1,7 +1,9 @@
 import { type Block } from 'payload';
 import { spacingField } from '@/payload/fields/spacing';
+import { RichText } from '@/payload/blocks/rich-text';
 
 export const PinnedLayout: Block = {
+  interfaceName: 'PinnedLayoutType',
   labels: {
     singular: 'Pinned Layout',
     plural: 'Pinned Layouts',
@@ -28,6 +30,12 @@ export const PinnedLayout: Block = {
               label: 'Title',
               type: 'text',
               required: true,
+            },
+            {
+              name: 'blocks',
+              label: 'Blocks',
+              type: 'blocks',
+              blocks: [RichText],
             },
           ],
         },

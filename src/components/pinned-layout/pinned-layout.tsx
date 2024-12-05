@@ -1,6 +1,8 @@
 import { type ReactElement } from 'react';
 import { cva } from 'class-variance-authority';
 import { OptionsAsObject, spacingOptions } from '@/utils/spacing-options';
+// eslint-disable-next-line import/no-cycle -- TODO: Fix cycle if possible
+import { Blocks } from '@/components/blocks/blocks';
 import type { Page } from '../../../payload-types';
 
 type PinnedLayoutProps = Extract<
@@ -22,7 +24,7 @@ const pinnedLayoutWrapper = cva(
 );
 
 export function PinnedLayout(props: PinnedLayoutProps): ReactElement {
-  const { title, pinTitleTo } = props.content;
+  const { title, pinTitleTo, blocks } = props.content;
   const { spacing } = props.options;
 
   return (
@@ -37,7 +39,9 @@ export function PinnedLayout(props: PinnedLayoutProps): ReactElement {
           {title}
         </h2>
       </div>
-      <div className="w-3/4" />
+      <div className="w-3/4">
+        <Blocks blocks={blocks} />
+      </div>
     </div>
   );
 }

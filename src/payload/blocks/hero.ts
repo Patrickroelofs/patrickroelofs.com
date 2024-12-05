@@ -1,6 +1,7 @@
 import { type Block } from 'payload';
 
 export const Hero: Block = {
+  interfaceName: 'HeroType',
   labels: {
     singular: 'Hero',
     plural: 'Heroes',

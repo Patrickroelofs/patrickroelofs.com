@@ -74,86 +74,22 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
-  blocks: (
-    | {
-        image: number | Media;
-        text: string;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero';
-      }
-    | {
-        content: {
-          pinTitleTo: 'left' | 'right';
-          title: string;
-          blocks: {
-            content: {
-              root: {
-                type: string;
-                children: {
-                  type: string;
-                  version: number;
-                  [k: string]: unknown;
-                }[];
-                direction: ('ltr' | 'rtl') | null;
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                indent: number;
-                version: number;
-              };
-              [k: string]: unknown;
-            };
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'richText';
-          }[];
-        };
-        options: {
-          spacing:
-            | 'fluid-3xs'
-            | 'fluid-2xs'
-            | 'fluid-xs'
-            | 'fluid-sm'
-            | 'fluid-md'
-            | 'fluid-lg'
-            | 'fluid-xl'
-            | 'fluid-2xl'
-            | 'fluid-3xl'
-            | 'fluid-4xl'
-            | 'fluid-5xl'
-            | 'fluid-6xl'
-            | 'fluid-7xl'
-            | 'fluid-8xl'
-            | 'fluid-9xl';
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'pinnedLayout';
-      }
-    | {
-        content: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'richText';
-      }
-  )[];
+  blocks: (HeroType | PinnedLayoutType | RichTextType)[];
   slug: string;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroType".
+ */
+export interface HeroType {
+  image: number | Media;
+  text: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -192,6 +128,62 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PinnedLayoutType".
+ */
+export interface PinnedLayoutType {
+  content: {
+    pinTitleTo: 'left' | 'right';
+    title: string;
+    blocks?: RichTextType[] | null;
+  };
+  options: {
+    spacing:
+      | 'fluid-3xs'
+      | 'fluid-2xs'
+      | 'fluid-xs'
+      | 'fluid-sm'
+      | 'fluid-md'
+      | 'fluid-lg'
+      | 'fluid-xl'
+      | 'fluid-2xl'
+      | 'fluid-3xl'
+      | 'fluid-4xl'
+      | 'fluid-5xl'
+      | 'fluid-6xl'
+      | 'fluid-7xl'
+      | 'fluid-8xl'
+      | 'fluid-9xl';
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'pinnedLayout';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType".
+ */
+export interface RichTextType {
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'richText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
