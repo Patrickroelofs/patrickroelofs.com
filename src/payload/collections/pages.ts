@@ -39,7 +39,9 @@ export const Pages: CollectionConfig = {
         },
       ],
     },
-    slugField(),
+    slugField({
+      trackingField: 'title',
+    }),
   ],
   hooks: {
     afterChange: [

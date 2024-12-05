@@ -1,8 +1,14 @@
 import { deepMerge, type Field } from 'payload';
 
-type Slug = (overrides?: Partial<Field>) => Field;
+type Slug = (
+  options?: { trackingField?: string },
+  overrides?: Partial<Field>,
+) => Field;
 
-export const slugField: Slug = (overrides = {}) =>
+export const slugField: Slug = (
+  { trackingField = 'title' } = {},
+  overrides = {},
+) =>
   deepMerge(
     {
       label: 'Slug',
@@ -13,6 +19,15 @@ export const slugField: Slug = (overrides = {}) =>
       required: true,
       admin: {
         position: 'sidebar',
+        components: {
+          Field: {
+            path: './src/payload/fields/ui/slug-ui.tsx',
+            exportName: 'SlugInput',
+            clientProps: {
+              trackingField,
+            },
+          },
+        },
       },
       validate: (value: string) => {
         const slugRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
