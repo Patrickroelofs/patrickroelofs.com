@@ -1,8 +1,8 @@
 'use client';
 
-import React, { type ReactElement, useEffect, useRef } from 'react';
+import React, { type ReactElement, useEffect, useRef, useState } from 'react';
 import { type TextField } from 'payload';
-import { TextInput, useField } from '@payloadcms/ui';
+import { Button, TextInput, useField } from '@payloadcms/ui';
 import { toKebabCase } from 'payload/shared';
 
 export type SlugInputProps = TextField & {
@@ -12,6 +12,7 @@ export type SlugInputProps = TextField & {
 function SlugInput(props: SlugInputProps): ReactElement {
   const { trackingField, required } = props;
 
+  const [unlockSlug, setUnlockSlug] = useState<boolean>(false);
   const { value: slugValue = '', setValue: setSlugValue } = useField<string>({
     path: 'slug',
   });
@@ -44,9 +45,19 @@ function SlugInput(props: SlugInputProps): ReactElement {
 
   return (
     <div>
+      <div className="slug">
+        <span>Slug</span>
+        <Button
+          buttonStyle="pill"
+          onClick={() => {
+            setUnlockSlug(!unlockSlug);
+          }}
+        >
+          {unlockSlug ? 'Lock' : 'Unlock'} Slug
+        </Button>
+      </div>
       <TextInput
         path="slug"
-        label="Slug"
         description={
           slugValue
             ? `Auto generated based on ${trackingField}`
@@ -58,7 +69,7 @@ function SlugInput(props: SlugInputProps): ReactElement {
           stopTrackingRef.current = true;
         }}
         required={required}
-        readOnly
+        readOnly={!unlockSlug}
       />
     </div>
   );
