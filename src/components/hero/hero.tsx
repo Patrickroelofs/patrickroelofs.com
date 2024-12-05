@@ -10,7 +10,7 @@ export function Hero(props: HeroProps): ReactElement {
   return (
     <header className="mx-auto max-w-(--breakpoint-2xl)">
       <div className="align-center flex justify-center">
-        {image !== null ? (
+        {image !== null && (
           <Image
             width={1440}
             height={960}
@@ -18,20 +18,11 @@ export function Hero(props: HeroProps): ReactElement {
             alt={image.alt ?? ''}
             className="mx-auto w-full rounded-3xl"
           />
-        ) : (
-          <Image
-            width={1440}
-            height={960}
-            src="https://placehold.co/1440x960/png"
-            alt=""
-          />
         )}
       </div>
       <div className="pt-fluid-sm mx-auto max-w-(--breakpoint-xl)">
         <p className="text-fluid-2xl font-medium tracking-tight text-pretty">
-          {text
-            ? text
-            : 'No text has been provided, so here is a sample of what it would look like.'}
+          {text}
         </p>
       </div>
     </header>
