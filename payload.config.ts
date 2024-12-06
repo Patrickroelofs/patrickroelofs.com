@@ -11,9 +11,6 @@ import { Footer } from '@/payload/globals/footer';
 import { Navigation } from '@/payload/globals/navigation';
 import { SEO } from '@/payload/globals/seo';
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
-
 export default buildConfig({
   editor: lexicalEditor({}),
   globals: [SEO, Navigation, Footer],
@@ -52,7 +49,10 @@ export default buildConfig({
   },
   typescript: {
     autoGenerate: true,
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
+    outputFile: path.resolve(
+      path.dirname(fileURLToPath(import.meta.url)),
+      'payload-types.ts',
+    ),
   },
   db: postgresAdapter({
     pool: {
@@ -63,7 +63,10 @@ export default buildConfig({
   plugins: [
     vercelBlobStorage({
       collections: {
-        [Media.slug]: true,
+        media: {
+          generateFileURL: ({ filename }) =>
+            `https://lsa4xszd8vmltnt1.public.blob.vercel-storage.com/${filename}`,
+        },
       },
       token: process.env.BLOB_READ_WRITE_TOKEN ?? '',
     }),
