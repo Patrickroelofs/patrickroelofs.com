@@ -35,7 +35,7 @@ export function PinnedLayout(props: PinnedLayoutProps): ReactElement {
       })}
     >
       <div className="mb-fluid-md lg:w-1/3">
-        <h2 className="text-fluid-2xl sticky top-12 font-medium tracking-tight text-pretty">
+        <h2 className="text-fluid-2xl sticky top-12 font-bold tracking-tight text-pretty">
           {title}
         </h2>
       </div>
