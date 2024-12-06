@@ -3,20 +3,7 @@ import { type CollectionConfig } from 'payload';
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
-    imageSizes: [
-      {
-        name: 'thumbnail',
-        width: 650,
-        height: 650,
-        position: 'centre',
-      },
-      {
-        name: 'medium',
-        width: 1200,
-        height: 1200,
-        position: 'centre',
-      },
-    ],
+    imageSizes: [],
     adminThumbnail: 'thumbnail',
     mimeTypes: ['image/*'],
   },
