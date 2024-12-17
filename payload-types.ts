@@ -255,54 +255,57 @@ export interface PagesSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
-        hero?:
-          | T
-          | {
-              image?: T;
-              text?: T;
-              id?: T;
-              blockName?: T;
-            };
-        pinnedLayout?:
-          | T
-          | {
-              content?:
-                | T
-                | {
-                    pinTitleTo?: T;
-                    title?: T;
-                    blocks?:
-                      | T
-                      | {
-                          richText?:
-                            | T
-                            | {
-                                content?: T;
-                                id?: T;
-                                blockName?: T;
-                              };
-                        };
-                  };
-              options?:
-                | T
-                | {
-                    spacing?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        richText?:
-          | T
-          | {
-              content?: T;
-              id?: T;
-              blockName?: T;
-            };
+        hero?: T | HeroTypeSelect<T>;
+        pinnedLayout?: T | PinnedLayoutTypeSelect<T>;
+        richText?: T | RichTextTypeSelect<T>;
       };
   slug?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroType_select".
+ */
+export interface HeroTypeSelect<T extends boolean = true> {
+  image?: T;
+  text?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PinnedLayoutType_select".
+ */
+export interface PinnedLayoutTypeSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        pinTitleTo?: T;
+        title?: T;
+        blocks?:
+          | T
+          | {
+              richText?: T | RichTextTypeSelect<T>;
+            };
+      };
+  options?:
+    | T
+    | {
+        spacing?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType_select".
+ */
+export interface RichTextTypeSelect<T extends boolean = true> {
+  content?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
