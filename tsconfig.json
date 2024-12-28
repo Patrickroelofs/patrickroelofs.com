@@ -1,4 +1,5 @@
 {
+  "extends": "@vercel/style-guide/typescript/node20",
   "compilerOptions": {
     "baseUrl": ".",
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
@@ -21,7 +22,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@payload-config": ["./src/payload.config.ts"],
-      "@payload-types": ["./src/payload.types.ts"]
+      "@payload-types": ["./src/payload.types.ts"],
+      "@utils": ["./src/utils/*"],
     },
     "target": "ES2022"
   },
