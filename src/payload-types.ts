@@ -103,7 +103,7 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
-  blocks: ColumnsType[];
+  blocks: (ColumnsType | RichTextType)[];
   updatedAt: string;
   createdAt: string;
 }
@@ -119,7 +119,31 @@ export interface ColumnsType {
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'columns';
+  blockType: 'Columns';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType".
+ */
+export interface RichTextType {
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'RichText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -225,7 +249,8 @@ export interface PagesSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
-        columns?: T | ColumnsTypeSelect<T>;
+        Columns?: T | ColumnsTypeSelect<T>;
+        RichText?: T | RichTextTypeSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -240,6 +265,15 @@ export interface ColumnsTypeSelect<T extends boolean = true> {
     | {
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType_select".
+ */
+export interface RichTextTypeSelect<T extends boolean = true> {
+  content?: T;
   id?: T;
   blockName?: T;
 }

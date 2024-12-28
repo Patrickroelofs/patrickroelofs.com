@@ -1,12 +1,8 @@
 import { type Block } from 'payload';
 
 export const Columns: Block = {
-  slug: 'columns',
+  slug: 'Columns',
   interfaceName: 'ColumnsType',
-  labels: {
-    singular: 'Columns',
-    plural: 'Columns',
-  },
   fields: [
     {
       name: 'columns',

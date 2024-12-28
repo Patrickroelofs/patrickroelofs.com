@@ -1,11 +1,16 @@
 import { type ComponentType, type ReactElement } from 'react';
-import { type ColumnsType } from '@/payload-types';
+import { type ColumnsType, type RichTextType } from '@/payload-types';
+import { Columns } from '@/components/columns';
+import { RichText } from '@/components/richtext';
 
 interface BlocksProps {
-  blocks: ColumnsType[] | null | undefined;
+  blocks: (ColumnsType | RichTextType)[] | null | undefined;
 }
 
-const blockComponents = {};
+const blockComponents = {
+  Columns,
+  RichText,
+};
 
 function Blocks({ blocks }: BlocksProps): ReactElement | null {
   if (blocks === null || blocks === undefined) {
