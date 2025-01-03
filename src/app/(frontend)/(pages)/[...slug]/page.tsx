@@ -43,9 +43,7 @@ async function Page({
   }
 }
 
-export async function generateStaticParams(): Promise<
-  { params: { slug: string } }[] | { paths: never[] }
-> {
+export async function generateStaticParams() {
   try {
     const pages = await payload
       .find({
