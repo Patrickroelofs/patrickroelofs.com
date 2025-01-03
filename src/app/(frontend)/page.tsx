@@ -1,6 +1,6 @@
 import PageTemplate, {
   generateMetadata,
-} from '@/app/(frontend)/(pages)/[...slug]/page';
+} from '@/app/(frontend)/(pages)/[slug]/page';
 
 export default PageTemplate;
 
