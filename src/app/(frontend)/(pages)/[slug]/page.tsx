@@ -64,7 +64,7 @@ export async function generateStaticParams() {
     }
 
     return pages.map((page) => ({
-      slug: page.slug === 'home' ? '/' : page.slug,
+      slug: page.slug,
     }));
   } catch (error) {
     return {
