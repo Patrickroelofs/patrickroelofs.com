@@ -63,9 +63,11 @@ export async function generateStaticParams() {
       };
     }
 
-    return pages.map((page) => ({
-      slug: page.slug,
-    }));
+    return {
+      paths: pages.map((page) => ({
+        slug: page.slug,
+      })),
+    };
   } catch (error) {
     return {
       paths: [],
