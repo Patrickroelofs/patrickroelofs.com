@@ -103,7 +103,7 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
-  blocks: (ColumnsType | RichTextType)[];
+  blocks?: (ColumnsType | RichTextType)[] | null;
   updatedAt: string;
   createdAt: string;
 }

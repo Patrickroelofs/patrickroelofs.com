@@ -6,7 +6,6 @@ type Slug = (
 ) => Field;
 
 export const slugField: Slug = (
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- We're going to use this in the future
   { trackingField = 'title' } = {},
   overrides = {},
 ) =>
@@ -20,6 +19,15 @@ export const slugField: Slug = (
       required: true,
       admin: {
         position: 'sidebar',
+        components: {
+          Field: {
+            path: 'src/fields/ui/slug.tsx',
+            exportName: 'SlugInput',
+            clientProps: {
+              trackingField,
+            },
+          },
+        },
       },
       validate: (value: string) => {
         const slugRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

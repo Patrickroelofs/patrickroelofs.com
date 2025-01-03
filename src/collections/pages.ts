@@ -22,7 +22,6 @@ export const Pages: CollectionConfig = {
       name: 'blocks',
       label: 'Blocks',
       type: 'blocks',
-      required: true,
       blocks: [Columns, RichText],
     },
   ],

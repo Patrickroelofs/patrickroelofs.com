@@ -28,7 +28,7 @@ module.exports = {
       extends: ['plugin:@typescript-eslint/disable-type-checked'],
     },
     {
-      files: ['*.config.{mjs,ts}', 'src/**/{page,layout}.tsx'],
+      files: ['*.config.{mjs,ts,js}', 'src/**/{page,layout}.tsx'],
       rules: {
         'import/no-default-export': 'off',
         'import/prefer-default-export': ['error', { target: 'any' }],

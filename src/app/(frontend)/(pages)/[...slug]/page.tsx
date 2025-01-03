@@ -2,7 +2,7 @@ import { type ReactElement } from 'react';
 import { draftMode } from 'next/headers';
 import { type Metadata } from 'next';
 import { type Page as PageType } from '@/payload-types';
-import { PageTemplate } from '@/app/(pages)[slug]/page.template';
+import { PageTemplate } from '@/app/(frontend)/(pages)/[...slug]/page.template';
 import { payload } from '@/util/getPayloadConfig';
 
 async function Page({
