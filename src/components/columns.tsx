@@ -1,7 +1,6 @@
 import { type ReactElement } from 'react';
-import { type ColumnsType } from '@/payload-types';
 
-function Columns(props: ColumnsType): ReactElement {
+function Columns(): ReactElement {
   return <div>Columns</div>;
 }
 
