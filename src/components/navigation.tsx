@@ -5,9 +5,9 @@ import patrick from '../images/patrick.png';
 
 function Navigation(): ReactElement {
   return (
-    <nav className="mt-6 w-full sticky top-2">
+    <nav className="w-full py-4">
       <div className="container flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 px-4">
           <Image
             src={patrick.src}
             alt=""

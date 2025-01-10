@@ -103,7 +103,7 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
-  blocks?: (ColumnsType | RichTextType)[] | null;
+  blocks?: (ColumnsType | RichTextType | HeroType)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -144,6 +144,17 @@ export interface RichTextType {
   id?: string | null;
   blockName?: string | null;
   blockType: 'RichText';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroType".
+ */
+export interface HeroType {
+  description: string;
+  background: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -251,6 +262,7 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         Columns?: T | ColumnsTypeSelect<T>;
         RichText?: T | RichTextTypeSelect<T>;
+        Hero?: T | HeroTypeSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -274,6 +286,16 @@ export interface ColumnsTypeSelect<T extends boolean = true> {
  */
 export interface RichTextTypeSelect<T extends boolean = true> {
   content?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroType_select".
+ */
+export interface HeroTypeSelect<T extends boolean = true> {
+  description?: T;
+  background?: T;
   id?: T;
   blockName?: T;
 }

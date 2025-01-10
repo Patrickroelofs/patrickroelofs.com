@@ -35,7 +35,7 @@ function SlugInput(props: SlugInputProps): ReactElement {
       return;
     }
     const prevSlugValue = toKebabCase(
-      prevTrackingFieldValueRef.current,
+      prevTrackingFieldValueRef.current || '',
     ) as string;
 
     prevTrackingFieldValueRef.current = trackingFieldValue;

@@ -2,6 +2,7 @@ import { type CollectionConfig } from 'payload';
 import { slugField } from '@/fields/slug';
 import { Columns } from '@/blocks/columns';
 import { RichText } from '@/blocks/richtext';
+import { Hero } from '@/blocks/hero';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -22,7 +23,7 @@ export const Pages: CollectionConfig = {
       name: 'blocks',
       label: 'Blocks',
       type: 'blocks',
-      blocks: [Columns, RichText],
+      blocks: [Columns, RichText, Hero],
     },
   ],
 };

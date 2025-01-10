@@ -5,7 +5,14 @@ import { type RichTextType } from '@/payload-types';
 function RichText(props: RichTextType): ReactElement | null {
   if (!props.content) return null;
 
-  return <RichTextLexical data={props.content} />;
+  return (
+    <div className="container">
+      <RichTextLexical
+        data={props.content}
+        className="prose prose-xl text-black max-w-full"
+      />
+    </div>
+  );
 }
 
 export { RichText };
