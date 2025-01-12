@@ -9,6 +9,7 @@ import sharp from 'sharp';
 import { Media } from '@/collections/media';
 import { Users } from '@/collections/users';
 import { Pages } from '@/collections/pages';
+import { SiteSettings } from '@/globals/siteSettings';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -21,7 +22,8 @@ export default buildConfig({
       autoGenerate: true,
     },
   },
-  collections: [Users, Media, Pages],
+  collections: [Pages, Media, Users],
+  globals: [SiteSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET ?? '',
   typescript: {
