@@ -11,6 +11,8 @@ function Hero(props: HeroType): ReactElement {
     <div className="container pt-12">
       <Image
         src={background.url ?? ''}
+        blurDataURL={background.blurBase64 ?? ''}
+        placeholder="blur"
         width={1600}
         height={760}
         alt={background.alt}
