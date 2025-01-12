@@ -2,6 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres';
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
+import { resendAdapter } from '@payloadcms/email-resend';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
@@ -30,6 +31,11 @@ export default buildConfig({
     pool: {
       connectionString: process.env.POSTGRES_URL ?? '',
     },
+  }),
+  email: resendAdapter({
+    defaultFromName: 'Patrick Roelofs',
+    defaultFromAddress: 'dev@patrickroelofs.com',
+    apiKey: process.env.RESEND_EMAIL_TOKEN ?? '',
   }),
   sharp,
   plugins: [
