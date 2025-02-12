@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--color-ginger: rgba(249, 228, 214, 1);
+	--color-redleather: rgba(173, 76, 78, 1);
+	--font-sans: 'Inter', sans-serif;
+	--font-serif: 'Literata Variable', serif;
+}
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-black, currentColor);
+	}
+}
