@@ -1,4 +1,4 @@
-import { JAVASCRIPT_FILES } from '@vercel/style-guide/eslint/constants'
+const { JAVASCRIPT_FILES } = require('@vercel/style-guide/eslint/constants')
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
