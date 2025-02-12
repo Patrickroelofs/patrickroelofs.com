@@ -1,15 +1,14 @@
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import path from 'path'
 import { buildConfig } from 'payload'
-import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-
-import { Users } from './collections/Users'
-import { Media } from './collections/Media'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
-import { Pages } from '@/collections/Pages'
-import { Blog } from '@/collections/Blog'
+import { Users } from '@/collections/users'
+import { Media } from '@/collections/media'
+import { Pages } from '@/collections/pages'
+import { Blog } from '@/collections/blog'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -36,13 +35,13 @@ export default buildConfig({
   },
   collections: [Users, Media, Pages, Blog],
   editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: process.env.PAYLOAD_SECRET ?? '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: vercelPostgresAdapter({
     pool: {
-      connectionString: process.env.POSTGRES_URL || '',
+      connectionString: process.env.POSTGRES_URL ?? '',
     },
   }),
   sharp,

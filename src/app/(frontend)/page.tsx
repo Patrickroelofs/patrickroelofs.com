@@ -1,5 +1,5 @@
-import React from 'react'
+import React, { type ReactElement } from 'react'
 
-export default async function HomePage() {
+export default function HomePage(): ReactElement {
   return <p>Yes, it works!</p>
 }
