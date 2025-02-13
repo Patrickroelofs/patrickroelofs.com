@@ -10,57 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '14'
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libnss3
-
-      - name: Install Chrome
-        run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb
-          sudo apt-get install -f
-
-      - name: Install Lighthouse
-        run: npm install -g lighthouse
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.7.x
 
       - name: Run Lighthouse
-        run: lighthouse https://www.patrickroelofs.com --output json --output-path ./lighthouse-report.json --chrome-flags="--headless"
+        run: lhci autorun --collect.url=https://www.patrickroelofs.com --upload.target=filesystem --upload.outputDir=./
 
-      - name: Convert Lighthouse report to Markdown
+      - name: Convert Lighthouse report to markdown
         run: |
-          cat <<'EOF' > convert-lighthouse-report.mjs
-          import fs from 'fs';
-          const report = JSON.parse(fs.readFileSync('./lighthouse-report.json', 'utf8'));
-          const pwaScore = report.categories.pwa ? \`${report.categories.pwa.score * 100}%\` : 'N/A';
-          const markdown = \`# Lighthouse Report
-
-          **Performance**: \${report.categories.performance.score * 100}%
-          **Accessibility**: \${report.categories.accessibility.score * 100}%
-          **Best Practices**: \${report.categories['best-practices'].score * 100}%
-          **SEO**: \${report.categories.seo.score * 100}%
-          **PWA**: \${pwaScore}
-
-          \`;
-          fs.writeFileSync('./lighthouse-report.md', markdown);
-          EOF
-          node convert-lighthouse-report.mjs
-
-      - name: Upload Lighthouse report
-        uses: actions/upload-artifact@v4
-        with:
-          name: lighthouse-report
-          path: ./lighthouse-report.md
+          npm install -g lighthouse-badges
+          lighthouse-badges --input=./lhr-*.html --output=./report.md
 
       - name: Post Lighthouse report as PR comment
         uses: marocchino/sticky-pull-request-comment@v2
         with:
-          path: ./lighthouse-report.md
+          path: ./report.md
