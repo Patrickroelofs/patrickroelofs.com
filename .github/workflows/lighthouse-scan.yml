@@ -37,8 +37,8 @@ jobs:
 
       - name: Convert Lighthouse report to Markdown
         run: |
-          cat <<EOF > convert-lighthouse-report.js
-          const fs = require('fs');
+          cat <<EOF > convert-lighthouse-report.mjs
+          import fs from 'fs';
           const report = JSON.parse(fs.readFileSync('./lighthouse-report.json', 'utf8'));
           const markdown = \`# Lighthouse Report
 
@@ -51,7 +51,7 @@ jobs:
           \`;
           fs.writeFileSync('./lighthouse-report.md', markdown);
           EOF
-          node convert-lighthouse-report.js
+          node convert-lighthouse-report.mjs
 
       - name: Upload Lighthouse report
         uses: actions/upload-artifact@v4
