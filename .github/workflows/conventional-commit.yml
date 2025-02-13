@@ -1,4 +1,5 @@
-name: pr-title
+# Workflow inspired by https://github.com/payloadcms/payload/blob/main/.github/workflows/pr-title.yml
+name: Lint PR title with conventional commit rules
 
 on:
   pull_request_target:
@@ -11,11 +12,11 @@ permissions:
 
 jobs:
   main:
-    name: lint-pr-title
+    name: lint-pull-request-title
     runs-on: ubuntu-24.04
     steps:
       - uses: amannn/action-semantic-pull-request@v5
-        id: lint_pr_title
+        id: lint-pull-request-title
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
