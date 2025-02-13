@@ -4,7 +4,9 @@
 @theme {
   --color-ginger: rgba(249, 228, 214, 1);
   --color-redleather: rgba(173, 76, 78, 1);
-  --font-sans: "Inter", sans-serif;
+  --color-graphite: rgba(98, 100, 107, 1);
+  --color-peach: rgba(227, 139, 117, 1);
+
   --font-serif: "Literata Variable", serif;
 }
 
