@@ -1,4 +1,5 @@
 import { iconField } from "@/fields/icon";
+import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { GlobalConfig } from "payload";
 
 const Footer: GlobalConfig = {
@@ -29,6 +30,9 @@ const Footer: GlobalConfig = {
       ],
     },
   ],
+  hooks: {
+    afterChange: [revalidateAfterChange],
+  },
 };
 
 export { Footer };
