@@ -40,13 +40,14 @@ jobs:
           cat <<EOF > convert-lighthouse-report.mjs
           import fs from 'fs';
           const report = JSON.parse(fs.readFileSync('./lighthouse-report.json', 'utf8'));
+          const pwaScore = report.categories.pwa ? \`${report.categories.pwa.score * 100}%\` : 'N/A';
           const markdown = \`# Lighthouse Report
 
           **Performance**: \${report.categories.performance.score * 100}%
           **Accessibility**: \${report.categories.accessibility.score * 100}%
           **Best Practices**: \${report.categories['best-practices'].score * 100}%
           **SEO**: \${report.categories.seo.score * 100}%
-          **PWA**: \${report.categories.pwa.score * 100}%
+          **PWA**: \${pwaScore}
 
           \`;
           fs.writeFileSync('./lighthouse-report.md', markdown);
