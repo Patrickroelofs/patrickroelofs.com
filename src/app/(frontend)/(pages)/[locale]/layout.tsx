@@ -8,6 +8,7 @@ import "@fontsource-variable/literata";
 import "@fontsource-variable/literata/opsz-italic.css";
 import "@fontsource-variable/literata/opsz.css";
 import "@fontsource-variable/literata/wght-italic.css";
+import { Footer } from "@/patterns/footer/footer";
 
 export const metadata = {};
 
@@ -26,6 +27,7 @@ export default async function RootLayout({ children, params }: Args) {
       <body>
         <Navigation locale={locale} />
         <main>{children}</main>
+        <Footer locale={locale} />
         <Analytics />
       </body>
     </html>

@@ -14,7 +14,7 @@ async function Navigation(props: NavigationType) {
   });
 
   return (
-    <nav className="sticky top-0 mt-12 z-50">
+    <nav className="sticky top-2 mt-12 z-50">
       <div className="relative container mx-auto grid gap-4 md:grid-cols-2 border-2 bg-ginger border-black py-4 items-center rounded-t-lg">
         <Link href="/" className="text-2xl font-bold">
           <h1>Patrick Roelofs</h1>

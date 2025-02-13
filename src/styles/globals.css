@@ -24,3 +24,16 @@
   margin-inline: auto;
   padding-inline: 1em;
 }
+
+.footer-border {
+  border-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 75%
+    )
+    1;
+  border-top-width: 2px;
+  border-left-width: 2px;
+  border-right-width: 2px;
+  border-style: solid;
+}
