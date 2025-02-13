@@ -474,6 +474,24 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Navigation {
   id: number;
+  navigation?: {
+    links?:
+      | {
+          overrideLabel?: boolean | null;
+          label?: string | null;
+          link?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'blog';
+                value: number | Blog;
+              } | null);
+          id?: string | null;
+        }[]
+      | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -482,6 +500,18 @@ export interface Navigation {
  * via the `definition` "navigation_select".
  */
 export interface NavigationSelect<T extends boolean = true> {
+  navigation?:
+    | T
+    | {
+        links?:
+          | T
+          | {
+              overrideLabel?: T;
+              label?: T;
+              link?: T;
+              id?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
