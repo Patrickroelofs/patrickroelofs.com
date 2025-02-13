@@ -11,7 +11,8 @@
       "node_modules",
       ".next",
       "src/migrations/**/*",
-      "payload-types.ts"
+      "payload-types.ts",
+      "src/app/(payload)/**/*"
     ]
   },
   "formatter": {
