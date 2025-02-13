@@ -1,4 +1,5 @@
 import { slugField } from "@/fields/slug";
+import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { CollectionConfig } from "payload";
 
 const Pages: CollectionConfig = {
@@ -24,6 +25,9 @@ const Pages: CollectionConfig = {
       schedulePublish: true,
       autosave: true,
     },
+  },
+  hooks: {
+    afterChange: [revalidateAfterChange],
   },
 };
 
