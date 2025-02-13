@@ -1,11 +1,14 @@
-import React, { type ReactElement } from 'react'
-import { Analytics } from '@vercel/analytics/react'
-import '@/styles/globals.css'
+import { Analytics } from "@vercel/analytics/react";
+import type React from "react";
+import type { ReactElement } from "react";
+import "@/styles/globals.css";
 
-export const metadata = {}
+export const metadata = {};
 
-export default function RootLayout(props: { children: React.ReactNode }): ReactElement {
-  const { children } = props
+export default function RootLayout(props: {
+  children: React.ReactNode;
+}): ReactElement {
+  const { children } = props;
 
   return (
     <html lang="en">
@@ -14,5 +17,5 @@ export default function RootLayout(props: { children: React.ReactNode }): ReactE
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

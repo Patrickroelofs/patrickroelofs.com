@@ -7,7 +7,12 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules", "src/migrations/**/*"]
+    "ignore": [
+      "node_modules",
+      ".next",
+      "src/migrations/**/*",
+      "payload-types.ts"
+    ]
   },
   "formatter": {
     "enabled": true,

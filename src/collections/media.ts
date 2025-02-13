@@ -1,20 +1,20 @@
-import type { CollectionConfig } from 'payload'
-import { generateBlurData } from '@/util/generateBlurData'
+import { generateBlurData } from "@/util/generateBlurData";
+import type { CollectionConfig } from "payload";
 
 export const Media: CollectionConfig = {
-  slug: 'media',
+  slug: "media",
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: 'alt',
-      type: 'text',
+      name: "alt",
+      type: "text",
       required: true,
     },
     {
-      name: 'blurData',
-      type: 'text',
+      name: "blurData",
+      type: "text",
       admin: {
         hidden: true,
         disableListColumn: true,
@@ -26,4 +26,4 @@ export const Media: CollectionConfig = {
   hooks: {
     beforeValidate: [generateBlurData],
   },
-}
+};
