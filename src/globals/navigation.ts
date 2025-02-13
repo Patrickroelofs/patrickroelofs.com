@@ -1,3 +1,4 @@
+import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { GlobalConfig } from "payload";
 
 const Navigation: GlobalConfig = {
@@ -42,6 +43,9 @@ const Navigation: GlobalConfig = {
       ],
     },
   ],
+  hooks: {
+    afterChange: [revalidateAfterChange],
+  },
 };
 
 export { Navigation };
