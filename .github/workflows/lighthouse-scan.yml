@@ -36,7 +36,9 @@ jobs:
         run: lighthouse https://www.patrickroelofs.com --output json --output-path ./lighthouse-report.json --chrome-flags="--headless"
 
       - name: Generate Lighthouse CI report
-        run: lhci upload --target=filesystem --outputDir=./lhci-report --reportFilename=lighthouse-report.md
+        run: |
+          mkdir -p ./lhci-report
+          lhci upload --target=filesystem --outputDir=./lhci-report --reportFilename=lighthouse-report.md
 
       - name: Upload Lighthouse report
         uses: actions/upload-artifact@v4
