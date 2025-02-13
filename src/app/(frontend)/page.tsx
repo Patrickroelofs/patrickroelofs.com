@@ -1,5 +1,7 @@
-import React, { type ReactElement } from "react";
+import PageTemplate, {
+  generateMetadata,
+} from "@/app/(frontend)/(pages)/[slug]/page";
 
-export default function HomePage(): ReactElement {
-  return <p>Yes, it works!</p>;
-}
+export default PageTemplate;
+
+export { generateMetadata };
