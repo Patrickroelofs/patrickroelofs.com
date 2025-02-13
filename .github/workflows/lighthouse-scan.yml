@@ -1,0 +1,42 @@
+name: Lighthouse Performance Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lighthouse:
+    name: Run Lighthouse CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse
+        run: |
+          lhci autorun --upload.target=temporary-public-storage | tee lhci_output.txt
+
+      - name: Extract Lighthouse Scores
+        run: |
+          SCORE=$(cat lhci_output.txt | grep -A 5 "Categories" | grep -Eo '[0-9]{1,3}' | paste -sd ',' -)
+          echo "LIGHTHOUSE_SCORE=$SCORE" >> $GITHUB_ENV
+
+      - name: Post Lighthouse Report in PR
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ⚡ **Lighthouse Report** ⚡
+            - Performance: ${{ env.LIGHTHOUSE_SCORE }}
+            - [View Full Report](https://github.com/GoogleChrome/lighthouse-ci)
+          reactions: eyes, rocket
