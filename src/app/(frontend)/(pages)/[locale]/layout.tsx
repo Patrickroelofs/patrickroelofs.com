@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
-import type React from "react";
-import type { ReactElement } from "react";
 
+import { routing } from "@/i18n/routing";
 import { Navigation } from "@/patterns/navigation/navigation";
 import "@/styles/globals.css";
 import "@fontsource-variable/literata";
@@ -11,10 +10,16 @@ import "@fontsource-variable/literata/wght-italic.css";
 
 export const metadata = {};
 
-export default function RootLayout(props: {
+type Args = {
   children: React.ReactNode;
-}): ReactElement {
-  const { children } = props;
+  params: Promise<{
+    locale: "en" | "nl";
+  }>;
+};
+
+export default async function RootLayout({ children, params }: Args) {
+  // TODO: Pass to navigation and handle locale data
+  const { locale } = await params;
 
   return (
     <html lang="en" className="bg-ginger font-serif text-black">
@@ -25,4 +30,8 @@ export default function RootLayout(props: {
       </body>
     </html>
   );
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }

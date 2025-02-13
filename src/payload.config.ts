@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 import { Navigation } from "./globals/navigation";
+import localization from "./i18n/localization";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -21,19 +22,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  localization: {
-    locales: [
-      {
-        label: "English",
-        code: "en",
-      },
-      {
-        label: "Dutch",
-        code: "nl",
-      },
-    ],
-    defaultLocale: "en",
-  },
+  localization,
   collections: [Users, Media, Pages, Blog],
   globals: [Navigation],
   editor: lexicalEditor(),
