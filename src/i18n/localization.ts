@@ -1,3 +1,5 @@
+import type { LocalizationConfig } from "payload";
+
 const localization = {
   defaultLocale: "en",
   locales: [
@@ -10,6 +12,6 @@ const localization = {
       label: "Dutch (Nederlands)",
     },
   ],
-};
+} as LocalizationConfig;
 
 export default localization;

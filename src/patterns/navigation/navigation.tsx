@@ -1,13 +1,16 @@
-import type { Blog, Page } from "@/payload-types";
+import type { Config, Page } from "@/payload-types";
 import { payload } from "@/util/getPayloadConfig";
 import Link from "next/link";
 
-async function Navigation() {
+type NavigationType = {
+  locale: Config["locale"];
+};
+
+async function Navigation(props: NavigationType) {
   const data = await payload.findGlobal({
     slug: "navigation",
     depth: 1,
-    // TODO: Implement locale based on URL
-    locale: "en",
+    locale: props.locale,
   });
 
   return (
@@ -19,21 +22,6 @@ async function Navigation() {
         <div className="flex md:justify-end">
           <ul className="flex space-x-6">
             {data.navigation?.links?.map((link) => {
-              if (link.link?.relationTo === "blog") {
-                const blogLink = link.link.value as Blog;
-
-                return (
-                  <li key={link.id}>
-                    <Link
-                      href={`/blog/${blogLink.slug}`}
-                      className="text-xl font-medium"
-                    >
-                      {link.overrideLabel ? link.label : blogLink.title}
-                    </Link>
-                  </li>
-                );
-              }
-
               if (link.link?.relationTo === "pages") {
                 const pageLink = link.link.value as Page;
 

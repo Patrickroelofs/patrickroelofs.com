@@ -14,6 +14,7 @@ const Navigation: GlobalConfig = {
               name: "links",
               label: "Links",
               type: "array",
+              localized: true,
               fields: [
                 {
                   name: "overrideLabel",
@@ -32,7 +33,7 @@ const Navigation: GlobalConfig = {
                 {
                   name: "link",
                   type: "relationship",
-                  relationTo: ["pages", "blog"],
+                  relationTo: ["pages"],
                 },
               ],
             },

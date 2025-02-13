@@ -479,15 +479,10 @@ export interface Navigation {
       | {
           overrideLabel?: boolean | null;
           label?: string | null;
-          link?:
-            | ({
-                relationTo: 'pages';
-                value: number | Page;
-              } | null)
-            | ({
-                relationTo: 'blog';
-                value: number | Blog;
-              } | null);
+          link?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
           id?: string | null;
         }[]
       | null;

@@ -1,5 +1,5 @@
 import { PageTemplate } from "@/app/(frontend)/(pages)/[locale]/[slug]/page.template";
-import type { Page as PageType } from "@/payload-types";
+import type { Config, Page as PageType } from "@/payload-types";
 import { payload } from "@/util/getPayloadConfig";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
@@ -8,7 +8,7 @@ import type { ReactElement } from "react";
 async function Page({
   params,
 }: {
-  params: Promise<{ slug: string; locale: "en" | "nl" }>;
+  params: Promise<{ slug: string; locale: Config["locale"] }>;
 }): Promise<ReactElement> {
   const { isEnabled: draft } = await draftMode();
   const { slug = "home", locale = "en" } = await params;

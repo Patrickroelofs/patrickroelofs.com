@@ -12,6 +12,7 @@ const Pages: CollectionConfig = {
       label: "Title",
       type: "text",
       required: true,
+      localized: true,
     },
     slugField({
       trackingField: "title",
