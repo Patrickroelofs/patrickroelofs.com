@@ -1,20 +1,20 @@
-import { type CollectionConfig } from 'payload'
-import { slugField } from '@/fields/slug'
+import { slugField } from "@/fields/slug";
+import type { CollectionConfig } from "payload";
 
 const Pages: CollectionConfig = {
-  slug: 'pages',
+  slug: "pages",
   admin: {
-    useAsTitle: 'title',
+    useAsTitle: "title",
   },
   fields: [
     {
-      name: 'title',
-      label: 'Title',
-      type: 'text',
+      name: "title",
+      label: "Title",
+      type: "text",
       required: true,
     },
     slugField({
-      trackingField: 'title',
+      trackingField: "title",
     }),
   ],
   versions: {
@@ -24,6 +24,6 @@ const Pages: CollectionConfig = {
       autosave: true,
     },
   },
-}
+};
 
-export { Pages }
+export { Pages };
