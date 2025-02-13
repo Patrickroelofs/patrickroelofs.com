@@ -1,4 +1,4 @@
-name: Lighthouse Performance Test
+name: Lighthouse Scan
 
 on:
   pull_request:
@@ -7,36 +7,35 @@ on:
 
 jobs:
   lighthouse:
-    name: Run Lighthouse CI
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '14'
 
-      - name: Install Lighthouse CI
-        run: npm install -g @lhci/cli
+      - name: Install Lighthouse
+        run: npm install -g lighthouse
 
       - name: Run Lighthouse
-        run: |
-          lhci autorun --upload.target=temporary-public-storage | tee lhci_output.txt
+        run: lighthouse https://www.patrickroelofs.com --output json --output-path ./lighthouse-report.json
 
-      - name: Extract Lighthouse Scores
+      - name: Convert Lighthouse report to Markdown
         run: |
-          SCORE=$(cat lhci_output.txt | grep -A 5 "Categories" | grep -Eo '[0-9]{1,3}' | paste -sd ',' -)
-          echo "LIGHTHOUSE_SCORE=$SCORE" >> $GITHUB_ENV
+          npm install -g lighthouse-badges
+          lighthouse-badges -s ./lighthouse-report.json -o ./lighthouse-report.md
 
-      - name: Post Lighthouse Report in PR
-        uses: peter-evans/create-or-update-comment@v4
+      - name: Upload Lighthouse report
+        uses: actions/upload-artifact@v2
         with:
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            ⚡ **Lighthouse Report** ⚡
-            - Performance: ${{ env.LIGHTHOUSE_SCORE }}
-            - [View Full Report](https://github.com/GoogleChrome/lighthouse-ci)
-          reactions: eyes, rocket
+          name: lighthouse-report
+          path: ./lighthouse-report.md
+
+      - name: Post Lighthouse report as PR comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: ./lighthouse-report.md
