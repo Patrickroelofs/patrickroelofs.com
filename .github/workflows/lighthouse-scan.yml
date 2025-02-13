@@ -37,7 +37,7 @@ jobs:
 
       - name: Convert Lighthouse report to Markdown
         run: |
-          cat <<EOF > convert-lighthouse-report.mjs
+          cat <<'EOF' > convert-lighthouse-report.mjs
           import fs from 'fs';
           const report = JSON.parse(fs.readFileSync('./lighthouse-report.json', 'utf8'));
           const pwaScore = report.categories.pwa ? \`${report.categories.pwa.score * 100}%\` : 'N/A';
