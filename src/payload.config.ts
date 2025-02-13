@@ -1,3 +1,5 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { Blog } from "@/collections/blog";
 import { Media } from "@/collections/media";
 import { Pages } from "@/collections/pages";
@@ -5,11 +7,10 @@ import { Users } from "@/collections/users";
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 import { Navigation } from "./globals/navigation";
+import localization from "./i18n/localization";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -21,19 +22,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  localization: {
-    locales: [
-      {
-        label: "English",
-        code: "en",
-      },
-      {
-        label: "Dutch",
-        code: "nl",
-      },
-    ],
-    defaultLocale: "en",
-  },
+  localization,
   collections: [Users, Media, Pages, Blog],
   globals: [Navigation],
   editor: lexicalEditor(),
