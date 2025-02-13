@@ -16,7 +16,7 @@ async function Footer(props: FooterType) {
 
   return (
     <footer>
-      <div className="container footer-border grid grid-cols-3 items-center w-full py-8">
+      <div className="container footer-border grid md:grid-cols-3 gap-8 md:gap-0 items-center w-full py-8">
         <div className="flex justify-start" />
         <div className="flex justify-center">
           <p className="text-center text-6xl font-black">
@@ -25,7 +25,7 @@ async function Footer(props: FooterType) {
             Roelofs
           </p>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-center md:justify-end">
           <nav>
             <ul className="flex gap-4">
               {data.socialLinks?.map((link) => {
