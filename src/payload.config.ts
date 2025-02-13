@@ -9,6 +9,7 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { buildConfig } from "payload";
 import sharp from "sharp";
+import { Footer } from "./globals/footer";
 import { Navigation } from "./globals/navigation";
 import localization from "./i18n/localization";
 
@@ -24,7 +25,7 @@ export default buildConfig({
   },
   localization,
   collections: [Users, Media, Pages, Blog],
-  globals: [Navigation],
+  globals: [Navigation, Footer],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET ?? "",
   typescript: {
