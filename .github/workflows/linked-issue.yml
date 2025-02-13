@@ -1,7 +1,7 @@
 name: Check Linked Issues
 on:
   pull_request:
-    types: [opened, edited, synchronize]
+    types: [opened, edited, synchronize, labeled]
 
 jobs:
   check-linked-issues:
