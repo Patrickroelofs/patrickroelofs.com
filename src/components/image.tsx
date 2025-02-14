@@ -7,7 +7,7 @@ type ImageProps = {
 } & Omit<NextImageProps, "src" | "alt">;
 
 function Image(props: ImageProps): ReactElement {
-  const { media } = props;
+  const { media, ...rest } = props;
 
   if (typeof media === "number") {
     // TODO: Handle when image is an id reference to the Media Collection
@@ -19,7 +19,7 @@ function Image(props: ImageProps): ReactElement {
       blurDataURL={media.blurData ?? ""}
       src={media.url ?? ""}
       alt={media.alt}
-      {...props}
+      {...rest}
     />
   );
 }
