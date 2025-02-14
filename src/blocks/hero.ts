@@ -27,14 +27,14 @@ const HeroBlock: Block = {
       type: "row",
       fields: [
         {
-          name: "backgroundText",
-          label: "Background Text",
+          name: "leftText",
+          label: "Left Text",
           type: "text",
           required: true,
         },
         {
-          name: "frontText",
-          label: "Front Text",
+          name: "rightText",
+          label: "Right Text",
           type: "text",
           required: true,
         },
