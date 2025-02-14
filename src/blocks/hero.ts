@@ -5,23 +5,11 @@ const HeroBlock: Block = {
   interfaceName: "HeroBlockType",
   fields: [
     {
-      type: "row",
-      fields: [
-        {
-          name: "backgroundImage",
-          label: "Background Image",
-          type: "upload",
-          relationTo: "media",
-          required: true,
-        },
-        {
-          name: "frontImage",
-          label: "Front Image",
-          type: "upload",
-          relationTo: "media",
-          required: true,
-        },
-      ],
+      name: "image",
+      label: "Image",
+      type: "upload",
+      relationTo: "media",
+      required: true,
     },
     {
       type: "row",
