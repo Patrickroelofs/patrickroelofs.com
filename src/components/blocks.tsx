@@ -1,10 +1,14 @@
+import type { HeroBlockType } from "@/payload-types";
 import type { ComponentType } from "react";
+import { Hero } from "./hero";
 
 interface BlocksProps {
-  blocks: [] | null | undefined;
+  blocks: HeroBlockType[] | null | undefined;
 }
 
-const blockComponents = {};
+const blockComponents = {
+  heroBlock: Hero,
+};
 
 function Blocks({ blocks }: BlocksProps) {
   if (blocks === null || blocks === undefined) {
@@ -19,7 +23,6 @@ function Blocks({ blocks }: BlocksProps) {
         if (blockType in blockComponents) {
           const BlockComponent = blockComponents[blockType] as ComponentType;
 
-          // @ts-ignore
           return <BlockComponent key={block.id} {...block} />;
         }
 
