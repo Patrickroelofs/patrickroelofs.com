@@ -4,7 +4,7 @@ import { Blog } from "@/collections/blog";
 import { Media } from "@/collections/media";
 import { Pages } from "@/collections/pages";
 import { Users } from "@/collections/users";
-import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
+import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { buildConfig } from "payload";
@@ -31,9 +31,10 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
-  db: vercelPostgresAdapter({
-    pool: {
-      connectionString: process.env.POSTGRES_URL ?? "",
+  db: sqliteAdapter({
+    client: {
+      url: process.env.DATABASE_URL ?? "",
+      authToken: process.env.DATABASE_AUTH_TOKEN ?? "",
     },
   }),
   sharp,
