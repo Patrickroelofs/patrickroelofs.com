@@ -1,3 +1,4 @@
+import { HeroBlock } from "@/blocks/hero";
 import { slugField } from "@/fields/slug";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { CollectionConfig } from "payload";
@@ -18,6 +19,12 @@ const Pages: CollectionConfig = {
     slugField({
       trackingField: "title",
     }),
+    {
+      name: "content",
+      label: "Content",
+      type: "blocks",
+      blocks: [HeroBlock],
+    },
   ],
   versions: {
     maxPerDoc: 15,

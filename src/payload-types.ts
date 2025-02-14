@@ -174,9 +174,23 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
+  content?: HeroBlockType[] | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlockType".
+ */
+export interface HeroBlockType {
+  backgroundImage: number | Media;
+  frontImage: number | Media;
+  backgroundText: string;
+  frontText: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'heroBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -392,9 +406,26 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  content?:
+    | T
+    | {
+        heroBlock?: T | HeroBlockTypeSelect<T>;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlockType_select".
+ */
+export interface HeroBlockTypeSelect<T extends boolean = true> {
+  backgroundImage?: T;
+  frontImage?: T;
+  backgroundText?: T;
+  frontText?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
