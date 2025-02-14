@@ -19,6 +19,7 @@ function Blocks({ blocks }: BlocksProps) {
         if (blockType in blockComponents) {
           const BlockComponent = blockComponents[blockType] as ComponentType;
 
+          // @ts-ignore
           return <BlockComponent key={block.id} {...block} />;
         }
 
