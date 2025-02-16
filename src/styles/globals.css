@@ -22,12 +22,11 @@
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 1em;
 }
 
 body {
   > nav {
-    @apply sticky top-2 mt-12 z-50 container grid gap-4 md:grid-cols-2 py-4 items-center bg-ginger;
+    @apply sticky top-0 mt-12 z-50 container grid gap-4 md:grid-cols-2 py-4 items-center bg-ginger px-4;
 
     border-image: linear-gradient(
         0deg,
@@ -46,7 +45,7 @@ body {
   }
 
   > footer {
-    @apply container grid md:grid-cols-3 gap-8 md:gap-0 items-center w-full py-8;
+    @apply container grid md:grid-cols-3 gap-8 md:gap-0 items-center w-full py-8 px-4;
 
     border-image: linear-gradient(
         180deg,

@@ -18,7 +18,7 @@ function Image(props: ImageProps): ReactElement {
     <NextImage
       blurDataURL={media.blurData ?? ""}
       src={media.url ?? ""}
-      alt={media.alt}
+      alt={media.alt ?? ""}
       {...rest}
     />
   );
