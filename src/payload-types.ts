@@ -68,7 +68,6 @@ export interface Config {
     users: User;
     media: Media;
     pages: Page;
-    blog: Blog;
     'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -79,7 +78,6 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
-    blog: BlogSelect<false> | BlogSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -174,7 +172,7 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
-  content?: HeroBlockType[] | null;
+  content?: (HeroBlockType | AboutSectionType)[] | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -197,15 +195,30 @@ export interface HeroBlockType {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog".
+ * via the `definition` "AboutSectionType".
  */
-export interface Blog {
-  id: number;
+export interface AboutSectionType {
   title: string;
-  slug: string;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  overrideTitle?: string | null;
+  link?: (number | null) | Page;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'AboutSection';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -319,10 +332,6 @@ export interface PayloadLockedDocument {
         value: number | Page;
       } | null)
     | ({
-        relationTo: 'blog';
-        value: number | Blog;
-      } | null)
-    | ({
         relationTo: 'payload-jobs';
         value: number | PayloadJob;
       } | null);
@@ -413,6 +422,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         heroBlock?: T | HeroBlockTypeSelect<T>;
+        AboutSection?: T | AboutSectionTypeSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -437,14 +447,15 @@ export interface HeroBlockTypeSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog_select".
+ * via the `definition` "AboutSectionType_select".
  */
-export interface BlogSelect<T extends boolean = true> {
+export interface AboutSectionTypeSelect<T extends boolean = true> {
   title?: T;
-  slug?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
+  content?: T;
+  overrideTitle?: T;
+  link?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2104,15 +2115,10 @@ export interface TaskSchedulePublish {
   input: {
     type?: ('publish' | 'unpublish') | null;
     locale?: string | null;
-    doc?:
-      | ({
-          relationTo: 'pages';
-          value: number | Page;
-        } | null)
-      | ({
-          relationTo: 'blog';
-          value: number | Blog;
-        } | null);
+    doc?: {
+      relationTo: 'pages';
+      value: number | Page;
+    } | null;
     global?: string | null;
     user?: (number | null) | User;
   };
