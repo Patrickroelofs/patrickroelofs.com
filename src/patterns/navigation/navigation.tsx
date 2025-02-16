@@ -1,6 +1,7 @@
-import type { Config, Page } from "@/payload-types";
+import type { Page } from "@/payload-types";
 import { payload } from "@/util/getPayloadConfig";
 import Link from "next/link";
+import { NavigationLogo } from "./navigationLogo";
 
 async function Navigation() {
   const data = await payload.findGlobal({
@@ -10,9 +11,7 @@ async function Navigation() {
 
   return (
     <nav>
-      <Link href="/" className="text-2xl font-bold">
-        <h1>Patrick Roelofs</h1>
-      </Link>
+      <NavigationLogo />
       <div className="flex md:justify-end">
         <ul className="flex space-x-6">
           {data.navigation?.links?.map((link) => {

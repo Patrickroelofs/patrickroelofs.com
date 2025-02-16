@@ -1,7 +1,7 @@
 import type { AboutSectionType, HeroBlockType } from "@/payload-types";
 import type { ComponentType } from "react";
 import { About } from "./about";
-import { Hero } from "./hero/hero";
+import { Hero } from "./hero";
 
 interface BlocksProps {
   blocks: (HeroBlockType | AboutSectionType)[] | null | undefined;
