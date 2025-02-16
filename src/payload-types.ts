@@ -96,7 +96,7 @@ export interface Config {
     navigation: NavigationSelect<false> | NavigationSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
   };
-  locale: 'en' | 'nl';
+  locale: null;
   user: User & {
     collection: 'users';
   };
