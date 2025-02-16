@@ -16,7 +16,16 @@ async function Footer(props: FooterType) {
 
   return (
     <footer>
-      <div className="flex justify-start" />
+      <div className="flex justify-center md:justify-start">
+        <ul className="text-3xl flex gap-2">
+          <li>
+            <Link href="/nl">🇳🇱</Link>
+          </li>
+          <li>
+            <Link href="/en">🇬🇧</Link>
+          </li>
+        </ul>
+      </div>
       <div className="flex justify-center">
         <p className="text-center text-6xl font-black">
           Patrick
