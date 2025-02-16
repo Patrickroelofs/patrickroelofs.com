@@ -172,7 +172,7 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
-  content?: (HeroBlockType | AboutSectionType)[] | null;
+  content?: (HeroBlockType | AboutSectionType | TitleWithBlocksType)[] | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -214,6 +214,41 @@ export interface AboutSectionType {
   id?: string | null;
   blockName?: string | null;
   blockType: 'AboutSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TitleWithBlocksType".
+ */
+export interface TitleWithBlocksType {
+  title: string;
+  blocks: RichTextType[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'TitleWithBlocks';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType".
+ */
+export interface RichTextType {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'RichText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -418,6 +453,7 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         heroBlock?: T | HeroBlockTypeSelect<T>;
         AboutSection?: T | AboutSectionTypeSelect<T>;
+        TitleWithBlocks?: T | TitleWithBlocksTypeSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -442,6 +478,29 @@ export interface AboutSectionTypeSelect<T extends boolean = true> {
   content?: T;
   overrideTitle?: T;
   link?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TitleWithBlocksType_select".
+ */
+export interface TitleWithBlocksTypeSelect<T extends boolean = true> {
+  title?: T;
+  blocks?:
+    | T
+    | {
+        RichText?: T | RichTextTypeSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType_select".
+ */
+export interface RichTextTypeSelect<T extends boolean = true> {
+  richText?: T;
   id?: T;
   blockName?: T;
 }
