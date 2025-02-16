@@ -8,7 +8,7 @@ function NavigationLogo() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 240);
+      setIsSticky(window.scrollY > 815);
     };
 
     window.addEventListener("scroll", handleScroll);
