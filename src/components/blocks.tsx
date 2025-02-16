@@ -1,6 +1,6 @@
 import type { HeroBlockType } from "@/payload-types";
 import type { ComponentType } from "react";
-import { Hero } from "./hero";
+import { Hero } from "./hero/hero";
 
 interface BlocksProps {
   blocks: HeroBlockType[] | null | undefined;

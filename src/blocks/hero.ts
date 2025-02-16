@@ -12,21 +12,28 @@ const HeroBlock: Block = {
       required: true,
     },
     {
-      type: "row",
+      required: true,
+      name: "stories",
+      label: "Stories",
+      type: "array",
+      minRows: 1,
       fields: [
         {
-          name: "leftText",
-          label: "Left Text",
+          name: "story",
+          label: "Story",
           type: "text",
-          required: true,
-        },
-        {
-          name: "rightText",
-          label: "Right Text",
-          type: "text",
-          required: true,
         },
       ],
+    },
+    {
+      name: "title",
+      label: "Title",
+      type: "text",
+    },
+    {
+      name: "description",
+      label: "Description",
+      type: "textarea",
     },
   ],
 };
