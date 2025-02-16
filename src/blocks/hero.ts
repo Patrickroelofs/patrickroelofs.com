@@ -13,31 +13,9 @@ const HeroBlock: Block = {
     },
     {
       localized: true,
-      required: true,
-      name: "stories",
-      label: "Stories",
-      type: "array",
-      minRows: 1,
-      fields: [
-        {
-          name: "story",
-          label: "Story",
-          type: "text",
-          localized: true,
-        },
-      ],
-    },
-    {
-      localized: true,
       name: "title",
       label: "Title",
       type: "text",
-    },
-    {
-      localized: true,
-      name: "description",
-      label: "Description",
-      type: "textarea",
     },
   ],
 };
