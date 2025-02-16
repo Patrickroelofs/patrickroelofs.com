@@ -12,6 +12,7 @@ const HeroBlock: Block = {
       required: true,
     },
     {
+      localized: true,
       required: true,
       name: "stories",
       label: "Stories",
@@ -22,15 +23,18 @@ const HeroBlock: Block = {
           name: "story",
           label: "Story",
           type: "text",
+          localized: true,
         },
       ],
     },
     {
+      localized: true,
       name: "title",
       label: "Title",
       type: "text",
     },
     {
+      localized: true,
       name: "description",
       label: "Description",
       type: "textarea",
