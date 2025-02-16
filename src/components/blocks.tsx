@@ -1,13 +1,15 @@
-import type { HeroBlockType } from "@/payload-types";
+import type { AboutSectionType, HeroBlockType } from "@/payload-types";
 import type { ComponentType } from "react";
+import { About } from "./about";
 import { Hero } from "./hero/hero";
 
 interface BlocksProps {
-  blocks: HeroBlockType[] | null | undefined;
+  blocks: (HeroBlockType | AboutSectionType)[] | null | undefined;
 }
 
 const blockComponents = {
   heroBlock: Hero,
+  AboutSection: About,
 };
 
 function Blocks({ blocks }: BlocksProps) {
