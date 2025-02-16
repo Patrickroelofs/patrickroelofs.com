@@ -26,11 +26,7 @@ export default async function RootLayout({ children, params }: Args) {
     <html lang={locale} className="bg-ginger font-serif text-black">
       <body>
         <Navigation locale={locale} />
-        <main>
-          {children} Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Numquam maiores aliquam, dolores tempore dicta omnis suscipit
-          recusandae, tempora ipsam sequi ratione a. In, mollitia.
-        </main>
+        <main>{children}</main>
         <Footer locale={locale} />
         <Analytics />
       </body>
