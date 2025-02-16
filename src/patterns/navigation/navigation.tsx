@@ -2,15 +2,10 @@ import type { Config, Page } from "@/payload-types";
 import { payload } from "@/util/getPayloadConfig";
 import Link from "next/link";
 
-type NavigationType = {
-  locale: Config["locale"];
-};
-
-async function Navigation(props: NavigationType) {
+async function Navigation() {
   const data = await payload.findGlobal({
     slug: "navigation",
     depth: 1,
-    locale: props.locale,
   });
 
   return (

@@ -1,6 +1,5 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { Blog } from "@/collections/blog";
 import { Media } from "@/collections/media";
 import { Pages } from "@/collections/pages";
 import { Users } from "@/collections/users";
@@ -11,7 +10,6 @@ import { buildConfig } from "payload";
 import sharp from "sharp";
 import { Footer } from "./globals/footer";
 import { Navigation } from "./globals/navigation";
-import localization from "./i18n/localization";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -23,8 +21,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  localization,
-  collections: [Users, Media, Pages, Blog],
+  collections: [Users, Media, Pages],
   globals: [Navigation, Footer],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET ?? "",

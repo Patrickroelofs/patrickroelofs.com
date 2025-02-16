@@ -1,31 +1,16 @@
 import { Icon } from "@/components/icon";
-import type { Config } from "@/payload-types";
 import { payload } from "@/util/getPayloadConfig";
 import Link from "next/link";
 
-type FooterType = {
-  locale: Config["locale"];
-};
-
-async function Footer(props: FooterType) {
+async function Footer() {
   const data = await payload.findGlobal({
     slug: "footer",
     depth: 1,
-    locale: props.locale,
   });
 
   return (
     <footer>
-      <div className="flex justify-center md:justify-start">
-        <ul className="text-3xl flex gap-2">
-          <li>
-            <Link href="/nl">🇳🇱</Link>
-          </li>
-          <li>
-            <Link href="/en">🇬🇧</Link>
-          </li>
-        </ul>
-      </div>
+      <div className="flex justify-start" />
       <div className="flex justify-center">
         <p className="text-center text-6xl font-black">
           Patrick

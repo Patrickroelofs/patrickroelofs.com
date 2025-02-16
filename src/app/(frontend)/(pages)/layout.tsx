@@ -1,8 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 
-import { routing } from "@/i18n/routing";
 import { Navigation } from "@/patterns/navigation/navigation";
-import type { Config } from "@/payload-types";
 import "@/styles/globals.css";
 import "@fontsource-variable/literata";
 import "@fontsource-variable/literata/opsz-italic.css";
@@ -14,26 +12,17 @@ export const metadata = {};
 
 type Args = {
   children: React.ReactNode;
-  params: Promise<{
-    locale: Config["locale"];
-  }>;
 };
 
-export default async function RootLayout({ children, params }: Args) {
-  const { locale } = await params;
-
+export default async function RootLayout({ children }: Args) {
   return (
-    <html lang={locale} className="bg-ginger font-serif text-black">
+    <html lang="en" className="bg-ginger font-serif text-black">
       <body>
-        <Navigation locale={locale} />
+        <Navigation />
         <main>{children}</main>
-        <Footer locale={locale} />
+        <Footer />
         <Analytics />
       </body>
     </html>
   );
-}
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
 }
