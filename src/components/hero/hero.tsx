@@ -5,44 +5,13 @@ import { AnimatedStories } from "./animatedStories";
 function Hero(props: HeroBlockType) {
   return (
     <header>
-      <div className="flex flex-row items-center px-12 pt-12">
+      <div className="flex flex-row items-center px-12 pt-12 relative overflow-clip">
         <div>
           <span className="font-sans text-2xl block">
             <AnimatedStories stories={props.stories} />
           </span>
-          <p className="text-8xl text-redleather font-bold relative inline-block">
-            {props.title}
-            <span className="absolute -bottom-8 -right-12">
-              <svg
-                width="64"
-                height="48"
-                viewBox="0 0 28 27"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Splash</title>
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M2.49517 12.8295C3.36478 16.3185 3.30784 19.6784 3.41206 23.2173C3.43231 23.9085 2.8821 24.4831 2.18378 24.5039C1.48505 24.5247 0.901917 23.9793 0.881242 23.2881C0.782508 19.9324 0.862264 16.739 0.03695 13.4249C-0.130138 12.7546 0.285482 12.076 0.963961 11.9136C1.64202 11.7471 2.3285 12.1592 2.49517 12.8295Z"
-                  fill="#E38B75"
-                />
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M9.88338 6.06808C15.7829 11.389 21.3416 18.2337 25.2268 25.145C25.5656 25.7487 25.3449 26.5107 24.734 26.8437C24.123 27.1768 23.3517 26.9603 23.0129 26.3566C19.2559 19.6743 13.88 13.0543 8.17538 7.91246C7.65977 7.44615 7.62391 6.6551 8.09521 6.14716C8.56652 5.63921 9.36777 5.60177 9.88338 6.06808Z"
-                  fill="#E38B75"
-                />
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M11.3778 0.255873C16.7736 -0.622617 22.3352 0.87621 27.2415 2.99541C27.8816 3.27436 28.1736 4.01127 27.8938 4.63996C27.6136 5.2728 26.8664 5.5601 26.2263 5.28531C21.7579 3.35347 16.7044 1.92122 11.79 2.72061C11.1006 2.83302 10.4487 2.37089 10.3352 1.69225C10.2213 1.0136 10.6888 0.368287 11.3778 0.255873Z"
-                  fill="#E38B75"
-                />
-              </svg>
-            </span>
-          </p>
-          <div className="font-sans text-pretty text-base max-w-lg flex items-center justify-center mt-6 ml-6 mb-6">
+          <p className="text-8xl text-redleather font-bold">{props.title}</p>
+          <div className="font-sans text-pretty text-base max-w-lg flex items-center justify-center mt-6 sm:ml-6 mb-6 relative z-10">
             <svg
               className="w-36"
               width="31"
@@ -59,10 +28,12 @@ function Hero(props: HeroBlockType) {
                 fill="#62646B"
               />
             </svg>
-            <p>{props.description}</p>
+            <p className="p-2 sm:border-2 border-black bg-ginger md:border-0 md:bg-transparent">
+              {props.description}
+            </p>
           </div>
         </div>
-        <div className="grow flex justify-center">
+        <div className="grow justify-center absolute lg:relative -right-24 lg:-right-0 max-w-xs lg:max-w-full z-0 hidden sm:flex">
           <Image
             media={props.image}
             width={475}
