@@ -1,4 +1,5 @@
 import type { Block } from "payload";
+import { BigListBlock } from "./bigList";
 import { RichTextBlock } from "./richText";
 
 export const TitleWithBlocksBlock: Block = {
@@ -16,7 +17,7 @@ export const TitleWithBlocksBlock: Block = {
       label: "Blocks",
       type: "blocks",
       required: true,
-      blocks: [RichTextBlock],
+      blocks: [RichTextBlock, BigListBlock],
     },
   ],
 };

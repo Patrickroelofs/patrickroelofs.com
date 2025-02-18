@@ -221,7 +221,7 @@ export interface AboutSectionType {
  */
 export interface TitleWithBlocksType {
   title: string;
-  blocks: RichTextType[];
+  blocks: (RichTextType | BigListBlockType)[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'TitleWithBlocks';
@@ -249,6 +249,20 @@ export interface RichTextType {
   id?: string | null;
   blockName?: string | null;
   blockType: 'RichText';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BigListBlockType".
+ */
+export interface BigListBlockType {
+  items: {
+    title: string;
+    link: number | Page;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'BigListBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -491,6 +505,7 @@ export interface TitleWithBlocksTypeSelect<T extends boolean = true> {
     | T
     | {
         RichText?: T | RichTextTypeSelect<T>;
+        BigListBlock?: T | BigListBlockTypeSelect<T>;
       };
   id?: T;
   blockName?: T;
@@ -501,6 +516,21 @@ export interface TitleWithBlocksTypeSelect<T extends boolean = true> {
  */
 export interface RichTextTypeSelect<T extends boolean = true> {
   richText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BigListBlockType_select".
+ */
+export interface BigListBlockTypeSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        title?: T;
+        link?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
