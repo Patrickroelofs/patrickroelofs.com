@@ -1,18 +1,26 @@
 import type {
   AboutSectionType,
+  BigListBlockType,
   HeroBlockType,
   RichTextType,
   TitleWithBlocksType,
 } from "@/payload-types";
 import type { ComponentType } from "react";
 import { About } from "./about";
+import { BigList } from "./bigList";
 import { Hero } from "./hero";
 import { RichText } from "./richtext";
 import { TitleWithBlocks } from "./titleWithBlocks";
 
 interface BlocksProps {
   blocks:
-    | (HeroBlockType | AboutSectionType | RichTextType | TitleWithBlocksType)[]
+    | (
+        | HeroBlockType
+        | AboutSectionType
+        | RichTextType
+        | TitleWithBlocksType
+        | BigListBlockType
+      )[]
     | null
     | undefined;
 }
@@ -22,6 +30,7 @@ const blockComponents = {
   AboutSection: About,
   RichText: RichText,
   TitleWithBlocks: TitleWithBlocks,
+  BigListBlock: BigList,
 };
 
 function Blocks({ blocks }: BlocksProps) {
