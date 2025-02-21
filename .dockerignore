@@ -1,0 +1,16 @@
+# Dev tools
+.git
+.github
+.idea
+.vscode
+.editorconfig
+.gitattributes
+.node-version
+
+# Docker files
+.dockerignore*
+Dockerfile*
+docker-compose*.yml
+
+# Readme
+README.md
