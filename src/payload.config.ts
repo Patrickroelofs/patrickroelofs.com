@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 import { Media } from "@/collections/media";
 import { Pages } from "@/collections/pages";
 import { Users } from "@/collections/users";
-import { sqliteAdapter } from "@payloadcms/db-sqlite";
+import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { buildConfig } from "payload";
@@ -28,10 +28,9 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
-  db: sqliteAdapter({
-    client: {
-      url: process.env.DATABASE_URL ?? "",
-      authToken: process.env.DATABASE_AUTH_TOKEN ?? "",
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI ?? "",
     },
   }),
   sharp,
