@@ -1,7 +1,7 @@
 name: Push to main
 on:
   push:
-    branches: [main]
+    branches: [main, "75-reduce-cost-by-moving-to-a-VPS-or-alternative"]
 jobs:
   deploy:
     runs-on: ubuntu-latest
