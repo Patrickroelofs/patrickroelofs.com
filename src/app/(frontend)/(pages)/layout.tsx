@@ -1,5 +1,3 @@
-import { Analytics } from "@vercel/analytics/react";
-
 import { Navigation } from "@/patterns/navigation/navigation";
 import "@/styles/globals.css";
 import "@fontsource-variable/literata";
@@ -21,7 +19,6 @@ export default async function RootLayout({ children }: Args) {
         <Navigation />
         <main>{children}</main>
         <Footer />
-        <Analytics />
       </body>
     </html>
   );
