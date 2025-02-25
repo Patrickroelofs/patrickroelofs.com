@@ -13,8 +13,6 @@ import { Navigation } from "./globals/navigation";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
-const isBuild = process.env.IS_BUILD === "true";
-
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -31,9 +29,10 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString: isBuild
-        ? process.env.DATABASE_PUBLIC_URL
-        : process.env.DATABASE_URL,
+      connectionString:
+        process.env.IS_BUILD === "true"
+          ? process.env.DATABASE_PUBLIC_URL
+          : process.env.DATABASE_URL,
     },
   }),
   sharp,
