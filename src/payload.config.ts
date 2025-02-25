@@ -13,7 +13,7 @@ import { Navigation } from "./globals/navigation";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
-const isBuild = process.env.npm_lifecycle_event === "build";
+const isBuild = process.env.IS_BUILD === "true";
 
 export default buildConfig({
   admin: {
