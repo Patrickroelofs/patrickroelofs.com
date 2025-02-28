@@ -1690,7 +1690,7 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
-  content?: (HeroBlockType | AboutSectionType)[] | null;
+  content?: (HeroBlockType | TitleColumnType)[] | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -1708,11 +1708,26 @@ export interface HeroBlockType {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "AboutSectionType".
+ * via the `definition` "TitleColumnType".
  */
-export interface AboutSectionType {
-  title: string;
+export interface TitleColumnType {
   content: {
+    title: string;
+    blocks?: RichTextType[] | null;
+  };
+  settings: {
+    theme: 'light' | 'dark';
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'TitleColumn';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType".
+ */
+export interface RichTextType {
+  richText?: {
     root: {
       type: string;
       children: {
@@ -1726,12 +1741,10 @@ export interface AboutSectionType {
       version: number;
     };
     [k: string]: unknown;
-  };
-  overrideTitle?: string | null;
-  link?: (number | null) | Page;
+  } | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'AboutSection';
+  blockType: 'RichText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1935,7 +1948,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         heroBlock?: T | HeroBlockTypeSelect<T>;
-        AboutSection?: T | AboutSectionTypeSelect<T>;
+        TitleColumn?: T | TitleColumnTypeSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -1953,13 +1966,33 @@ export interface HeroBlockTypeSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "AboutSectionType_select".
+ * via the `definition` "TitleColumnType_select".
  */
-export interface AboutSectionTypeSelect<T extends boolean = true> {
-  title?: T;
-  content?: T;
-  overrideTitle?: T;
-  link?: T;
+export interface TitleColumnTypeSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        title?: T;
+        blocks?:
+          | T
+          | {
+              RichText?: T | RichTextTypeSelect<T>;
+            };
+      };
+  settings?:
+    | T
+    | {
+        theme?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType_select".
+ */
+export interface RichTextTypeSelect<T extends boolean = true> {
+  richText?: T;
   id?: T;
   blockName?: T;
 }

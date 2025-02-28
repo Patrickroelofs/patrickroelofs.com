@@ -6,7 +6,7 @@ import type { ReactElement } from "react";
 function RichText(props: RichTextType): ReactElement {
   return (
     <LexicalRichText
-      className="prose prose-xl text-black mx-auto text-pretty"
+      className="prose prose-xl text-inherit mx-auto text-pretty"
       data={props.richText as SerializedEditorState}
     />
   );
