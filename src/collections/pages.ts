@@ -1,5 +1,5 @@
-import { AboutSectionBlock } from "@/blocks/about";
 import { HeroBlock } from "@/blocks/hero";
+import { TitleColumnBlock } from "@/blocks/titleColumn";
 import { slugField } from "@/fields/slug";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { CollectionConfig } from "payload";
@@ -24,7 +24,7 @@ const Pages: CollectionConfig = {
       name: "content",
       label: "Content",
       type: "blocks",
-      blocks: [HeroBlock, AboutSectionBlock],
+      blocks: [HeroBlock, TitleColumnBlock],
     },
   ],
   versions: {

@@ -1,24 +1,21 @@
 import type {
-  AboutSectionType,
   HeroBlockType,
   RichTextType,
+  TitleColumnType,
 } from "@/payload-types";
 import type { ComponentType } from "react";
-import { About } from "./about";
 import { Hero } from "./hero";
 import { RichText } from "./richtext";
+import { TitleColumn } from "./titleColumn";
 
 interface BlocksProps {
-  blocks:
-    | (HeroBlockType | AboutSectionType | RichTextType)[]
-    | null
-    | undefined;
+  blocks: (HeroBlockType | RichTextType | TitleColumnType)[] | null | undefined;
 }
 
 const blockComponents = {
   heroBlock: Hero,
-  AboutSection: About,
   RichText: RichText,
+  TitleColumn: TitleColumn,
 };
 
 function Blocks({ blocks }: BlocksProps) {
