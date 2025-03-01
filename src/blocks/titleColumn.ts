@@ -1,4 +1,5 @@
 import type { Block } from "payload";
+import { FeaturesGridBlock } from "./featuresGrid";
 import { RichTextBlock } from "./richText";
 
 export const TitleColumnBlock: Block = {
@@ -17,9 +18,15 @@ export const TitleColumnBlock: Block = {
               required: true,
             },
             {
+              name: "button",
+              type: "relationship",
+              relationTo: "pages",
+              required: false,
+            },
+            {
               name: "blocks",
               type: "blocks",
-              blocks: [RichTextBlock],
+              blocks: [RichTextBlock, FeaturesGridBlock],
             },
           ],
         },
@@ -39,6 +46,22 @@ export const TitleColumnBlock: Block = {
                 {
                   label: "Dark",
                   value: "dark",
+                },
+              ],
+            },
+            {
+              name: "type",
+              type: "select",
+              defaultValue: "row",
+              required: true,
+              options: [
+                {
+                  label: "Row",
+                  value: "row",
+                },
+                {
+                  label: "Column",
+                  value: "column",
                 },
               ],
             },
