@@ -41,7 +41,7 @@ function TitleColumn(props: TitleColumnType): ReactElement {
               className="text-2xl border-2 border-black rounded-full px-4 py-2 font-sans flex gap-2 items-center font-semibold"
             >
               {button.title}
-              <Icon name="ArrowRight" size={24} />
+              <Icon name="CaretRight" size={24} />
             </Link>
           )}
         </div>
