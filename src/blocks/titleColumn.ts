@@ -1,4 +1,5 @@
 import type { Block } from "payload";
+import { ButtonBlock } from "./button";
 import { FeaturesGridBlock } from "./featuresGrid";
 import { RichTextBlock } from "./richText";
 
@@ -19,9 +20,9 @@ export const TitleColumnBlock: Block = {
             },
             {
               name: "button",
-              type: "relationship",
-              relationTo: "pages",
-              required: false,
+              type: "blocks",
+              blocks: [ButtonBlock],
+              maxRows: 1,
             },
             {
               name: "blocks",

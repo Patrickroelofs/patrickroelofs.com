@@ -1713,7 +1713,7 @@ export interface HeroBlockType {
 export interface TitleColumnType {
   content: {
     title: string;
-    button?: (number | null) | Page;
+    button?: ButtonBlockType[] | null;
     blocks?: (RichTextType | FeaturesGridType)[] | null;
   };
   settings: {
@@ -1723,6 +1723,19 @@ export interface TitleColumnType {
   id?: string | null;
   blockName?: string | null;
   blockType: 'TitleColumn';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonBlockType".
+ */
+export interface ButtonBlockType {
+  overrideButton?: boolean | null;
+  buttonText?: string | null;
+  theme?: ('primary' | 'outline') | null;
+  link?: (number | null) | Page;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ButtonBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1995,7 +2008,11 @@ export interface TitleColumnTypeSelect<T extends boolean = true> {
     | T
     | {
         title?: T;
-        button?: T;
+        button?:
+          | T
+          | {
+              ButtonBlock?: T | ButtonBlockTypeSelect<T>;
+            };
         blocks?:
           | T
           | {
@@ -2009,6 +2026,18 @@ export interface TitleColumnTypeSelect<T extends boolean = true> {
         theme?: T;
         type?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonBlockType_select".
+ */
+export interface ButtonBlockTypeSelect<T extends boolean = true> {
+  overrideButton?: T;
+  buttonText?: T;
+  theme?: T;
+  link?: T;
   id?: T;
   blockName?: T;
 }
