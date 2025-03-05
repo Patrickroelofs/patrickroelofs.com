@@ -1,21 +1,27 @@
 import type {
+  FeaturesGridType,
   HeroBlockType,
   RichTextType,
   TitleColumnType,
 } from "@/payload-types";
 import type { ComponentType } from "react";
+import { FeaturesGrid } from "./featuresGrid";
 import { Hero } from "./hero";
 import { RichText } from "./richtext";
 import { TitleColumn } from "./titleColumn";
 
 interface BlocksProps {
-  blocks: (HeroBlockType | RichTextType | TitleColumnType)[] | null | undefined;
+  blocks:
+    | (HeroBlockType | RichTextType | TitleColumnType | FeaturesGridType)[]
+    | null
+    | undefined;
 }
 
 const blockComponents = {
   heroBlock: Hero,
   RichText: RichText,
   TitleColumn: TitleColumn,
+  FeaturesGrid: FeaturesGrid,
 };
 
 function Blocks({ blocks }: BlocksProps) {

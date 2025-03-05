@@ -1713,10 +1713,12 @@ export interface HeroBlockType {
 export interface TitleColumnType {
   content: {
     title: string;
-    blocks?: RichTextType[] | null;
+    button?: (number | null) | Page;
+    blocks?: (RichTextType | FeaturesGridType)[] | null;
   };
   settings: {
     theme: 'light' | 'dark';
+    type: 'row' | 'column';
   };
   id?: string | null;
   blockName?: string | null;
@@ -1745,6 +1747,26 @@ export interface RichTextType {
   id?: string | null;
   blockName?: string | null;
   blockType: 'RichText';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeaturesGridType".
+ */
+export interface FeaturesGridType {
+  content?: {
+    features?:
+      | {
+          icon: Icons;
+          title: string;
+          description: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  settings?: {};
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'FeaturesGrid';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1973,16 +1995,19 @@ export interface TitleColumnTypeSelect<T extends boolean = true> {
     | T
     | {
         title?: T;
+        button?: T;
         blocks?:
           | T
           | {
               RichText?: T | RichTextTypeSelect<T>;
+              FeaturesGrid?: T | FeaturesGridTypeSelect<T>;
             };
       };
   settings?:
     | T
     | {
         theme?: T;
+        type?: T;
       };
   id?: T;
   blockName?: T;
@@ -1993,6 +2018,27 @@ export interface TitleColumnTypeSelect<T extends boolean = true> {
  */
 export interface RichTextTypeSelect<T extends boolean = true> {
   richText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeaturesGridType_select".
+ */
+export interface FeaturesGridTypeSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        features?:
+          | T
+          | {
+              icon?: T;
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+      };
+  settings?: T | {};
   id?: T;
   blockName?: T;
 }
