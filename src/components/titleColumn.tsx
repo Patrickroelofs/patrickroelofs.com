@@ -16,6 +16,15 @@ const titleColumnStyling = cva("px-12 py-24 gap-8", {
   },
 });
 
+const titleStickyStyling = cva("col-start-1 col-end-2 mb-4 sm:mb-auto", {
+  variants: {
+    type: {
+      column: "",
+      row: "sm:sticky sm:top-[80px]",
+    },
+  },
+});
+
 function TitleColumn(props: TitleColumnType): ReactElement {
   return (
     <div
@@ -24,9 +33,9 @@ function TitleColumn(props: TitleColumnType): ReactElement {
         type: props.settings.type,
       })}
     >
-      <div className="col-start-1 col-end-2 mb-4 sm:mb-auto sm:sticky sm:top-[100px]">
+      <div className={titleStickyStyling({ type: props.settings.type })}>
         <div className="flex justify-between items-center">
-          <h2 className="text-3xl lg:text-7xl font-bold lg:font-black pt-4 max-w-3xl text-pretty leading-tight">
+          <h2 className="text-3xl lg:text-7xl font-bold lg:font-black max-w-3xl text-pretty leading-tight">
             {props.content.title}
           </h2>
           <Blocks blocks={props.content.button} />
