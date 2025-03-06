@@ -1,9 +1,7 @@
 import type { Page, TitleColumnType } from "@/payload-types";
 import { cva } from "class-variance-authority";
-import Link from "next/link";
 import React, { type ReactElement } from "react";
 import { Blocks } from "./blocks";
-import { Icon } from "./icon";
 
 const titleColumnStyling = cva("px-12 py-24 gap-8", {
   variants: {
@@ -18,11 +16,16 @@ const titleColumnStyling = cva("px-12 py-24 gap-8", {
   },
 });
 
-function TitleColumn(props: TitleColumnType): ReactElement {
-  const { button } = props.content as {
-    button: Page;
-  };
+const titleStickyStyling = cva("col-start-1 col-end-2 mb-4 sm:mb-auto", {
+  variants: {
+    type: {
+      column: "",
+      row: "sm:sticky sm:top-[80px]",
+    },
+  },
+});
 
+function TitleColumn(props: TitleColumnType): ReactElement {
   return (
     <div
       className={titleColumnStyling({
@@ -30,20 +33,12 @@ function TitleColumn(props: TitleColumnType): ReactElement {
         type: props.settings.type,
       })}
     >
-      <div className="col-start-1 col-end-2 mb-4 sm:mb-auto sm:sticky sm:top-[100px]">
-        <div className="flex justify-between items-center">
-          <h2 className="text-3xl lg:text-7xl font-bold lg:font-black pt-4 max-w-3xl text-pretty leading-tight">
+      <div className={titleStickyStyling({ type: props.settings.type })}>
+        <div className="flex justify-between md:items-center md:flex-row flex-col gap-4 md:gap-0 items-start">
+          <h2 className="text-3xl lg:text-7xl font-bold lg:font-black max-w-3xl text-pretty leading-tight">
             {props.content.title}
           </h2>
-          {button && (
-            <Link
-              href={button.slug}
-              className="text-2xl border-2 border-black rounded-full px-4 py-2 font-sans flex gap-2 items-center font-semibold"
-            >
-              {button.title}
-              <Icon name="CaretRight" size={24} />
-            </Link>
-          )}
+          <Blocks blocks={props.content.button} />
         </div>
       </div>
       <div className="col-start-2 col-end-5 text-lg">

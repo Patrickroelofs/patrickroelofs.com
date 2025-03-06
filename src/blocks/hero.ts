@@ -11,12 +11,6 @@ const HeroBlock: Block = {
       relationTo: "media",
       required: true,
     },
-    {
-      localized: true,
-      name: "title",
-      label: "Title",
-      type: "text",
-    },
   ],
 };
 
