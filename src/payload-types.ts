@@ -1701,7 +1701,6 @@ export interface Page {
  */
 export interface HeroBlockType {
   image: number | Media;
-  title?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'heroBlock';
@@ -1995,7 +1994,6 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface HeroBlockTypeSelect<T extends boolean = true> {
   image?: T;
-  title?: T;
   id?: T;
   blockName?: T;
 }

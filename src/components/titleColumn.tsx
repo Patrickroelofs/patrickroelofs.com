@@ -34,7 +34,7 @@ function TitleColumn(props: TitleColumnType): ReactElement {
       })}
     >
       <div className={titleStickyStyling({ type: props.settings.type })}>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between md:items-center md:flex-row flex-col gap-4 md:gap-0 items-start">
           <h2 className="text-3xl lg:text-7xl font-bold lg:font-black max-w-3xl text-pretty leading-tight">
             {props.content.title}
           </h2>

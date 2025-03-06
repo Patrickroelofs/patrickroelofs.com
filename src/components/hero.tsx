@@ -7,7 +7,7 @@ function Hero(props: HeroBlockType) {
   return (
     <header>
       <div className="flex flex-col overflow-clip h-[800px] w-full">
-        <span className="sticky top-14 w-[calc(100%+32px)] h-[145px] -m-2 md:-left-2">
+        <span className="sticky top-12 w-[calc(100%+32px)] h-[145px] -m-2 -mt-4 md:-left-2">
           <NextImage
             src={logo}
             alt="Patrick Roelofs"
