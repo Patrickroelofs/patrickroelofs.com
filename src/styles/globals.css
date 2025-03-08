@@ -59,3 +59,8 @@ body {
     border-style: solid;
   }
 }
+
+@utility prose {
+  --tw-prose-bullets: inherit;
+  --tw-prose-counters: inherit;
+}
