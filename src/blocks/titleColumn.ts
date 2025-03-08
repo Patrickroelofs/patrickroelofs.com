@@ -1,4 +1,5 @@
 import type { Block } from "payload";
+import { BlogListBlock } from "./blogList";
 import { ButtonBlock } from "./button";
 import { FeaturesGridBlock } from "./featuresGrid";
 import { RichTextBlock } from "./richText";
@@ -27,7 +28,7 @@ export const TitleColumnBlock: Block = {
             {
               name: "blocks",
               type: "blocks",
-              blocks: [RichTextBlock, FeaturesGridBlock],
+              blocks: [RichTextBlock, FeaturesGridBlock, BlogListBlock],
             },
           ],
         },

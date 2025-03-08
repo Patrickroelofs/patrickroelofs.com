@@ -1,4 +1,5 @@
 import type {
+  BlogListType,
   ButtonBlockType,
   FeaturesGridType,
   HeroBlockType,
@@ -6,6 +7,7 @@ import type {
   TitleColumnType,
 } from "@/payload-types";
 import type { ComponentType } from "react";
+import { BlogList } from "./blogList";
 import { Button } from "./button";
 import { FeaturesGrid } from "./featuresGrid";
 import { Hero } from "./hero";
@@ -20,6 +22,7 @@ interface BlocksProps {
         | TitleColumnType
         | FeaturesGridType
         | ButtonBlockType
+        | BlogListType
       )[]
     | null
     | undefined;
@@ -31,6 +34,7 @@ const blockComponents = {
   TitleColumn: TitleColumn,
   FeaturesGrid: FeaturesGrid,
   ButtonBlock: Button,
+  BlogList: BlogList,
 };
 
 function Blocks({ blocks }: BlocksProps) {

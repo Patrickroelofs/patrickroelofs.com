@@ -1586,6 +1586,7 @@ export interface Config {
     users: User;
     media: Media;
     pages: Page;
+    blog: Blog;
     'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -1596,6 +1597,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    blog: BlogSelect<false> | BlogSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -1681,6 +1683,56 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+  sizes?: {
+    xsmall?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    small?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    medium?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    large?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    xlarge?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    xxlarge?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1713,7 +1765,7 @@ export interface TitleColumnType {
   content: {
     title: string;
     button?: ButtonBlockType[] | null;
-    blocks?: (RichTextType | FeaturesGridType)[] | null;
+    blocks?: (RichTextType | FeaturesGridType | BlogListType)[] | null;
   };
   settings: {
     theme: 'light' | 'dark';
@@ -1779,6 +1831,41 @@ export interface FeaturesGridType {
   id?: string | null;
   blockName?: string | null;
   blockType: 'FeaturesGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogListType".
+ */
+export interface BlogListType {
+  content?: {
+    articles?:
+      | {
+          article: number | Blog;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  settings?: {};
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'BlogList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog".
+ */
+export interface Blog {
+  id: number;
+  title: string;
+  slug: string;
+  description: string;
+  coverImage: number | Media;
+  content: {
+    blocks: RichTextType[];
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1892,6 +1979,10 @@ export interface PayloadLockedDocument {
         value: number | Page;
       } | null)
     | ({
+        relationTo: 'blog';
+        value: number | Blog;
+      } | null)
+    | ({
         relationTo: 'payload-jobs';
         value: number | PayloadJob;
       } | null);
@@ -1970,6 +2061,70 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        xsmall?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        small?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        medium?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        large?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xlarge?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xxlarge?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2016,6 +2171,7 @@ export interface TitleColumnTypeSelect<T extends boolean = true> {
           | {
               RichText?: T | RichTextTypeSelect<T>;
               FeaturesGrid?: T | FeaturesGridTypeSelect<T>;
+              BlogList?: T | BlogListTypeSelect<T>;
             };
       };
   settings?:
@@ -2068,6 +2224,47 @@ export interface FeaturesGridTypeSelect<T extends boolean = true> {
   settings?: T | {};
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogListType_select".
+ */
+export interface BlogListTypeSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        articles?:
+          | T
+          | {
+              article?: T;
+              id?: T;
+            };
+      };
+  settings?: T | {};
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog_select".
+ */
+export interface BlogSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  description?: T;
+  coverImage?: T;
+  content?:
+    | T
+    | {
+        blocks?:
+          | T
+          | {
+              RichText?: T | RichTextTypeSelect<T>;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2215,10 +2412,15 @@ export interface TaskSchedulePublish {
   input: {
     type?: ('publish' | 'unpublish') | null;
     locale?: string | null;
-    doc?: {
-      relationTo: 'pages';
-      value: number | Page;
-    } | null;
+    doc?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'blog';
+          value: number | Blog;
+        } | null);
     global?: string | null;
     user?: (number | null) | User;
   };
