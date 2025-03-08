@@ -1,3 +1,4 @@
+import { CodeBlock } from "@/blocks/code";
 import { RichTextBlock } from "@/blocks/richText";
 import { slugField } from "@/fields/slug";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
@@ -46,7 +47,7 @@ const Blog: CollectionConfig = {
               type: "blocks",
               required: true,
               localized: true,
-              blocks: [RichTextBlock],
+              blocks: [RichTextBlock, CodeBlock],
             },
           ],
         },

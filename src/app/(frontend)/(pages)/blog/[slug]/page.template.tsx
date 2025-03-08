@@ -24,7 +24,9 @@ function PageTemplate(props: Blog): ReactElement {
       </header>
       <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-none">
         <div className="row-start-2 md:row-start-auto md:col-start-1 md:col-end-3 md:border-r-2 border-black p-4 flex justify-center flex-col">
-          <Blocks blocks={props.content.blocks} />
+          <div className="max-w-3xl w-full mx-auto">
+            <Blocks blocks={props.content.blocks} />
+          </div>
         </div>
         <div className="row-start-1 md:row-start-none md:col-start-3 md:col-end-3" />
       </div>
