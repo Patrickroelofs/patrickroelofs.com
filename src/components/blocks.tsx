@@ -1,6 +1,7 @@
 import type {
   BlogListType,
   ButtonBlockType,
+  CodeType,
   FeaturesGridType,
   HeroBlockType,
   RichTextType,
@@ -9,6 +10,7 @@ import type {
 import type { ComponentType } from "react";
 import { BlogList } from "./blogList";
 import { Button } from "./button";
+import { Code } from "./code";
 import { FeaturesGrid } from "./featuresGrid";
 import { Hero } from "./hero";
 import { RichText } from "./richtext";
@@ -23,6 +25,7 @@ interface BlocksProps {
         | FeaturesGridType
         | ButtonBlockType
         | BlogListType
+        | CodeType
       )[]
     | null
     | undefined;
@@ -35,6 +38,7 @@ const blockComponents = {
   FeaturesGrid: FeaturesGrid,
   ButtonBlock: Button,
   BlogList: BlogList,
+  CodeBlock: Code,
 };
 
 function Blocks({ blocks }: BlocksProps) {

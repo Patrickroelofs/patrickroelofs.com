@@ -1861,11 +1861,244 @@ export interface Blog {
   description: string;
   coverImage: number | Media;
   content: {
-    blocks: RichTextType[];
+    blocks: (RichTextType | CodeType)[];
   };
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CodeType".
+ */
+export interface CodeType {
+  content: {
+    code: string;
+  };
+  settings: {
+    language:
+      | 'abap'
+      | 'actionscript-3'
+      | 'ada'
+      | 'angular-html'
+      | 'angular-ts'
+      | 'apache'
+      | 'apex'
+      | 'apl'
+      | 'applescript'
+      | 'ara'
+      | 'asciidoc'
+      | 'asm'
+      | 'astro'
+      | 'awk'
+      | 'ballerina'
+      | 'bat'
+      | 'beancount'
+      | 'berry'
+      | 'bibtex'
+      | 'bicep'
+      | 'blade'
+      | 'bsl'
+      | 'c'
+      | 'cadence'
+      | 'cairo'
+      | 'clarity'
+      | 'clojure'
+      | 'cmake'
+      | 'cobol'
+      | 'codeowners'
+      | 'codeql'
+      | 'coffee'
+      | 'common-lisp'
+      | 'coq'
+      | 'cpp'
+      | 'crystal'
+      | 'csharp'
+      | 'css'
+      | 'csv'
+      | 'cue'
+      | 'cypher'
+      | 'd'
+      | 'dart'
+      | 'dax'
+      | 'desktop'
+      | 'diff'
+      | 'docker'
+      | 'dotenv'
+      | 'dream-maker'
+      | 'edge'
+      | 'elixir'
+      | 'elm'
+      | 'emacs-lisp'
+      | 'erb'
+      | 'erlang'
+      | 'fennel'
+      | 'fish'
+      | 'fluent'
+      | 'fortran-fixed-form'
+      | 'fortran-free-form'
+      | 'fsharp'
+      | 'gdresource'
+      | 'gdscript'
+      | 'gdshader'
+      | 'genie'
+      | 'gherkin'
+      | 'git-commit'
+      | 'git-rebase'
+      | 'gleam'
+      | 'glimmer-js'
+      | 'glimmer-ts'
+      | 'glsl'
+      | 'gnuplot'
+      | 'go'
+      | 'graphql'
+      | 'groovy'
+      | 'hack'
+      | 'haml'
+      | 'handlebars'
+      | 'haskell'
+      | 'haxe'
+      | 'hcl'
+      | 'hjson'
+      | 'hlsl'
+      | 'html'
+      | 'html-derivative'
+      | 'http'
+      | 'hxml'
+      | 'hy'
+      | 'imba'
+      | 'ini'
+      | 'java'
+      | 'javascript'
+      | 'jinja'
+      | 'jison'
+      | 'json'
+      | 'json5'
+      | 'jsonc'
+      | 'jsonl'
+      | 'jsonnet'
+      | 'jssm'
+      | 'jsx'
+      | 'julia'
+      | 'kotlin'
+      | 'kusto'
+      | 'latex'
+      | 'lean'
+      | 'less'
+      | 'liquid'
+      | 'log'
+      | 'logo'
+      | 'lua'
+      | 'luau'
+      | 'make'
+      | 'markdown'
+      | 'marko'
+      | 'matlab'
+      | 'mdc'
+      | 'mdx'
+      | 'mermaid'
+      | 'mipsasm'
+      | 'mojo'
+      | 'move'
+      | 'narrat'
+      | 'nextflow'
+      | 'nginx'
+      | 'nim'
+      | 'nix'
+      | 'nushell'
+      | 'objective-c'
+      | 'objective-cpp'
+      | 'ocaml'
+      | 'pascal'
+      | 'perl'
+      | 'php'
+      | 'plsql'
+      | 'po'
+      | 'polar'
+      | 'postcss'
+      | 'powerquery'
+      | 'powershell'
+      | 'prisma'
+      | 'prolog'
+      | 'proto'
+      | 'pug'
+      | 'puppet'
+      | 'purescript'
+      | 'python'
+      | 'qml'
+      | 'qmldir'
+      | 'qss'
+      | 'r'
+      | 'racket'
+      | 'raku'
+      | 'razor'
+      | 'reg'
+      | 'regexp'
+      | 'rel'
+      | 'riscv'
+      | 'rst'
+      | 'ruby'
+      | 'rust'
+      | 'sas'
+      | 'sass'
+      | 'scala'
+      | 'scheme'
+      | 'scss'
+      | 'sdbl'
+      | 'shaderlab'
+      | 'shellscript'
+      | 'shellsession'
+      | 'smalltalk'
+      | 'solidity'
+      | 'soy'
+      | 'sparql'
+      | 'splunk'
+      | 'sql'
+      | 'ssh-config'
+      | 'stata'
+      | 'stylus'
+      | 'svelte'
+      | 'swift'
+      | 'system-verilog'
+      | 'systemd'
+      | 'talonscript'
+      | 'tasl'
+      | 'tcl'
+      | 'templ'
+      | 'terraform'
+      | 'tex'
+      | 'toml'
+      | 'ts-tags'
+      | 'tsv'
+      | 'tsx'
+      | 'turtle'
+      | 'twig'
+      | 'typescript'
+      | 'typespec'
+      | 'typst'
+      | 'v'
+      | 'vala'
+      | 'vb'
+      | 'verilog'
+      | 'vhdl'
+      | 'viml'
+      | 'vue'
+      | 'vue-html'
+      | 'vyper'
+      | 'wasm'
+      | 'wenyan'
+      | 'wgsl'
+      | 'wikitext'
+      | 'wolfram'
+      | 'xml'
+      | 'xsl'
+      | 'yaml'
+      | 'zenscript'
+      | 'zig';
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'CodeBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2260,11 +2493,30 @@ export interface BlogSelect<T extends boolean = true> {
           | T
           | {
               RichText?: T | RichTextTypeSelect<T>;
+              CodeBlock?: T | CodeTypeSelect<T>;
             };
       };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CodeType_select".
+ */
+export interface CodeTypeSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        code?: T;
+      };
+  settings?:
+    | T
+    | {
+        language?: T;
+      };
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
