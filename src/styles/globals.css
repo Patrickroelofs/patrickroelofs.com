@@ -63,4 +63,5 @@ body {
 @utility prose {
   --tw-prose-bullets: inherit;
   --tw-prose-counters: inherit;
+  --tw-prose-links: inherit;
 }
