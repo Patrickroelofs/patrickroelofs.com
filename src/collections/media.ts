@@ -30,6 +30,38 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     staticDir: path.resolve(dirname, "../../public/media"),
+    imageSizes: [
+      {
+        name: "xsmall",
+        width: 500,
+        height: 281,
+      },
+      {
+        name: "small",
+        width: 750,
+        height: 422,
+      },
+      {
+        name: "medium",
+        width: 1024,
+        height: 576,
+      },
+      {
+        name: "large",
+        width: 1280,
+        height: 720,
+      },
+      {
+        name: "xlarge",
+        width: 1600,
+        height: 900,
+      },
+      {
+        name: "xxlarge",
+        width: 1920,
+        height: 1080,
+      },
+    ],
   },
   hooks: {
     beforeValidate: [generateBlurData],

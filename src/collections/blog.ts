@@ -1,3 +1,4 @@
+import { RichTextBlock } from "@/blocks/richText";
 import { slugField } from "@/fields/slug";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { CollectionConfig } from "payload";
@@ -40,11 +41,12 @@ const Blog: CollectionConfig = {
           label: "Content",
           fields: [
             {
-              name: "content",
-              label: "Content",
-              type: "richText",
+              name: "blocks",
+              label: "Blocks",
+              type: "blocks",
               required: true,
               localized: true,
+              blocks: [RichTextBlock],
             },
           ],
         },
