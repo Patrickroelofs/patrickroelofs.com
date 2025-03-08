@@ -61,6 +61,6 @@ body {
 }
 
 @utility prose {
-  --tw-prose-bullets: black;
-  --tw-prose-counters: black;
+  --tw-prose-bullets: inherit;
+  --tw-prose-counters: inherit;
 }
