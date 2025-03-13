@@ -1,4 +1,4 @@
-import type { Config, Media, Page } from "@/payload-types";
+import type { Blog, Config, Media, Page } from "@/payload-types";
 import type { Metadata } from "next";
 import { getServersideURL } from "./getServersideURL";
 import { mergeOpenGraph } from "./mergeMetadata";
@@ -21,13 +21,19 @@ function getImageURL(
   return undefined;
 }
 
-async function generateMeta(args: { doc: Partial<Page> }): Promise<Metadata> {
+async function generateMeta(args: {
+  doc: Partial<Page> | Partial<Blog>;
+  collection: "pages" | "blog";
+}): Promise<Metadata> {
   const { doc } = args || {};
 
   const ogImage = getImageURL(doc.meta?.image);
   const title = doc.meta?.title || "";
   const description = doc.meta?.description || "";
-  const url = `https://patrickroelofs.com/${doc.slug === "home" ? "" : doc.slug}`;
+
+  const slug = doc.slug === "home" ? "" : `/${doc.slug}`;
+  const collection = args.collection === "pages" ? "" : `/${args.collection}`;
+  const url = `${getServersideURL()}${collection}${slug}`;
 
   return {
     title,

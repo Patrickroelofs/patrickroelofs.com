@@ -42,8 +42,7 @@ export default buildConfig({
     seoPlugin({
       generateTitle: ({ title }) => title,
       generateURL: ({ doc, collectionSlug }) =>
-        // TODO: Implement collectionSlug for dynamic routes
-        `https://patrickroelofs.com/${doc.slug === "home" ? "" : doc.slug}`,
+        `https://patrickroelofs.com${collectionSlug === "pages" ? "" : `/${collectionSlug}`}/${doc.slug === "home" ? "" : doc.slug}`,
     }),
   ],
 });
