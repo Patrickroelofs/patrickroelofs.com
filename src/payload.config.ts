@@ -4,6 +4,7 @@ import { Media } from "@/collections/media";
 import { Pages } from "@/collections/pages";
 import { Users } from "@/collections/users";
 import { postgresAdapter } from "@payloadcms/db-postgres";
+import { seoPlugin } from "@payloadcms/plugin-seo";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload";
 import sharp from "sharp";
@@ -37,5 +38,12 @@ export default buildConfig({
     },
   }),
   sharp,
-  plugins: [],
+  plugins: [
+    seoPlugin({
+      generateTitle: ({ title }) => title,
+      generateURL: ({ doc, collectionSlug }) =>
+        // TODO: Implement collectionSlug for dynamic routes
+        `https://patrickroelofs.com/${doc.slug === "home" ? "" : doc.slug}`,
+    }),
+  ],
 });

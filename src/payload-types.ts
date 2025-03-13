@@ -1743,6 +1743,14 @@ export interface Page {
   title: string;
   slug: string;
   content?: (HeroBlockType | TitleColumnType)[] | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -2371,6 +2379,13 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         heroBlock?: T | HeroBlockTypeSelect<T>;
         TitleColumn?: T | TitleColumnTypeSelect<T>;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
       };
   updatedAt?: T;
   createdAt?: T;

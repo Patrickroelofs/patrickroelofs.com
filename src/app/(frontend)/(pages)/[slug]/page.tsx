@@ -1,15 +1,16 @@
 import { PageTemplate } from "@/app/(frontend)/(pages)/[slug]/page.template";
 import type { Page as PageType } from "@/payload-types";
+import { generateMeta } from "@/util/generateMetadata";
 import { payload } from "@/util/getPayloadConfig";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import type { ReactElement } from "react";
 
-async function Page({
-  params,
-}: {
+type Args = {
   params: Promise<{ slug: string }>;
-}): Promise<ReactElement> {
+};
+
+async function Page({ params }: Args): Promise<ReactElement> {
   const { isEnabled: draft } = await draftMode();
   const { slug = "home" } = await params;
 
@@ -76,8 +77,22 @@ export async function generateStaticParams() {
   }
 }
 
-export function generateMetadata(): Metadata {
-  return {};
+export async function generateMetadata({ params }: Args): Promise<Metadata> {
+  const { slug = "home" } = await params;
+  const page = await payload
+    .find({
+      collection: "pages",
+      limit: 1,
+      where: {
+        slug: {
+          equals: slug,
+        },
+      },
+      pagination: false,
+    })
+    .then((res) => res.docs?.[0]);
+
+  return generateMeta({ doc: page });
 }
 
 export default Page;
