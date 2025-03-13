@@ -1,13 +1,20 @@
+import { articleSchema, imageSchema } from "@/components/Schema";
 import { Blocks } from "@/components/blocks";
 import { Image } from "@/components/image";
 import type { Blog, Media } from "@/payload-types";
+import Script from "next/script";
 import type { ReactElement } from "react";
 
 function PageTemplate(props: Blog): ReactElement {
   const coverImage = props.coverImage as Media;
 
+  const schema = [imageSchema(coverImage), articleSchema(props)];
+
   return (
     <>
+      <Script type="application/ld+json" strategy="lazyOnload">
+        {JSON.stringify(schema)}
+      </Script>
       <header className="border-b-2 border-black">
         <div className="relative w-full h-[240px] md:h-[580px]">
           <Image
