@@ -1,11 +1,12 @@
 import type { Config, Media, Page } from "@/payload-types";
 import type { Metadata } from "next";
+import { getServersideURL } from "./getServersideURL";
 import { mergeOpenGraph } from "./mergeMetadata";
 
 function getImageURL(
   image?: Media | Config["db"]["defaultIDType"] | null,
 ): string | undefined {
-  const serverURL = "https://patrickroelofs.com";
+  const serverURL = getServersideURL();
   let url = serverURL;
 
   if (image && typeof image === "object") {
