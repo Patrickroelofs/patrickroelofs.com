@@ -92,7 +92,7 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
     })
     .then((res) => res.docs?.[0]);
 
-  return generateMeta({ doc: page });
+  return generateMeta({ doc: page, collection: "pages" });
 }
 
 export default Page;
