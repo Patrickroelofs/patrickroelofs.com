@@ -1,7 +1,10 @@
 import type { Page } from "@/payload-types";
 import { payload } from "@/util/getPayloadConfig";
+import { cva } from "class-variance-authority";
 import Link from "next/link";
 import { NavigationLogo } from "./navigationLogo";
+
+const linkStyles = cva("text-xl font-medium");
 
 async function Navigation() {
   const data = await payload.findGlobal({
@@ -22,7 +25,7 @@ async function Navigation() {
                 <li key={link.id}>
                   <Link
                     href={`/${pageLink.slug === "home" ? "" : pageLink.slug}`}
-                    className="text-xl font-medium"
+                    className={linkStyles()}
                   >
                     {link.overrideLabel ? link.label : pageLink.title}
                   </Link>
