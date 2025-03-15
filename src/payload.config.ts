@@ -31,10 +31,7 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString:
-        process.env.IS_BUILD === "true"
-          ? process.env.DATABASE_PUBLIC_URL
-          : process.env.DATABASE_URL,
+      connectionString: process.env.DATABASE_URL,
     },
   }),
   sharp,
