@@ -1,6 +1,6 @@
 import { Blocks } from "@/components/blocks";
 import { Image } from "@/components/image";
-import { articleSchema, imageSchema } from "@/components/schema";
+import { articleSchema, imageSchema } from "@/components/schema/schema";
 import type { Blog, Media } from "@/payload-types";
 import Script from "next/script";
 import type { ReactElement } from "react";
