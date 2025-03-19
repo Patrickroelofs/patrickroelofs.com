@@ -1,4 +1,4 @@
-import type { Blog, Media, User } from "@/payload-types";
+import type { Blog, Media } from "@/payload-types";
 import { getServersideURL } from "@/util/getServersideURL";
 
 function articleSchema(props: Blog) {
