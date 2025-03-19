@@ -29,7 +29,10 @@ export const Media: CollectionConfig = {
     },
   ],
   upload: {
-    staticDir: path.resolve(dirname, "../../public/media"),
+    staticDir:
+      process.env.NODE_ENV === "development"
+        ? path.resolve(dirname, "../../public/media")
+        : undefined,
     imageSizes: [
       {
         name: "xsmall",

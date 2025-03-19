@@ -44,8 +44,6 @@ export default buildConfig({
       },
       bucket: process.env.S3_BUCKET ?? "",
       config: {
-        bucketEndpoint: true,
-        forcePathStyle: true,
         endpoint: process.env.S3_ENDPOINT ?? "",
         region: process.env.S3_REGION ?? "",
         credentials: {
