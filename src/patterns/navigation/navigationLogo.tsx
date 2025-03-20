@@ -10,7 +10,7 @@ function NavigationLogo() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 125) {
+      if (window.scrollY > 64) {
         gsap.to(atrickRef.current, {
           opacity: 1,
           width: "auto",
@@ -41,7 +41,7 @@ function NavigationLogo() {
 
   return (
     <Link href="/" className="text-2xl font-bold">
-      <h1 className="flex gap-0.5">
+      <h1 className="flex gap-1">
         <div>
           <span>P</span>
           <span
