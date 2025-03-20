@@ -20,13 +20,13 @@
   },
   "dependencies": {
     "@fontsource-variable/literata": "^5.1.1",
-    "@payloadcms/db-postgres": "3.28.1",
-    "@payloadcms/live-preview-react": "3.28.1",
-    "@payloadcms/next": "3.28.1",
-    "@payloadcms/plugin-seo": "^3.28.1",
-    "@payloadcms/richtext-lexical": "3.28.1",
-    "@payloadcms/storage-s3": "^3.28.1",
-    "@payloadcms/ui": "3.28.1",
+    "@payloadcms/db-postgres": "3.29.0",
+    "@payloadcms/live-preview-react": "3.29.0",
+    "@payloadcms/next": "3.29.0",
+    "@payloadcms/plugin-seo": "3.29.0",
+    "@payloadcms/richtext-lexical": "^3.29.0",
+    "@payloadcms/storage-s3": "3.29.0",
+    "@payloadcms/ui": "3.29.0",
     "@phosphor-icons/core": "^2.1.1",
     "@phosphor-icons/react": "^2.1.7",
     "class-variance-authority": "^0.7.1",
@@ -36,14 +36,13 @@
     "libsql": "0.5.0-pre.6",
     "next": "15.1.5",
     "next-intl": "^3.26.3",
-    "payload": "3.28.1",
+    "payload": "3.29.0",
     "plaiceholder": "^3.0.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "0.32.6",
     "shiki": "^3.1.0",
-    "tm-grammars": "^1.22.19",
-    "zod": "^3.24.1"
+    "tm-grammars": "^1.22.19"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -58,6 +57,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "esbuild",
       "sharp"
     ]
   }
