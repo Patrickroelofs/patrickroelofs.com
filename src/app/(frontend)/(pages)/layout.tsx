@@ -13,7 +13,7 @@ type Args = {
 
 export default async function RootLayout({ children }: Args) {
   return (
-    <html lang="en" className="bg-ginger font-serif text-black">
+    <html lang="en">
       <body>
         <main>{children}</main>
         <Footer />
