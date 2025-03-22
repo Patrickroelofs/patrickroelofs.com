@@ -1,4 +1,3 @@
-import { Navigation } from "@/patterns/navigation/navigation";
 import "@/styles/globals.css";
 import "@fontsource-variable/literata";
 import "@fontsource-variable/literata/opsz-italic.css";
@@ -16,7 +15,6 @@ export default async function RootLayout({ children }: Args) {
   return (
     <html lang="en" className="bg-ginger font-serif text-black">
       <body>
-        <Navigation />
         <main>{children}</main>
         <Footer />
       </body>

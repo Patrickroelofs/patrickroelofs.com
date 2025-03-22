@@ -1571,6 +1571,7 @@ export type SupportedTimezones =
   | 'Asia/Singapore'
   | 'Asia/Tokyo'
   | 'Asia/Seoul'
+  | 'Australia/Brisbane'
   | 'Australia/Sydney'
   | 'Pacific/Guam'
   | 'Pacific/Noumea'
@@ -1583,10 +1584,10 @@ export interface Config {
   };
   blocks: {};
   collections: {
-    users: User;
-    media: Media;
     pages: Page;
     blog: Blog;
+    users: User;
+    media: Media;
     'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -1594,10 +1595,10 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
-    users: UsersSelect<false> | UsersSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     blog: BlogSelect<false> | BlogSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -1649,20 +1650,23 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
+ * via the `definition` "pages".
  */
-export interface User {
+export interface Page {
   id: number;
+  title: string;
+  slug: string;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password?: string | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1736,130 +1740,6 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: number;
-  title: string;
-  slug: string;
-  content?: (HeroBlockType | TitleColumnType)[] | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroBlockType".
- */
-export interface HeroBlockType {
-  image: number | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'heroBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TitleColumnType".
- */
-export interface TitleColumnType {
-  content: {
-    title: string;
-    button?: ButtonBlockType[] | null;
-    blocks?: (RichTextType | FeaturesGridType | BlogListType)[] | null;
-  };
-  settings: {
-    theme: 'light' | 'dark';
-    type: 'row' | 'column';
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'TitleColumn';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonBlockType".
- */
-export interface ButtonBlockType {
-  overrideButton?: boolean | null;
-  buttonText?: string | null;
-  theme?: ('primary' | 'outline') | null;
-  link?: (number | null) | Page;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'ButtonBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "RichTextType".
- */
-export interface RichTextType {
-  richText?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'RichText';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FeaturesGridType".
- */
-export interface FeaturesGridType {
-  content?: {
-    features?:
-      | {
-          icon: Icons;
-          title: string;
-          description: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  settings?: {};
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'FeaturesGrid';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogListType".
- */
-export interface BlogListType {
-  content?: {
-    articles?:
-      | {
-          article: number | Blog;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  settings?: {};
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'BlogList';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "blog".
  */
 export interface Blog {
@@ -1869,7 +1749,7 @@ export interface Blog {
   description: string;
   coverImage: number | Media;
   content: {
-    blocks: (RichTextType | CodeType)[];
+    blocks: unknown[];
   };
   meta?: {
     title?: string | null;
@@ -1885,236 +1765,20 @@ export interface Blog {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CodeType".
+ * via the `definition` "users".
  */
-export interface CodeType {
-  content: {
-    code: string;
-  };
-  settings: {
-    language:
-      | 'abap'
-      | 'actionscript-3'
-      | 'ada'
-      | 'angular-html'
-      | 'angular-ts'
-      | 'apache'
-      | 'apex'
-      | 'apl'
-      | 'applescript'
-      | 'ara'
-      | 'asciidoc'
-      | 'asm'
-      | 'astro'
-      | 'awk'
-      | 'ballerina'
-      | 'bat'
-      | 'beancount'
-      | 'berry'
-      | 'bibtex'
-      | 'bicep'
-      | 'blade'
-      | 'bsl'
-      | 'c'
-      | 'cadence'
-      | 'cairo'
-      | 'clarity'
-      | 'clojure'
-      | 'cmake'
-      | 'cobol'
-      | 'codeowners'
-      | 'codeql'
-      | 'coffee'
-      | 'common-lisp'
-      | 'coq'
-      | 'cpp'
-      | 'crystal'
-      | 'csharp'
-      | 'css'
-      | 'csv'
-      | 'cue'
-      | 'cypher'
-      | 'd'
-      | 'dart'
-      | 'dax'
-      | 'desktop'
-      | 'diff'
-      | 'docker'
-      | 'dotenv'
-      | 'dream-maker'
-      | 'edge'
-      | 'elixir'
-      | 'elm'
-      | 'emacs-lisp'
-      | 'erb'
-      | 'erlang'
-      | 'fennel'
-      | 'fish'
-      | 'fluent'
-      | 'fortran-fixed-form'
-      | 'fortran-free-form'
-      | 'fsharp'
-      | 'gdresource'
-      | 'gdscript'
-      | 'gdshader'
-      | 'genie'
-      | 'gherkin'
-      | 'git-commit'
-      | 'git-rebase'
-      | 'gleam'
-      | 'glimmer-js'
-      | 'glimmer-ts'
-      | 'glsl'
-      | 'gnuplot'
-      | 'go'
-      | 'graphql'
-      | 'groovy'
-      | 'hack'
-      | 'haml'
-      | 'handlebars'
-      | 'haskell'
-      | 'haxe'
-      | 'hcl'
-      | 'hjson'
-      | 'hlsl'
-      | 'html'
-      | 'html-derivative'
-      | 'http'
-      | 'hxml'
-      | 'hy'
-      | 'imba'
-      | 'ini'
-      | 'java'
-      | 'javascript'
-      | 'jinja'
-      | 'jison'
-      | 'json'
-      | 'json5'
-      | 'jsonc'
-      | 'jsonl'
-      | 'jsonnet'
-      | 'jssm'
-      | 'jsx'
-      | 'julia'
-      | 'kotlin'
-      | 'kusto'
-      | 'latex'
-      | 'lean'
-      | 'less'
-      | 'liquid'
-      | 'log'
-      | 'logo'
-      | 'lua'
-      | 'luau'
-      | 'make'
-      | 'markdown'
-      | 'marko'
-      | 'matlab'
-      | 'mdc'
-      | 'mdx'
-      | 'mermaid'
-      | 'mipsasm'
-      | 'mojo'
-      | 'move'
-      | 'narrat'
-      | 'nextflow'
-      | 'nginx'
-      | 'nim'
-      | 'nix'
-      | 'nushell'
-      | 'objective-c'
-      | 'objective-cpp'
-      | 'ocaml'
-      | 'pascal'
-      | 'perl'
-      | 'php'
-      | 'plsql'
-      | 'po'
-      | 'polar'
-      | 'postcss'
-      | 'powerquery'
-      | 'powershell'
-      | 'prisma'
-      | 'prolog'
-      | 'proto'
-      | 'pug'
-      | 'puppet'
-      | 'purescript'
-      | 'python'
-      | 'qml'
-      | 'qmldir'
-      | 'qss'
-      | 'r'
-      | 'racket'
-      | 'raku'
-      | 'razor'
-      | 'reg'
-      | 'regexp'
-      | 'rel'
-      | 'riscv'
-      | 'rst'
-      | 'ruby'
-      | 'rust'
-      | 'sas'
-      | 'sass'
-      | 'scala'
-      | 'scheme'
-      | 'scss'
-      | 'sdbl'
-      | 'shaderlab'
-      | 'shellscript'
-      | 'shellsession'
-      | 'smalltalk'
-      | 'solidity'
-      | 'soy'
-      | 'sparql'
-      | 'splunk'
-      | 'sql'
-      | 'ssh-config'
-      | 'stata'
-      | 'stylus'
-      | 'svelte'
-      | 'swift'
-      | 'system-verilog'
-      | 'systemd'
-      | 'talonscript'
-      | 'tasl'
-      | 'tcl'
-      | 'templ'
-      | 'terraform'
-      | 'tex'
-      | 'toml'
-      | 'ts-tags'
-      | 'tsv'
-      | 'tsx'
-      | 'turtle'
-      | 'twig'
-      | 'typescript'
-      | 'typespec'
-      | 'typst'
-      | 'v'
-      | 'vala'
-      | 'vb'
-      | 'verilog'
-      | 'vhdl'
-      | 'viml'
-      | 'vue'
-      | 'vue-html'
-      | 'vyper'
-      | 'wasm'
-      | 'wenyan'
-      | 'wgsl'
-      | 'wikitext'
-      | 'wolfram'
-      | 'xml'
-      | 'xsl'
-      | 'yaml'
-      | 'zenscript'
-      | 'zig';
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'CodeBlock';
+export interface User {
+  id: number;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2216,20 +1880,20 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: 'users';
-        value: number | User;
-      } | null)
-    | ({
-        relationTo: 'media';
-        value: number | Media;
-      } | null)
-    | ({
         relationTo: 'pages';
         value: number | Page;
       } | null)
     | ({
         relationTo: 'blog';
         value: number | Blog;
+      } | null)
+    | ({
+        relationTo: 'users';
+        value: number | User;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: number | Media;
       } | null)
     | ({
         relationTo: 'payload-jobs';
@@ -2276,6 +1940,49 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog_select".
+ */
+export interface BlogSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  description?: T;
+  coverImage?: T;
+  content?:
+    | T
+    | {
+        blocks?: T | {};
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2374,179 +2081,6 @@ export interface MediaSelect<T extends boolean = true> {
               filename?: T;
             };
       };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages_select".
- */
-export interface PagesSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  content?:
-    | T
-    | {
-        heroBlock?: T | HeroBlockTypeSelect<T>;
-        TitleColumn?: T | TitleColumnTypeSelect<T>;
-      };
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        image?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroBlockType_select".
- */
-export interface HeroBlockTypeSelect<T extends boolean = true> {
-  image?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TitleColumnType_select".
- */
-export interface TitleColumnTypeSelect<T extends boolean = true> {
-  content?:
-    | T
-    | {
-        title?: T;
-        button?:
-          | T
-          | {
-              ButtonBlock?: T | ButtonBlockTypeSelect<T>;
-            };
-        blocks?:
-          | T
-          | {
-              RichText?: T | RichTextTypeSelect<T>;
-              FeaturesGrid?: T | FeaturesGridTypeSelect<T>;
-              BlogList?: T | BlogListTypeSelect<T>;
-            };
-      };
-  settings?:
-    | T
-    | {
-        theme?: T;
-        type?: T;
-      };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonBlockType_select".
- */
-export interface ButtonBlockTypeSelect<T extends boolean = true> {
-  overrideButton?: T;
-  buttonText?: T;
-  theme?: T;
-  link?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "RichTextType_select".
- */
-export interface RichTextTypeSelect<T extends boolean = true> {
-  richText?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FeaturesGridType_select".
- */
-export interface FeaturesGridTypeSelect<T extends boolean = true> {
-  content?:
-    | T
-    | {
-        features?:
-          | T
-          | {
-              icon?: T;
-              title?: T;
-              description?: T;
-              id?: T;
-            };
-      };
-  settings?: T | {};
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogListType_select".
- */
-export interface BlogListTypeSelect<T extends boolean = true> {
-  content?:
-    | T
-    | {
-        articles?:
-          | T
-          | {
-              article?: T;
-              id?: T;
-            };
-      };
-  settings?: T | {};
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog_select".
- */
-export interface BlogSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  description?: T;
-  coverImage?: T;
-  content?:
-    | T
-    | {
-        blocks?:
-          | T
-          | {
-              RichText?: T | RichTextTypeSelect<T>;
-              CodeBlock?: T | CodeTypeSelect<T>;
-            };
-      };
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        image?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CodeType_select".
- */
-export interface CodeTypeSelect<T extends boolean = true> {
-  content?:
-    | T
-    | {
-        code?: T;
-      };
-  settings?:
-    | T
-    | {
-        language?: T;
-      };
-  id?: T;
-  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

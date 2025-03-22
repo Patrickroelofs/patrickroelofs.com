@@ -1,5 +1,3 @@
-import { HeroBlock } from "@/blocks/hero";
-import { TitleColumnBlock } from "@/blocks/titleColumn";
 import { slugField } from "@/fields/slug";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import {
@@ -33,12 +31,6 @@ const Pages: CollectionConfig = {
             slugField({
               trackingField: "title",
             }),
-            {
-              name: "content",
-              label: "Content",
-              type: "blocks",
-              blocks: [HeroBlock, TitleColumnBlock],
-            },
           ],
         },
         {
