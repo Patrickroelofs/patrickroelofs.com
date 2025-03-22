@@ -51,16 +51,7 @@ const Blog: CollectionConfig = {
                 {
                   name: "content",
                   label: "Content",
-                  fields: [
-                    {
-                      name: "blocks",
-                      label: "Blocks",
-                      type: "blocks",
-                      required: true,
-                      localized: true,
-                      blocks: [],
-                    },
-                  ],
+                  fields: [],
                 },
               ],
             },

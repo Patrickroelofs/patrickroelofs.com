@@ -13,7 +13,7 @@ function Blocks({ blocks }: BlocksProps) {
 
   return (
     <>
-      {blocks.map((block) => {
+      {/* {blocks.map((block) => {
         const { blockType } = block;
 
         if (blockType in blockComponents) {
@@ -23,7 +23,7 @@ function Blocks({ blocks }: BlocksProps) {
         }
 
         return null;
-      })}
+      })} */}
     </>
   );
 }
