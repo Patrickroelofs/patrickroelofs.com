@@ -19,6 +19,7 @@
     "migrate:reset": "cross-env NODE_OPTIONS=--no-deprecation payload migrate:fresh"
   },
   "dependencies": {
+    "@csstools/postcss-global-data": "^3.0.0",
     "@fontsource-variable/literata": "^5.1.1",
     "@payloadcms/db-postgres": "3.29.0",
     "@payloadcms/live-preview-react": "3.29.0",
@@ -38,6 +39,9 @@
     "next-intl": "^3.26.3",
     "payload": "3.29.0",
     "plaiceholder": "^3.0.0",
+    "postcss": "^8.5.3",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^10.1.5",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "0.32.6",
@@ -49,10 +53,14 @@
     "@types/node": "^22.5.4",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
-    "postcss": "^8.4.49",
+    "postcss-custom-media": "^11.0.5",
     "typescript": "5.7.3"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["@biomejs/biome", "esbuild", "sharp"]
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "esbuild",
+      "sharp"
+    ]
   }
 }

@@ -29,7 +29,6 @@
   --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
   --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
 
-  /* One-up pairs */
   --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
   --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
   --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
@@ -39,14 +38,6 @@
   --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
   --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
 
-  --container: 1200px; /* Default width */
-  --container-full: 100vw; /* Full width */
-
-  --screen-xs: 320px;
-  --screen-s: 576px;
-  --screen-m: 768px;
-  --screen-l: 992px;
-  --screen-xl: 1200px;
-  --screen-2xl: 1400px;
-  --screen-3xl: 1600px;
+  --container: 1200px;
+  --container-full: 100vw;
 }

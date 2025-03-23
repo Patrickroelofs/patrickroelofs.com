@@ -3,10 +3,9 @@
   grid-template-columns: 1fr 1fr;
   width: var(--container-full);
   max-width: var(--container);
-  margin-inline-start: 4px;
   margin: 0 auto;
 
-  @media (min-width: 768px) {
+  @media (--viewport-sm) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -17,7 +16,7 @@
   font-weight: var(--font-weight-black);
   grid-column: 1;
 
-  @media (min-width: 768px) {
+  @media (--viewport-sm) {
     grid-column: 2;
   }
 }
@@ -36,9 +35,4 @@
   gap: var(--space-xs);
   justify-content: center;
   align-items: center;
-  grid-column: 2;
-
-  @media (min-width: 768px) {
-    grid-column: 3;
-  }
 }
