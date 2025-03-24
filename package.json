@@ -11,7 +11,7 @@
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "check": "cross-env NODE_OPTIONS=--no-deprecation biome check",
-    "lint": "cross-env NODE_OPTIONS=--no-deprecation biome lint",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation biome lint && stylelint 'src/**/*.css'",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "migrate": "cross-env IS_BUILD=true NODE_OPTIONS=--no-deprecation payload migrate",
@@ -55,13 +55,11 @@
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
     "postcss-custom-media": "^11.0.5",
+    "stylelint": "^16.16.0",
+    "stylelint-config-standard": "^37.0.0",
     "typescript": "5.7.3"
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "esbuild",
-      "sharp"
-    ]
+    "onlyBuiltDependencies": ["@biomejs/biome", "esbuild", "sharp"]
   }
 }
