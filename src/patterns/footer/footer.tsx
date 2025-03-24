@@ -11,11 +11,7 @@ async function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <p className={styles.name}>
-        Patrick
-        <br />
-        Roelofs
-      </p>
+      <p className={styles.name}>Patrick Roelofs</p>
       <nav className={styles.navigation}>
         <ul className={styles.socialLinks}>
           {data.socialLinks?.map((link) => {

@@ -1,10 +1,7 @@
 import type { Page } from "@/payload-types";
 import { payload } from "@/util/getPayloadConfig";
-import { cva } from "class-variance-authority";
 import Link from "next/link";
-import { NavigationLogo } from "./navigationLogo";
-
-const linkStyles = cva("text-xl font-medium");
+import styles from "./navigation.module.css";
 
 async function Navigation() {
   const data = await payload.findGlobal({
@@ -13,8 +10,10 @@ async function Navigation() {
   });
 
   return (
-    <nav>
-      <NavigationLogo />
+    <nav className={styles.navigation}>
+      <Link href="#" className={styles.logo}>
+        <h1>Patrick Roelofs</h1>
+      </Link>
       <div className="flex md:justify-end">
         <ul className="flex space-x-6">
           {data.navigation?.links?.map((link) => {
@@ -25,7 +24,6 @@ async function Navigation() {
                 <li key={link.id}>
                   <Link
                     href={`/${pageLink.slug === "home" ? "" : pageLink.slug}`}
-                    className={linkStyles()}
                   >
                     {link.overrideLabel ? link.label : pageLink.title}
                   </Link>

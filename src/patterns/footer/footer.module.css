@@ -1,9 +1,9 @@
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: var(--container-full);
   max-width: var(--container);
   margin: 0 auto;
+  padding: 0 var(--space-2xs);
 
   @media (--viewport-sm) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -11,13 +11,14 @@
 }
 
 .name {
-  text-align: center;
+  text-align: left;
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-black);
   grid-column: 1;
 
   @media (--viewport-sm) {
     grid-column: 2;
+    text-align: center;
   }
 }
 
