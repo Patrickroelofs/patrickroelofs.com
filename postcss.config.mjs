@@ -3,9 +3,7 @@ export default {
     "@csstools/postcss-global-data": {
       files: ["./src/styles/custommedia.css"],
     },
-    "postcss-custom-media": {
-      preserve: true,
-    },
+    "postcss-custom-media": {},
     "postcss-flexbugs-fixes": {},
     "postcss-preset-env": {
       autoprefixer: {
