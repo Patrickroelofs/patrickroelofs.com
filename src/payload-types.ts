@@ -1656,6 +1656,7 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
+  content?: HeroType[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1667,6 +1668,18 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroType".
+ */
+export interface HeroType {
+  image: number | Media;
+  title: string;
+  subtitle: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1896,6 +1909,11 @@ export interface PayloadMigration {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  content?:
+    | T
+    | {
+        hero?: T | HeroTypeSelect<T>;
+      };
   meta?:
     | T
     | {
@@ -1906,6 +1924,17 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroType_select".
+ */
+export interface HeroTypeSelect<T extends boolean = true> {
+  image?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

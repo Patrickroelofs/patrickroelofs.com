@@ -1,4 +1,5 @@
 import { slugField } from "@/fields/slug";
+import { HeroBlock } from "@/patterns/hero/hero.block";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import {
   MetaDescriptionField,
@@ -31,6 +32,12 @@ const Pages: CollectionConfig = {
             slugField({
               trackingField: "title",
             }),
+            {
+              name: "content",
+              label: "Content",
+              type: "blocks",
+              blocks: [HeroBlock],
+            },
           ],
         },
         {

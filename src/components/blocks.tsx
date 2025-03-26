@@ -1,10 +1,14 @@
+import { Hero } from "@/patterns/hero/hero";
+import type { HeroType } from "@/payload-types";
 import type { ComponentType } from "react";
 
 interface BlocksProps {
-  blocks: null | undefined;
+  blocks: HeroType[] | null | undefined;
 }
 
-const blockComponents = {};
+const blockComponents = {
+  hero: Hero,
+};
 
 function Blocks({ blocks }: BlocksProps) {
   if (blocks === null || blocks === undefined) {
@@ -13,7 +17,7 @@ function Blocks({ blocks }: BlocksProps) {
 
   return (
     <>
-      {/* {blocks.map((block) => {
+      {blocks.map((block) => {
         const { blockType } = block;
 
         if (blockType in blockComponents) {
@@ -23,7 +27,7 @@ function Blocks({ blocks }: BlocksProps) {
         }
 
         return null;
-      })} */}
+      })}
     </>
   );
 }

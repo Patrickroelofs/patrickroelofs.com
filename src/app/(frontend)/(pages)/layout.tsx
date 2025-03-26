@@ -3,6 +3,7 @@ import "@fontsource-variable/literata";
 import "@fontsource-variable/literata/opsz-italic.css";
 import "@fontsource-variable/literata/opsz.css";
 import "@fontsource-variable/literata/wght-italic.css";
+import "@fontsource-variable/inter";
 import { Footer } from "@/patterns/footer/footer";
 import { Navigation } from "@/patterns/navigation/navigation";
 
