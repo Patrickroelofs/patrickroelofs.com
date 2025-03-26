@@ -18,7 +18,7 @@ export default async function RootLayout({ children }: Args) {
     <html lang="en">
       <body>
         <Navigation />
-        <main>{children}</main>
+        {children}
         <Footer />
       </body>
     </html>
