@@ -1,10 +1,10 @@
-import { Navigation } from "@/patterns/navigation/navigation";
 import "@/styles/globals.css";
 import "@fontsource-variable/literata";
 import "@fontsource-variable/literata/opsz-italic.css";
 import "@fontsource-variable/literata/opsz.css";
 import "@fontsource-variable/literata/wght-italic.css";
 import { Footer } from "@/patterns/footer/footer";
+import { Navigation } from "@/patterns/navigation/navigation";
 
 export const metadata = {};
 
@@ -14,7 +14,7 @@ type Args = {
 
 export default async function RootLayout({ children }: Args) {
   return (
-    <html lang="en" className="bg-ginger font-serif text-black">
+    <html lang="en">
       <body>
         <Navigation />
         <main>{children}</main>

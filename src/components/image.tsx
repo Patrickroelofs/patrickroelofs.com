@@ -14,19 +14,20 @@ function Image(props: ImageProps): ReactElement {
     throw new Error("Image media is not defined");
   }
 
-  const breakpoints = [480, 768, 1024, 1280, 1440, 1600];
-  const sizes =
-    props.sizes ||
-    Object.entries(breakpoints)
-      .map(([, value]) => `(max-width: ${value}px) ${value}px`)
-      .join(", ");
+  // TODO: Implement responsive image sizes
+  // const breakpoints = [480, 768, 1024, 1280, 1440, 1600];
+  // const sizes =
+  //   props.sizes ||
+  //   Object.entries(breakpoints)
+  //     .map(([, value]) => `(max-width: ${value}px) ${value}px`)
+  //     .join(", ");
 
   return (
     <NextImage
       blurDataURL={media.blurData ?? ""}
       src={media.url ?? ""}
       alt={media.alt ?? ""}
-      sizes={sizes}
+      // sizes={sizes}
       {...rest}
     />
   );

@@ -10,7 +10,7 @@ function getImageURL(
   let url = serverURL;
 
   if (image && typeof image === "object") {
-    const ogURL = image.sizes?.small?.url;
+    const ogURL = image.url;
 
     url = ogURL ? serverURL + ogURL : serverURL + url;
 

@@ -11,7 +11,7 @@
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "check": "cross-env NODE_OPTIONS=--no-deprecation biome check",
-    "lint": "cross-env NODE_OPTIONS=--no-deprecation biome lint",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation biome lint && stylelint 'src/**/*.css'",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "migrate": "cross-env IS_BUILD=true NODE_OPTIONS=--no-deprecation payload migrate",
@@ -19,6 +19,7 @@
     "migrate:reset": "cross-env NODE_OPTIONS=--no-deprecation payload migrate:fresh"
   },
   "dependencies": {
+    "@csstools/postcss-global-data": "^3.0.0",
     "@fontsource-variable/literata": "^5.1.1",
     "@payloadcms/db-postgres": "3.29.0",
     "@payloadcms/live-preview-react": "3.29.0",
@@ -31,6 +32,7 @@
     "@phosphor-icons/react": "^2.1.7",
     "class-variance-authority": "^0.7.1",
     "cross-env": "^7.0.3",
+    "cssnano": "^7.0.6",
     "graphql": "^16.8.1",
     "gsap": "^3.12.7",
     "libsql": "0.5.0-pre.6",
@@ -38,6 +40,9 @@
     "next-intl": "^3.26.3",
     "payload": "3.29.0",
     "plaiceholder": "^3.0.0",
+    "postcss": "^8.5.3",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^10.1.5",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "0.32.6",
@@ -46,13 +51,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@tailwindcss/postcss": "^4.0.0",
-    "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.5.4",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^4.0.0",
+    "postcss-custom-media": "^11.0.5",
+    "stylelint": "^16.16.0",
+    "stylelint-config-standard": "^37.0.0",
     "typescript": "5.7.3"
   },
   "pnpm": {
