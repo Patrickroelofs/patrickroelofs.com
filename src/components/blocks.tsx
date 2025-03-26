@@ -6,9 +6,11 @@ interface BlocksProps {
   blocks: HeroType[] | null | undefined;
 }
 
-const blockComponents = {
+const headerComponents = {
   hero: Hero,
 };
+
+const mainComponents = {};
 
 function Blocks({ blocks }: BlocksProps) {
   if (blocks === null || blocks === undefined) {
@@ -20,14 +22,28 @@ function Blocks({ blocks }: BlocksProps) {
       {blocks.map((block) => {
         const { blockType } = block;
 
-        if (blockType in blockComponents) {
-          const BlockComponent = blockComponents[blockType] as ComponentType;
+        if (blockType in headerComponents) {
+          const BlockComponent = headerComponents[blockType] as ComponentType;
 
           return <BlockComponent key={block.id} {...block} />;
         }
 
         return null;
       })}
+
+      <main>
+        {blocks.map((block) => {
+          const { blockType } = block;
+
+          if (blockType in mainComponents) {
+            const BlockComponent = mainComponents[blockType] as ComponentType;
+
+            return <BlockComponent key={block.id} {...block} />;
+          }
+
+          return null;
+        })}
+      </main>
     </>
   );
 }
