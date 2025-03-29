@@ -1,0 +1,19 @@
+.grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-gap: var(--space-s);
+  padding: 0 var(--space-2xs);
+
+  &.columnCountThree {
+    grid-template-columns: repeat(1, 1fr);
+
+    @media (--viewport-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (--viewport-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

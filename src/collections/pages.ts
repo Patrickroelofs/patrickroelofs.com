@@ -1,4 +1,5 @@
 import { slugField } from "@/fields/slug";
+import { GridBlock } from "@/patterns/grid/grid.block";
 import { HeroBlock } from "@/patterns/hero/hero.block";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import {
@@ -36,7 +37,7 @@ const Pages: CollectionConfig = {
               name: "content",
               label: "Content",
               type: "blocks",
-              blocks: [HeroBlock],
+              blocks: [HeroBlock, GridBlock],
             },
           ],
         },
