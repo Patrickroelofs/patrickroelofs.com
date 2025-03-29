@@ -1706,7 +1706,7 @@ export interface Media {
  * via the `definition` "GridType".
  */
 export interface GridType {
-  content?: SimpleTextType[] | null;
+  content?: FeatureCardType[] | null;
   settings: {
     /**
      * The number of columns to display the content in, on tablet two columns, on mobile 1.
@@ -1719,13 +1719,29 @@ export interface GridType {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SimpleTextType".
+ * via the `definition` "FeatureCardType".
  */
-export interface SimpleTextType {
-  content: string;
+export interface FeatureCardType {
+  icon: Icons;
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  settings?: {};
   id?: string | null;
   blockName?: string | null;
-  blockType: 'simpleText';
+  blockType: 'feature-card';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1971,7 +1987,7 @@ export interface GridTypeSelect<T extends boolean = true> {
   content?:
     | T
     | {
-        simpleText?: T | SimpleTextTypeSelect<T>;
+        'feature-card'?: T | FeatureCardTypeSelect<T>;
       };
   settings?:
     | T
@@ -1983,10 +1999,12 @@ export interface GridTypeSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SimpleTextType_select".
+ * via the `definition` "FeatureCardType_select".
  */
-export interface SimpleTextTypeSelect<T extends boolean = true> {
-  content?: T;
+export interface FeatureCardTypeSelect<T extends boolean = true> {
+  icon?: T;
+  text?: T;
+  settings?: T | {};
   id?: T;
   blockName?: T;
 }

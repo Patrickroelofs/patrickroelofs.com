@@ -1,5 +1,5 @@
-import { SimpleTextBlock } from "@/components/simpletext/simpletext.block";
 import type { Block } from "payload";
+import { FeatureCardBlock } from "../feature-card/feature-card.block";
 
 const GridBlock: Block = {
   slug: "grid",
@@ -15,7 +15,7 @@ const GridBlock: Block = {
               name: "content",
               label: "Content",
               type: "blocks",
-              blocks: [SimpleTextBlock],
+              blocks: [FeatureCardBlock],
             },
           ],
         },

@@ -1,17 +1,17 @@
+import { FeatureCard } from "@/patterns/feature-card/feature-card";
 import { Grid } from "@/patterns/grid/grid";
 import { Hero } from "@/patterns/hero/hero";
-import type { GridType, HeroType, SimpleTextType } from "@/payload-types";
+import type { FeatureCardType, GridType, HeroType } from "@/payload-types";
 import type { ComponentType } from "react";
-import { SimpleText } from "./simpletext/simpletext";
 
 interface BlocksProps {
-  blocks: (GridType | HeroType | SimpleTextType)[] | null | undefined;
+  blocks: (GridType | HeroType | FeatureCardType)[] | null | undefined;
 }
 
 const components = {
   hero: Hero,
   grid: Grid,
-  simpleText: SimpleText,
+  "feature-card": FeatureCard,
 };
 
 function Blocks({ blocks }: BlocksProps) {
