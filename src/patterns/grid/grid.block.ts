@@ -35,24 +35,8 @@ const GridBlock: Block = {
               },
               options: [
                 {
-                  label: "2 Columns",
-                  value: "2",
-                },
-                {
                   label: "3 Columns",
                   value: "3",
-                },
-                {
-                  label: "4 Columns",
-                  value: "4",
-                },
-                {
-                  label: "5 Columns",
-                  value: "5",
-                },
-                {
-                  label: "6 Columns",
-                  value: "6",
                 },
               ],
             },

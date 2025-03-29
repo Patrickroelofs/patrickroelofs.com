@@ -6,11 +6,7 @@ import styles from "./grid.module.css";
 const gridStyles = cva(styles.grid, {
   variants: {
     columnCount: {
-      "2": styles.columnCountTwo,
       "3": styles.columnCountThree,
-      "4": styles.columnCountFour,
-      "5": styles.columnCountFive,
-      "6": styles.columnCountSix,
     },
   },
 });

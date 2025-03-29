@@ -1711,7 +1711,7 @@ export interface GridType {
     /**
      * The number of columns to display the content in, on tablet two columns, on mobile 1.
      */
-    columns: '2' | '3' | '4' | '5' | '6';
+    columns: '3';
   };
   id?: string | null;
   blockName?: string | null;
