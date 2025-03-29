@@ -1656,7 +1656,7 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
-  content?: HeroType[] | null;
+  content?: (HeroType | GridType)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1700,6 +1700,32 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridType".
+ */
+export interface GridType {
+  content?: SimpleTextType[] | null;
+  settings: {
+    /**
+     * The number of columns to display the content in, on tablet two columns, on mobile 1.
+     */
+    columns: '2' | '3' | '4' | '5' | '6';
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'grid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SimpleTextType".
+ */
+export interface SimpleTextType {
+  content: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'simpleText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1913,6 +1939,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         hero?: T | HeroTypeSelect<T>;
+        grid?: T | GridTypeSelect<T>;
       };
   meta?:
     | T
@@ -1933,6 +1960,33 @@ export interface HeroTypeSelect<T extends boolean = true> {
   image?: T;
   title?: T;
   subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridType_select".
+ */
+export interface GridTypeSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        simpleText?: T | SimpleTextTypeSelect<T>;
+      };
+  settings?:
+    | T
+    | {
+        columns?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SimpleTextType_select".
+ */
+export interface SimpleTextTypeSelect<T extends boolean = true> {
+  content?: T;
   id?: T;
   blockName?: T;
 }

@@ -1,16 +1,18 @@
+import { Grid } from "@/patterns/grid/grid";
 import { Hero } from "@/patterns/hero/hero";
-import type { HeroType } from "@/payload-types";
+import type { GridType, HeroType, SimpleTextType } from "@/payload-types";
 import type { ComponentType } from "react";
+import { SimpleText } from "./simpletext/simpletext";
 
 interface BlocksProps {
-  blocks: HeroType[] | null | undefined;
+  blocks: (GridType | HeroType | SimpleTextType)[] | null | undefined;
 }
 
-const headerComponents = {
+const components = {
   hero: Hero,
+  grid: Grid,
+  simpleText: SimpleText,
 };
-
-const mainComponents = {};
 
 function Blocks({ blocks }: BlocksProps) {
   if (blocks === null || blocks === undefined) {
@@ -22,28 +24,14 @@ function Blocks({ blocks }: BlocksProps) {
       {blocks.map((block) => {
         const { blockType } = block;
 
-        if (blockType in headerComponents) {
-          const BlockComponent = headerComponents[blockType] as ComponentType;
+        if (blockType in components) {
+          const BlockComponent = components[blockType] as ComponentType;
 
           return <BlockComponent key={block.id} {...block} />;
         }
 
         return null;
       })}
-
-      <main>
-        {blocks.map((block) => {
-          const { blockType } = block;
-
-          if (blockType in mainComponents) {
-            const BlockComponent = mainComponents[blockType] as ComponentType;
-
-            return <BlockComponent key={block.id} {...block} />;
-          }
-
-          return null;
-        })}
-      </main>
     </>
   );
 }
