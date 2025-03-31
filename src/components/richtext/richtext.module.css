@@ -1,0 +1,12 @@
+.richtext {
+  color: inherit;
+  font-size: inherit;
+}
+
+.base {
+  font-size: var(--font-size-base);
+}
+
+.large {
+  font-size: var(--font-size-lg);
+}

@@ -1,6 +1,6 @@
 body,
 html {
   background-color: var(--color-ginger);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--font-size-base);
 }
