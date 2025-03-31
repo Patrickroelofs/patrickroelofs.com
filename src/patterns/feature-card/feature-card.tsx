@@ -7,7 +7,7 @@ function FeatureCard(props: FeatureCardType) {
   return (
     <div className={styles.card}>
       <Icon name={props.icon} size={64} />
-      <RichText data={props.text} />
+      <RichText data={props.text} size="base" />
     </div>
   );
 }
