@@ -1524,6 +1524,11 @@ export type Icons =
   | 'YinYang'
   | 'YoutubeLogo';
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Spacing".
+ */
+export type Spacing = ('3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl') | null;
+/**
  * Supported timezones in IANA format.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1772,6 +1777,7 @@ export interface RichTextType {
     [k: string]: unknown;
   } | null;
   size?: ('small' | 'base' | 'large') | null;
+  spacing?: Spacing;
   id?: string | null;
   blockName?: string | null;
   blockType: 'rich-text';
@@ -2059,6 +2065,7 @@ export interface StickyTitleTypeSelect<T extends boolean = true> {
 export interface RichTextTypeSelect<T extends boolean = true> {
   richText?: T;
   size?: T;
+  spacing?: T;
   id?: T;
   blockName?: T;
 }
