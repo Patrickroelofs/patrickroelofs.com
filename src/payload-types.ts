@@ -1746,10 +1746,34 @@ export interface FeatureCardType {
  */
 export interface StickyTitleType {
   title: string;
-  blocks?: GridType[] | null;
+  blocks?: (GridType | RichTextType)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'sticky-title';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType".
+ */
+export interface RichTextType {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'rich-text';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2022,7 +2046,17 @@ export interface StickyTitleTypeSelect<T extends boolean = true> {
     | T
     | {
         grid?: T | GridTypeSelect<T>;
+        'rich-text'?: T | RichTextTypeSelect<T>;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType_select".
+ */
+export interface RichTextTypeSelect<T extends boolean = true> {
+  richText?: T;
   id?: T;
   blockName?: T;
 }

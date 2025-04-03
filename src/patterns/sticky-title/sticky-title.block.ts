@@ -1,3 +1,4 @@
+import { RichTextBlock } from "@/components/richtext/richtext.block";
 import type { Block } from "payload";
 import { GridBlock } from "../grid/grid.block";
 
@@ -20,7 +21,7 @@ const StickyTitleBlock: Block = {
             {
               name: "blocks",
               type: "blocks",
-              blocks: [GridBlock],
+              blocks: [GridBlock, RichTextBlock],
             },
           ],
         },

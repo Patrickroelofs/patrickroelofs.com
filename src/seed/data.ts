@@ -1,8 +1,12 @@
-import type { Footer, HeroType, Media, User } from "@/payload-types";
 import type {
-  RequiredDataFromCollection,
-  RequiredDataFromCollectionSlug,
-} from "payload";
+  Footer,
+  HeroType,
+  Media,
+  RichTextType,
+  StickyTitleType,
+  User,
+} from "@/payload-types";
+import type { RequiredDataFromCollectionSlug } from "payload";
 
 const Users: User[] = [
   {
@@ -43,6 +47,48 @@ const PageOne: (args: PageArgs) => RequiredDataFromCollectionSlug<"pages"> = ({
         blockName: null,
         blockType: "hero",
       } as Omit<HeroType, "id">,
+      {
+        title: "About",
+        blockType: "sticky-title",
+        blocks: [
+          {
+            blockType: "rich-text",
+            richText: {
+              root: {
+                type: "root",
+                format: "",
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    type: "paragraph",
+                    format: "",
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: "normal",
+                        text: "I am a front-end developer based in the Netherlands with a passion for building amazing, accessible websites. With a keen eye for detail and a user-first mindset, I specialize in crafting digital experiences that are not only visually stunning but also inclusive and easy to navigate. Always staying at the forefront of web technologies I am dedicated to creating solutions that deliver both performance and accessibility for all users.",
+                        type: "text",
+                        style: "",
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: "ltr",
+                    textStyle: "",
+                    textFormat: 0,
+                  },
+                ],
+                direction: "ltr",
+              },
+            },
+          } as Omit<RichTextType, "id">,
+        ],
+      } as Omit<StickyTitleType, "id">,
     ],
     meta: {
       title: "Home",

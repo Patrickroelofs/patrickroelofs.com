@@ -6,13 +6,15 @@ import type {
   FeatureCardType,
   GridType,
   HeroType,
+  RichTextType,
   StickyTitleType,
 } from "@/payload-types";
 import type { ComponentType } from "react";
+import { RichText } from "./richtext/richtext";
 
 interface BlocksProps {
   blocks:
-    | (GridType | HeroType | FeatureCardType | StickyTitleType)[]
+    | (GridType | HeroType | FeatureCardType | StickyTitleType | RichTextType)[]
     | null
     | undefined;
 }
@@ -22,6 +24,7 @@ const components = {
   grid: Grid,
   "feature-card": FeatureCard,
   "sticky-title": StickyTitle,
+  "rich-text": RichText,
 };
 
 function Blocks({ blocks }: BlocksProps) {
