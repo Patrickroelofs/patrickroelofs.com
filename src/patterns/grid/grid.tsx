@@ -15,7 +15,7 @@ async function Grid(props: GridType) {
   return (
     <div
       className={gridStyles({
-        columnCount: props.settings.columns,
+        columnCount: props.columns,
       })}
     >
       <Blocks blocks={props.content} />

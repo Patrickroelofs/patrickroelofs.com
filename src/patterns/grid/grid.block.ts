@@ -20,7 +20,6 @@ const GridBlock: Block = {
           ],
         },
         {
-          name: "settings",
           label: "Settings",
           fields: [
             {

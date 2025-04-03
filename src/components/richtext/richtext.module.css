@@ -3,6 +3,10 @@
   font-size: inherit;
 }
 
+.small {
+  font-size: var(--font-size-xs);
+}
+
 .base {
   font-size: var(--font-size-base);
 }

@@ -6,6 +6,7 @@ import styles from "./richtext.module.css";
 const RichTextLexicalStyles = cva(styles.richtext, {
   variants: {
     size: {
+      small: styles.small,
       base: styles.base,
       large: styles.large,
     },
@@ -14,7 +15,7 @@ const RichTextLexicalStyles = cva(styles.richtext, {
 
 type RichTextProps = {
   data: SerializedEditorState;
-  size: "base" | "large";
+  size: "base" | "large" | "small";
 };
 
 const RichText = ({ data, size }: RichTextProps) => {

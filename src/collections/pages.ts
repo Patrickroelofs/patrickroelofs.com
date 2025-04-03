@@ -1,6 +1,7 @@
 import { slugField } from "@/fields/slug";
 import { GridBlock } from "@/patterns/grid/grid.block";
 import { HeroBlock } from "@/patterns/hero/hero.block";
+import { StickyTitleBlock } from "@/patterns/sticky-title/sticky-title.block";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import {
   MetaDescriptionField,
@@ -37,7 +38,7 @@ const Pages: CollectionConfig = {
               name: "content",
               label: "Content",
               type: "blocks",
-              blocks: [HeroBlock, GridBlock],
+              blocks: [HeroBlock, GridBlock, StickyTitleBlock],
             },
           ],
         },
