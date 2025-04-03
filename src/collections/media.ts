@@ -31,7 +31,7 @@ export const Media: CollectionConfig = {
   upload: {
     staticDir:
       process.env.NODE_ENV === "development"
-        ? path.resolve(dirname, "../../public/media")
+        ? path.resolve(dirname, "../../media")
         : undefined,
   },
   hooks: {

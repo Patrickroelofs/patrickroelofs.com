@@ -1,17 +1,30 @@
 import { FeatureCard } from "@/patterns/feature-card/feature-card";
 import { Grid } from "@/patterns/grid/grid";
 import { Hero } from "@/patterns/hero/hero";
-import type { FeatureCardType, GridType, HeroType } from "@/payload-types";
+import { StickyTitle } from "@/patterns/sticky-title/sticky-title";
+import type {
+  FeatureCardType,
+  GridType,
+  HeroType,
+  RichTextType,
+  StickyTitleType,
+} from "@/payload-types";
 import type { ComponentType } from "react";
+import { RichText } from "./richtext/richtext";
 
 interface BlocksProps {
-  blocks: (GridType | HeroType | FeatureCardType)[] | null | undefined;
+  blocks:
+    | (GridType | HeroType | FeatureCardType | StickyTitleType | RichTextType)[]
+    | null
+    | undefined;
 }
 
 const components = {
   hero: Hero,
   grid: Grid,
   "feature-card": FeatureCard,
+  "sticky-title": StickyTitle,
+  "rich-text": RichText,
 };
 
 function Blocks({ blocks }: BlocksProps) {

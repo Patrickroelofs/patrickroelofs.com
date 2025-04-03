@@ -1656,7 +1656,7 @@ export interface Page {
   id: number;
   title: string;
   slug: string;
-  content?: (HeroType | GridType)[] | null;
+  content?: (HeroType | GridType | StickyTitleType)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1707,12 +1707,10 @@ export interface Media {
  */
 export interface GridType {
   content?: FeatureCardType[] | null;
-  settings: {
-    /**
-     * The number of columns to display the content in, on tablet two columns, on mobile 1.
-     */
-    columns: '3';
-  };
+  /**
+   * The number of columns to display the content in, on tablet two columns, on mobile 1.
+   */
+  columns: '3';
   id?: string | null;
   blockName?: string | null;
   blockType: 'grid';
@@ -1738,10 +1736,45 @@ export interface FeatureCardType {
     };
     [k: string]: unknown;
   };
-  settings?: {};
   id?: string | null;
   blockName?: string | null;
   blockType: 'feature-card';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StickyTitleType".
+ */
+export interface StickyTitleType {
+  title: string;
+  blocks?: (GridType | RichTextType)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'sticky-title';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType".
+ */
+export interface RichTextType {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  size?: ('small' | 'base' | 'large') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'rich-text';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1956,6 +1989,7 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         hero?: T | HeroTypeSelect<T>;
         grid?: T | GridTypeSelect<T>;
+        'sticky-title'?: T | StickyTitleTypeSelect<T>;
       };
   meta?:
     | T
@@ -1989,11 +2023,7 @@ export interface GridTypeSelect<T extends boolean = true> {
     | {
         'feature-card'?: T | FeatureCardTypeSelect<T>;
       };
-  settings?:
-    | T
-    | {
-        columns?: T;
-      };
+  columns?: T;
   id?: T;
   blockName?: T;
 }
@@ -2004,7 +2034,31 @@ export interface GridTypeSelect<T extends boolean = true> {
 export interface FeatureCardTypeSelect<T extends boolean = true> {
   icon?: T;
   text?: T;
-  settings?: T | {};
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StickyTitleType_select".
+ */
+export interface StickyTitleTypeSelect<T extends boolean = true> {
+  title?: T;
+  blocks?:
+    | T
+    | {
+        grid?: T | GridTypeSelect<T>;
+        'rich-text'?: T | RichTextTypeSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextType_select".
+ */
+export interface RichTextTypeSelect<T extends boolean = true> {
+  richText?: T;
+  size?: T;
   id?: T;
   blockName?: T;
 }

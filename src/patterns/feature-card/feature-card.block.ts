@@ -28,11 +28,6 @@ const FeatureCardBlock: Block = {
             },
           ],
         },
-        {
-          name: "settings",
-          label: "Settings",
-          fields: [],
-        },
       ],
     },
   ],

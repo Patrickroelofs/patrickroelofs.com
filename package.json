@@ -16,7 +16,9 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "migrate": "cross-env IS_BUILD=true NODE_OPTIONS=--no-deprecation payload migrate",
     "migrate:create": "cross-env NODE_OPTIONS=--no-deprecation payload migrate:create",
-    "migrate:reset": "cross-env NODE_OPTIONS=--no-deprecation payload migrate:fresh"
+    "migrate:reset": "cross-env NODE_OPTIONS=--no-deprecation payload migrate:fresh",
+    "reset:seed": "rm -rf ./media && npm run migrate:reset && npm run seed",
+    "seed": "payload run ./src/seed/seed.ts"
   },
   "dependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
