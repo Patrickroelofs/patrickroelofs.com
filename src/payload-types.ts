@@ -1771,6 +1771,7 @@ export interface RichTextType {
     };
     [k: string]: unknown;
   } | null;
+  size?: ('small' | 'base' | 'large') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'rich-text';
@@ -2057,6 +2058,7 @@ export interface StickyTitleTypeSelect<T extends boolean = true> {
  */
 export interface RichTextTypeSelect<T extends boolean = true> {
   richText?: T;
+  size?: T;
   id?: T;
   blockName?: T;
 }

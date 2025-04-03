@@ -14,11 +14,7 @@ const RichTextLexicalStyles = cva(styles.richtext, {
   },
 });
 
-type RichTextProps = {
-  size: "base" | "large" | "small";
-} & RichTextType;
-
-const RichText = (props: RichTextProps) => {
+const RichText = (props: RichTextType) => {
   const { size, richText } = props;
 
   return (

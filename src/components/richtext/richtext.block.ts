@@ -17,6 +17,31 @@ const RichTextBlock: Block = {
             },
           ],
         },
+        {
+          label: "Settings",
+          fields: [
+            {
+              name: "size",
+              label: "Size",
+              type: "select",
+              defaultValue: "base",
+              options: [
+                {
+                  label: "Small",
+                  value: "small",
+                },
+                {
+                  label: "Base",
+                  value: "base",
+                },
+                {
+                  label: "Large",
+                  value: "large",
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
