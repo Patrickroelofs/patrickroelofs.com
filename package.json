@@ -53,16 +53,23 @@
     "tm-grammars": "^1.22.19"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
     "@biomejs/biome": "1.9.4",
+    "@playwright/test": "^1.51.1",
     "@types/node": "^22.5.4",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
+    "playwright": "^1.51.1",
     "postcss-custom-media": "^11.0.5",
     "stylelint": "^16.16.0",
     "stylelint-config-standard": "^37.0.0",
     "typescript": "5.7.3"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["@biomejs/biome", "esbuild", "sharp"]
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "esbuild",
+      "sharp"
+    ]
   }
 }
