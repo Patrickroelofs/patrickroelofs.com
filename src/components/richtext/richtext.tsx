@@ -37,16 +37,15 @@ const RichText = (props: RichTextType) => {
               target={node.fields.newTab ? "_blank" : undefined}
             >
               {nodesToJSX({ nodes: node.children })}
-              <div>
-                <span className="visually-hidden">
-                  {node.fields.newTab && ", opens in a new tab"}
-                </span>
-                <Icon
-                  className={styles.icon}
-                  size={32}
-                  name={node.fields.newTab ? "ArrowSquareOut" : "LinkSimple"}
-                />
-              </div>
+              {node.fields.newTab && (
+                <span className="visually-hidden">", opens in a new tab"</span>
+              )}
+              <Icon
+                aria-hidden={true}
+                className={styles.icon}
+                size={24}
+                name={node.fields.newTab ? "ArrowSquareOut" : "LinkSimple"}
+              />
             </Link>
           );
         },
