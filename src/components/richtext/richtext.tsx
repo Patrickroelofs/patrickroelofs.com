@@ -38,7 +38,7 @@ const RichText = (props: RichTextType) => {
             >
               {nodesToJSX({ nodes: node.children })}
               {node.fields.newTab && (
-                <span className="visually-hidden">", opens in a new tab"</span>
+                <span className="visually-hidden">opens in a new tab</span>
               )}
               <Icon
                 aria-hidden={true}
