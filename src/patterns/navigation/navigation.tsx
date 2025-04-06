@@ -10,7 +10,7 @@ async function Navigation() {
   });
 
   return (
-    <nav className={styles.navigation}>
+    <nav className={styles.navigation} aria-label="Main navigation">
       <Link href="#" className={styles.logo}>
         <h1>Patrick Roelofs</h1>
       </Link>

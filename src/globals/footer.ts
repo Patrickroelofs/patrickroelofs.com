@@ -18,6 +18,12 @@ const Footer: GlobalConfig = {
               fields: [
                 iconField(),
                 {
+                  name: "label",
+                  label: "Label",
+                  type: "text",
+                  required: true,
+                },
+                {
                   name: "url",
                   label: "URL",
                   type: "text",

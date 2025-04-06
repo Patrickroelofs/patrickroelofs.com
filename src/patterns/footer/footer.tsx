@@ -12,12 +12,13 @@ async function Footer() {
   return (
     <footer className={styles.footer}>
       <p className={styles.name}>Patrick Roelofs</p>
-      <nav className={styles.navigation}>
+      <nav className={styles.navigation} aria-label="Social links">
         <ul className={styles.socialLinks}>
           {data.socialLinks?.map((link) => {
             return (
               <li key={link.id}>
                 <Link href={link.url}>
+                  <span className="visually-hidden">{link.label}</span>
                   <Icon name={link.icon} size={36} />
                 </Link>
               </li>
