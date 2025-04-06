@@ -108,7 +108,7 @@ const GlobalFooter: Omit<Footer, "id"> = {
     {
       icon: "GithubLogo",
       url: "https://github.com/Patrickroelofs",
-      label: "Github, opens in new tab",
+      label: "GitHub, opens in new tab",
     },
     {
       icon: "LinkedinLogo",
