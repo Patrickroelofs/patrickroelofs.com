@@ -2218,6 +2218,7 @@ export interface Footer {
   socialLinks?:
     | {
         icon: Icons;
+        label: string;
         url: string;
         id?: string | null;
       }[]
@@ -2255,6 +2256,7 @@ export interface FooterSelect<T extends boolean = true> {
     | T
     | {
         icon?: T;
+        label?: T;
         url?: T;
         id?: T;
       };
