@@ -22,6 +22,7 @@ const Footer: GlobalConfig = {
                   label: "Label",
                   type: "text",
                   required: true,
+                  defaultValue: "Replace with label",
                 },
                 {
                   name: "url",
