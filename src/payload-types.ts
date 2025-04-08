@@ -1712,6 +1712,7 @@ export interface Media {
  */
 export interface GridType {
   content?: FeatureCardType[] | null;
+  spacing?: Spacing;
   /**
    * The number of columns to display the content in, on tablet two columns, on mobile 1.
    */
@@ -1752,6 +1753,7 @@ export interface FeatureCardType {
 export interface StickyTitleType {
   title: string;
   blocks?: (GridType | RichTextType)[] | null;
+  spacing?: Spacing;
   id?: string | null;
   blockName?: string | null;
   blockType: 'sticky-title';
@@ -2029,6 +2031,7 @@ export interface GridTypeSelect<T extends boolean = true> {
     | {
         'feature-card'?: T | FeatureCardTypeSelect<T>;
       };
+  spacing?: T;
   columns?: T;
   id?: T;
   blockName?: T;
@@ -2055,6 +2058,7 @@ export interface StickyTitleTypeSelect<T extends boolean = true> {
         grid?: T | GridTypeSelect<T>;
         'rich-text'?: T | RichTextTypeSelect<T>;
       };
+  spacing?: T;
   id?: T;
   blockName?: T;
 }

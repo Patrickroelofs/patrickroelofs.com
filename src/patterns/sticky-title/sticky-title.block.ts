@@ -1,4 +1,5 @@
 import { RichTextBlock } from "@/components/richtext/richtext.block";
+import { spacingField } from "@/fields/spacing";
 import type { Block } from "payload";
 import { GridBlock } from "../grid/grid.block";
 
@@ -24,6 +25,10 @@ const StickyTitleBlock: Block = {
               blocks: [GridBlock, RichTextBlock],
             },
           ],
+        },
+        {
+          label: "Settings",
+          fields: [spacingField()],
         },
       ],
     },
