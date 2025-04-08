@@ -1,3 +1,4 @@
+import { spacingField } from "@/fields/spacing";
 import type { Block } from "payload";
 import { FeatureCardBlock } from "../feature-card/feature-card.block";
 
@@ -22,6 +23,7 @@ const GridBlock: Block = {
         {
           label: "Settings",
           fields: [
+            spacingField(),
             {
               name: "columns",
               label: "Columns",
