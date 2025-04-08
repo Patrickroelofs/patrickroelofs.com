@@ -103,17 +103,17 @@ const GlobalFooter: Omit<Footer, "id"> = {
     {
       icon: "EnvelopeOpen",
       url: "mailto:contact@patrickroelofs.com",
-      label: "Email, opens in new email client",
+      label: "Email",
     },
     {
       icon: "GithubLogo",
       url: "https://github.com/Patrickroelofs",
-      label: "GitHub, opens in new tab",
+      label: "GitHub",
     },
     {
       icon: "LinkedinLogo",
       url: "https://www.linkedin.com/in/patrick-roelofs/",
-      label: "LinkedIn, opens in new tab",
+      label: "LinkedIn",
     },
   ],
 };
