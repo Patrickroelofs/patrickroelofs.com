@@ -1,6 +1,5 @@
-import { Icon } from "@/components/icon/icon";
+import { IconLink } from "@/components/link/link";
 import { payload } from "@/util/getPayloadConfig";
-import Link from "next/link";
 import styles from "./footer.module.css";
 
 async function Footer() {
@@ -17,10 +16,14 @@ async function Footer() {
           {data.socialLinks?.map((link) => {
             return (
               <li key={link.id}>
-                <Link href={link.url}>
-                  <span className="visually-hidden">{link.label}</span>
-                  <Icon name={link.icon} size={36} />
-                </Link>
+                <IconLink
+                  href={link.url}
+                  size={42}
+                  icon={link.icon}
+                  target="_blank"
+                >
+                  {link.label}
+                </IconLink>
               </li>
             );
           })}
