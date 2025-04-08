@@ -37,7 +37,7 @@ const IconLink = (props: LinkProps & IconLinkProps) => {
     <Link href={props.href} target={props.target}>
       <span className="visually-hidden">
         {props.target === "_blank"
-          ? `${props.children}, opens in new tab`
+          ? `${props.children} opens in new tab`
           : props.children}
       </span>
       <Icon aria-hidden={true} size={props.size} name={props.icon} />
