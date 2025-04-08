@@ -7,6 +7,7 @@ import styles from "./grid.module.css";
 const gridStyles = cva(styles.grid, {
   variants: {
     columnCount: {
+      "2": styles.columnCountTwo,
       "3": styles.columnCountThree,
     },
     spacing: spacingStyles,

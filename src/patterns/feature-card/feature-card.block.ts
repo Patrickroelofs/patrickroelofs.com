@@ -1,9 +1,5 @@
 import { iconField } from "@/fields/icon";
-import {
-  BoldFeature,
-  ParagraphFeature,
-  lexicalEditor,
-} from "@payloadcms/richtext-lexical";
+import { ParagraphFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 import type { Block } from "payload";
 
 const FeatureCardBlock: Block = {
@@ -17,6 +13,12 @@ const FeatureCardBlock: Block = {
           label: "Content",
           fields: [
             iconField(),
+            {
+              name: "title",
+              type: "text",
+              label: "Title",
+              required: true,
+            },
             {
               name: "text",
               type: "richText",
