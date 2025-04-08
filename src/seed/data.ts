@@ -50,6 +50,7 @@ const PageOne: (args: PageArgs) => RequiredDataFromCollectionSlug<"pages"> = ({
       {
         title: "About",
         blockType: "sticky-title",
+        spacing: "m",
         blocks: [
           {
             blockType: "rich-text",
@@ -59,7 +60,6 @@ const PageOne: (args: PageArgs) => RequiredDataFromCollectionSlug<"pages"> = ({
                 format: "",
                 indent: 0,
                 version: 1,
-
                 children: [
                   {
                     type: "paragraph",
@@ -69,18 +69,135 @@ const PageOne: (args: PageArgs) => RequiredDataFromCollectionSlug<"pages"> = ({
 
                     children: [
                       {
-                        mode: "normal",
-                        text: "I am a front-end developer based in the Netherlands with a passion for building amazing, accessible websites. With a keen eye for detail and a user-first mindset, I specialize in crafting digital experiences that are not only visually stunning but also inclusive and easy to navigate. Always staying at the forefront of web technologies I am dedicated to creating solutions that deliver both performance and accessibility for all users.",
-                        type: "text",
-                        style: "",
-                        detail: 0,
-                        format: 0,
+                        type: "paragraph",
+                        format: "",
+                        indent: 0,
                         version: 1,
+
+                        children: [
+                          {
+                            mode: "normal",
+                            text: "I am a front-end developer based in the Netherlands with a passion for building amazing, accessible websites. With a keen eye for detail and a user-first mindset, I specialize in crafting digital experiences that are not only visually stunning but also inclusive and easy to navigate. ",
+                            type: "text",
+                            style: "",
+                            detail: 0,
+                            format: 0,
+                            version: 1,
+                          },
+                        ],
+                        direction: "ltr",
+                        textStyle: "",
+                        textFormat: 0,
+                      },
+                      {
+                        type: "paragraph",
+                        format: "",
+                        indent: 0,
+                        version: 1,
+                        children: [
+                          {
+                            mode: "normal",
+                            text: "Always staying at the forefront of web technologies I am dedicated to creating solutions that deliver both performance and accessibility for all users.",
+                            type: "text",
+                            style: "",
+                            detail: 0,
+                            format: 0,
+                            version: 1,
+                          },
+                        ],
+                        direction: "ltr",
+                        textStyle: "",
+                        textFormat: 0,
                       },
                     ],
                     direction: "ltr",
                     textStyle: "",
                     textFormat: 0,
+                  },
+                  {
+                    spacing: "m",
+                    columns: "2",
+                    blockName: null,
+                    blockType: "grid",
+                    content: [
+                      {
+                        id: "67f56db0a1ba3750f328e9ed",
+                        icon: "PersonArmsSpread",
+                        title: "Accessibility",
+
+                        text: {
+                          root: {
+                            type: "root",
+                            format: "",
+                            indent: 0,
+                            version: 1,
+                            children: [
+                              {
+                                type: "paragraph",
+                                format: "",
+                                indent: 0,
+                                version: 1,
+                                children: [
+                                  {
+                                    mode: "normal",
+                                    text: "I focus on building fast, accessible, and user-friendly interfaces—prioritizing both user experience and technical quality.",
+                                    type: "text",
+                                    style: "",
+                                    detail: 0,
+                                    format: 0,
+                                    version: 1,
+                                  },
+                                ],
+                                direction: "ltr",
+                                textStyle: "",
+                                textFormat: 0,
+                              },
+                            ],
+                            direction: "ltr",
+                          },
+                        },
+                        blockName: null,
+                        blockType: "feature-card",
+                      },
+                      {
+                        id: "67f56deaa1ba3750f328e9ef",
+                        icon: "Pencil",
+                        title: "Development",
+                        text: {
+                          root: {
+                            type: "root",
+                            format: "",
+                            indent: 0,
+                            version: 1,
+                            children: [
+                              {
+                                type: "paragraph",
+                                format: "",
+                                indent: 0,
+                                version: 1,
+                                children: [
+                                  {
+                                    mode: "normal",
+                                    text: "From design implementations to scalable component systems, I bridge design and development with thoughtful front-end architecture.",
+                                    type: "text",
+                                    style: "",
+                                    detail: 0,
+                                    format: 0,
+                                    version: 1,
+                                  },
+                                ],
+                                direction: "ltr",
+                                textStyle: "",
+                                textFormat: 0,
+                              },
+                            ],
+                            direction: "ltr",
+                          },
+                        },
+                        blockName: null,
+                        blockType: "feature-card",
+                      },
+                    ],
                   },
                 ],
                 direction: "ltr",

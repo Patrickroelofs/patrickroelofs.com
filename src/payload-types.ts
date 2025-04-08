@@ -1716,7 +1716,7 @@ export interface GridType {
   /**
    * The number of columns to display the content in, on tablet two columns, on mobile 1.
    */
-  columns: '3';
+  columns: '2' | '3';
   id?: string | null;
   blockName?: string | null;
   blockType: 'grid';
@@ -1727,6 +1727,7 @@ export interface GridType {
  */
 export interface FeatureCardType {
   icon: Icons;
+  title: string;
   text: {
     root: {
       type: string;
@@ -2042,6 +2043,7 @@ export interface GridTypeSelect<T extends boolean = true> {
  */
 export interface FeatureCardTypeSelect<T extends boolean = true> {
   icon?: T;
+  title?: T;
   text?: T;
   id?: T;
   blockName?: T;
