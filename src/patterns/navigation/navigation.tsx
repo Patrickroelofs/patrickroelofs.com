@@ -11,18 +11,19 @@ async function Navigation() {
 
   return (
     <nav className={styles.navigation} aria-label="Main navigation">
-      <Link href="#" className={styles.logo}>
+      <Link href="/" className={styles.logo}>
         <h1>Patrick Roelofs</h1>
       </Link>
-      <div className="flex md:justify-end">
-        <ul className="flex space-x-6">
+      <div>
+        <ul className={styles.list}>
           {data.navigation?.links?.map((link) => {
             if (link.link?.relationTo === "pages") {
               const pageLink = link.link.value as Page;
 
               return (
-                <li key={link.id}>
+                <li key={link.id} className={styles.listItem}>
                   <Link
+                    className={styles.link}
                     href={`/${pageLink.slug === "home" ? "" : pageLink.slug}`}
                   >
                     {link.overrideLabel ? link.label : pageLink.title}

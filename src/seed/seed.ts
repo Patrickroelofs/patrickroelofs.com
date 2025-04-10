@@ -1,7 +1,7 @@
 import config from "@payload-config";
 import { type File, getPayload } from "payload";
 
-import { GlobalFooter, Medias, PageOne, Users } from "./data";
+import { GlobalFooter, GlobalNavigation, Medias, PageOne, Users } from "./data";
 
 async function fetchFileByURL(url: string): Promise<File> {
   const res = await fetch(url, {
@@ -56,6 +56,11 @@ async function run() {
     await payload.updateGlobal({
       slug: "footer",
       data: GlobalFooter,
+    });
+
+    await payload.updateGlobal({
+      slug: "navigation",
+      data: GlobalNavigation,
     });
   } catch (error) {
     console.error(JSON.stringify(error));

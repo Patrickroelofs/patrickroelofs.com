@@ -2,6 +2,7 @@ import type {
   Footer,
   HeroType,
   Media,
+  Navigation,
   RichTextType,
   StickyTitleType,
   User,
@@ -66,7 +67,6 @@ const PageOne: (args: PageArgs) => RequiredDataFromCollectionSlug<"pages"> = ({
                     format: "",
                     indent: 0,
                     version: 1,
-
                     children: [
                       {
                         type: "paragraph",
@@ -114,97 +114,99 @@ const PageOne: (args: PageArgs) => RequiredDataFromCollectionSlug<"pages"> = ({
                     textStyle: "",
                     textFormat: 0,
                   },
-                  {
-                    spacing: "m",
-                    columns: "2",
-                    blockName: null,
-                    blockType: "grid",
-                    content: [
-                      {
-                        id: "67f56db0a1ba3750f328e9ed",
-                        icon: "PersonArmsSpread",
-                        title: "Accessibility",
-
-                        text: {
-                          root: {
-                            type: "root",
-                            format: "",
-                            indent: 0,
-                            version: 1,
-                            children: [
-                              {
-                                type: "paragraph",
-                                format: "",
-                                indent: 0,
-                                version: 1,
-                                children: [
-                                  {
-                                    mode: "normal",
-                                    text: "I focus on building fast, accessible, and user-friendly interfaces—prioritizing both user experience and technical quality.",
-                                    type: "text",
-                                    style: "",
-                                    detail: 0,
-                                    format: 0,
-                                    version: 1,
-                                  },
-                                ],
-                                direction: "ltr",
-                                textStyle: "",
-                                textFormat: 0,
-                              },
-                            ],
-                            direction: "ltr",
-                          },
-                        },
-                        blockName: null,
-                        blockType: "feature-card",
-                      },
-                      {
-                        id: "67f56deaa1ba3750f328e9ef",
-                        icon: "Pencil",
-                        title: "Development",
-                        text: {
-                          root: {
-                            type: "root",
-                            format: "",
-                            indent: 0,
-                            version: 1,
-                            children: [
-                              {
-                                type: "paragraph",
-                                format: "",
-                                indent: 0,
-                                version: 1,
-                                children: [
-                                  {
-                                    mode: "normal",
-                                    text: "From design implementations to scalable component systems, I bridge design and development with thoughtful front-end architecture.",
-                                    type: "text",
-                                    style: "",
-                                    detail: 0,
-                                    format: 0,
-                                    version: 1,
-                                  },
-                                ],
-                                direction: "ltr",
-                                textStyle: "",
-                                textFormat: 0,
-                              },
-                            ],
-                            direction: "ltr",
-                          },
-                        },
-                        blockName: null,
-                        blockType: "feature-card",
-                      },
-                    ],
-                  },
                 ],
                 direction: "ltr",
               },
             },
           } as Omit<RichTextType, "id">,
+          {
+            spacing: "m",
+            columns: "2",
+            blockType: "grid",
+            content: [
+              {
+                icon: "PersonArmsSpread",
+                title: "Accessibility",
+                text: {
+                  root: {
+                    type: "root",
+                    format: "",
+                    indent: 0,
+                    version: 1,
+                    children: [
+                      {
+                        type: "paragraph",
+                        format: "",
+                        indent: 0,
+                        version: 1,
+                        children: [
+                          {
+                            mode: "normal",
+                            text: "I focus on building fast, accessible, and user-friendly interfaces—prioritizing both user experience and technical quality.",
+                            type: "text",
+                            style: "",
+                            detail: 0,
+                            format: 0,
+                            version: 1,
+                          },
+                        ],
+                        direction: "ltr",
+                        textStyle: "",
+                        textFormat: 0,
+                      },
+                    ],
+                    direction: "ltr",
+                  },
+                },
+                blockName: null,
+                blockType: "feature-card",
+              },
+              {
+                icon: "Pencil",
+                title: "Development",
+                text: {
+                  root: {
+                    type: "root",
+                    format: "",
+                    indent: 0,
+                    version: 1,
+                    children: [
+                      {
+                        type: "paragraph",
+                        format: "",
+                        indent: 0,
+                        version: 1,
+                        children: [
+                          {
+                            mode: "normal",
+                            text: "From design implementations to scalable component systems, I bridge design and development with thoughtful front-end architecture.",
+                            type: "text",
+                            style: "",
+                            detail: 0,
+                            format: 0,
+                            version: 1,
+                          },
+                        ],
+                        direction: "ltr",
+                        textStyle: "",
+                        textFormat: 0,
+                      },
+                    ],
+                    direction: "ltr",
+                  },
+                },
+                blockName: null,
+                blockType: "feature-card",
+              },
+            ],
+          },
         ],
+      } as Omit<StickyTitleType, "id">,
+      {
+        title: "Projects",
+        blockType: "sticky-title",
+        spacing: "m",
+        blocks: [],
       } as Omit<StickyTitleType, "id">,
     ],
     meta: {
@@ -213,6 +215,19 @@ const PageOne: (args: PageArgs) => RequiredDataFromCollectionSlug<"pages"> = ({
       image: undefined,
     },
   };
+};
+
+const GlobalNavigation: Omit<Navigation, "id"> = {
+  navigation: {
+    links: [
+      {
+        link: {
+          value: 1,
+          relationTo: "pages",
+        },
+      },
+    ],
+  },
 };
 
 const GlobalFooter: Omit<Footer, "id"> = {
@@ -235,4 +250,4 @@ const GlobalFooter: Omit<Footer, "id"> = {
   ],
 };
 
-export { Users, Medias, PageOne, GlobalFooter };
+export { Users, Medias, PageOne, GlobalFooter, GlobalNavigation };
