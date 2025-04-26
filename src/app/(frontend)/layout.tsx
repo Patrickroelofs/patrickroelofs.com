@@ -2,6 +2,7 @@ import type React from "react";
 import "@/styles/globals.css";
 import "@fontsource-variable/national-park";
 import type { Metadata } from "next";
+import { Footer } from "@/components/footer/footer";
 
 export const metadata: Metadata = {
 	description: "",
@@ -15,6 +16,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 		<html lang="en">
 			<body>
 				<main>{children}</main>
+				<Footer />
 			</body>
 		</html>
 	);

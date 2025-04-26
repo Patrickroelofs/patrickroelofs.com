@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--space-2xs);
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+}
+
+.list {
+  display: flex;
+  gap: var(--space-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listItem {
+
+}
+
+.link {
+
+}
