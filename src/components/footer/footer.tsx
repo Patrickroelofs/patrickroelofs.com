@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./footer.module.css";
 import { payload } from "@/util/getPayloadConfig";
-import { Icon } from "../icon/icon";
+import { Icon } from "../icon";
 
 async function Footer() {
 	const { socials } = await payload.findGlobal({
