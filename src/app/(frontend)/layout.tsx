@@ -1,8 +1,11 @@
 import type React from "react";
+import "@/styles/globals.css";
+import "@fontsource-variable/national-park";
+import type { Metadata } from "next";
 
-export const metadata = {
-	description: "A blank template using Payload in a Next.js app.",
-	title: "Payload Blank Template",
+export const metadata: Metadata = {
+	description: "",
+	title: "Patrick Roelofs",
 };
 
 export default async function RootLayout(props: { children: React.ReactNode }) {

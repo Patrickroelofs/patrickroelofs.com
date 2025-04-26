@@ -15,6 +15,7 @@
 		"start": "cross-env NODE_OPTIONS=--no-deprecation next start"
 	},
 	"dependencies": {
+		"@fontsource-variable/national-park": "^5.2.1",
 		"@payloadcms/db-mongodb": "3.33.0",
 		"@payloadcms/next": "3.33.0",
 		"@payloadcms/richtext-lexical": "3.33.0",
@@ -28,9 +29,14 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
+		"@csstools/postcss-global-data": "^3.0.0",
 		"@types/node": "^22.5.4",
 		"@types/react": "19.1.0",
 		"@types/react-dom": "19.1.2",
+		"cssnano": "^7.0.6",
+		"postcss-custom-media": "^11.0.5",
+		"postcss-flexbugs-fixes": "^5.0.2",
+		"postcss-preset-env": "^10.1.6",
 		"typescript": "5.7.3"
 	},
 	"engines": {
@@ -38,6 +44,10 @@
 		"pnpm": "^9 || ^10"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": ["@biomejs/biome", "esbuild", "sharp"]
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"esbuild",
+			"sharp"
+		]
 	}
 }

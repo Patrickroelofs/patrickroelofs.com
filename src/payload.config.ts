@@ -13,6 +13,10 @@ const dirname = path.dirname(filename);
 
 export default buildConfig({
 	admin: {
+		autoLogin: {
+			email: process.env.ADMIN_EMAIL || "",
+			password: process.env.ADMIN_PASSWORD || "",
+		},
 		user: Users.slug,
 		importMap: {
 			baseDir: path.resolve(dirname),
