@@ -2,13 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 var(--space-2xs);
+  padding: var(--space-xs) var(--space-2xs);
   max-width: var(--container);
   margin: 0 auto;
 }
 
 .title {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-2xs);
 }
 
 .list {

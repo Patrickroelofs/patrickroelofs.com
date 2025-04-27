@@ -7,7 +7,7 @@
   --color-dark-grey: #2B2D33;
   --color-white: white;
   
-  --font-national-park: "National Park", sans-serif;
+  --font-national-park: "National Park Variable", sans-serif;
 
   --font-size-2xs: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
   --font-size-xs: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);

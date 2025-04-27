@@ -8,7 +8,6 @@
 }
 
 .logo {
-  font-size: var(--font-size-xs);
   font-family: var(--font-national-park);
   font-weight: var(--font-weight-black);
   color: var(--color-black);
