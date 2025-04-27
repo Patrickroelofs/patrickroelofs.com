@@ -2,9 +2,7 @@ name: pr-title
 
 on:
   pull_request_target:
-    types:
-      - opened
-      - edited
+    types: [opened, edited, synchronize, labeled]
 
 permissions:
   pull-requests: write

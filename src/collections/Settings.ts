@@ -8,6 +8,40 @@ export const Settings: GlobalConfig = {
 			type: "tabs",
 			tabs: [
 				{
+					label: "Navigation",
+					fields: [
+						{
+							name: "navigation",
+							type: "array",
+							label: "Navigation",
+							required: true,
+							fields: [
+								{
+									name: "link",
+									type: "relationship",
+									relationTo: "pages",
+									label: "Link",
+									required: true,
+								},
+								{
+									name: "overrideLabel",
+									type: "checkbox",
+									label: "Override Label",
+									defaultValue: false,
+								},
+								{
+									name: "label",
+									type: "text",
+									label: "Label",
+									admin: {
+										condition: (_, siblingData) => siblingData?.overrideLabel,
+									},
+								},
+							],
+						},
+					],
+				},
+				{
 					label: "Footer",
 					fields: [
 						{

@@ -1584,6 +1584,7 @@ export interface Config {
   };
   blocks: {};
   collections: {
+    pages: Page;
     users: User;
     media: Media;
     'payload-locked-documents': PayloadLockedDocument;
@@ -1592,6 +1593,7 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
+    pages: PagesSelect<false> | PagesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -1636,6 +1638,17 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  title: string;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -1677,6 +1690,10 @@ export interface Media {
 export interface PayloadLockedDocument {
   id: string;
   document?:
+    | ({
+        relationTo: 'pages';
+        value: string | Page;
+      } | null)
     | ({
         relationTo: 'users';
         value: string | User;
@@ -1726,6 +1743,16 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1798,6 +1825,12 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Setting {
   id: string;
+  navigation: {
+    link: string | Page;
+    overrideLabel?: boolean | null;
+    label?: string | null;
+    id?: string | null;
+  }[];
   socials: {
     icon: Icons;
     link: string;
@@ -1811,6 +1844,14 @@ export interface Setting {
  * via the `definition` "settings_select".
  */
 export interface SettingsSelect<T extends boolean = true> {
+  navigation?:
+    | T
+    | {
+        link?: T;
+        overrideLabel?: T;
+        label?: T;
+        id?: T;
+      };
   socials?:
     | T
     | {

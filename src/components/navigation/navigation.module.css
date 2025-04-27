@@ -1,0 +1,45 @@
+.navigation {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-xs) var(--space-2xs);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-national-park);
+  font-weight: var(--font-weight-black);
+  color: var(--color-black);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  &:hover, &:active, &:focus {
+    color: var(--color-redleather);
+    text-decoration: underline;
+  }
+}
+
+.list {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.listItem {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.link {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  color: var(--color-black);
+  transition: all 0.3s ease-in-out;
+
+  &:hover, &:active, &:focus {
+    color: var(--color-redleather);
+    text-decoration: underline;
+  }
+}
