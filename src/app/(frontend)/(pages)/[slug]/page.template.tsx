@@ -1,5 +1,5 @@
 import type { Page as PageType } from "@/payload-types";
-import { generateMeta } from "@/util/generateMetadata";
+import type { ReactElement } from "react";
 import { payload } from "@/util/getPayloadConfig";
 import { PageTemplate } from "./page";
 import { generateMeta } from "@/util/generateMetadata";

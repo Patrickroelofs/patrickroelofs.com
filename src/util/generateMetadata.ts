@@ -23,7 +23,7 @@ function getImageURL(
 
 async function generateMeta(args: {
 	doc: Partial<Page>;
-	collection: "pages" | "blog";
+	collection: "pages";
 }): Promise<Metadata> {
 	const { doc } = args || {};
 
