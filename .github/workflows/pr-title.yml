@@ -29,9 +29,6 @@ jobs:
             revert
             style
             test
-          scopes: |
-            ui
-            api
 
           subjectPattern: ^(?![A-Z]).+$
           subjectPatternError: |
@@ -49,10 +46,9 @@ jobs:
             ${{ steps.lint_pr_title.outputs.error_message }}
 
             ```
-            feat(ui): add Button component
-            ^    ^    ^
-            |    |    |__ Subject
-            |    |_______ Scope
+            feat: add Button component
+            ^     ^
+            |     |______ Subject
             |____________ Type
             ```
 
