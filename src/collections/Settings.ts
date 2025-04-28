@@ -1,4 +1,5 @@
 import { iconField } from "@/fields/icon";
+import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { GlobalConfig } from "payload";
 
 export const Settings: GlobalConfig = {
@@ -69,4 +70,7 @@ export const Settings: GlobalConfig = {
 			],
 		},
 	],
+	hooks: {
+		afterChange: [revalidateAfterChange],
+	},
 };

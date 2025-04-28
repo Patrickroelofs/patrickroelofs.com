@@ -1,6 +1,7 @@
 import { HeroBlock } from "@/components/hero/hero.block";
 import { RichTextBlock } from "@/components/richtext/richtext.block";
 import { StickyTitleBlock } from "@/components/sticky-title/sticky-title.block";
+import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { CollectionConfig } from "payload";
 
 export const Pages: CollectionConfig = {
@@ -38,4 +39,7 @@ export const Pages: CollectionConfig = {
 			],
 		},
 	],
+	hooks: {
+		afterChange: [revalidateAfterChange],
+	},
 };
