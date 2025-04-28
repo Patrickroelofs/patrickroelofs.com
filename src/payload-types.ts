@@ -1668,7 +1668,8 @@ export interface HeroBlockType {
  */
 export interface Media {
   id: string;
-  alt: string;
+  blurData?: string | null;
+  alt?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -1869,6 +1870,7 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
+  blurData?: T;
   alt?: T;
   updatedAt?: T;
   createdAt?: T;

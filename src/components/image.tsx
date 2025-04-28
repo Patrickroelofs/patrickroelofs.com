@@ -24,6 +24,7 @@ function Image(props: ImageProps): ReactElement {
 
 	return (
 		<NextImage
+			blurDataURL={media.blurData ?? ""}
 			src={media.url ?? ""}
 			alt={media.alt ?? ""}
 			// sizes={sizes}
