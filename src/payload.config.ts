@@ -10,6 +10,7 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Settings } from "./collections/Settings";
 import { Pages } from "./collections/Pages";
+import { seoPlugin } from "@payloadcms/plugin-seo";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -37,6 +38,12 @@ export default buildConfig({
 	}),
 	sharp,
 	plugins: [
+		seoPlugin({
+			collections: [Pages.slug],
+			uploadsCollection: Media.slug,
+			tabbedUI: true,
+			interfaceName: "SeoType",
+		}),
 		s3Storage({
 			enabled: process.env.NODE_ENV === "production",
 			collections: {

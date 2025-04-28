@@ -2,6 +2,8 @@ import type { Page as PageType } from "@/payload-types";
 import { payload } from "@/util/getPayloadConfig";
 import type { ReactElement } from "react";
 import { PageTemplate } from "./page";
+import { generateMeta } from "@/util/generateMetadata";
+import type { Metadata } from "next";
 
 type Args = {
 	params: Promise<{ slug: string }>;
@@ -70,6 +72,26 @@ export async function generateStaticParams() {
 	} catch (error) {
 		return [];
 	}
+}
+
+export async function generateMetadata({ params }: Args): Promise<Metadata> {
+	const { slug = "home" } = await params;
+	const page = await payload
+		.find({
+			collection: "pages",
+			limit: 1,
+			where: {
+				slug: {
+					equals: slug,
+				},
+			},
+			pagination: false,
+		})
+		.then((res) => res.docs?.[0]);
+
+	if (!page) return {};
+
+	return generateMeta({ doc: page, collection: "pages" });
 }
 
 export default Page;
