@@ -21,6 +21,7 @@
 		"@fontsource-variable/national-park": "^5.2.1",
 		"@payloadcms/db-mongodb": "^3.35.1",
 		"@payloadcms/next": "^3.35.1",
+		"@payloadcms/plugin-seo": "^3.35.1",
 		"@payloadcms/richtext-lexical": "^3.35.1",
 		"@payloadcms/storage-s3": "^3.35.1",
 		"@phosphor-icons/core": "^2.1.1",

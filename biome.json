@@ -7,7 +7,14 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["pnpm-lock.yaml", "payload-types.ts", "src/app/(payload)/**/*"]
+		"ignore": [
+			"pnpm-lock.yaml",
+			"payload-types.ts",
+			"src/app/(payload)/**/*",
+			"node_modules",
+			".next",
+			"media"
+		]
 	},
 	"css": {
 		"linter": {
