@@ -1,9 +1,9 @@
 import type { Page as PageType } from "@/payload-types";
-import { payload } from "@/util/getPayloadConfig";
 import type { ReactElement } from "react";
+import type { Metadata } from "next";
+import { payload } from "@/util/getPayloadConfig";
 import { PageTemplate } from "./page";
 import { generateMeta } from "@/util/generateMetadata";
-import type { Metadata } from "next";
 
 type Args = {
 	params: Promise<{ slug: string }>;
