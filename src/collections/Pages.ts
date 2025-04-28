@@ -1,4 +1,5 @@
 import { HeroBlock } from "@/components/hero/hero.block";
+import { RichTextBlock } from "@/components/richtext/richtext.block";
 import type { CollectionConfig } from "payload";
 
 export const Pages: CollectionConfig = {
@@ -29,7 +30,7 @@ export const Pages: CollectionConfig = {
 						{
 							name: "blocks",
 							type: "blocks",
-							blocks: [HeroBlock],
+							blocks: [HeroBlock, RichTextBlock],
 						},
 					],
 				},

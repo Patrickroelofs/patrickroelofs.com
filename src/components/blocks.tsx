@@ -1,13 +1,15 @@
-import type { HeroBlockType } from "@/payload-types";
+import type { HeroBlockType, RichTextBlock } from "@/payload-types";
 import type { ComponentType } from "react";
 import { Hero } from "./hero/hero";
+import { RichText } from "./richtext/richtext";
 
 interface BlocksProps {
-	blocks: HeroBlockType[] | null | undefined;
+	blocks: (RichTextBlock | HeroBlockType)[] | null | undefined;
 }
 
 const components = {
 	hero: Hero,
+	"rich-text": RichText,
 };
 
 function Blocks({ blocks }: BlocksProps) {
