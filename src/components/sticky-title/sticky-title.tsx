@@ -1,6 +1,6 @@
 import { Blocks } from "@/components/blocks";
-import { cva } from "class-variance-authority";
 import type { StickyTitleBlock } from "@/payload-types";
+import { cva } from "class-variance-authority";
 import styles from "./sticky-title.module.css";
 
 const stickyTitleStyles = cva(styles.container);
