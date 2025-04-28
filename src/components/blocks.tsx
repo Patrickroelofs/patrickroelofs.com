@@ -1,15 +1,24 @@
-import type { HeroBlockType, RichTextBlock } from "@/payload-types";
+import type {
+	HeroBlockType,
+	RichTextBlock,
+	StickyTitleBlock,
+} from "@/payload-types";
 import type { ComponentType } from "react";
 import { Hero } from "./hero/hero";
 import { RichText } from "./richtext/richtext";
+import { StickyTitle } from "./sticky-title/sticky-title";
 
 interface BlocksProps {
-	blocks: (RichTextBlock | HeroBlockType)[] | null | undefined;
+	blocks:
+		| (RichTextBlock | HeroBlockType | StickyTitleBlock)[]
+		| null
+		| undefined;
 }
 
 const components = {
 	hero: Hero,
 	"rich-text": RichText,
+	"sticky-title": StickyTitle,
 };
 
 function Blocks({ blocks }: BlocksProps) {

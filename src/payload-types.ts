@@ -1645,7 +1645,7 @@ export interface Page {
   title: string;
   slug: string;
   content?: {
-    blocks?: (HeroBlockType | RichTextBlock)[] | null;
+    blocks?: (HeroBlockType | RichTextBlock | StickyTitleBlock)[] | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -1704,6 +1704,17 @@ export interface RichTextBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'rich-text';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StickyTitleBlock".
+ */
+export interface StickyTitleBlock {
+  title: string;
+  blocks?: RichTextBlock[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'sticky-title';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1798,6 +1809,7 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               hero?: T | HeroBlockTypeSelect<T>;
               'rich-text'?: T | RichTextBlockSelect<T>;
+              'sticky-title'?: T | StickyTitleBlockSelect<T>;
             };
       };
   updatedAt?: T;
@@ -1820,6 +1832,20 @@ export interface HeroBlockTypeSelect<T extends boolean = true> {
  */
 export interface RichTextBlockSelect<T extends boolean = true> {
   richText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StickyTitleBlock_select".
+ */
+export interface StickyTitleBlockSelect<T extends boolean = true> {
+  title?: T;
+  blocks?:
+    | T
+    | {
+        'rich-text'?: T | RichTextBlockSelect<T>;
+      };
   id?: T;
   blockName?: T;
 }
