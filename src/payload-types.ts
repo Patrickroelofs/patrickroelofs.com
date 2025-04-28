@@ -1645,7 +1645,7 @@ export interface Page {
   title: string;
   slug: string;
   content?: {
-    blocks?: HeroBlockType[] | null;
+    blocks?: (HeroBlockType | RichTextBlock)[] | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -1680,6 +1680,30 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlock".
+ */
+export interface RichTextBlock {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'rich-text';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1773,6 +1797,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               hero?: T | HeroBlockTypeSelect<T>;
+              'rich-text'?: T | RichTextBlockSelect<T>;
             };
       };
   updatedAt?: T;
@@ -1786,6 +1811,15 @@ export interface HeroBlockTypeSelect<T extends boolean = true> {
   image?: T;
   title?: T;
   subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlock_select".
+ */
+export interface RichTextBlockSelect<T extends boolean = true> {
+  richText?: T;
   id?: T;
   blockName?: T;
 }
