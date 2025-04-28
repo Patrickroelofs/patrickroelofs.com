@@ -8,6 +8,13 @@
   --color-white: white;
   
   --font-national-park: "National Park Variable", sans-serif;
+  
+  --font-weight-light: 300;
+  --font-weight-thin: 100;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
 
   --font-size-2xs: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
   --font-size-xs: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
@@ -29,4 +36,6 @@
   --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
 
   --container: 1200px;
+
+  --rounded-l: 1.5rem;
 }
