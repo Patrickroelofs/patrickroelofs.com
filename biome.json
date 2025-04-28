@@ -9,6 +9,18 @@
 		"ignoreUnknown": false,
 		"ignore": ["pnpm-lock.yaml", "payload-types.ts", "src/app/(payload)/**/*"]
 	},
+	"css": {
+		"linter": {
+			"enabled": true
+		},
+		"parser": {
+			"cssModules": true
+		},
+		"formatter": {
+			"enabled": true,
+			"indentStyle": "tab"
+		}
+	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"
