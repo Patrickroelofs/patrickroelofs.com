@@ -1,3 +1,4 @@
+import { HeroBlock } from "@/components/hero/hero.block";
 import type { CollectionConfig } from "payload";
 
 export const Pages: CollectionConfig = {
@@ -17,6 +18,22 @@ export const Pages: CollectionConfig = {
 			type: "text",
 			label: "Slug",
 			required: true,
+		},
+		{
+			type: "tabs",
+			tabs: [
+				{
+					label: "Content",
+					name: "content",
+					fields: [
+						{
+							name: "blocks",
+							type: "blocks",
+							blocks: [HeroBlock],
+						},
+					],
+				},
+			],
 		},
 	],
 };
