@@ -1655,7 +1655,14 @@ export interface Page {
   content?: {
     blocks?: (HeroBlockType | RichTextBlock | StickyTitleBlock)[] | null;
   };
-  meta?: SeoType;
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -1726,18 +1733,6 @@ export interface StickyTitleBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'sticky-title';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SeoType".
- */
-export interface SeoType {
-  title?: string | null;
-  description?: string | null;
-  /**
-   * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-   */
-  image?: (string | null) | Media;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1931,7 +1926,13 @@ export interface PagesSelect<T extends boolean = true> {
               'sticky-title'?: T | StickyTitleBlockSelect<T>;
             };
       };
-  meta?: T | SeoTypeSelect<T>;
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -1969,15 +1970,6 @@ export interface StickyTitleBlockSelect<T extends boolean = true> {
       };
   id?: T;
   blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SeoType_select".
- */
-export interface SeoTypeSelect<T extends boolean = true> {
-  title?: T;
-  description?: T;
-  image?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -1,6 +1,7 @@
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { s3Storage } from "@payloadcms/storage-s3";
+import { seoPlugin } from "@payloadcms/plugin-seo";
 import path from "node:path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "node:url";
@@ -10,7 +11,7 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Settings } from "./collections/Settings";
 import { Pages } from "./collections/Pages";
-import { seoPlugin } from "@payloadcms/plugin-seo";
+import { getServersideURL } from "./util/getServersideURL";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -39,9 +40,8 @@ export default buildConfig({
 	sharp,
 	plugins: [
 		seoPlugin({
-			collections: [Pages.slug],
-			uploadsCollection: Media.slug,
-			tabbedUI: true,
+			generateURL: ({ doc, collectionSlug }) =>
+				`${getServersideURL()}${collectionSlug === "pages" ? "" : `/${collectionSlug}`}/${doc.slug === "home" ? "" : doc.slug}`,
 			interfaceName: "SeoType",
 		}),
 		s3Storage({
