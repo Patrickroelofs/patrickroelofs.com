@@ -1,6 +1,7 @@
 import { HeroBlock } from "@/components/hero/hero.block";
 import { RichTextBlock } from "@/components/richtext/richtext.block";
 import { StickyTitleBlock } from "@/components/sticky-title/sticky-title.block";
+import { seoFields } from "@/fields/seo";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { CollectionConfig } from "payload";
 
@@ -36,6 +37,7 @@ export const Pages: CollectionConfig = {
 						},
 					],
 				},
+				seoFields,
 			],
 		},
 	],
