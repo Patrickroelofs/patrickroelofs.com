@@ -70,6 +70,12 @@ export const Settings: GlobalConfig = {
 			],
 		},
 	],
+	versions: {
+		drafts: {
+			autosave: true,
+			schedulePublish: true,
+		},
+	},
 	hooks: {
 		afterChange: [revalidateAfterChange],
 	},

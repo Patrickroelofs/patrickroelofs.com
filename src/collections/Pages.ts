@@ -39,6 +39,12 @@ export const Pages: CollectionConfig = {
 			],
 		},
 	],
+	versions: {
+		drafts: {
+			autosave: true,
+			schedulePublish: true,
+		},
+	},
 	hooks: {
 		afterChange: [revalidateAfterChange],
 	},
