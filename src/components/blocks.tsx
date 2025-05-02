@@ -1,6 +1,7 @@
 import type {
 	GridBlockType,
 	HeroBlockType,
+	IconCardType,
 	RichTextBlock,
 	StickyTitleBlock,
 } from "@/payload-types";
@@ -9,10 +10,17 @@ import { Hero } from "./hero/hero";
 import { RichText } from "./richtext/richtext";
 import { StickyTitle } from "./sticky-title/sticky-title";
 import { Grid } from "./grid/grid";
+import { IconCard } from "./icon-card/icon-card";
 
 interface BlocksProps {
 	blocks:
-		| (RichTextBlock | HeroBlockType | StickyTitleBlock | GridBlockType)[]
+		| (
+				| RichTextBlock
+				| HeroBlockType
+				| StickyTitleBlock
+				| GridBlockType
+				| IconCardType
+		  )[]
 		| null
 		| undefined;
 }
@@ -22,6 +30,7 @@ const components = {
 	"rich-text": RichText,
 	"sticky-title": StickyTitle,
 	grid: Grid,
+	"icon-card": IconCard,
 };
 
 function Blocks({ blocks }: BlocksProps) {

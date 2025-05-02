@@ -1,0 +1,10 @@
+.card {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: var(--space-2xs);
+}
+
+.text {
+	text-wrap: pretty;
+}

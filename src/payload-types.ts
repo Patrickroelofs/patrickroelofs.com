@@ -1739,7 +1739,7 @@ export interface StickyTitleBlock {
  * via the `definition` "GridBlockType".
  */
 export interface GridBlockType {
-  content?: RichTextBlock[] | null;
+  content?: (RichTextBlock | IconCardType)[] | null;
   /**
    * The number of columns to display the content in, automatically changes on tablet and mobile.
    */
@@ -1747,6 +1747,32 @@ export interface GridBlockType {
   id?: string | null;
   blockName?: string | null;
   blockType: 'grid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IconCardType".
+ */
+export interface IconCardType {
+  icon: Icons;
+  title: string;
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'icon-card';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1996,8 +2022,20 @@ export interface GridBlockTypeSelect<T extends boolean = true> {
     | T
     | {
         'rich-text'?: T | RichTextBlockSelect<T>;
+        'icon-card'?: T | IconCardTypeSelect<T>;
       };
   columns?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IconCardType_select".
+ */
+export interface IconCardTypeSelect<T extends boolean = true> {
+  icon?: T;
+  title?: T;
+  text?: T;
   id?: T;
   blockName?: T;
 }
