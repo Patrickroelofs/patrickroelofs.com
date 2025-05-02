@@ -15,7 +15,7 @@ const gridStyles = cva(styles.grid, {
 	},
 });
 
-async function Grid(props: GridBlockType) {
+function Grid(props: GridBlockType) {
 	return (
 		<div
 			className={gridStyles({
