@@ -4,7 +4,7 @@ import { GridBlock } from "../grid/grid.block";
 
 const StickyTitleBlock: Block = {
 	slug: "sticky-title",
-	interfaceName: "StickyTitleBlock",
+	interfaceName: "StickyTitleType",
 	fields: [
 		{
 			type: "tabs",

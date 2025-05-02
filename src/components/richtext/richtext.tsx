@@ -1,4 +1,4 @@
-import type { RichTextBlock } from "@/payload-types";
+import type { RichTextType } from "@/payload-types";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { RichText as RichTextLexical } from "@payloadcms/richtext-lexical/react";
 import { cva } from "class-variance-authority";
@@ -7,7 +7,7 @@ import styles from "./richtext.module.css";
 
 const RichTextLexicalStyles = cva(styles.richtext);
 
-const RichText = (props: RichTextBlock) => {
+const RichText = (props: RichTextType) => {
 	const { richText } = props;
 
 	return (

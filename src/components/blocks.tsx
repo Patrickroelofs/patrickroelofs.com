@@ -2,8 +2,8 @@ import type {
 	GridBlockType,
 	HeroBlockType,
 	IconCardType,
-	RichTextBlock,
-	StickyTitleBlock,
+	RichTextType,
+	StickyTitleType,
 } from "@/payload-types";
 import type { ComponentType } from "react";
 import { Hero } from "./hero/hero";
@@ -15,9 +15,9 @@ import { IconCard } from "./icon-card/icon-card";
 interface BlocksProps {
 	blocks:
 		| (
-				| RichTextBlock
+				| RichTextType
 				| HeroBlockType
-				| StickyTitleBlock
+				| StickyTitleType
 				| GridBlockType
 				| IconCardType
 		  )[]
