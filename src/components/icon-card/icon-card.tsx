@@ -1,7 +1,7 @@
 import { RichText } from "@/components/richtext/richtext";
+import { Icon } from "../icon";
 import type { IconCardType } from "@/payload-types";
 import styles from "./icon-card.module.css";
-import { Icon } from "../icon";
 
 function IconCard(props: IconCardType) {
 	return (
