@@ -1,4 +1,5 @@
 import type {
+	GridBlockType,
 	HeroBlockType,
 	RichTextBlock,
 	StickyTitleBlock,
@@ -7,10 +8,11 @@ import type { ComponentType } from "react";
 import { Hero } from "./hero/hero";
 import { RichText } from "./richtext/richtext";
 import { StickyTitle } from "./sticky-title/sticky-title";
+import { Grid } from "./grid/grid";
 
 interface BlocksProps {
 	blocks:
-		| (RichTextBlock | HeroBlockType | StickyTitleBlock)[]
+		| (RichTextBlock | HeroBlockType | StickyTitleBlock | GridBlockType)[]
 		| null
 		| undefined;
 }
@@ -19,6 +21,7 @@ const components = {
 	hero: Hero,
 	"rich-text": RichText,
 	"sticky-title": StickyTitle,
+	grid: Grid,
 };
 
 function Blocks({ blocks }: BlocksProps) {
