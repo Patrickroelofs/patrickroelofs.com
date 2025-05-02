@@ -1,0 +1,76 @@
+.grid {
+	max-width: var(--container);
+	margin-left: auto;
+	margin-right: auto;
+	display: grid;
+	grid-gap: var(--space-s);
+	padding: 0 var(--space-2xs);
+
+	&.columnCountThree {
+		grid-template-columns: repeat(1, 1fr);
+
+		@media (--viewport-sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (--viewport-lg) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	&.columnCountTwo {
+		grid-template-columns: repeat(1, 1fr);
+
+		@media (--viewport-sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&.columnCountThree {
+		grid-template-columns: repeat(1, 1fr);
+
+		@media (--viewport-sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (--viewport-lg) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	&.columnCountFour {
+		grid-template-columns: repeat(1, 1fr);
+
+		@media (--viewport-sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (--viewport-lg) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	&.columnCountFive {
+		grid-template-columns: repeat(1, 1fr);
+
+		@media (--viewport-sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (--viewport-lg) {
+			grid-template-columns: repeat(5, 1fr);
+		}
+	}
+
+	&.columnCountSix {
+		grid-template-columns: repeat(1, 1fr);
+
+		@media (--viewport-sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (--viewport-lg) {
+			grid-template-columns: repeat(6, 1fr);
+		}
+	}
+}
