@@ -1,5 +1,6 @@
 import type { Block } from "payload";
 import { RichTextBlock } from "../richtext/richtext.block";
+import { IconCardBlock } from "../icon-card/icon-card.block";
 
 const GridBlock: Block = {
 	slug: "grid",
@@ -15,7 +16,7 @@ const GridBlock: Block = {
 							name: "content",
 							label: "Content",
 							type: "blocks",
-							blocks: [RichTextBlock],
+							blocks: [RichTextBlock, IconCardBlock],
 						},
 					],
 				},
