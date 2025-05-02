@@ -2,7 +2,7 @@ import type { Block } from "payload";
 
 const RichTextBlock: Block = {
 	slug: "rich-text",
-	interfaceName: "RichTextBlock",
+	interfaceName: "RichTextType",
 	fields: [
 		{
 			type: "tabs",

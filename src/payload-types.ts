@@ -1653,7 +1653,7 @@ export interface Page {
   title: string;
   slug: string;
   content?: {
-    blocks?: (HeroBlockType | RichTextBlock | StickyTitleBlock | GridBlockType)[] | null;
+    blocks?: (HeroBlockType | RichTextType | StickyTitleType | GridBlockType)[] | null;
   };
   seo?: {
     title?: string | null;
@@ -1701,9 +1701,9 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "RichTextBlock".
+ * via the `definition` "RichTextType".
  */
-export interface RichTextBlock {
+export interface RichTextType {
   richText?: {
     root: {
       type: string;
@@ -1725,11 +1725,11 @@ export interface RichTextBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "StickyTitleBlock".
+ * via the `definition` "StickyTitleType".
  */
-export interface StickyTitleBlock {
+export interface StickyTitleType {
   title: string;
-  blocks?: (RichTextBlock | GridBlockType)[] | null;
+  blocks?: (RichTextType | GridBlockType)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'sticky-title';
@@ -1739,7 +1739,7 @@ export interface StickyTitleBlock {
  * via the `definition` "GridBlockType".
  */
 export interface GridBlockType {
-  content?: (RichTextBlock | IconCardType)[] | null;
+  content?: (RichTextType | IconCardType)[] | null;
   /**
    * The number of columns to display the content in, automatically changes on tablet and mobile.
    */
@@ -1962,8 +1962,8 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               hero?: T | HeroBlockTypeSelect<T>;
-              'rich-text'?: T | RichTextBlockSelect<T>;
-              'sticky-title'?: T | StickyTitleBlockSelect<T>;
+              'rich-text'?: T | RichTextTypeSelect<T>;
+              'sticky-title'?: T | StickyTitleTypeSelect<T>;
               grid?: T | GridBlockTypeSelect<T>;
             };
       };
@@ -1991,23 +1991,23 @@ export interface HeroBlockTypeSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "RichTextBlock_select".
+ * via the `definition` "RichTextType_select".
  */
-export interface RichTextBlockSelect<T extends boolean = true> {
+export interface RichTextTypeSelect<T extends boolean = true> {
   richText?: T;
   id?: T;
   blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "StickyTitleBlock_select".
+ * via the `definition` "StickyTitleType_select".
  */
-export interface StickyTitleBlockSelect<T extends boolean = true> {
+export interface StickyTitleTypeSelect<T extends boolean = true> {
   title?: T;
   blocks?:
     | T
     | {
-        'rich-text'?: T | RichTextBlockSelect<T>;
+        'rich-text'?: T | RichTextTypeSelect<T>;
         grid?: T | GridBlockTypeSelect<T>;
       };
   id?: T;
@@ -2021,7 +2021,7 @@ export interface GridBlockTypeSelect<T extends boolean = true> {
   content?:
     | T
     | {
-        'rich-text'?: T | RichTextBlockSelect<T>;
+        'rich-text'?: T | RichTextTypeSelect<T>;
         'icon-card'?: T | IconCardTypeSelect<T>;
       };
   columns?: T;

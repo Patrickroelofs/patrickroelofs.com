@@ -1,11 +1,11 @@
 import { Blocks } from "@/components/blocks";
-import type { StickyTitleBlock } from "@/payload-types";
+import type { StickyTitleType } from "@/payload-types";
 import { cva } from "class-variance-authority";
 import styles from "./sticky-title.module.css";
 
 const stickyTitleStyles = cva(styles.container);
 
-function StickyTitle(props: StickyTitleBlock) {
+function StickyTitle(props: StickyTitleType) {
 	return (
 		<section className={stickyTitleStyles()}>
 			<div>
