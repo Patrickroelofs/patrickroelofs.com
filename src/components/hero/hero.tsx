@@ -27,13 +27,14 @@ function Hero(props: HeroBlockType) {
 			},
 		});
 
-		tl.to(imageWrapperRef.current, {
-			scale: 1,
-			y: "-5%",
-			ease: "sine.inOut",
-			duration: 0.75,
-			stagger: 0.25,
-		});
+		if (imageWrapperRef.current) {
+			tl.to(imageWrapperRef.current, {
+				scale: 1,
+				y: "-5%",
+				ease: "sine.inOut",
+				duration: 0.75,
+			});
+		}
 
 		return () => {
 			tl.kill();
