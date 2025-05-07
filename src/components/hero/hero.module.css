@@ -1,6 +1,4 @@
 .hero {
-	max-width: var(--container);
-	margin: 0 auto;
 	margin-top: var(--space-l);
 	padding: 0 var(--space-2xs) var(--space-m) var(--space-2xs);
 	display: flex;
@@ -9,12 +7,18 @@
 
 	@media (--viewport-md) {
 		margin-top: var(--space-2xl);
+		height: 100dvh;
 	}
+}
+
+.container {
+	max-width: var(--container);
+	margin: 0 auto;
 }
 
 .title {
 	font-size: var(--font-size-lg);
-	font-weight: var(--font-weight-medium);
+	font-weight: 600;
 	text-wrap: pretty;
 
 	@media (--viewport-md) {
@@ -37,21 +41,22 @@
 
 .wrapper {
 	position: relative;
+	margin: 0 auto;
+	max-width: 100dvw;
 	width: 100%;
-	min-height: 350px;
+	min-height: 480px;
 	height: 20dvh;
-	max-height: 600px;
+	scale: 0.8;
+	transform: translateY(0);
 
 	@media (--viewport-md) {
+		max-width: 80dvw;
 		height: 70dvh;
 	}
 
 	> img {
 		object-fit: cover;
 		object-position: center center;
-
-		@media (--viewport-md) {
-			border-radius: var(--rounded-l);
-		}
+		border-radius: var(--rounded-l);
 	}
 }

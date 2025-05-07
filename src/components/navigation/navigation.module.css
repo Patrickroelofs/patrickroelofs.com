@@ -18,7 +18,6 @@
 	&:active,
 	&:focus {
 		color: var(--color-redleather);
-		text-decoration: underline;
 	}
 }
 
@@ -44,6 +43,5 @@
 	&:active,
 	&:focus {
 		color: var(--color-redleather);
-		text-decoration: underline;
 	}
 }
