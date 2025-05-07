@@ -1,0 +1,15 @@
+.container {
+	max-width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
+	font-size: var(--font-size-md);
+	margin-top: var(--space-m);
+	margin-bottom: var(--space-m);
+
+	> span {
+		display: inline-block;
+		margin-bottom: 6px;
+	}
+}

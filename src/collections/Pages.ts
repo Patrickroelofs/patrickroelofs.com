@@ -1,6 +1,7 @@
 import { GridBlock } from "@/components/grid/grid.block";
 import { HeroBlock } from "@/components/hero/hero.block";
 import { RichTextBlock } from "@/components/richtext/richtext.block";
+import { ScrollingTextBlock } from "@/components/scrolling-text/scrolling-text.block";
 import { StickyTitleBlock } from "@/components/sticky-title/sticky-title.block";
 import { seoFields } from "@/fields/seo";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
@@ -34,7 +35,13 @@ export const Pages: CollectionConfig = {
 						{
 							name: "blocks",
 							type: "blocks",
-							blocks: [HeroBlock, RichTextBlock, StickyTitleBlock, GridBlock],
+							blocks: [
+								HeroBlock,
+								RichTextBlock,
+								StickyTitleBlock,
+								GridBlock,
+								ScrollingTextBlock,
+							],
 						},
 					],
 				},

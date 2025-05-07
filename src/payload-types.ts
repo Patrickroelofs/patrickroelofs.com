@@ -1653,7 +1653,7 @@ export interface Page {
   title: string;
   slug: string;
   content?: {
-    blocks?: (HeroBlockType | RichTextType | StickyTitleType | GridBlockType)[] | null;
+    blocks?: (HeroBlockType | RichTextType | StickyTitleType | GridBlockType | ScrollingTextType)[] | null;
   };
   seo?: {
     title?: string | null;
@@ -1729,7 +1729,7 @@ export interface RichTextType {
  */
 export interface StickyTitleType {
   title: string;
-  blocks?: (RichTextType | GridBlockType)[] | null;
+  blocks?: (RichTextType | GridBlockType | ScrollingTextType)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'sticky-title';
@@ -1773,6 +1773,16 @@ export interface IconCardType {
   id?: string | null;
   blockName?: string | null;
   blockType: 'icon-card';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ScrollingTextType".
+ */
+export interface ScrollingTextType {
+  text: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'scrolling-text';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1965,6 +1975,7 @@ export interface PagesSelect<T extends boolean = true> {
               'rich-text'?: T | RichTextTypeSelect<T>;
               'sticky-title'?: T | StickyTitleTypeSelect<T>;
               grid?: T | GridBlockTypeSelect<T>;
+              'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
             };
       };
   seo?:
@@ -2009,6 +2020,7 @@ export interface StickyTitleTypeSelect<T extends boolean = true> {
     | {
         'rich-text'?: T | RichTextTypeSelect<T>;
         grid?: T | GridBlockTypeSelect<T>;
+        'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
       };
   id?: T;
   blockName?: T;
@@ -2035,6 +2047,15 @@ export interface GridBlockTypeSelect<T extends boolean = true> {
 export interface IconCardTypeSelect<T extends boolean = true> {
   icon?: T;
   title?: T;
+  text?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ScrollingTextType_select".
+ */
+export interface ScrollingTextTypeSelect<T extends boolean = true> {
   text?: T;
   id?: T;
   blockName?: T;
