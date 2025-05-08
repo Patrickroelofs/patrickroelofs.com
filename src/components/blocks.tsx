@@ -3,6 +3,7 @@ import type {
 	HeroBlockType,
 	IconCardType,
 	RichTextType,
+	ScrollingTextType,
 	StickyTitleType,
 } from "@/payload-types";
 import type { ComponentType } from "react";
@@ -11,6 +12,7 @@ import { RichText } from "./richtext/richtext";
 import { StickyTitle } from "./sticky-title/sticky-title";
 import { Grid } from "./grid/grid";
 import { IconCard } from "./icon-card/icon-card";
+import { ScrollingText } from "./scrolling-text/scrolling-text";
 
 interface BlocksProps {
 	blocks:
@@ -20,6 +22,7 @@ interface BlocksProps {
 				| StickyTitleType
 				| GridBlockType
 				| IconCardType
+				| ScrollingTextType
 		  )[]
 		| null
 		| undefined;
@@ -31,6 +34,7 @@ const components = {
 	"sticky-title": StickyTitle,
 	grid: Grid,
 	"icon-card": IconCard,
+	"scrolling-text": ScrollingText,
 };
 
 function Blocks({ blocks }: BlocksProps) {

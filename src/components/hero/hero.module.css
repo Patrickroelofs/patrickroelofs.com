@@ -7,7 +7,7 @@
 
 	@media (--viewport-md) {
 		margin-top: var(--space-2xl);
-		height: 100dvh;
+		min-height: 100dvh;
 	}
 }
 
