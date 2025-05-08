@@ -1,6 +1,7 @@
 import type { Block } from "payload";
 import { RichTextBlock } from "../richtext/richtext.block";
 import { IconCardBlock } from "../icon-card/icon-card.block";
+import { spacingField } from "@/fields/spacing";
 
 const GridBlock: Block = {
 	slug: "grid",
@@ -23,6 +24,7 @@ const GridBlock: Block = {
 				{
 					label: "Settings",
 					fields: [
+						spacingField(),
 						{
 							name: "columns",
 							label: "Columns",

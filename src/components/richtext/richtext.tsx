@@ -4,16 +4,21 @@ import { RichText as RichTextLexical } from "@payloadcms/richtext-lexical/react"
 import { cva } from "class-variance-authority";
 import { SiteLink } from "../link/link";
 import styles from "./richtext.module.css";
+import { spacingStyles } from "@/util/fieldMaps";
 
-const RichTextLexicalStyles = cva(styles.richtext);
+const RichTextLexicalStyles = cva(styles.richtext, {
+	variants: {
+		spacing: spacingStyles,
+	},
+});
 
 const RichText = (props: RichTextType) => {
-	const { richText } = props;
+	const { richText, spacing } = props;
 
 	return (
 		<RichTextLexical
 			data={richText as SerializedEditorState}
-			className={RichTextLexicalStyles()}
+			className={RichTextLexicalStyles({ spacing })}
 			converters={({ defaultConverters }) => ({
 				...defaultConverters,
 				link: ({ node, nodesToJSX }) => {

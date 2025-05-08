@@ -1,0 +1,35 @@
+.spacing-3xs {
+  margin: var(--space-3xs) 0;
+}
+
+.spacing-2xs {
+  margin: var(--space-2xs) 0;
+}
+
+.spacing-xs {
+  margin: var(--space-xs) 0;
+}
+
+.spacing-s {
+  margin: var(--space-s) 0;
+}
+
+.spacing-m {
+  margin: var(--space-m) 0;
+}
+
+.spacing-l {
+  margin: var(--space-l) 0;
+}
+
+.spacing-xl {
+  margin: var(--space-xl) 0;
+}
+
+.spacing-2xl {
+  margin: var(--space-2xl) 0;
+}
+
+.spacing-3xl {
+  margin: var(--space-3xl) 0;
+}
