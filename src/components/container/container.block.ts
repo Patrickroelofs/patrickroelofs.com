@@ -1,6 +1,7 @@
 import type { Block } from "payload";
 import { spacingField } from "@/fields/spacing";
 import { TitleBlock } from "../title/title.block";
+import { ScrollingTextBlock } from "../scrolling-text/scrolling-text.block";
 
 const ContainerBlock: Block = {
 	slug: "container",
@@ -16,7 +17,7 @@ const ContainerBlock: Block = {
 							name: "content",
 							label: "Content",
 							type: "blocks",
-							blocks: [TitleBlock],
+							blocks: [TitleBlock, ScrollingTextBlock],
 						},
 					],
 				},

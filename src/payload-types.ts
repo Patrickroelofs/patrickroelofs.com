@@ -1800,7 +1800,7 @@ export interface ScrollingTextType {
  * via the `definition` "ContainerBlockType".
  */
 export interface ContainerBlockType {
-  content?: TitleBlockType[] | null;
+  content?: (TitleBlockType | ScrollingTextType)[] | null;
   spacing?: Spacing;
   id?: string | null;
   blockName?: string | null;
@@ -2108,6 +2108,7 @@ export interface ContainerBlockTypeSelect<T extends boolean = true> {
     | T
     | {
         title?: T | TitleBlockTypeSelect<T>;
+        'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
       };
   spacing?: T;
   id?: T;
