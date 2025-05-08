@@ -5,8 +5,16 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./scrolling-text.module.css";
+import { cva } from "class-variance-authority";
+import { spacingStyles } from "@/util/fieldMaps";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const scrollingTextStyles = cva(styles.container, {
+	variants: {
+		spacing: spacingStyles,
+	},
+});
 
 const ScrollingText = (props: ScrollingTextType) => {
 	const { text } = props;
@@ -56,7 +64,10 @@ const ScrollingText = (props: ScrollingTextType) => {
 	}, [text]);
 
 	return (
-		<div ref={containerRef} className={styles.container}>
+		<div
+			ref={containerRef}
+			className={scrollingTextStyles({ spacing: props.spacing })}
+		>
 			{text.split(" ").map((word, index) => (
 				<span
 					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>

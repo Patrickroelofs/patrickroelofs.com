@@ -2,6 +2,7 @@ import { RichTextBlock } from "@/components/richtext/richtext.block";
 import type { Block } from "payload";
 import { GridBlock } from "../grid/grid.block";
 import { ScrollingTextBlock } from "../scrolling-text/scrolling-text.block";
+import { spacingField } from "@/fields/spacing";
 
 const StickyTitleBlock: Block = {
 	slug: "sticky-title",
@@ -28,7 +29,7 @@ const StickyTitleBlock: Block = {
 				},
 				{
 					label: "Settings",
-					fields: [],
+					fields: [spacingField()],
 				},
 			],
 		},

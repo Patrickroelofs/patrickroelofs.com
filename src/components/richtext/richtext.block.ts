@@ -1,3 +1,4 @@
+import { spacingField } from "@/fields/spacing";
 import type { Block } from "payload";
 
 const RichTextBlock: Block = {
@@ -19,7 +20,7 @@ const RichTextBlock: Block = {
 				},
 				{
 					label: "Settings",
-					fields: [],
+					fields: [spacingField()],
 				},
 			],
 		},

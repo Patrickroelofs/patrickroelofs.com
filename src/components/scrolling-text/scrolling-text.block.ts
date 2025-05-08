@@ -1,3 +1,4 @@
+import { spacingField } from "@/fields/spacing";
 import { ParagraphFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 import type { Block } from "payload";
 
@@ -18,6 +19,10 @@ const ScrollingTextBlock: Block = {
 							required: true,
 						},
 					],
+				},
+				{
+					label: "Settings",
+					fields: [spacingField()],
 				},
 			],
 		},
