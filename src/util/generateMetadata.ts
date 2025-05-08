@@ -27,21 +27,22 @@ async function generateMeta(args: {
 }): Promise<Metadata> {
 	const { doc } = args || {};
 
-	const ogImage = getImageURL(doc.meta?.image);
-	const title = doc.meta?.title || "";
-	const description = doc.meta?.description || "";
+	// TODO: Implement SEO
+	// const ogImage = getImageURL(doc.meta?.image);
+	// const title = doc.meta?.title || "";
+	// const description = doc.meta?.description || "";
 
 	const slug = doc.slug === "home" ? "" : `/${doc.slug}`;
 	const collection = args.collection === "pages" ? "" : `/${args.collection}`;
 	const url = `${getServersideURL()}${collection}${slug}`;
 
 	return {
-		title,
-		description,
+		// title,
+		// description,
 		openGraph: mergeOpenGraph({
-			title,
-			description,
-			images: ogImage ? [{ url: ogImage }] : [],
+			// title,
+			// description,
+			// images: ogImage ? [{ url: ogImage }] : [],
 			url,
 		}),
 		alternates: {
