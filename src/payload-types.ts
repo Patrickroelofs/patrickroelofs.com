@@ -1658,7 +1658,9 @@ export interface Page {
   title: string;
   slug: string;
   content?: {
-    blocks?: (HeroBlockType | RichTextType | StickyTitleType | GridBlockType | ScrollingTextType)[] | null;
+    blocks?:
+      | (HeroBlockType | RichTextType | StickyTitleType | GridBlockType | ScrollingTextType | ContainerBlockType)[]
+      | null;
   };
   seo?: {
     title?: string | null;
@@ -1792,6 +1794,29 @@ export interface ScrollingTextType {
   id?: string | null;
   blockName?: string | null;
   blockType: 'scrolling-text';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContainerBlockType".
+ */
+export interface ContainerBlockType {
+  content?: (TitleBlockType | ScrollingTextType)[] | null;
+  spacing?: Spacing;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'container';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TitleBlockType".
+ */
+export interface TitleBlockType {
+  title: string;
+  subtitle?: string | null;
+  spacing?: Spacing;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'title';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1985,6 +2010,7 @@ export interface PagesSelect<T extends boolean = true> {
               'sticky-title'?: T | StickyTitleTypeSelect<T>;
               grid?: T | GridBlockTypeSelect<T>;
               'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
+              container?: T | ContainerBlockTypeSelect<T>;
             };
       };
   seo?:
@@ -2069,6 +2095,32 @@ export interface IconCardTypeSelect<T extends boolean = true> {
  */
 export interface ScrollingTextTypeSelect<T extends boolean = true> {
   text?: T;
+  spacing?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContainerBlockType_select".
+ */
+export interface ContainerBlockTypeSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        title?: T | TitleBlockTypeSelect<T>;
+        'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
+      };
+  spacing?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TitleBlockType_select".
+ */
+export interface TitleBlockTypeSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
   spacing?: T;
   id?: T;
   blockName?: T;
