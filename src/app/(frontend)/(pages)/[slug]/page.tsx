@@ -1,7 +1,7 @@
 import { Blocks } from "@/components/blocks";
-import type { Page } from "@/payload-types";
+import type { Page as PageProps } from "@/payload-types";
 
-function PageTemplate(props: Page) {
+function PageTemplate(props: PageProps) {
 	return <Blocks blocks={props.content?.blocks} />;
 }
 
