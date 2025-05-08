@@ -5,4 +5,4 @@ function PageTemplate(props: Page) {
 	return <Blocks blocks={props.content?.blocks} />;
 }
 
-export { PageTemplate };
+export default PageTemplate;
