@@ -12,8 +12,12 @@ const titleStyles = cva(styles.container, {
 function Title(props: TitleBlockType) {
 	return (
 		<div className={titleStyles({ spacing: props.spacing })}>
+			{props.subtitle && (
+				<p className={styles.subtitle}>
+					<span>{props.subtitle}</span>
+				</p>
+			)}
 			<h2 className={styles.title}>{props.title}</h2>
-			{props.subtitle && <p className={styles.subtitle}>{props.subtitle}</p>}
 		</div>
 	);
 }

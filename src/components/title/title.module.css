@@ -8,8 +8,28 @@
 
 .title {
 	font-size: var(--font-size-xl);
+	margin-top: var(--space-xs);
 }
 
 .subtitle {
-	font-size: var(--font-size-lg);
+	position: relative;
+	font-size: var(--font-size-base);
+
+	> span {
+		background: var(--color-ginger);
+		z-index: 1;
+		position: relative;
+		padding: 0 var(--space-xs);
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50%;
+		height: 3px;
+		background-color: currentColor;
+		border-radius: 30px;
+	}
 }
