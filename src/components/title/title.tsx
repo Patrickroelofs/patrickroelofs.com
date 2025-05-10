@@ -1,17 +1,23 @@
 import type { TitleBlockType } from "@/payload-types";
 import styles from "./title.module.css";
-import { spacingStyles } from "@/util/fieldMaps";
 import { cva } from "class-variance-authority";
+import { bottomSpacingStyles, topSpacingStyles } from "@/util/fieldMaps";
 
 const titleStyles = cva(styles.container, {
 	variants: {
-		spacing: spacingStyles,
+		topSpacing: topSpacingStyles,
+		bottomSpacing: bottomSpacingStyles,
 	},
 });
 
 function Title(props: TitleBlockType) {
 	return (
-		<div className={titleStyles({ spacing: props.spacing })}>
+		<div
+			className={titleStyles({
+				topSpacing: props.topSpacing,
+				bottomSpacing: props.bottomSpacing,
+			})}
+		>
 			{props.subtitle && (
 				<p className={styles.subtitle}>
 					<span>{props.subtitle}</span>

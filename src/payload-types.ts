@@ -1726,7 +1726,8 @@ export interface RichTextType {
     };
     [k: string]: unknown;
   } | null;
-  spacing?: Spacing;
+  topSpacing?: Spacing;
+  bottomSpacing?: Spacing;
   id?: string | null;
   blockName?: string | null;
   blockType: 'rich-text';
@@ -1738,7 +1739,8 @@ export interface RichTextType {
 export interface StickyTitleType {
   title: string;
   blocks?: (RichTextType | GridBlockType | ScrollingTextType)[] | null;
-  spacing?: Spacing;
+  topSpacing?: Spacing;
+  bottomSpacing?: Spacing;
   id?: string | null;
   blockName?: string | null;
   blockType: 'sticky-title';
@@ -1749,7 +1751,8 @@ export interface StickyTitleType {
  */
 export interface GridBlockType {
   content?: (RichTextType | IconCardType)[] | null;
-  spacing?: Spacing;
+  topSpacing?: Spacing;
+  bottomSpacing?: Spacing;
   /**
    * The number of columns to display the content in, automatically changes on tablet and mobile.
    */
@@ -1790,7 +1793,8 @@ export interface IconCardType {
  */
 export interface ScrollingTextType {
   text: string;
-  spacing?: Spacing;
+  topSpacing?: Spacing;
+  bottomSpacing?: Spacing;
   id?: string | null;
   blockName?: string | null;
   blockType: 'scrolling-text';
@@ -1801,7 +1805,8 @@ export interface ScrollingTextType {
  */
 export interface ContainerBlockType {
   content?: (TitleBlockType | ScrollingTextType)[] | null;
-  spacing?: Spacing;
+  topSpacing?: Spacing;
+  bottomSpacing?: Spacing;
   id?: string | null;
   blockName?: string | null;
   blockType: 'container';
@@ -1813,7 +1818,8 @@ export interface ContainerBlockType {
 export interface TitleBlockType {
   title: string;
   subtitle?: string | null;
-  spacing?: Spacing;
+  topSpacing?: Spacing;
+  bottomSpacing?: Spacing;
   id?: string | null;
   blockName?: string | null;
   blockType: 'title';
@@ -2041,7 +2047,8 @@ export interface HeroBlockTypeSelect<T extends boolean = true> {
  */
 export interface RichTextTypeSelect<T extends boolean = true> {
   richText?: T;
-  spacing?: T;
+  topSpacing?: T;
+  bottomSpacing?: T;
   id?: T;
   blockName?: T;
 }
@@ -2058,7 +2065,8 @@ export interface StickyTitleTypeSelect<T extends boolean = true> {
         grid?: T | GridBlockTypeSelect<T>;
         'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
       };
-  spacing?: T;
+  topSpacing?: T;
+  bottomSpacing?: T;
   id?: T;
   blockName?: T;
 }
@@ -2073,7 +2081,8 @@ export interface GridBlockTypeSelect<T extends boolean = true> {
         'rich-text'?: T | RichTextTypeSelect<T>;
         'icon-card'?: T | IconCardTypeSelect<T>;
       };
-  spacing?: T;
+  topSpacing?: T;
+  bottomSpacing?: T;
   columns?: T;
   id?: T;
   blockName?: T;
@@ -2095,7 +2104,8 @@ export interface IconCardTypeSelect<T extends boolean = true> {
  */
 export interface ScrollingTextTypeSelect<T extends boolean = true> {
   text?: T;
-  spacing?: T;
+  topSpacing?: T;
+  bottomSpacing?: T;
   id?: T;
   blockName?: T;
 }
@@ -2110,7 +2120,8 @@ export interface ContainerBlockTypeSelect<T extends boolean = true> {
         title?: T | TitleBlockTypeSelect<T>;
         'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
       };
-  spacing?: T;
+  topSpacing?: T;
+  bottomSpacing?: T;
   id?: T;
   blockName?: T;
 }
@@ -2121,7 +2132,8 @@ export interface ContainerBlockTypeSelect<T extends boolean = true> {
 export interface TitleBlockTypeSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
-  spacing?: T;
+  topSpacing?: T;
+  bottomSpacing?: T;
   id?: T;
   blockName?: T;
 }
