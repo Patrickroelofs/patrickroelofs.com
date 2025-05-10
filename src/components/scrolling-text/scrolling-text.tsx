@@ -41,6 +41,7 @@ const ScrollingText = (props: ScrollingTextType) => {
 			tl.from(
 				char,
 				{
+					filter: "blur(10px)",
 					opacity: 0.1,
 					duration: 0.5,
 					ease: "power2.inOut",
@@ -51,6 +52,7 @@ const ScrollingText = (props: ScrollingTextType) => {
 			tl.to(
 				char,
 				{
+					filter: "blur(0px)",
 					opacity: 1,
 					duration: 0.5,
 					ease: "power2.inOut",
