@@ -12,19 +12,28 @@ const spacingOptions = [
 	{ label: "3xl", value: "3xl" },
 ];
 
-type SpacingField = (overrides?: Partial<Field>) => Field;
+type SpacingField = () => Field;
 
-const spacingField: SpacingField = (overrides = {}) =>
-	deepMerge(
+const spacingField: SpacingField = () => ({
+	type: "row",
+	fields: [
 		{
-			name: "spacing",
-			label: "Spacing",
+			name: "topSpacing",
+			label: "Top Spacing",
 			type: "select",
 			interfaceName: "Spacing",
 			options: spacingOptions,
 			required: false,
 		},
-		overrides,
-	);
+		{
+			name: "bottomSpacing",
+			label: "Bottom Spacing",
+			type: "select",
+			interfaceName: "Spacing",
+			options: spacingOptions,
+			required: false,
+		},
+	],
+});
 
 export { spacingField };

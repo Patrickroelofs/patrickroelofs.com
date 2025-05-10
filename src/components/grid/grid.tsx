@@ -2,7 +2,7 @@ import { Blocks } from "@/components/blocks";
 import type { GridBlockType } from "@/payload-types";
 import { cva } from "class-variance-authority";
 import styles from "./grid.module.css";
-import { spacingStyles } from "@/util/fieldMaps";
+import { bottomSpacingStyles, topSpacingStyles } from "@/util/fieldMaps";
 
 const gridStyles = cva(styles.grid, {
 	variants: {
@@ -13,7 +13,8 @@ const gridStyles = cva(styles.grid, {
 			"5": styles.columnCountFive,
 			"6": styles.columnCountSix,
 		},
-		spacing: spacingStyles,
+		topSpacing: topSpacingStyles,
+		bottomSpacing: bottomSpacingStyles,
 	},
 });
 
@@ -22,7 +23,8 @@ function Grid(props: GridBlockType) {
 		<div
 			className={gridStyles({
 				columnCount: props.columns,
-				spacing: props.spacing,
+				topSpacing: props.topSpacing,
+				bottomSpacing: props.bottomSpacing,
 			})}
 		>
 			<Blocks blocks={props.content} />

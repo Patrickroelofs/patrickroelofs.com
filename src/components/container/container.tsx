@@ -1,18 +1,24 @@
 import type { ContainerBlockType } from "@/payload-types";
 import { Blocks } from "../blocks";
 import styles from "./container.module.css";
-import { spacingStyles } from "@/util/fieldMaps";
 import { cva } from "class-variance-authority";
+import { bottomSpacingStyles, topSpacingStyles } from "@/util/fieldMaps";
 
 const containerStyles = cva(styles.container, {
 	variants: {
-		spacing: spacingStyles,
+		topSpacing: topSpacingStyles,
+		bottomSpacing: bottomSpacingStyles,
 	},
 });
 
 function Container(props: ContainerBlockType) {
 	return (
-		<div className={containerStyles({ spacing: props.spacing })}>
+		<div
+			className={containerStyles({
+				topSpacing: props.topSpacing,
+				bottomSpacing: props.bottomSpacing,
+			})}
+		>
 			<Blocks blocks={props.content} />
 		</div>
 	);

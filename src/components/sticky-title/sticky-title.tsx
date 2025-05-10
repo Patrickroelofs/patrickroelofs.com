@@ -2,11 +2,12 @@ import { Blocks } from "@/components/blocks";
 import type { StickyTitleType } from "@/payload-types";
 import { cva } from "class-variance-authority";
 import styles from "./sticky-title.module.css";
-import { spacingStyles } from "@/util/fieldMaps";
+import { bottomSpacingStyles, topSpacingStyles } from "@/util/fieldMaps";
 
 const stickyTitleStyles = cva(styles.container, {
 	variants: {
-		spacing: spacingStyles,
+		topSpacing: topSpacingStyles,
+		bottomSpacing: bottomSpacingStyles,
 	},
 });
 
@@ -14,7 +15,8 @@ function StickyTitle(props: StickyTitleType) {
 	return (
 		<section
 			className={stickyTitleStyles({
-				spacing: props.spacing,
+				topSpacing: props.topSpacing,
+				bottomSpacing: props.bottomSpacing,
 			})}
 		>
 			<h2 className={styles.title}>{props.title}</h2>
