@@ -21,7 +21,7 @@ function Hero(props: HeroBlockType) {
 			scrollTrigger: {
 				markers: process.env.NODE_ENV === "development",
 				trigger: "body",
-				start: "94px top",
+				start: "top top",
 				end: "+=480px top",
 				scrub: true,
 			},
