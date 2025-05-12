@@ -12,6 +12,14 @@ const iconField: IconField = (overrides = {}) =>
 			interfaceName: "Icons",
 			options: icons.map((icon) => icon.pascal_name),
 			required: true,
+			admin: {
+				components: {
+					Field: {
+						path: "src/fields/ui/icon/icon.tsx",
+						exportName: "IconInput",
+					},
+				},
+			},
 		},
 		overrides,
 	);
