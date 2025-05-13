@@ -1,5 +1,5 @@
 import { seoFields } from "@/fields/seo";
-import { HeroBlock } from "@/patterns/hero/hero.block";
+import { HeroBlock } from "@/patterns/Hero/Hero.block";
 import { revalidateAfterChange } from "@/util/revalidateAfterChange";
 import type { CollectionConfig } from "payload";
 

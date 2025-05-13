@@ -1,7 +1,7 @@
+import { Icon } from "@/components/Icon";
 import { payload } from "@/util/getPayloadConfig";
 import Link from "next/link";
-import { Icon } from "../../components/icon";
-import styles from "./footer.module.css";
+import styles from "./Footer.module.css";
 
 async function Footer() {
 	const { socials } = await payload.findGlobal({

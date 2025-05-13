@@ -1,4 +1,4 @@
-import { Hero } from "@/patterns/hero/hero";
+import { Hero } from "@/patterns/Hero/Hero";
 import type { HeroBlockType } from "@/payload-types";
 import type { ComponentType } from "react";
 

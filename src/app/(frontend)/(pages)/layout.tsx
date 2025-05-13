@@ -1,5 +1,5 @@
-import { Footer } from "@/patterns/footer/footer";
-import { Navigation } from "@/patterns/navigation/navigation";
+import { Footer } from "@/patterns/Footer/Footer";
+import { Navigation } from "@/patterns/Navigation/Navigation";
 import type { Metadata } from "next";
 import type React from "react";
 
