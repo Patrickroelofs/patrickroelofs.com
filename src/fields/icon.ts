@@ -15,7 +15,7 @@ const iconField: IconField = (overrides = {}) =>
 			admin: {
 				components: {
 					Field: {
-						path: "src/fields/ui/icon/icon.tsx",
+						path: "src/fields/ui/Icon/Icon.tsx",
 						exportName: "IconInput",
 					},
 				},

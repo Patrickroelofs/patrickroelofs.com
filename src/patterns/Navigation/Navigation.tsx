@@ -1,6 +1,6 @@
 import { payload } from "@/util/getPayloadConfig";
 import Link from "next/link";
-import styles from "./navigation.module.css";
+import styles from "./Navigation.module.css";
 
 async function Navigation() {
 	const { navigation } = await payload.findGlobal({

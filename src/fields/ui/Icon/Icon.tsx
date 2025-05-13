@@ -1,12 +1,12 @@
 "use client";
 
-import { Icon } from "@/components/icon";
+import { Icon } from "@/components/Icon";
 import type { Icons } from "@/payload-types";
 import { FieldLabel, SelectField, useField } from "@payloadcms/ui";
 import { icons } from "@phosphor-icons/core";
 import type { Option } from "payload";
 import { useCallback } from "react";
-import styles from "./icon.module.css";
+import styles from "./Icon.module.css";
 
 export interface IconInputProps {
 	path: string;

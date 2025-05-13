@@ -1,8 +1,8 @@
 import type { Icons } from "@/payload-types";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Icon } from "../icon";
-import styles from "./link.module.css";
+import { Icon } from "../Icon";
+import styles from "./Link.module.css";
 
 export type SiteLinkProps = {
 	children: ReactNode;

@@ -1,4 +1,4 @@
-import { Blocks } from "@/components/blocks";
+import { Blocks } from "@/components/Blocks";
 import type { Page as PageProps } from "@/payload-types";
 
 function PageTemplate(props: PageProps) {
