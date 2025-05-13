@@ -1,10 +1,9 @@
-import type { RichTextType } from "@/payload-types";
+import { bottomSpacingStyles, topSpacingStyles } from "@/util/fieldMaps";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { RichText as RichTextLexical } from "@payloadcms/richtext-lexical/react";
 import { cva } from "class-variance-authority";
 import { SiteLink } from "../link/link";
 import styles from "./richtext.module.css";
-import { bottomSpacingStyles, topSpacingStyles } from "@/util/fieldMaps";
 
 const RichTextLexicalStyles = cva(styles.richtext, {
 	variants: {
@@ -13,7 +12,8 @@ const RichTextLexicalStyles = cva(styles.richtext, {
 	},
 });
 
-const RichText = (props: RichTextType) => {
+// biome-ignore lint/suspicious/noExplicitAny: implement when needed
+const RichText = (props: any) => {
 	const { richText, topSpacing, bottomSpacing } = props;
 
 	return (

@@ -1,11 +1,11 @@
 "use client";
 
-import type { HeroBlockType, Media } from "@/payload-types";
 import { Image } from "@/components/image";
-import styles from "./hero.module.css";
-import { useEffect, useRef } from "react";
+import type { HeroBlockType, Media } from "@/payload-types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+import styles from "./hero.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 

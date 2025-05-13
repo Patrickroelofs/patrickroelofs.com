@@ -8,11 +8,6 @@
 
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Spacing".
- */
-export type Spacing = ('3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl') | null;
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Icons".
  */
 export type Icons =
@@ -1658,9 +1653,7 @@ export interface Page {
   title: string;
   slug: string;
   content?: {
-    blocks?:
-      | (HeroBlockType | RichTextType | StickyTitleType | GridBlockType | ScrollingTextType | ContainerBlockType)[]
-      | null;
+    blocks?: HeroBlockType[] | null;
   };
   seo?: {
     title?: string | null;
@@ -1705,124 +1698,6 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "RichTextType".
- */
-export interface RichTextType {
-  richText?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  topSpacing?: Spacing;
-  bottomSpacing?: Spacing;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'rich-text';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "StickyTitleType".
- */
-export interface StickyTitleType {
-  title: string;
-  blocks?: (RichTextType | GridBlockType | ScrollingTextType)[] | null;
-  topSpacing?: Spacing;
-  bottomSpacing?: Spacing;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'sticky-title';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "GridBlockType".
- */
-export interface GridBlockType {
-  content?: (RichTextType | IconCardType)[] | null;
-  topSpacing?: Spacing;
-  bottomSpacing?: Spacing;
-  /**
-   * The number of columns to display the content in, automatically changes on tablet and mobile.
-   */
-  columns: '2' | '3' | '4' | '5' | '6';
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'grid';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconCardType".
- */
-export interface IconCardType {
-  icon: Icons;
-  title: string;
-  text: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'icon-card';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ScrollingTextType".
- */
-export interface ScrollingTextType {
-  text: string;
-  topSpacing?: Spacing;
-  bottomSpacing?: Spacing;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'scrolling-text';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContainerBlockType".
- */
-export interface ContainerBlockType {
-  content?: (TitleBlockType | ScrollingTextType)[] | null;
-  topSpacing?: Spacing;
-  bottomSpacing?: Spacing;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'container';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TitleBlockType".
- */
-export interface TitleBlockType {
-  title: string;
-  subtitle?: string | null;
-  topSpacing?: Spacing;
-  bottomSpacing?: Spacing;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'title';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2012,11 +1887,6 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               hero?: T | HeroBlockTypeSelect<T>;
-              'rich-text'?: T | RichTextTypeSelect<T>;
-              'sticky-title'?: T | StickyTitleTypeSelect<T>;
-              grid?: T | GridBlockTypeSelect<T>;
-              'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
-              container?: T | ContainerBlockTypeSelect<T>;
             };
       };
   seo?:
@@ -2038,102 +1908,6 @@ export interface HeroBlockTypeSelect<T extends boolean = true> {
   image?: T;
   title?: T;
   subtitle?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "RichTextType_select".
- */
-export interface RichTextTypeSelect<T extends boolean = true> {
-  richText?: T;
-  topSpacing?: T;
-  bottomSpacing?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "StickyTitleType_select".
- */
-export interface StickyTitleTypeSelect<T extends boolean = true> {
-  title?: T;
-  blocks?:
-    | T
-    | {
-        'rich-text'?: T | RichTextTypeSelect<T>;
-        grid?: T | GridBlockTypeSelect<T>;
-        'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
-      };
-  topSpacing?: T;
-  bottomSpacing?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "GridBlockType_select".
- */
-export interface GridBlockTypeSelect<T extends boolean = true> {
-  content?:
-    | T
-    | {
-        'rich-text'?: T | RichTextTypeSelect<T>;
-        'icon-card'?: T | IconCardTypeSelect<T>;
-      };
-  topSpacing?: T;
-  bottomSpacing?: T;
-  columns?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconCardType_select".
- */
-export interface IconCardTypeSelect<T extends boolean = true> {
-  icon?: T;
-  title?: T;
-  text?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ScrollingTextType_select".
- */
-export interface ScrollingTextTypeSelect<T extends boolean = true> {
-  text?: T;
-  topSpacing?: T;
-  bottomSpacing?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContainerBlockType_select".
- */
-export interface ContainerBlockTypeSelect<T extends boolean = true> {
-  content?:
-    | T
-    | {
-        title?: T | TitleBlockTypeSelect<T>;
-        'scrolling-text'?: T | ScrollingTextTypeSelect<T>;
-      };
-  topSpacing?: T;
-  bottomSpacing?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TitleBlockType_select".
- */
-export interface TitleBlockTypeSelect<T extends boolean = true> {
-  title?: T;
-  subtitle?: T;
-  topSpacing?: T;
-  bottomSpacing?: T;
   id?: T;
   blockName?: T;
 }
