@@ -1,48 +1,13 @@
-import type {
-	ContainerBlockType,
-	GridBlockType,
-	HeroBlockType,
-	IconCardType,
-	RichTextType,
-	ScrollingTextType,
-	StickyTitleType,
-	TitleBlockType,
-} from "@/payload-types";
+import { Hero } from "@/patterns/hero/hero";
+import type { HeroBlockType } from "@/payload-types";
 import type { ComponentType } from "react";
-import { Hero } from "./hero/hero";
-import { RichText } from "./richtext/richtext";
-import { StickyTitle } from "./sticky-title/sticky-title";
-import { Grid } from "./grid/grid";
-import { IconCard } from "./icon-card/icon-card";
-import { ScrollingText } from "./scrolling-text/scrolling-text";
-import { Container } from "./container/container";
-import { Title } from "./title/title";
 
 interface BlocksProps {
-	blocks:
-		| (
-				| RichTextType
-				| HeroBlockType
-				| StickyTitleType
-				| GridBlockType
-				| IconCardType
-				| ScrollingTextType
-				| ContainerBlockType
-				| TitleBlockType
-		  )[]
-		| null
-		| undefined;
+	blocks: HeroBlockType[] | null | undefined;
 }
 
 const components = {
 	hero: Hero,
-	"rich-text": RichText,
-	"sticky-title": StickyTitle,
-	grid: Grid,
-	"icon-card": IconCard,
-	"scrolling-text": ScrollingText,
-	container: Container,
-	title: Title,
 };
 
 function Blocks({ blocks }: BlocksProps) {

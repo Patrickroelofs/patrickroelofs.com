@@ -1,7 +1,7 @@
-import type React from "react";
+import { Footer } from "@/patterns/footer/footer";
+import { Navigation } from "@/patterns/navigation/navigation";
 import type { Metadata } from "next";
-import { Footer } from "@/components/footer/footer";
-import { Navigation } from "@/components/navigation/navigation";
+import type React from "react";
 
 import "@/styles/globals.css";
 import "@fontsource-variable/national-park";
