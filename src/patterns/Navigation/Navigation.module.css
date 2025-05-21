@@ -45,8 +45,8 @@
 	.icon {
 		margin-right: var(--space-2xs);
 		display: inline-block;
-		transform: translate(1rem) translateY(-.5rem) rotate(60deg) scale(.5);
-		transition: all 0.3s cubic-bezier(.215, .61, .355, 1);
+		transform: translate(1rem) translateY(-.5rem) rotate(60deg) scale(0.5);
+		transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 		visibility: hidden;
 		opacity: 0;
 	}
