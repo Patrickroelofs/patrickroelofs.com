@@ -2015,6 +2015,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Setting {
   id: string;
   navigation: {
+    icon: Icons;
     link: string | Page;
     overrideLabel?: boolean | null;
     label?: string | null;
@@ -2037,6 +2038,7 @@ export interface SettingsSelect<T extends boolean = true> {
   navigation?:
     | T
     | {
+        icon?: T;
         link?: T;
         overrideLabel?: T;
         label?: T;

@@ -1,6 +1,7 @@
 import { payload } from "@/util/getPayloadConfig";
 import Link from "next/link";
 import styles from "./Navigation.module.css";
+import { Icon } from "@/components/Icon";
 
 async function Navigation() {
 	const { navigation } = await payload.findGlobal({
@@ -25,7 +26,12 @@ async function Navigation() {
 									className={styles.link}
 									href={item.link.slug === "home" ? "/" : `/${item.link.slug}`}
 								>
-									{item.overrideLabel ? item.label : item.link.title}
+									{item.icon && (
+										<Icon size={32} name={item.icon} className={styles.icon} />
+									)}
+									<span>
+										{item.overrideLabel ? item.label : item.link.title}
+									</span>
 								</Link>
 							</li>
 						);
