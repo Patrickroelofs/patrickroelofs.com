@@ -48,6 +48,8 @@
 		"postcss-custom-media": "^11.0.5",
 		"postcss-flexbugs-fixes": "^5.0.2",
 		"postcss-preset-env": "^10.1.6",
+		"stylelint": "^16.19.1",
+		"stylelint-config-standard": "^38.0.0",
 		"typescript": "5.7.3"
 	},
 	"engines": {
