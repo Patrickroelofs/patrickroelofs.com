@@ -17,6 +17,7 @@ export const Settings: GlobalConfig = {
 							label: "Navigation",
 							required: true,
 							fields: [
+								iconField(),
 								{
 									name: "link",
 									type: "relationship",
