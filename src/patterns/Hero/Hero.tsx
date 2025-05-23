@@ -5,7 +5,6 @@ import type { HeroBlockType, Media } from "@/payload-types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import styles from "./Hero.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,14 +41,25 @@ function Hero(props: HeroBlockType) {
 	}, []);
 
 	return (
-		<header className={styles.hero}>
-			<div className={styles.container}>
-				<p className={styles.title}>{props.title}</p>
-				<p className={styles.subtitle}>{props.subtitle}</p>
+		<header className="mt-28 flex min-h-svh flex-col gap-6">
+			<div className="mx-auto flex max-w-6xl flex-col gap-6">
+				<h2 className="text-pretty font-bold text-7xl leading-snug">
+					{props.title}
+				</h2>
+				<p className="m-0 text-pretty text-2xl leading-normal md:ml-24">
+					{props.subtitle}
+				</p>
 			</div>
 
-			<div className={styles.wrapper} ref={imageWrapperRef}>
-				<Image media={image} className={styles.image} fill />
+			<div
+				ref={imageWrapperRef}
+				className="relative mx-auto h-[20dvh] min-h-[580px] w-full max-w-7xl translate-y-0 scale-95 transform"
+			>
+				<Image
+					media={image}
+					className="rounded-3xl object-cover object-center"
+					fill
+				/>
 			</div>
 		</header>
 	);
