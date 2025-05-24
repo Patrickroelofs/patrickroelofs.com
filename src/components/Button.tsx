@@ -70,6 +70,10 @@ function Button(props: Props) {
 					/>
 				)}
 
+				{!icon && props.target === "_blank" && (
+					<Icon aria-hidden={true} size={24} name="ArrowSquareOut" />
+				)}
+
 				{children && (
 					<span
 						className={linkTextStyles({
