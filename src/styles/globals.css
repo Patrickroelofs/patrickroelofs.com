@@ -9,4 +9,6 @@
 	--color-dark-grey-500: #2b2d33;
 
 	--font-sans: "National Park Variable", sans-serif;
+
+	--ease-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
 }

@@ -23,7 +23,7 @@ type LinkOnlyProps = CommonProps &
 type Props = ButtonOnlyProps | LinkOnlyProps;
 
 const linkTextStyles = cva(
-	"inline-block font-medium text-xl decoration-2 underline-offset-4 transition-all ease-[cubic-bezier(0.215,0.61,0.355,1)]",
+	"inline-block font-medium text-xl decoration-2 underline-offset-4 transition-all ease-cubic",
 	{
 		variants: {
 			icon: {
@@ -35,7 +35,7 @@ const linkTextStyles = cva(
 );
 
 const linkIconStyles = cva(
-	"inline-block transition-all duration-300 ease-[cubic-bezier(0.215,0.61,0.355,1)] ",
+	"inline-block transition-all duration-300 ease-cubic",
 	{
 		variants: {
 			hasChildren: {
