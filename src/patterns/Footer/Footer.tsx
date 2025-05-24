@@ -1,7 +1,5 @@
-import { Icon } from "@/components/Icon";
+import { Button } from "@/components/Button";
 import { payload } from "@/util/getPayloadConfig";
-import Link from "next/link";
-import styles from "./Footer.module.css";
 
 async function Footer() {
 	const { socials } = await payload.findGlobal({
@@ -9,15 +7,18 @@ async function Footer() {
 	});
 
 	return (
-		<footer className={styles.footer}>
-			<h2 className={styles.title}>Patrick Roelofs</h2>
+		<footer className="mx-auto mt-12 mb-12 flex max-w-6xl justify-between">
+			<h2 className="font-bold text-3xl">Patrick Roelofs</h2>
 			{socials && (
-				<ul className={styles.list}>
+				<ul className="flex gap-4">
 					{socials.map((social) => (
-						<li key={social.id} className={styles.listItem}>
-							<Link href={social.link || "#"} className={styles.link}>
-								<Icon name={social.icon} size={48} />
-							</Link>
+						<li key={social.id}>
+							<Button
+								as="link"
+								href={social.link}
+								icon={social.icon}
+								iconSize={36}
+							/>
 						</li>
 					))}
 				</ul>
