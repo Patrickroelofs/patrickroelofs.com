@@ -40,7 +40,8 @@ const linkIconStyles = cva(
 		variants: {
 			hasChildren: {
 				true: "-translate-y-2 invisible translate-x-4 rotate-[60deg] scale-50 opacity-0 group-hover:visible group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0 group-hover:scale-100 group-hover:opacity-100 group-focus-visible:visible group-focus-visible:translate-x-0 group-focus-visible:translate-y-0 group-focus-visible:rotate-0 group-focus-visible:scale-100 group-focus-visible:opacity-100",
-				false: null,
+				false:
+					"group-hover:fill-redleather-500 group-focus-visible:fill-redleather-500",
 			},
 		},
 	},
@@ -52,7 +53,7 @@ function Button(props: Props) {
 
 		return (
 			<Link
-				href={href || ""}
+				href={href || "#"}
 				className={cx(
 					"group inline-flex items-center justify-center gap-2",
 					className,
