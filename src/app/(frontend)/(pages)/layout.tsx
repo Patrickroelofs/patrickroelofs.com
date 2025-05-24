@@ -15,7 +15,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 	const { children } = props;
 
 	return (
-		<html lang="en">
+		<html lang="en" className="bg-ginger-500 font-sans">
 			<body>
 				<Navigation />
 				<main>{children}</main>

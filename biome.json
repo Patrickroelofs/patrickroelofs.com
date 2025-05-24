@@ -13,20 +13,9 @@
 			"src/app/(payload)/**/*",
 			"node_modules",
 			".next",
-			"media"
+			"media",
+			"globals.css"
 		]
-	},
-	"css": {
-		"linter": {
-			"enabled": true
-		},
-		"parser": {
-			"cssModules": true
-		},
-		"formatter": {
-			"enabled": true,
-			"indentStyle": "tab"
-		}
 	},
 	"formatter": {
 		"enabled": true,
@@ -41,6 +30,9 @@
 			"recommended": true,
 			"correctness": {
 				"noUnknownMediaFeatureName": "off"
+			},
+			"nursery": {
+				"useSortedClasses": "warn"
 			}
 		}
 	},

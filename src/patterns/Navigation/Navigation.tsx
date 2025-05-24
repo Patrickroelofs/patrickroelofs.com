@@ -1,7 +1,6 @@
 import { payload } from "@/util/getPayloadConfig";
 import Link from "next/link";
-import styles from "./Navigation.module.css";
-import { Icon } from "@/components/Icon";
+import { Button } from "@/components/Button";
 
 async function Navigation() {
 	const { navigation } = await payload.findGlobal({
@@ -9,30 +8,29 @@ async function Navigation() {
 	});
 
 	return (
-		<nav className={styles.navigation} aria-label="Main navigation">
-			<Link href="/" className={styles.logo}>
+		<nav
+			className="mx-auto mt-4 flex max-w-6xl items-center justify-between"
+			aria-label="Main navigation"
+		>
+			<Link href="/" className="font-bold text-3xl">
 				<h1>Patrick Roelofs</h1>
 			</Link>
 			<div>
-				<ul className={styles.list}>
+				<ul className="flex items-center justify-center gap-2">
 					{navigation.map((item) => {
 						if (typeof item.link === "string") {
 							return null;
 						}
 
 						return (
-							<li key={item.id} className={styles.listItem}>
-								<Link
-									className={styles.link}
+							<li key={item.id}>
+								<Button
+									as="link"
 									href={item.link.slug === "home" ? "/" : `/${item.link.slug}`}
+									icon={item.icon}
 								>
-									{item.icon && (
-										<Icon size={32} name={item.icon} className={styles.icon} />
-									)}
-									<span>
-										{item.overrideLabel ? item.label : item.link.title}
-									</span>
-								</Link>
+									{item.overrideLabel ? item.label : item.link.title}
+								</Button>
 							</li>
 						);
 					})}

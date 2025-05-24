@@ -2,10 +2,9 @@ import { bottomSpacingStyles, topSpacingStyles } from "@/util/fieldMaps";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { RichText as RichTextLexical } from "@payloadcms/richtext-lexical/react";
 import { cva } from "class-variance-authority";
-import { SiteLink } from "../Link/Link";
-import styles from "./RichText.module.css";
+import { Button } from "../Button";
 
-const RichTextLexicalStyles = cva(styles.richtext, {
+const RichTextLexicalStyles = cva("", {
 	variants: {
 		topSpacing: topSpacingStyles,
 		bottomSpacing: bottomSpacingStyles,
@@ -24,12 +23,13 @@ const RichText = (props: any) => {
 				...defaultConverters,
 				link: ({ node, nodesToJSX }) => {
 					return (
-						<SiteLink
+						<Button
+							as="link"
 							href={node.fields.url || ""}
 							target={node.fields.newTab ? "_blank" : undefined}
 						>
 							{nodesToJSX({ nodes: node.children })}
-						</SiteLink>
+						</Button>
 					);
 				},
 			})}

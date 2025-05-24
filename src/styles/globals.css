@@ -1,6 +1,12 @@
-@import "./custom-media.css";
-@import "./variables.css";
-@import "./reset.css";
+@import "tailwindcss";
 
-@import "./document.css";
-@import "./spacing.css";
+@theme {
+  --color-*: initial;
+	--color-ginger-500: #f9e4d6;
+	--color-redleather-500: #ad4c4e;
+	--color-graphite-500: #62646b;
+	--color-peach-500: #e38b75;
+	--color-dark-grey-500: #2b2d33;
+
+	--font-sans: "National Park Variable", sans-serif;
+}

@@ -1,13 +1,7 @@
-export default {
+const config = {
 	plugins: {
-		"@csstools/postcss-global-data": {
-			files: ["./src/styles/custom-media.css"],
-		},
-		"postcss-custom-media": {},
-		"postcss-flexbugs-fixes": {},
-		"postcss-preset-env": {
-			stage: 0,
-		},
-		cssnano: {},
+		"@tailwindcss/postcss": {},
 	},
 };
+
+export default config;
