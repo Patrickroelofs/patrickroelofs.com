@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { payload } from "@/util/getPayloadConfig";
 import { generateMeta } from "@/util/generateMetadata";
 import { PageTemplate } from "./page.template";
+import { headers as getHeaders } from "next/headers";
 
 type Args = {
 	params: Promise<{ slug: string }>;
@@ -11,10 +12,15 @@ type Args = {
 
 async function Page({ params }: Args): Promise<ReactElement> {
 	const { slug = "home" } = await params;
+	const headers = await getHeaders();
 
 	let page: PageType | null = null;
 
 	try {
+		const { user } = await payload.auth({
+			headers,
+		});
+
 		page = await payload
 			.find({
 				collection: "pages",
@@ -22,7 +28,11 @@ async function Page({ params }: Args): Promise<ReactElement> {
 					slug: {
 						equals: slug,
 					},
+					_status: {
+						equals: user ? "draft" : "published",
+					},
 				},
+				draft: Boolean(user),
 				limit: 1,
 			})
 			.then((result) => {
@@ -76,6 +86,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
 	const { slug = "home" } = await params;
+
 	const page = await payload
 		.find({
 			collection: "pages",
@@ -83,6 +94,9 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
 			where: {
 				slug: {
 					equals: slug,
+				},
+				_status: {
+					equals: "published",
 				},
 			},
 			pagination: false,
