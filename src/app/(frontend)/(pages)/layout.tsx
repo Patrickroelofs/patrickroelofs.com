@@ -1,5 +1,6 @@
 import { Footer } from "@/patterns/Footer/Footer";
 import { Navigation } from "@/patterns/Navigation/Navigation";
+import { AdminBanner } from "@/components/AdminBanner";
 
 import type React from "react";
 import { headers as getHeaders } from "next/headers";
@@ -20,6 +21,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 	return (
 		<html lang="en" className="bg-ginger-500 font-sans">
 			<body>
+				{user && <AdminBanner />}
 				<Navigation />
 				<main>{children}</main>
 				<Footer />
