@@ -11,7 +11,7 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Settings } from "./collections/Settings";
 import { Pages } from "./collections/Pages";
-import { getServersideURL } from "./util/getServersideURL";
+import { getApplicationURL } from "./util/getApplicationURL";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -25,6 +25,29 @@ export default buildConfig({
 		user: Users.slug,
 		importMap: {
 			baseDir: path.resolve(dirname),
+		},
+		livePreview: {
+			collections: ["pages"],
+			url(args) {
+				const { data, collectionConfig } = args;
+
+				if (!data || !collectionConfig) {
+					throw new Error(
+						"Invalid arguments provided to livePreview URL function.",
+					);
+				}
+
+				const url = new URL(getApplicationURL());
+
+				switch (collectionConfig.slug) {
+					case "pages":
+						url.pathname = `/${data.slug === "home" ? "" : data.slug}`;
+						break;
+					default:
+				}
+
+				return url.href;
+			},
 		},
 	},
 	collections: [Pages, Users, Media],
@@ -41,7 +64,7 @@ export default buildConfig({
 	plugins: [
 		seoPlugin({
 			generateURL: ({ doc, collectionSlug }) =>
-				`${getServersideURL()}${collectionSlug === "pages" ? "" : `/${collectionSlug}`}/${doc.slug === "home" ? "" : doc.slug}`,
+				`${getApplicationURL()}${collectionSlug === "pages" ? "" : `/${collectionSlug}`}/${doc.slug === "home" ? "" : doc.slug}`,
 			interfaceName: "SeoType",
 		}),
 		s3Storage({

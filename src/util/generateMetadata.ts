@@ -1,13 +1,13 @@
 import type { Config, Media, Page } from "@/payload-types";
 import type { Metadata } from "next";
-import { getServersideURL } from "./getServersideURL";
+import { getApplicationURL } from "./getApplicationURL";
 import { mergeOpenGraph } from "./mergeMetadata";
 import { payload } from "./getPayloadConfig";
 
 function getImageURL(
 	image?: Media | Config["db"]["defaultIDType"] | null,
 ): string | undefined {
-	const serverURL = getServersideURL();
+	const serverURL = getApplicationURL();
 	let url = serverURL;
 
 	if (image && typeof image === "object") {
@@ -36,7 +36,7 @@ async function generateMeta(args: {
 
 	const slug = doc.slug === "home" ? "" : `/${doc.slug}`;
 	const collection = args.collection === "pages" ? "" : `/${args.collection}`;
-	const url = `${getServersideURL()}${collection}${slug}`;
+	const url = `${getApplicationURL()}${collection}${slug}`;
 
 	return {
 		title: `${doc.seo?.title} | ${metadata.siteName}`,

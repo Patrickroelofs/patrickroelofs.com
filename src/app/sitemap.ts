@@ -1,9 +1,9 @@
 import { payload } from "@/util/getPayloadConfig";
-import { getServersideURL } from "@/util/getServersideURL";
+import { getApplicationURL } from "@/util/getApplicationURL";
 import type { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	const url = getServersideURL();
+	const url = getApplicationURL();
 
 	const pages = await payload.find({
 		collection: "pages",
