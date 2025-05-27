@@ -44,7 +44,7 @@ export const Settings: GlobalConfig = {
 					],
 				},
 				{
-					label: "Footer",
+					label: "Social Media",
 					fields: [
 						{
 							name: "socials",
@@ -65,6 +65,35 @@ export const Settings: GlobalConfig = {
 									],
 								},
 							],
+						},
+					],
+				},
+				{
+					name: "metadata",
+					label: "Metadata",
+					fields: [
+						{
+							name: "siteName",
+							type: "text",
+							label: "Site Name",
+							defaultValue: "My Site",
+							required: true,
+						},
+						{
+							name: "siteDescription",
+							type: "text",
+							label: "Site Description",
+							defaultValue: "A great site built with Payload",
+							required: true,
+						},
+						{
+							name: "siteThemeColor",
+							type: "text",
+							label: "Site Theme Color",
+							required: false,
+							admin: {
+								description: "Used for browser theme color",
+							},
 						},
 					],
 				},
