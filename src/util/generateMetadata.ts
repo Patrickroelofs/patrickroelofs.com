@@ -2,6 +2,7 @@ import type { Config, Media, Page } from "@/payload-types";
 import type { Metadata } from "next";
 import { getServersideURL } from "./getServersideURL";
 import { mergeOpenGraph } from "./mergeMetadata";
+import { payload } from "./getPayloadConfig";
 
 function getImageURL(
 	image?: Media | Config["db"]["defaultIDType"] | null,
@@ -25,24 +26,25 @@ async function generateMeta(args: {
 	doc: Partial<Page>;
 	collection: "pages";
 }): Promise<Metadata> {
+	const { metadata } = await payload.findGlobal({
+		slug: "settings",
+	});
+
 	const { doc } = args || {};
 
-	// TODO: Implement SEO
-	// const ogImage = getImageURL(doc.meta?.image);
-	// const title = doc.meta?.title || "";
-	// const description = doc.meta?.description || "";
+	const ogImage = getImageURL(doc.seo?.image);
 
 	const slug = doc.slug === "home" ? "" : `/${doc.slug}`;
 	const collection = args.collection === "pages" ? "" : `/${args.collection}`;
 	const url = `${getServersideURL()}${collection}${slug}`;
 
 	return {
-		// title,
-		// description,
+		title: `${doc.seo?.title} | ${metadata.siteName}`,
+		description: doc.seo?.description || metadata.siteDescription,
 		openGraph: mergeOpenGraph({
-			// title,
-			// description,
-			// images: ogImage ? [{ url: ogImage }] : [],
+			title: `${doc.seo?.title} | ${metadata.siteName}`,
+			description: doc.seo?.description || metadata.siteDescription,
+			images: ogImage ? [{ url: ogImage }] : [],
 			url,
 		}),
 		alternates: {

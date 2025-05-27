@@ -2074,6 +2074,14 @@ export interface Setting {
     link: string;
     id?: string | null;
   }[];
+  metadata: {
+    siteName: string;
+    siteDescription: string;
+    /**
+     * Used for browser theme color
+     */
+    siteThemeColor?: string | null;
+  };
   _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -2098,6 +2106,13 @@ export interface SettingsSelect<T extends boolean = true> {
         icon?: T;
         link?: T;
         id?: T;
+      };
+  metadata?:
+    | T
+    | {
+        siteName?: T;
+        siteDescription?: T;
+        siteThemeColor?: T;
       };
   _status?: T;
   updatedAt?: T;
