@@ -42,8 +42,8 @@ async function generateMeta(args: {
 		title: `${doc.seo?.title} | ${metadata.siteName}`,
 		description: doc.seo?.description || metadata.siteDescription,
 		openGraph: mergeOpenGraph({
-			// title,
-			// description,
+			title: `${doc.seo?.title} | ${metadata.siteName}`,
+			description: doc.seo?.description || metadata.siteDescription,
 			images: ogImage ? [{ url: ogImage }] : [],
 			url,
 		}),
