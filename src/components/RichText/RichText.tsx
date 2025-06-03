@@ -1,37 +1,21 @@
-import { bottomSpacingStyles, topSpacingStyles } from "@/util/fieldMaps";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { RichText as RichTextLexical } from "@payloadcms/richtext-lexical/react";
 import { cva } from "class-variance-authority";
-import { Button } from "../Button";
+import { linkConverter } from "./converters/LinkConverter";
+import type { RichTextBlockType } from "@/payload-types";
 
-const RichTextLexicalStyles = cva("", {
-	variants: {
-		topSpacing: topSpacingStyles,
-		bottomSpacing: bottomSpacingStyles,
-	},
-});
+const RichTextLexicalStyles = cva("");
 
-// biome-ignore lint/suspicious/noExplicitAny: implement when needed
-const RichText = (props: any) => {
-	const { richText, topSpacing, bottomSpacing } = props;
+const RichText = (props: RichTextBlockType) => {
+	const { richText } = props;
 
 	return (
 		<RichTextLexical
 			data={richText as SerializedEditorState}
-			className={RichTextLexicalStyles({ topSpacing, bottomSpacing })}
+			className={RichTextLexicalStyles()}
 			converters={({ defaultConverters }) => ({
 				...defaultConverters,
-				link: ({ node, nodesToJSX }) => {
-					return (
-						<Button
-							as="link"
-							href={node.fields.url || ""}
-							target={node.fields.newTab ? "_blank" : undefined}
-						>
-							{nodesToJSX({ nodes: node.children })}
-						</Button>
-					);
-				},
+				link: ({ node, nodesToJSX }) => linkConverter({ node, nodesToJSX }),
 			})}
 		/>
 	);

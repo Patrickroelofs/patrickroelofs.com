@@ -1,13 +1,24 @@
 import { Hero } from "@/patterns/Hero/Hero";
-import type { HeroBlockType } from "@/payload-types";
+import { Section } from "@/patterns/Section/Section";
+import type {
+	HeroBlockType,
+	RichTextBlockType,
+	SectionBlockType,
+} from "@/payload-types";
 import type { ComponentType } from "react";
+import { RichText } from "./RichText/RichText";
 
 interface BlocksProps {
-	blocks: HeroBlockType[] | null | undefined;
+	blocks:
+		| (HeroBlockType | SectionBlockType | RichTextBlockType)[]
+		| null
+		| undefined;
 }
 
 const components = {
 	hero: Hero,
+	section: Section,
+	richText: RichText,
 };
 
 function Blocks({ blocks }: BlocksProps) {

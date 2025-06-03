@@ -2,13 +2,13 @@ import type { Icons } from "@/payload-types";
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { Icon } from "./Icon";
-import { cva, cx } from "class-variance-authority";
+import { cva, cx, type VariantProps } from "class-variance-authority";
 
 type CommonProps = {
 	icon?: Icons;
 	iconSize?: number;
 	children?: React.ReactNode;
-};
+} & VariantProps<typeof linkTextStyles>;
 
 type ButtonOnlyProps = CommonProps &
 	ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -91,20 +91,8 @@ function Button(props: Props) {
 		);
 	}
 
-	const { className, icon, as, iconSize, children, ...rest } = props;
-
-	return (
-		<button
-			className={cx(
-				"flex items-center gap-2 rounded-md bg-gray-800 px-4 py-2 text-white hover:bg-gray-700",
-				className,
-			)}
-			{...rest}
-		>
-			{icon && <Icon size={iconSize || 32} name={icon} />}
-			{children}
-		</button>
-	);
+	// TODO: Implement button functionality
+	return <span>Not Implemented</span>;
 }
 
 export { Button };
