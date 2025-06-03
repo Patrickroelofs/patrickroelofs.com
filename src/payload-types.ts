@@ -1659,7 +1659,7 @@ export interface Page {
   title: string;
   slug: string;
   content?: {
-    blocks?: HeroBlockType[] | null;
+    blocks?: (HeroBlockType | SectionBlockType)[] | null;
   };
   seo?: {
     title?: string | null;
@@ -1730,6 +1730,40 @@ export interface FolderInterface {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionBlockType".
+ */
+export interface SectionBlockType {
+  content?: RichTextBlockType[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlockType".
+ */
+export interface RichTextBlockType {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'richText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1923,6 +1957,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               hero?: T | HeroBlockTypeSelect<T>;
+              section?: T | SectionBlockTypeSelect<T>;
             };
       };
   seo?:
@@ -1944,6 +1979,28 @@ export interface HeroBlockTypeSelect<T extends boolean = true> {
   image?: T;
   title?: T;
   subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionBlockType_select".
+ */
+export interface SectionBlockTypeSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        richText?: T | RichTextBlockTypeSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlockType_select".
+ */
+export interface RichTextBlockTypeSelect<T extends boolean = true> {
+  richText?: T;
   id?: T;
   blockName?: T;
 }

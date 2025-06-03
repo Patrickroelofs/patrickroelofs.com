@@ -28,9 +28,6 @@ async function Page({ params }: Args): Promise<ReactElement> {
 					slug: {
 						equals: slug,
 					},
-					_status: {
-						equals: user ? "draft" : "published",
-					},
 				},
 				draft: Boolean(user),
 				limit: 1,
