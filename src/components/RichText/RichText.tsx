@@ -4,7 +4,9 @@ import { cva } from "class-variance-authority";
 import { linkConverter } from "./converters/LinkConverter";
 import type { RichTextBlockType } from "@/payload-types";
 
-const RichTextLexicalStyles = cva("");
+const RichTextLexicalStyles = cva(
+	"prose prose-xl text-black marker:text-black mx-auto",
+);
 
 const RichText = (props: RichTextBlockType) => {
 	const { richText } = props;

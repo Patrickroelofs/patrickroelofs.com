@@ -41,7 +41,7 @@ function Hero(props: HeroBlockType) {
 	}, []);
 
 	return (
-		<header className="mt-28 flex min-h-svh flex-col gap-6">
+		<header className="mt-28 flex flex-col gap-6">
 			<div className="mx-auto flex max-w-6xl flex-col gap-6">
 				<h2 className="text-pretty font-bold text-7xl leading-snug">
 					{props.title}
