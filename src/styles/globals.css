@@ -1,17 +1,19 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
-
-@theme {
-  --color-*: initial;
-	--color-ginger-500: #f9e4d6;
-	--color-redleather-500: #ad4c4e;
-	--color-graphite-500: #62646b;
-	--color-peach-500: #e38b75;
-	--color-dark-grey-500: #2b2d33;
+:root {
+	--color-ginger: #f9e4d6;
+	--color-redleather: #ad4c4e;
+	--color-graphite: #62646b;
+	--color-peach: #e38b75;
+	--color-dark-grey: #2b2d33;
 	--color-white: #ffffff;
 	--color-black: #000000;
 
 	--font-sans: "National Park Variable", sans-serif;
 
 	--ease-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+body, html {
+	background-color: var(--color-ginger);
+	color: var(--color-dark-grey);
+	font-family: var(--font-sans);
 }

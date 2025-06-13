@@ -1,5 +1,5 @@
-import PageTemplate, { generateMetadata } from "./[slug]/page";
+function Page() {
+	return <p>Hello World</p>;
+}
 
-export default PageTemplate;
-
-export { generateMetadata };
+export default Page;
