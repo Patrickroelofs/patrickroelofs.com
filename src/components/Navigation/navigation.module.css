@@ -4,4 +4,18 @@
 	align-items: center;
 	max-width: 1200px;
 	margin: 0 auto;
+	margin-top: var(--space-2xs);
+}
+
+.title {
+	font-size: var(--font-size-xs);
+	text-decoration: none;
+	color: inherit;
+
+	&:hover, &:focus {
+		text-decoration: underline;
+		color: inherit;
+		text-underline-offset: 2px;
+		text-decoration-thickness: 3px;
+	}
 }

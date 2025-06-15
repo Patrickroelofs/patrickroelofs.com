@@ -26,6 +26,7 @@
 		"@payloadcms/ui": "3.42.0",
 		"cross-env": "^7.0.3",
 		"graphql": "^16.8.1",
+		"gsap": "^3.13.0",
 		"next": "15.3.0",
 		"payload": "3.42.0",
 		"postcss": "^8.5.3",
@@ -45,6 +46,10 @@
 		"pnpm": "^9 || ^10"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": ["@biomejs/biome", "esbuild", "sharp"]
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"esbuild",
+			"sharp"
+		]
 	}
 }
