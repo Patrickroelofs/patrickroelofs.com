@@ -1,7 +1,5 @@
-import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { s3Storage } from "@payloadcms/storage-s3";
-import { seoPlugin } from "@payloadcms/plugin-seo";
 import path from "node:path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "node:url";
@@ -9,9 +7,7 @@ import sharp from "sharp";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
-import { Settings } from "./collections/Settings";
-import { Pages } from "./collections/Pages";
-import { getApplicationURL } from "./util/getApplicationURL";
+import { postgresAdapter } from "@payloadcms/db-postgres";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -26,47 +22,20 @@ export default buildConfig({
 		importMap: {
 			baseDir: path.resolve(dirname),
 		},
-		livePreview: {
-			collections: ["pages"],
-			url(args) {
-				const { data, collectionConfig } = args;
-
-				if (!data || !collectionConfig) {
-					throw new Error(
-						"Invalid arguments provided to livePreview URL function.",
-					);
-				}
-
-				const url = new URL(getApplicationURL());
-
-				switch (collectionConfig.slug) {
-					case "pages":
-						url.pathname = `/${data.slug === "home" ? "" : data.slug}`;
-						break;
-					default:
-				}
-
-				return url.href;
-			},
-		},
 	},
-	collections: [Pages, Users, Media],
-	globals: [Settings],
+	collections: [Users, Media],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {
 		outputFile: path.resolve(dirname, "payload-types.ts"),
 	},
-	db: mongooseAdapter({
-		url: process.env.DATABASE_URI || "",
+	db: postgresAdapter({
+		pool: {
+			connectionString: process.env.DATABASE_URI,
+		},
 	}),
 	sharp,
 	plugins: [
-		seoPlugin({
-			generateURL: ({ doc, collectionSlug }) =>
-				`${getApplicationURL()}${collectionSlug === "pages" ? "" : `/${collectionSlug}`}/${doc.slug === "home" ? "" : doc.slug}`,
-			interfaceName: "SeoType",
-		}),
 		s3Storage({
 			enabled: process.env.NODE_ENV === "production",
 			collections: {
