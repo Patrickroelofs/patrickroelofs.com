@@ -1,37 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./hero.module.css";
 import image from "@/images/000008510008.jpg";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Hero() {
-	const imageRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		if (!imageRef.current) return;
-
-		gsap.fromTo(
-			imageRef.current,
-			{ scale: 1, y: 0 },
-			{
-				scale: 1.2,
-				y: -40,
-				scrollTrigger: {
-					trigger: imageRef.current,
-					start: "top center",
-					end: "bottom top",
-					scrub: true,
-				},
-				ease: "none",
-			},
-		);
-	}, []);
-
 	return (
 		<section className={styles.hero}>
 			<div className={styles.content}>
@@ -44,7 +17,7 @@ function Hero() {
 					user-friendly web experiences.
 				</p>
 			</div>
-			<div className={styles.image} ref={imageRef}>
+			<div className={styles.image}>
 				<Image alt="" src={image} fill />
 			</div>
 		</section>

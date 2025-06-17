@@ -1,0 +1,120 @@
+.footer {
+  max-width: 1200px;
+  margin: var(--space-3xl) auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-cubic);
+}
+
+.text {
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 900;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+
+.letter {
+  display: inline-block;
+  will-change: transform;
+  transition: transform 0.1s var(--ease-cubic);
+}
+
+.imageContainer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  will-change: transform;
+}
+
+.image {
+  border-radius: 50%;
+  object-fit: cover;
+  width: clamp(128px, 12vw, 160px);
+  height: clamp(128px, 12vw, 160px);
+}
+
+.socialSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialIcons {
+  display: flex;
+  gap: var(--space-s);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: var(--color-dark-grey);
+  text-decoration: none;
+  transition: all 0.3s var(--ease-cubic);
+  background: transparent;
+
+  &:hover, &:focus {
+    background: var(--color-black);
+    color: var(--color-ginger);
+    transform: translateY(-4px);
+  }
+}
+
+.links {
+  display: flex;
+  gap: var(--space-xs);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footerLink {
+  position: relative;
+  display: flex;
+  gap: var(--space-3xs);
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s var(--ease-cubic);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  position: relative;
+}
+
+.footerLink:hover, .footerLink:focus {
+  color: var(--color-ginger);
+  background: var(--color-black);
+  transform: translateY(-4px);
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--color-dark-grey);
+  flex-wrap: wrap;
+}
+
+.copyright {
+  font-size: var(--font-size-xs);
+}

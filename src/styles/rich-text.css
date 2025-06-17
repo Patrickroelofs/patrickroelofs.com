@@ -1,0 +1,15 @@
+.rich-text {
+  p {
+    margin: var(--space-m) 0;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  a {
+    color: inherit;
+    display: inline-flex;
+    gap: var(--space-3xs);
+  }
+}

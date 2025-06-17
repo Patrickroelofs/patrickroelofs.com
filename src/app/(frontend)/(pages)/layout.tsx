@@ -2,6 +2,8 @@ import type React from "react";
 
 import "@/styles/globals.css";
 import "@/styles/reset.css";
+import "@/styles/rich-text.css";
+
 import "@fontsource-variable/national-park";
 import Navigation from "@/components/Navigation/Navigation";
 import Footer from "@/components/Footer/Footer";
