@@ -29,7 +29,7 @@ function Footer() {
 			letters.forEach((letter, index) => {
 				gsap.set(letter, { y: 0 });
 				gsap.to(letter, {
-					y: -8,
+					y: -16,
 					duration: 2 + index * 0.1,
 					ease: "sine.inOut",
 					repeat: -1,
@@ -39,13 +39,15 @@ function Footer() {
 			});
 		};
 
-		// Wave effect on hover
 		const createWaveEffect = () => {
 			letters.forEach((letter, index) => {
+				const randomSign = Math.random() < 0.5 ? -1 : 1;
+				const randomRotation = randomSign * (5 + Math.random() * 5);
+
 				gsap.to(letter, {
-					y: -20,
-					rotation: Math.random() * 10 - 5,
-					scale: 1.1,
+					rotation: randomRotation,
+					scale: 1 + Math.random() * 0.25,
+					fontWeight: 400 + Math.floor(Math.random() * 300),
 					duration: 0.6,
 					ease: "back.out(1.7)",
 					delay: index * 0.05,
@@ -60,13 +62,14 @@ function Footer() {
 				scale: 1,
 				duration: 0.8,
 				ease: "elastic.out(1, 0.5)",
+				fontWeight: 700,
 				stagger: 0.03,
 			});
 		};
 
 		gsap.to(image, {
-			y: -10,
-			rotation: 2,
+			y: -20,
+			rotation: 6,
 			duration: 3,
 			ease: "sine.inOut",
 			repeat: -1,
