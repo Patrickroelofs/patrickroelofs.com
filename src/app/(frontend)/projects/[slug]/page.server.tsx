@@ -1,4 +1,4 @@
-import { Project } from "@/payload-types";
+import type { Project } from "@/payload-types";
 
 function PageTemplate(props: Project) {
 	return (

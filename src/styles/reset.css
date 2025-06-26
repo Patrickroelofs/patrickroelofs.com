@@ -10,7 +10,6 @@
 
 @media (prefers-reduced-motion: no-preference) {
 	html {
-		/* biome-ignore lint/correctness/noUnknownProperty: this property does exist */
 		interpolate-size: allow-keywords;
 	}
 }

@@ -1,10 +1,10 @@
 "use client";
 
-import styles from "./footer.module.css";
-import Image from "next/image";
-import ProfileImage from "@/images/profile.jpg";
-import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import ProfileImage from "@/images/profile.jpg";
+import styles from "./footer.module.css";
 
 function FooterLogo() {
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -82,8 +82,11 @@ function FooterLogo() {
 
 	const renderLetters = (word: string) => {
 		return word.split("").map((letter, index) => (
-			// biome-ignore lint/suspicious/noArrayIndexKey: allow index as key for simplicity
-			<span key={index} className={styles.letter}>
+			<span
+				// biome-ignore lint/suspicious/noArrayIndexKey: allow index as key for simplicity
+				key={index}
+				className={styles.letter}
+			>
 				{letter}
 			</span>
 		));
@@ -91,9 +94,15 @@ function FooterLogo() {
 
 	return (
 		<div className={styles.heroSection}>
-			<div className={styles.container} ref={containerRef}>
+			<div
+				className={styles.container}
+				ref={containerRef}
+			>
 				<span className={styles.text}>{renderLetters("PATRICK")}</span>
-				<div className={styles.imageContainer} ref={imageRef}>
+				<div
+					className={styles.imageContainer}
+					ref={imageRef}
+				>
 					<Image
 						src={ProfileImage}
 						alt=""

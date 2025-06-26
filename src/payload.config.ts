@@ -1,16 +1,15 @@
-import { lexicalEditor, LinkFeature } from "@payloadcms/richtext-lexical";
-import { s3Storage } from "@payloadcms/storage-s3";
 import path from "node:path";
-import { buildConfig } from "payload";
 import { fileURLToPath } from "node:url";
-import sharp from "sharp";
-
-import { Users } from "./collections/Users";
-import { Media } from "./collections/Media";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { linkField } from "./fields/link/link.field";
+import { LinkFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
+import { s3Storage } from "@payloadcms/storage-s3";
+import { buildConfig } from "payload";
+import sharp from "sharp";
 import { Blog } from "./collections/Blog";
+import { Media } from "./collections/Media";
 import { Projects } from "./collections/Projects";
+import { Users } from "./collections/Users";
+import { linkField } from "./fields/link/link.field";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);

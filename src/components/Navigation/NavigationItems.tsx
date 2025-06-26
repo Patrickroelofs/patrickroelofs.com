@@ -1,6 +1,6 @@
 import Link from "next/link";
-import styles from "./navigation.module.css";
 import { payload } from "@/utils/getPayloadConfig";
+import styles from "./navigation.module.css";
 
 async function NavigationItems() {
 	const projectsCount = await payload.count({
@@ -14,12 +14,18 @@ async function NavigationItems() {
 	return (
 		<>
 			{projectsCount.totalDocs > 0 && (
-				<Link href="/projects" className={styles.footerLink}>
+				<Link
+					href="/projects"
+					className={styles.footerLink}
+				>
 					Projects
 				</Link>
 			)}
 			{blogCount.totalDocs > 0 && (
-				<Link href="/blog" className={styles.footerLink}>
+				<Link
+					href="/blog"
+					className={styles.footerLink}
+				>
 					Blog
 				</Link>
 			)}

@@ -1,5 +1,5 @@
-import { payload } from "@/utils/getPayloadConfig";
 import type { MetadataRoute } from "next";
+import { payload } from "@/utils/getPayloadConfig";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const url = process.env.NEXT_PUBLIC_URL || "";

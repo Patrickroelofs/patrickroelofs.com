@@ -1,6 +1,6 @@
-import { Blog } from "@/payload-types";
+import type { Blog } from "@/payload-types";
 
-function PageTemplate(props: Blog) {
+function PageTemplate(_props: Blog) {
 	return (
 		<div>
 			<p>All Blog Posts</p>

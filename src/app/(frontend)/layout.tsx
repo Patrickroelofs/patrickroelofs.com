@@ -5,8 +5,8 @@ import "@/styles/reset.css";
 import "@/styles/rich-text.css";
 
 import "@fontsource-variable/national-park";
-import Navigation from "@/components/Navigation/Navigation";
 import Footer from "@/components/Footer/Footer";
+import Navigation from "@/components/Navigation/Navigation";
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
 	const { children } = props;
