@@ -1,4 +1,4 @@
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { lexicalEditor, LinkFeature } from "@payloadcms/richtext-lexical";
 import { s3Storage } from "@payloadcms/storage-s3";
 import path from "node:path";
 import { buildConfig } from "payload";
@@ -7,7 +7,10 @@ import sharp from "sharp";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
-import { postgresAdapter } from "@payloadcms/db-postgres";
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { linkField } from "./fields/link/link.field";
+import { Blog } from "./collections/Blog";
+import { Projects } from "./collections/Projects";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -23,16 +26,27 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Users, Media],
-	editor: lexicalEditor(),
+	collections: [Projects, Blog, Users, Media],
+	editor: lexicalEditor({
+		features: ({ defaultFeatures }) => {
+			return [
+				...defaultFeatures,
+				LinkFeature({
+					enabledCollections: ["blog"],
+					fields: () =>
+						linkField({
+							relationTo: ["blog"],
+						}).fields,
+				}),
+			];
+		},
+	}),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {
 		outputFile: path.resolve(dirname, "payload-types.ts"),
 	},
-	db: postgresAdapter({
-		pool: {
-			connectionString: process.env.DATABASE_URI,
-		},
+	db: mongooseAdapter({
+		url: process.env.DATABASE_URI || "",
 	}),
 	sharp,
 	plugins: [

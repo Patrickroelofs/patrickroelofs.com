@@ -1,18 +1,14 @@
-version: '3'
-
 services:
-  postgres:
-    restart: always
-    image: postgres:latest
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+  mongo:
+    image: mongo:latest
     ports:
-      - '5432:5432'
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-      POSTGRES_HOST_AUTH_METHOD: trust
+      - '27017:27017'
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      - data:/data/db
+    logging:
+      driver: none
 
 volumes:
-  pgdata:
+  data:
