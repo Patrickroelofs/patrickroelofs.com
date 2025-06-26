@@ -1,11 +1,8 @@
+import { RichText } from "@/components/RichText/RichText";
 import type { Blog } from "@/payload-types";
 
 function PageTemplate(props: Blog) {
-	return (
-		<div>
-			<p>Blog Post: {props.title}</p>
-		</div>
-	);
+	return <RichText lexicalData={props.content} />;
 }
 
 export { PageTemplate };
