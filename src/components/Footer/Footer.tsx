@@ -1,12 +1,8 @@
-import styles from "./footer.module.css";
+import { GithubLogoIcon, LinkedinLogoIcon, MailboxIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
-import {
-	GithubLogoIcon,
-	LinkedinLogoIcon,
-	MailboxIcon,
-} from "@phosphor-icons/react/dist/ssr";
 import NavigationItems from "../Navigation/NavigationItems";
 import { FooterLogo } from "./FooterLogo";
+import styles from "./footer.module.css";
 
 function Footer() {
 	return (
@@ -28,7 +24,10 @@ function Footer() {
 						aria-label="Email"
 						target="_blank"
 					>
-						<MailboxIcon weight="duotone" size={32} />
+						<MailboxIcon
+							weight="duotone"
+							size={32}
+						/>
 					</Link>
 					<Link
 						href="https://github.com/patrickroelofs"
@@ -36,7 +35,10 @@ function Footer() {
 						aria-label="Github"
 						target="_blank"
 					>
-						<GithubLogoIcon weight="duotone" size={32} />
+						<GithubLogoIcon
+							weight="duotone"
+							size={32}
+						/>
 					</Link>
 					<Link
 						href="https://www.linkedin.com/in/patrick-roelofs/"
@@ -44,7 +46,10 @@ function Footer() {
 						aria-label="Linkdin"
 						target="_blank"
 					>
-						<LinkedinLogoIcon weight="duotone" size={32} />
+						<LinkedinLogoIcon
+							weight="duotone"
+							size={32}
+						/>
 					</Link>
 				</div>
 			</div>

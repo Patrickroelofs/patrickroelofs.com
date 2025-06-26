@@ -1,6 +1,6 @@
-import { Blog } from "@/payload-types";
+import type { ReactElement } from "react";
+import type { Blog } from "@/payload-types";
 import { payload } from "@/utils/getPayloadConfig";
-import { ReactElement } from "react";
 import { PageTemplate } from "./page.server";
 
 type Args = {
@@ -35,7 +35,7 @@ async function Page({ params }: Args): Promise<ReactElement> {
 		if (!page) return <p>404</p>;
 
 		return <PageTemplate {...page} />;
-	} catch (error) {
+	} catch (_error) {
 		// TODO: Handle 500 error
 		return <p>500</p>;
 	}
@@ -67,7 +67,7 @@ export async function generateStaticParams() {
 		return pages.map((page) => ({
 			slug: page.slug,
 		}));
-	} catch (error) {
+	} catch (_error) {
 		return [];
 	}
 }

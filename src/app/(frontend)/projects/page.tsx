@@ -1,6 +1,6 @@
-import { Project } from "@/payload-types";
+import type { Project } from "@/payload-types";
 
-function PageTemplate(props: Project) {
+function PageTemplate(_props: Project) {
 	return (
 		<div>
 			<p>All Projects</p>

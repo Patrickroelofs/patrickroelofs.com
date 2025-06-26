@@ -1,24 +1,23 @@
 .textWithSide {
-  max-width: 1200px;
-  margin: var(--space-xl) auto;
-  display: flex;
-  gap: var(--space-m);
-  padding: 0 var(--space-xs);
+	max-width: 1200px;
+	margin: var(--space-xl) auto;
+	display: flex;
+	gap: var(--space-m);
+	padding: 0 var(--space-xs);
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: left;
-  }
+	@media (max-width: 768px) {
+		flex-direction: column;
+		align-items: left;
+	}
 }
 
 .title {
-  max-width: 320px;
-  width: 100%;
+	max-width: 320px;
+	width: 100%;
 
-
-  h2 {
-  font-size: var(--font-size-l);
-  position: sticky;
-  top: var(--space-3xs);
-  }
+	h2 {
+		font-size: var(--font-size-l);
+		position: sticky;
+		top: var(--space-3xs);
+	}
 }
