@@ -9,6 +9,12 @@ export const Blog: CollectionConfig = {
 			required: true,
 		},
 		{
+			name: "image",
+			type: "upload",
+			relationTo: "media",
+			required: true,
+		},
+		{
 			name: "slug",
 			type: "text",
 			required: true,
