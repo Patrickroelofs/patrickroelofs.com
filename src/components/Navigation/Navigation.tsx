@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./navigation.module.css";
+import NavigationItems from "./NavigationItems";
 
 function Navigation() {
 	return (
@@ -9,18 +10,7 @@ function Navigation() {
 			</Link>
 
 			<div className={styles.links}>
-				<Link href="#" className={styles.footerLink}>
-					Work
-				</Link>
-				<Link href="#" className={styles.footerLink}>
-					About
-				</Link>
-				<Link href="#" className={styles.footerLink}>
-					Blog
-				</Link>
-				<Link href="#" className={styles.footerLink}>
-					Contact
-				</Link>
+				<NavigationItems />
 			</div>
 		</nav>
 	);
