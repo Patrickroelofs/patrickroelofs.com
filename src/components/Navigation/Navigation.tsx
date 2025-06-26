@@ -1,18 +1,17 @@
 import Link from "next/link";
 import NavigationItems from "./NavigationItems";
-import styles from "./navigation.module.css";
 
 function Navigation() {
 	return (
-		<nav className={styles.navigation}>
+		<nav className="flex justify-between items-center max-w-5xl mx-auto mt-2xs font-bold px-3xs">
 			<Link
 				href="/"
-				className={styles.title}
+				className="text-m"
 			>
 				<h1>Patrick Roelofs</h1>
 			</Link>
 
-			<div className={styles.links}>
+			<div className="flex gap-3xs justify-center wrap">
 				<NavigationItems />
 			</div>
 		</nav>

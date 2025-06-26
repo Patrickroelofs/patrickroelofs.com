@@ -2,25 +2,24 @@ import { GithubLogoIcon, LinkedinLogoIcon, MailboxIcon } from "@phosphor-icons/r
 import Link from "next/link";
 import NavigationItems from "../Navigation/NavigationItems";
 import { FooterLogo } from "./FooterLogo";
-import styles from "./footer.module.css";
 
 function Footer() {
 	return (
-		<footer className={styles.footer}>
+		<footer className="max-w-5xl mx-auto px-2 my-3xl flex flex-col gap-l">
 			<FooterLogo />
 
-			<div className={styles.socialSection}>
-				<div className={styles.links}>
+			<div className="flex flex-col items-center">
+				<div className="flex gap-xs justify-center flex-wrap">
 					<NavigationItems />
 				</div>
 			</div>
 
-			<div className={styles.bottomSection}>
-				<p className={styles.copyright}>Developed with ❤️ by Patrick Roelofs.</p>
-				<div className={styles.socialIcons}>
+			<div className="flex justify-between items-center border-t border-t-dark-grey pt-s">
+				<p className="text-xs">Developed with ❤️ by Patrick Roelofs.</p>
+				<div className="flex gap-s justify-center flex-wrap">
 					<Link
 						href="mailto:contact@patrickroelofs.com"
-						className={styles.socialLink}
+						className="flex items-center justify-center w-10 h-10 rounded-full transition-all ease-cubic duration-300 bg-transparent hover:bg-black hover:text-ginger hover:-translate-y-0.5 focus:bg-black focus:text-ginger focus:-translate-y-0.5"
 						aria-label="Email"
 						target="_blank"
 					>
@@ -31,7 +30,7 @@ function Footer() {
 					</Link>
 					<Link
 						href="https://github.com/patrickroelofs"
-						className={styles.socialLink}
+						className="flex items-center justify-center w-10 h-10 rounded-full transition-all ease-cubic duration-300 bg-transparent hover:bg-black hover:text-ginger hover:-translate-y-0.5 focus:bg-black focus:text-ginger focus:-translate-y-0.5"
 						aria-label="Github"
 						target="_blank"
 					>
@@ -42,7 +41,7 @@ function Footer() {
 					</Link>
 					<Link
 						href="https://www.linkedin.com/in/patrick-roelofs/"
-						className={styles.socialLink}
+						className="flex items-center justify-center w-10 h-10 rounded-full transition-all ease-cubic duration-300 bg-transparent hover:bg-black hover:text-ginger hover:-translate-y-0.5 focus:bg-black focus:text-ginger focus:-translate-y-0.5"
 						aria-label="Linkdin"
 						target="_blank"
 					>
