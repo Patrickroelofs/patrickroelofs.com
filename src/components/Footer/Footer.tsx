@@ -42,7 +42,7 @@ function Footer() {
 					<Link
 						href="https://www.linkedin.com/in/patrick-roelofs/"
 						className="flex items-center justify-center w-10 h-10 rounded-full transition-all ease-cubic duration-300 bg-transparent hover:bg-black hover:text-ginger hover:-translate-y-0.5 focus:bg-black focus:text-ginger focus:-translate-y-0.5"
-						aria-label="Linkdin"
+						aria-label="LinkedIn"
 						target="_blank"
 					>
 						<LinkedinLogoIcon
