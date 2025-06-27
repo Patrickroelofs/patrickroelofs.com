@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import type { PaginatedDocs } from "payload";
 import type { ReactElement } from "react";
 import type { Blog } from "@/payload-types";
@@ -5,12 +6,14 @@ import { payload } from "@/utils/getPayloadConfig";
 import PageTemplate from "./page.template";
 
 async function Page(): Promise<ReactElement> {
+	const { isEnabled } = await draftMode();
 	let pages: PaginatedDocs<Blog> | null = null;
 
 	try {
 		pages = await payload
 			.find({
 				collection: "blog",
+				draft: isEnabled,
 			})
 			.then((result) => {
 				if (result.docs.length === 0) {

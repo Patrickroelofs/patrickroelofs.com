@@ -1,7 +1,18 @@
+import { draftMode } from "next/headers";
 import type { CollectionConfig } from "payload";
 
 export const Blog: CollectionConfig = {
 	slug: "blog",
+	admin: {
+		livePreview: {
+			async url(args) {
+				const draft = await draftMode();
+				draft.enable();
+
+				return `/blog/${args.data.slug}`;
+			},
+		},
+	},
 	fields: [
 		{
 			name: "title",

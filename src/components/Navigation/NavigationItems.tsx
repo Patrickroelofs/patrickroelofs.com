@@ -1,13 +1,20 @@
+import { draftMode } from "next/headers";
 import Link from "next/link";
 import { payload } from "@/utils/getPayloadConfig";
 
 async function NavigationItems() {
+	const { isEnabled } = await draftMode();
 	const projectsCount = await payload.count({
 		collection: "projects",
 	});
 
 	const blogCount = await payload.count({
 		collection: "blog",
+		where: {
+			_status: {
+				equals: isEnabled ? "draft" : "published",
+			},
+		},
 	});
 
 	return (
