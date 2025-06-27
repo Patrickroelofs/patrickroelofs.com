@@ -8,4 +8,4 @@ function PageTemplate(props: Project) {
 	);
 }
 
-export { PageTemplate };
+export default PageTemplate;

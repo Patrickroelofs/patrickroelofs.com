@@ -13,4 +13,4 @@ function PageTemplate(props: PaginatedDocs<Blog>) {
 	);
 }
 
-export { PageTemplate };
+export default PageTemplate;

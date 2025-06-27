@@ -2,7 +2,7 @@ import type { PaginatedDocs } from "payload";
 import type { ReactElement } from "react";
 import type { Blog } from "@/payload-types";
 import { payload } from "@/utils/getPayloadConfig";
-import { PageTemplate } from "./page.template";
+import PageTemplate from "./page.template";
 
 async function Page(): Promise<ReactElement> {
 	let pages: PaginatedDocs<Blog> | null = null;

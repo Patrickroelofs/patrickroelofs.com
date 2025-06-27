@@ -5,4 +5,4 @@ function PageTemplate(props: Blog) {
 	return <RichText lexicalData={props.content} />;
 }
 
-export { PageTemplate };
+export default PageTemplate;
