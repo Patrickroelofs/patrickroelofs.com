@@ -16,7 +16,7 @@ function FooterLogo() {
 
 		if (!container || !image) return;
 
-		const letters = container.querySelectorAll(`.${styles.letter}`);
+		const letters = container.querySelectorAll(`.letters`);
 
 		const createFloatingAnimation = () => {
 			letters.forEach((letter, index) => {
@@ -85,7 +85,7 @@ function FooterLogo() {
 			<span
 				// biome-ignore lint/suspicious/noArrayIndexKey: allow index as key for simplicity
 				key={index}
-				className={styles.letter}
+				className="letters inline-block transform duration-100 ease-cubic font-bold"
 			>
 				{letter}
 			</span>
@@ -93,14 +93,14 @@ function FooterLogo() {
 	};
 
 	return (
-		<div className={styles.heroSection}>
+		<div>
 			<div
-				className={styles.container}
+				className="flex justify-center items-center w-full relative cursor-pointer transition-all duration-300 ease-cubic flex-wrap"
 				ref={containerRef}
 			>
-				<span className={styles.text}>{renderLetters("PATRICK")}</span>
+				<span className="text-[clamp(2rem,8vw,6rem)]">{renderLetters("PATRICK")}</span>
 				<div
-					className={styles.imageContainer}
+					className="shrink-0 flex justify-center items-center z-10 relative transform"
 					ref={imageRef}
 				>
 					<Image
@@ -108,10 +108,10 @@ function FooterLogo() {
 						alt=""
 						width={256}
 						height={256}
-						className={styles.image}
+						className="rounded-full object-cover w-[clamp(128px,12vw,160px)] h-[clamp(128px,12vw,160px)]"
 					/>
 				</div>
-				<span className={styles.text}>{renderLetters("ROELOFS")}</span>
+				<span className="text-[clamp(2rem,8vw,6rem)]">{renderLetters("ROELOFS")}</span>
 			</div>
 		</div>
 	);

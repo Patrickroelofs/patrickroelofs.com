@@ -1,8 +1,6 @@
 import type React from "react";
 
-import "@/styles/globals.css";
-import "@/styles/reset.css";
-import "@/styles/rich-text.css";
+import "@/app/globals.css";
 
 import "@fontsource-variable/national-park";
 import Footer from "@/components/Footer/Footer";
@@ -12,7 +10,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 	const { children } = props;
 
 	return (
-		<html lang="en">
+		<html
+			lang="en"
+			className="bg-ginger text-base"
+		>
 			<body>
 				<Navigation />
 				<main>{children}</main>
