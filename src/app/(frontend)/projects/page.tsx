@@ -1,6 +1,4 @@
-import type { Project } from "@/payload-types";
-
-function Page(_props: Project) {
+function Page() {
 	return (
 		<div>
 			<p>All Projects</p>
