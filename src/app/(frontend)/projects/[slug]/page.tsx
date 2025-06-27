@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import type { Project } from "@/payload-types";
 import { payload } from "@/utils/getPayloadConfig";
-import { PageTemplate } from "./page.template";
+import PageTemplate from "./page.template";
 
 type Args = {
 	params: Promise<{ slug: string }>;
