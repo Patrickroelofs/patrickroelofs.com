@@ -34,4 +34,13 @@ export const Blog: CollectionConfig = {
 			required: true,
 		},
 	],
+	versions: {
+		drafts: {
+			schedulePublish: true,
+			autosave: {
+				interval: 1000,
+				showSaveDraftButton: true,
+			},
+		},
+	},
 };
