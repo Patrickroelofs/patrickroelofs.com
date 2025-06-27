@@ -1,6 +1,6 @@
 import type { Project } from "@/payload-types";
 
-function PageTemplate(_props: Project) {
+function Page(_props: Project) {
 	return (
 		<div>
 			<p>All Projects</p>
@@ -8,4 +8,4 @@ function PageTemplate(_props: Project) {
 	);
 }
 
-export default PageTemplate;
+export default Page;
