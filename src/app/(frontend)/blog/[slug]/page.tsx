@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import type { ReactElement } from "react";
 import type { Blog } from "@/payload-types";
 import { payload } from "@/utils/getPayloadConfig";
@@ -9,6 +10,7 @@ type Args = {
 
 async function Page({ params }: Args): Promise<ReactElement> {
 	const { slug } = await params;
+	const { isEnabled } = await draftMode();
 
 	let page: Blog | null = null;
 
@@ -21,6 +23,7 @@ async function Page({ params }: Args): Promise<ReactElement> {
 						equals: slug,
 					},
 				},
+				draft: isEnabled,
 				limit: 1,
 			})
 			.then((result) => {
