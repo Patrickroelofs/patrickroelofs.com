@@ -141,6 +141,7 @@ export interface Project {
 export interface Blog {
   id: string;
   title: string;
+  description: string;
   image: string | Media;
   slug: string;
   content: {
@@ -315,6 +316,7 @@ export interface ProjectsSelect<T extends boolean = true> {
  */
 export interface BlogSelect<T extends boolean = true> {
   title?: T;
+  description?: T;
   image?: T;
   slug?: T;
   content?: T;
