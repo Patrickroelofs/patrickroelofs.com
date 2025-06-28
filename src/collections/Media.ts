@@ -3,7 +3,20 @@ import { generateBlurData } from "@/utils/generateBlurData";
 
 export const Media: CollectionConfig = {
 	slug: "media",
-	upload: true,
+	upload: {
+		imageSizes: [
+			{
+				name: "thumbnail",
+				width: 375,
+				height: 280,
+			},
+			{
+				name: "large",
+				width: 1240,
+				height: 700,
+			},
+		],
+	},
 	folders: true,
 	access: {
 		read: () => true,

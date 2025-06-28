@@ -26,14 +26,23 @@ function PageTemplate(props: PaginatedDocs<Blog>) {
 								href={`/blog/${post.slug}`}
 								className="space-y-4"
 							>
-								<div className="relative overflow-hidden rounded-2xl bg-redleather">
+								<div className="relative overflow-hidden rounded-2xl">
 									<div className={`relative ${index === 0 ? "aspect-video" : "aspect-[4/3]"}`}>
 										{typeof post.image !== "number" &&
 											media.url !== undefined &&
-											media.url !== null && (
+											media.url !== null &&
+											media.blurData !== null && (
 												<Image
 													fill
-													src={media.url}
+													src={
+														(index === 0
+															? media?.sizes?.large?.url
+															: media?.sizes?.thumbnail?.url) ||
+														media.url ||
+														""
+													}
+													blurDataURL={media.blurData}
+													placeholder="blur"
 													alt=""
 													className="w-full h-full object-cover"
 												/>
