@@ -177,7 +177,8 @@ export interface Blog {
  */
 export interface Media {
   id: string;
-  alt?: string | null;
+  alt: string;
+  blurData?: string | null;
   folder?: (string | null) | FolderInterface;
   updatedAt: string;
   createdAt: string;
@@ -457,6 +458,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  blurData?: T;
   folder?: T;
   updatedAt?: T;
   createdAt?: T;

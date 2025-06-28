@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { generateBlurData } from "@/utils/generateBlurData";
 
 export const Media: CollectionConfig = {
 	slug: "media",
@@ -11,8 +12,19 @@ export const Media: CollectionConfig = {
 		{
 			name: "alt",
 			type: "text",
-			required: false,
+			required: true,
+		},
+		{
+			name: "blurData",
+			type: "text",
+			admin: {
+				hidden: true,
+				disableListColumn: true,
+				disableListFilter: true,
+			},
 		},
 	],
-	hooks: {},
+	hooks: {
+		beforeValidate: [generateBlurData],
+	},
 };
