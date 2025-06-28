@@ -1,5 +1,6 @@
 import { draftMode } from "next/headers";
 import type { CollectionConfig } from "payload";
+import { slugField } from "@/fields/slug.field";
 
 export const Blog: CollectionConfig = {
 	slug: "blog",
@@ -19,6 +20,7 @@ export const Blog: CollectionConfig = {
 			type: "text",
 			required: true,
 		},
+		slugField("title"),
 		{
 			name: "description",
 			type: "textarea",
@@ -28,20 +30,6 @@ export const Blog: CollectionConfig = {
 			name: "image",
 			type: "upload",
 			relationTo: "media",
-			required: true,
-		},
-		{
-			name: "slug",
-			type: "text",
-			required: true,
-			unique: true,
-			admin: {
-				position: "sidebar",
-			},
-		},
-		{
-			name: "content",
-			type: "richText",
 			required: true,
 		},
 	],
