@@ -16,7 +16,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 			className="bg-ginger text-base"
 		>
 			<body>
-				<Navigation />
+				{/* <Navigation /> */}
 				<main>{children}</main>
 				{/* <Footer /> */}
 				<RefreshRouteOnSave />
