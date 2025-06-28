@@ -14,14 +14,14 @@ function Hero() {
 				</p>
 			</div>
 			<div className="relative mx-auto max-w-6xl w-full aspect-video max-h-[650px]">
-				<Image
+				{/* <Image
 					priority
 					loading="eager"
 					alt=""
 					src={image}
 					fill
 					className="rounded-2xl object-cover"
-				/>
+				/> */}
 			</div>
 		</section>
 	);
