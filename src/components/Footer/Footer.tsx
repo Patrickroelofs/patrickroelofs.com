@@ -1,4 +1,4 @@
-import { GithubLogoIcon, LinkedinLogoIcon, MailboxIcon } from "@phosphor-icons/react/dist/ssr";
+import { GithubLogoIcon, LinkedinLogoIcon, MailboxIcon } from "@phosphor-icons/react/ssr";
 import Link from "next/link";
 import NavigationItems from "../Navigation/NavigationItems";
 import FooterCursor from "./FooterCursor";

@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import ProfileImage from "@/images/profile.jpg";
-import styles from "./footer.module.css";
 
 function FooterLogo() {
 	const containerRef = useRef<HTMLDivElement>(null);

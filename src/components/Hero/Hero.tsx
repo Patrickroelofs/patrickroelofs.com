@@ -15,6 +15,8 @@ function Hero() {
 			</div>
 			<div className="relative mx-auto max-w-6xl w-full aspect-video max-h-[650px]">
 				<Image
+					priority
+					loading="eager"
 					alt=""
 					src={image}
 					fill
