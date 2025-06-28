@@ -138,6 +138,9 @@ export interface UserAuthOperations {
 export interface Project {
   id: string;
   title: string;
+  /**
+   * A unique identifier for the document, used in URLs, will be auto generated or converted to proper format.
+   */
   slug: string;
   updatedAt: string;
   createdAt: string;
@@ -149,24 +152,12 @@ export interface Project {
 export interface Blog {
   id: string;
   title: string;
+  /**
+   * A unique identifier for the document, used in URLs, will be auto generated or converted to proper format.
+   */
+  slug: string;
   description: string;
   image: string | Media;
-  slug: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -440,10 +431,9 @@ export interface ProjectsSelect<T extends boolean = true> {
  */
 export interface BlogSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
   description?: T;
   image?: T;
-  slug?: T;
-  content?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
