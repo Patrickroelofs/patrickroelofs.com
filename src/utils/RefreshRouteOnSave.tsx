@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation.js";
 import type React from "react";
 
 export const RefreshRouteOnSave: React.FC = () => {
+	console.log(process.env.NEXT_PUBLIC_URL);
 	const router = useRouter();
 
 	return (
