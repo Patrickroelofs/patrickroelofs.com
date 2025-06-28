@@ -74,9 +74,18 @@ function FooterCursor({ children }: { children?: ReactNode }) {
 			type="button"
 			ref={footerRef}
 			aria-label="Copy email address"
-			onClick={() => {
-				navigator.clipboard.writeText(email);
-				setIsCopied(true);
+			onClick={async () => {
+				try {
+					if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+						await navigator.clipboard.writeText(email);
+						setIsCopied(true);
+					} else {
+						// Fallback for browsers that don't support clipboard API
+						console.warn("Clipboard API not available");
+					}
+				} catch (error) {
+					console.error("Failed to copy email to clipboard:", error);
+				}
 			}}
 		>
 			<div

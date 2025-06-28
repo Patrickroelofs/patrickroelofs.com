@@ -15,7 +15,7 @@ function FooterLogo() {
 
 		if (!container || !image) return;
 
-		const letters = container.querySelectorAll(`.letters`);
+		const letters = container.querySelectorAll(".letters");
 
 		const createFloatingAnimation = () => {
 			letters.forEach((letter, index) => {
