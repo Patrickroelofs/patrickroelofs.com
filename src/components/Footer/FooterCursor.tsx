@@ -4,6 +4,8 @@ import { gsap } from "gsap";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
 function FooterCursor({ children }: { children?: ReactNode }) {
+	const email = "contact@patrickroelofs.com";
+
 	const [isCopied, setIsCopied] = useState(false);
 	const cursorRef = useRef<HTMLDivElement>(null);
 	const cursorTextRef = useRef<HTMLSpanElement>(null);
@@ -73,8 +75,6 @@ function FooterCursor({ children }: { children?: ReactNode }) {
 			ref={footerRef}
 			aria-label="Copy email address"
 			onClick={() => {
-				const email = "contact@patrickroelofs.com";
-
 				navigator.clipboard.writeText(email);
 				setIsCopied(true);
 			}}
