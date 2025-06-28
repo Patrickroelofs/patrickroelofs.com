@@ -1,4 +1,4 @@
-import { APIError, type CollectionBeforeValidateHook } from "payload";
+import type { CollectionBeforeValidateHook } from "payload";
 import { getPlaiceholder } from "plaiceholder";
 
 const generateBlurData: CollectionBeforeValidateHook = async ({ data, req }) => {
@@ -12,14 +12,18 @@ const generateBlurData: CollectionBeforeValidateHook = async ({ data, req }) => 
 				removeAlpha: true,
 			});
 
-			return {
-				...data,
-				blurData: base64,
-			};
+			if (base64 && typeof base64 === "string" && base64.startsWith("data:")) {
+				return {
+					...data,
+					blurData: base64,
+				};
+			}
 		}
-	} catch (_) {
-		throw new APIError("Failed to generate blur hash");
+	} catch (error) {
+		console.warn("Failed to generate blur data:", error);
 	}
+
+	return data;
 };
 
 export { generateBlurData };

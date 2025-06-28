@@ -30,8 +30,7 @@ function PageTemplate(props: PaginatedDocs<Blog>) {
 									<div className={`relative ${index === 0 ? "aspect-video" : "aspect-[4/3]"}`}>
 										{typeof post.image !== "number" &&
 											media.url !== undefined &&
-											media.url !== null &&
-											media.blurData !== null && (
+											media.url !== null && (
 												<Image
 													fill
 													src={
@@ -41,8 +40,14 @@ function PageTemplate(props: PaginatedDocs<Blog>) {
 														media.url ||
 														""
 													}
-													blurDataURL={media.blurData}
-													placeholder="blur"
+													{...(media.blurData &&
+													typeof media.blurData === "string" &&
+													media.blurData.startsWith("data:")
+														? {
+																blurDataURL: media.blurData,
+																placeholder: "blur" as const,
+															}
+														: {})}
 													alt=""
 													className="w-full h-full object-cover"
 												/>
