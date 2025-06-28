@@ -18,7 +18,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 			<body>
 				<Navigation />
 				<main>{children}</main>
-				<Footer />
+				{/* <Footer /> */}
 				<RefreshRouteOnSave />
 			</body>
 		</html>
