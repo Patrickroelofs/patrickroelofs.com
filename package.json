@@ -19,7 +19,7 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/national-park": "^5.2.4",
-		"@payloadcms/db-mongodb": "^3.43.0",
+		"@payloadcms/db-mongodb": "^3.44.0",
 		"@payloadcms/live-preview-react": "^3.44.0",
 		"@payloadcms/next": "^3.44.0",
 		"@payloadcms/richtext-lexical": "^3.44.0",
@@ -28,7 +28,6 @@
 		"@phosphor-icons/react": "^2.1.10",
 		"@tailwindcss/postcss": "^4.1.11",
 		"cross-env": "^7.0.3",
-		"graphql": "^16.11.0",
 		"gsap": "^3.13.0",
 		"next": "^15.3.3",
 		"payload": "^3.44.0",
@@ -52,6 +51,7 @@
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"@biomejs/biome",
+			"@tailwindcss/oxide",
 			"esbuild",
 			"sharp"
 		]

@@ -44,6 +44,9 @@ export default buildConfig({
 	typescript: {
 		outputFile: path.resolve(dirname, "payload-types.ts"),
 	},
+	graphQL: {
+		disable: true,
+	},
 	db: mongooseAdapter({
 		url: process.env.DATABASE_URI || "",
 	}),
