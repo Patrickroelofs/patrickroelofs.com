@@ -1,12 +1,15 @@
 import { GithubLogoIcon, LinkedinLogoIcon, MailboxIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import NavigationItems from "../Navigation/NavigationItems";
+import FooterCursor from "./FooterCursor";
 import { FooterLogo } from "./FooterLogo";
 
 function Footer() {
 	return (
 		<footer className="max-w-5xl mx-auto px-2 my-3xl flex flex-col gap-l">
-			<FooterLogo />
+			<FooterCursor>
+				<FooterLogo />
+			</FooterCursor>
 
 			<div className="flex flex-col items-center">
 				<div className="flex gap-xs justify-center flex-wrap">
