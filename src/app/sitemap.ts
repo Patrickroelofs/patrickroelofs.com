@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { env } from "@/env";
 import { payload } from "@/utils/getPayloadConfig";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	const url = process.env.NEXT_PUBLIC_URL || "";
+	const url = env.NEXT_PUBLIC_URL;
 
 	const blogPosts = await payload.find({
 		collection: "blog",
