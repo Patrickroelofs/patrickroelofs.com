@@ -1,3 +1,4 @@
+import { env } from "@/env";
 import type { Blog } from "@/payload-types";
 
 // TODO: Replace when Payload types are generated (when added to a block)
@@ -21,7 +22,7 @@ export type ParsedLink = {
 export function isExternalLink(url: string | null | undefined): boolean {
 	if (!url || (!url.startsWith("http://") && !url.startsWith("https://"))) return false;
 	const stripProtocol = (u: string) => u.replace(/^https?:\/\//, "");
-	return !stripProtocol(url).startsWith(stripProtocol(process.env.NEXT_PUBLIC_SERVER_URL || ""));
+	return !stripProtocol(url).startsWith(stripProtocol(env.NEXT_PUBLIC_URL));
 }
 
 export function parseLink(link?: LinkField & { label?: string | null }): ParsedLink {

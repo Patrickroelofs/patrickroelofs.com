@@ -9,6 +9,7 @@ import { Blog } from "./collections/Blog";
 import { Media } from "./collections/Media";
 import { Projects } from "./collections/Projects";
 import { Users } from "./collections/Users";
+import { env } from "./env";
 import { linkField } from "./fields/link/link.field";
 
 const filename = fileURLToPath(import.meta.url);
@@ -16,9 +17,9 @@ const dirname = path.dirname(filename);
 
 export default buildConfig({
 	admin: {
-		autoLogin: process.env.NODE_ENV === "development" && {
-			email: process.env.ADMIN_EMAIL || "",
-			password: process.env.ADMIN_PASSWORD || "",
+		autoLogin: env.NODE_ENV === "development" && {
+			email: env.ADMIN_EMAIL,
+			password: env.ADMIN_PASSWORD,
 		},
 		user: Users.slug,
 		importMap: {
@@ -40,7 +41,7 @@ export default buildConfig({
 			];
 		},
 	}),
-	secret: process.env.PAYLOAD_SECRET || "",
+	secret: env.PAYLOAD_SECRET,
 	typescript: {
 		outputFile: path.resolve(dirname, "payload-types.ts"),
 	},
@@ -48,22 +49,22 @@ export default buildConfig({
 		disable: true,
 	},
 	db: mongooseAdapter({
-		url: process.env.DATABASE_URI || "",
+		url: env.DATABASE_URI,
 	}),
 	sharp,
 	plugins: [
 		s3Storage({
-			enabled: process.env.NODE_ENV === "production",
+			enabled: env.NODE_ENV === "production",
 			collections: {
 				media: true,
 			},
-			bucket: process.env.S3_BUCKET ?? "",
+			bucket: env.S3_BUCKET,
 			config: {
-				endpoint: process.env.S3_ENDPOINT ?? "",
-				region: process.env.S3_REGION ?? "",
+				endpoint: env.S3_ENDPOINT,
+				region: env.S3_REGION,
 				credentials: {
-					accessKeyId: process.env.S3_ACCESS_KEY ?? "",
-					secretAccessKey: process.env.S3_SECRET_KEY ?? "",
+					accessKeyId: env.S3_ACCESS_KEY,
+					secretAccessKey: env.S3_SECRET_KEY,
 				},
 			},
 		}),
