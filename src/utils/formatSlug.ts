@@ -20,10 +20,20 @@ const format = (val: string): string =>
  */
 const formatSlug =
 	(fallback: string): FieldHook =>
-	({ data, originalDoc }) => {
+	({ data, originalDoc, operation, value }) => {
 		const fallbackData = data?.[fallback] || originalDoc?.[fallback];
 
-		return format(fallbackData);
+		if (operation === "create") {
+			if (fallbackData && typeof fallbackData === "string") {
+				return format(fallbackData);
+			}
+		}
+
+		if (operation === "update") {
+			return format(fallbackData);
+		}
+
+		return value;
 	};
 
 export default formatSlug;

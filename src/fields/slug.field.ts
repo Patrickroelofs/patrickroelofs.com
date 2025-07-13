@@ -17,7 +17,9 @@ export const slugField: Slug = (fieldToUse = "title", overrides = {}) =>
 			hooks: {
 				beforeValidate: [formatSlug(fieldToUse)],
 			},
+			defaultValue: () => Date.now().toString(36),
 			required: true,
+			unique: true,
 			index: true,
 			label: "Slug",
 		},

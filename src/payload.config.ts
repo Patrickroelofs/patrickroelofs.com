@@ -58,13 +58,13 @@ export default buildConfig({
 			collections: {
 				media: true,
 			},
-			bucket: env.S3_BUCKET,
+			bucket: env.S3_BUCKET ?? "",
 			config: {
-				endpoint: env.S3_ENDPOINT,
-				region: env.S3_REGION,
+				endpoint: env.S3_ENDPOINT ?? "",
+				region: env.S3_REGION ?? "",
 				credentials: {
-					accessKeyId: env.S3_ACCESS_KEY,
-					secretAccessKey: env.S3_SECRET_KEY,
+					accessKeyId: env.S3_ACCESS_KEY ?? "",
+					secretAccessKey: env.S3_SECRET_KEY ?? "",
 				},
 			},
 		}),

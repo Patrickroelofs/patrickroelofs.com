@@ -11,9 +11,7 @@ async function NavigationItems() {
 	const blogCount = await payload.count({
 		collection: "blog",
 		where: {
-			_status: {
-				equals: isEnabled ? "draft" : "published",
-			},
+			...(!isEnabled ? {} : { status: { equals: "published" } }),
 		},
 	});
 

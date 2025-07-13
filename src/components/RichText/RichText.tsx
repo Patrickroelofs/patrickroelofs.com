@@ -22,9 +22,11 @@ export const RichText: React.FC<{
 	lexicalData: SerializedEditorState;
 }> = ({ lexicalData }) => {
 	return (
-		<RichTextLexical
-			converters={jsxConverters}
-			data={lexicalData}
-		/>
+		<div className="rich-text">
+			<RichTextLexical
+				converters={jsxConverters}
+				data={lexicalData}
+			/>
+		</div>
 	);
 };
