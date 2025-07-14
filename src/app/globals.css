@@ -36,3 +36,47 @@
 	--rounded-2xl: 1rem;
 	--rounded-full: 9999px;
 }
+
+.rich-text {
+	@apply max-w-5xl mx-auto px-2 text-xs;
+
+	h2 {
+		@apply text-s font-medium tracking-tight;
+
+		&:not(:first-child) {
+			@apply mt-6;
+		}
+	}
+
+	ul {
+		@apply list-disc pl-6;
+
+		li {
+			@apply mb-2;
+
+			&:not(:last-child) {
+				@apply mb-2;
+			}
+		}
+	}
+
+	ol {
+		@apply list-decimal pl-6;
+
+		li {
+			@apply mb-2;
+
+			&:not(:last-child) {
+				@apply mb-2;
+			}
+		}
+	}
+
+	blockquote {
+		@apply italic text-black my-4 border-l-4 border-black pl-4;
+
+		p {
+			@apply mb-0;
+		}
+	}
+}

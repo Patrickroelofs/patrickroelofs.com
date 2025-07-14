@@ -1,7 +1,11 @@
 import NextImage from "next/image";
 import type { Media } from "@/payload-types";
 
-function Image(props: Media) {
+interface ImageProps extends Media {
+	className?: string;
+}
+
+function Image(props: ImageProps) {
 	if (!props.url || !props.width || !props.height) {
 		throw new Error("Image component requires a url, width & height property");
 	}
@@ -12,6 +16,7 @@ function Image(props: Media) {
 			alt={props.alt || ""}
 			width={props.width}
 			height={props.height}
+			className={props.className}
 		/>
 	);
 }

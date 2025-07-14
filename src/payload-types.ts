@@ -158,6 +158,21 @@ export interface Blog {
   slug: string;
   description: string;
   image: string | Media;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -434,6 +449,7 @@ export interface BlogSelect<T extends boolean = true> {
   slug?: T;
   description?: T;
   image?: T;
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;

@@ -32,6 +32,11 @@ export const Blog: CollectionConfig = {
 			relationTo: "media",
 			required: true,
 		},
+		{
+			name: "content",
+			type: "richText",
+			required: true,
+		},
 	],
 	versions: {
 		drafts: {
