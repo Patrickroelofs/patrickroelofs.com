@@ -40,14 +40,11 @@
 .rich-text {
 	@apply max-w-5xl mx-auto px-2 text-xs;
 
-	p {
-	}
-
 	h2 {
-		@apply text-s font-medium;
+		@apply text-s font-medium tracking-tight;
 
 		&:not(:first-child) {
-			@apply mt-4;
+			@apply mt-6;
 		}
 	}
 
