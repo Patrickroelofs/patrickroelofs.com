@@ -7,6 +7,7 @@ import { buildConfig } from "payload";
 import sharp from "sharp";
 import { Blog } from "./collections/Blog";
 import { Media } from "./collections/Media";
+import { Photography } from "./collections/Photography";
 import { Projects } from "./collections/Projects";
 import { Users } from "./collections/Users";
 import { env } from "./env";
@@ -26,7 +27,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Projects, Blog, Users, Media],
+	collections: [Projects, Photography, Blog, Users, Media],
 	editor: lexicalEditor({
 		features: ({ defaultFeatures }) => {
 			return [

@@ -15,6 +15,11 @@ export const Media: CollectionConfig = {
 				width: 1240,
 				height: 700,
 			},
+			{
+				name: "square-full",
+				width: 1200,
+				height: 1200,
+			},
 		],
 	},
 	folders: true,
