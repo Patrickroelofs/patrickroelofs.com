@@ -30,7 +30,7 @@
 		"@tailwindcss/postcss": "^4.1.11",
 		"cross-env": "^7.0.3",
 		"gsap": "^3.13.0",
-		"next": "^15.3.3",
+		"next": "^15.4.7",
 		"payload": "^3.48.0",
 		"plaiceholder": "^3.0.0",
 		"postcss": "^8.5.6",
