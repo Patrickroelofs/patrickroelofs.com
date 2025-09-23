@@ -1,17 +1,13 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { LinkFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { s3Storage } from "@payloadcms/storage-s3";
 import { buildConfig } from "payload";
 import sharp from "sharp";
-import { Blog } from "./collections/Blog";
 import { Media } from "./collections/Media";
-import { Photography } from "./collections/Photography";
-import { Projects } from "./collections/Projects";
 import { Users } from "./collections/Users";
 import { env } from "./env";
-import { linkField } from "./fields/link/link.field";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -27,21 +23,8 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Projects, Photography, Blog, Users, Media],
-	editor: lexicalEditor({
-		features: ({ defaultFeatures }) => {
-			return [
-				...defaultFeatures,
-				LinkFeature({
-					enabledCollections: ["blog"],
-					fields: () =>
-						linkField({
-							relationTo: ["blog"],
-						}).fields,
-				}),
-			];
-		},
-	}),
+	collections: [Users, Media],
+	editor: lexicalEditor({}),
 	secret: env.PAYLOAD_SECRET,
 	typescript: {
 		outputFile: path.resolve(dirname, "payload-types.ts"),

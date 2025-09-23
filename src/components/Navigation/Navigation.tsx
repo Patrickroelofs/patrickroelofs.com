@@ -1,5 +1,4 @@
 import Link from "next/link";
-import NavigationItems from "./NavigationItems";
 
 function Navigation() {
 	return (
@@ -10,10 +9,6 @@ function Navigation() {
 			>
 				<h1>Patrick Roelofs</h1>
 			</Link>
-
-			<div className="flex gap-3xs justify-center wrap">
-				<NavigationItems />
-			</div>
 		</nav>
 	);
 }
