@@ -3,13 +3,13 @@ import { z } from "zod";
 
 export const env = createEnv({
 	server: {
-		DATABASE_URI: z.string().url(),
-		ADMIN_EMAIL: z.string().email(),
-		ADMIN_PASSWORD: z.string().min(1),
+		DATABASE_URI: z.url(),
+		ADMIN_EMAIL: z.email().optional(),
+		ADMIN_PASSWORD: z.string().min(1).optional(),
 		PAYLOAD_SECRET: z.string().min(1),
 		NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
 		S3_BUCKET: z.string().min(1).optional(),
-		S3_ENDPOINT: z.string().url().optional(),
+		S3_ENDPOINT: z.url().optional(),
 		S3_REGION: z.string().min(1).optional(),
 		S3_ACCESS_KEY: z.string().min(1).optional(),
 		S3_SECRET_KEY: z.string().min(1).optional(),
