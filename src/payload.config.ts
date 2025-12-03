@@ -5,8 +5,8 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { s3Storage } from "@payloadcms/storage-s3";
 import { buildConfig } from "payload";
 import sharp from "sharp";
-import { Media } from "./collections/Media";
-import { Users } from "./collections/Users";
+import { Media } from "./collections/media";
+import { Users } from "./collections/users";
 import { env } from "./env";
 
 const filename = fileURLToPath(import.meta.url);

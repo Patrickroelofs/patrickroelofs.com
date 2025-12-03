@@ -6,17 +6,17 @@ interface ImageProps extends Media {
 }
 
 function Image(props: ImageProps) {
-	if (!props.url || !props.width || !props.height) {
+	if (!(props.url && props.width && props.height)) {
 		throw new Error("Image component requires a url, width & height property");
 	}
 
 	return (
 		<NextImage
-			src={props.url}
 			alt={props.alt || ""}
-			width={props.width}
-			height={props.height}
 			className={props.className}
+			height={props.height}
+			src={props.url}
+			width={props.width}
 		/>
 	);
 }

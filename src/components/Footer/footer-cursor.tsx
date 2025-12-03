@@ -16,7 +16,9 @@ function FooterCursor({ children }: { children?: ReactNode }) {
 		const cursorText = cursorTextRef.current;
 		const footer = footerRef.current;
 
-		if (!cursor || !cursorText || !footer) return;
+		if (!(cursor && cursorText && footer)) {
+			return;
+		}
 
 		const handleMouseMove = (e: MouseEvent) => {
 			gsap.to(cursor, {
@@ -71,12 +73,10 @@ function FooterCursor({ children }: { children?: ReactNode }) {
 
 	return (
 		<button
-			type="button"
-			ref={footerRef}
 			aria-label="Copy email address"
 			onClick={async () => {
 				try {
-					if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+					if (navigator.clipboard !== null && typeof navigator.clipboard.writeText === "function") {
 						await navigator.clipboard.writeText(email);
 						setIsCopied(true);
 					} else {
@@ -87,14 +87,16 @@ function FooterCursor({ children }: { children?: ReactNode }) {
 					console.error("Failed to copy email to clipboard:", error);
 				}
 			}}
+			ref={footerRef}
+			type="button"
 		>
 			<div
+				className="pointer-events-none fixed top-0 left-0 z-50 flex rounded-full bg-black/30 p-2xs opacity-0 backdrop-blur-lg"
 				ref={cursorRef}
-				className="p-2xs fixed top-0 left-0 opacity-0 bg-black/30 backdrop-blur-lg rounded-full pointer-events-none z-50 flex"
 			>
 				<span
+					className="font-bold text-ginger text-xs"
 					ref={cursorTextRef}
-					className="text-ginger text-xs font-bold"
 				>
 					{isCopied ? "Copied!" : "Click to copy email"}
 				</span>
