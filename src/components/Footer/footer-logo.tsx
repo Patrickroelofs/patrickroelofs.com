@@ -13,7 +13,9 @@ function FooterLogo() {
 		const container = containerRef.current;
 		const image = imageRef.current;
 
-		if (!container || !image) return;
+		if (!(container && image)) {
+			return;
+		}
 
 		const letters = container.querySelectorAll(".letters");
 
@@ -79,35 +81,34 @@ function FooterLogo() {
 		};
 	}, []);
 
-	const renderLetters = (word: string) => {
-		return word.split("").map((letter, index) => (
+	const renderLetters = (word: string) =>
+		word.split("").map((letter, index) => (
 			<span
-				// biome-ignore lint/suspicious/noArrayIndexKey: allow index as key for simplicity
+				className="letters inline-block transform font-bold duration-100 ease-cubic"
+				// biome-ignore lint/suspicious/noArrayIndexKey: Allowed here
 				key={index}
-				className="letters inline-block transform duration-100 ease-cubic font-bold"
 			>
 				{letter}
 			</span>
 		));
-	};
 
 	return (
 		<div>
 			<div
-				className="flex justify-center items-center w-full relative cursor-pointer transition-all duration-300 ease-cubic flex-wrap"
+				className="relative flex w-full cursor-pointer flex-wrap items-center justify-center transition-all duration-300 ease-cubic"
 				ref={containerRef}
 			>
 				<span className="text-[clamp(2rem,8vw,6rem)]">{renderLetters("PATRICK")}</span>
 				<div
-					className="shrink-0 flex justify-center items-center z-10 relative transform"
+					className="relative z-10 flex shrink-0 transform items-center justify-center"
 					ref={imageRef}
 				>
 					<Image
-						src={ProfileImage}
 						alt=""
-						width={256}
+						className="h-[clamp(128px,12vw,160px)] w-[clamp(128px,12vw,160px)] rounded-full object-cover"
 						height={256}
-						className="rounded-full object-cover w-[clamp(128px,12vw,160px)] h-[clamp(128px,12vw,160px)]"
+						src={ProfileImage}
+						width={256}
 					/>
 				</div>
 				<span className="text-[clamp(2rem,8vw,6rem)]">{renderLetters("ROELOFS")}</span>

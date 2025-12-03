@@ -2,10 +2,10 @@ import Link from "next/link";
 
 function Navigation() {
 	return (
-		<nav className="flex justify-between items-center max-w-5xl mx-auto mt-2xs font-bold px-3xs">
+		<nav className="mx-auto mt-2xs flex max-w-5xl items-center justify-between px-3xs font-bold">
 			<Link
-				href="/"
 				className="text-m"
+				href="/"
 			>
 				<h1>Patrick Roelofs</h1>
 			</Link>

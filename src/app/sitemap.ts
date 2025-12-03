@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { env } from "@/env";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
 	const url = env.NEXT_PUBLIC_URL;
 	return [
 		{
