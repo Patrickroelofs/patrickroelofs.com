@@ -5,19 +5,28 @@ export const MediaCollection: CollectionConfig = {
 	upload: {
 		imageSizes: [
 			{
-				name: "thumbnail",
-				width: 375,
-				height: 280,
+				name: "sm",
+				width: 640,
 			},
 			{
-				name: "large",
-				width: 1240,
-				height: 700,
+				name: "md",
+				width: 768,
 			},
 			{
-				name: "square-full",
-				width: 1200,
-				height: 1200,
+				name: "lg",
+				width: 1024,
+			},
+			{
+				name: "xl",
+				width: 1280,
+			},
+			{
+				name: "2xl",
+				width: 1536,
+			},
+			{
+				name: "3xl",
+				width: 1920,
 			},
 		],
 	},

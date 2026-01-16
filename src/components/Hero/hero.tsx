@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { HomepageHero } from "@/payload-types";
+import { ImageMedia } from "../Media/ImageMedia";
 
 interface HeroProps extends HomepageHero {}
 
@@ -12,15 +12,15 @@ function Hero(props: HeroProps) {
 				{title && <p className="text-s">{title}</p>}
 			</div>
 
-			{image && typeof image !== "string" && typeof image.url === "string" && (
+			{image && typeof image !== "string" && (
 				<div className="relative mx-auto aspect-video max-h-162.5 w-full max-w-6xl">
-					<Image
+					<ImageMedia
+						{...image}
 						alt=""
-						className="rounded-2xl object-cover"
+						className="[&>img]:rounded-2xl [&>img]:object-cover [&>img]:object-center"
 						fill
 						loading="eager"
 						priority
-						src={image.url}
 					/>
 				</div>
 			)}

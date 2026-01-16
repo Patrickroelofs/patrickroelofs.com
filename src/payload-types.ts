@@ -230,7 +230,7 @@ export interface Media {
   focalX?: number | null;
   focalY?: number | null;
   sizes?: {
-    thumbnail?: {
+    sm?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -238,7 +238,7 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
-    large?: {
+    md?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -246,7 +246,31 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
-    'square-full'?: {
+    lg?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    xl?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    '2xl'?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    '3xl'?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -405,7 +429,7 @@ export interface MediaSelect<T extends boolean = true> {
   sizes?:
     | T
     | {
-        thumbnail?:
+        sm?:
           | T
           | {
               url?: T;
@@ -415,7 +439,7 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
-        large?:
+        md?:
           | T
           | {
               url?: T;
@@ -425,7 +449,37 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
-        'square-full'?:
+        lg?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xl?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        '2xl'?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        '3xl'?:
           | T
           | {
               url?: T;
