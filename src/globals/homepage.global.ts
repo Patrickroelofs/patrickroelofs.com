@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
 import { ProjectsBlock } from "@/blocks/projects.block";
+import { revalidatePaths } from "@/utils/revalidatePaths";
 import { GLOBAL_SLUGS } from ".";
 
 export const HomepageGlobal: GlobalConfig = {
@@ -62,5 +63,14 @@ export const HomepageGlobal: GlobalConfig = {
 	],
 	versions: {
 		drafts: true,
+	},
+	hooks: {
+		afterChange: [
+			({ data }) => {
+				if (data._status === "published") {
+					revalidatePaths(["/"]);
+				}
+			},
+		],
 	},
 };
