@@ -1,8 +1,9 @@
 import type { GlobalConfig } from "payload";
 import { ProjectsBlock } from "@/blocks/projects.block";
+import { GLOBAL_SLUGS } from ".";
 
 export const HomepageGlobal: GlobalConfig = {
-	slug: "homepage",
+	slug: GLOBAL_SLUGS.HOMEPAGE,
 	access: {
 		read: () => true,
 	},
@@ -20,28 +21,40 @@ export const HomepageGlobal: GlobalConfig = {
 					name: "page",
 					fields: [
 						{
-							name: "blocks",
-							type: "blocks",
-							required: false,
-							blocks: [ProjectsBlock],
+							name: "hero",
+							type: "group",
+							fields: [
+								{
+									name: "title",
+									type: "text",
+									required: true,
+								},
+								{
+									name: "image",
+									type: "upload",
+									required: true,
+									relationTo: "media",
+								},
+							],
+						},
+						{
+							name: "content",
+							type: "group",
+							fields: [
+								{
+									name: "blocks",
+									type: "blocks",
+									required: false,
+									blocks: [ProjectsBlock],
+								},
+							],
 						},
 					],
 				},
 				{
 					label: "Meta",
 					name: "meta",
-					fields: [
-						{
-							name: "shortDescription",
-							type: "text",
-							required: true,
-						},
-						{
-							name: "longDescription",
-							type: "textarea",
-							required: false,
-						},
-					],
+					fields: [],
 				},
 			],
 		},

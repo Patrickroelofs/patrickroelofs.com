@@ -520,22 +520,25 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Homepage {
   id: string;
   general?: {};
-  page?: {
-    blocks?:
-      | {
-          title: string;
-          featuredProject?: (string | null) | Project;
-          projects: (string | Project)[];
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'projectsBlock';
-        }[]
-      | null;
+  page: {
+    hero: {
+      title: string;
+      image: string | Media;
+    };
+    content?: {
+      blocks?:
+        | {
+            title: string;
+            featuredProject?: (string | null) | Project;
+            projects: (string | Project)[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'projectsBlock';
+          }[]
+        | null;
+    };
   };
-  meta: {
-    shortDescription: string;
-    longDescription?: string | null;
-  };
+  meta?: {};
   _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -549,26 +552,31 @@ export interface HomepageSelect<T extends boolean = true> {
   page?:
     | T
     | {
-        blocks?:
+        hero?:
           | T
           | {
-              projectsBlock?:
+              title?: T;
+              image?: T;
+            };
+        content?:
+          | T
+          | {
+              blocks?:
                 | T
                 | {
-                    title?: T;
-                    featuredProject?: T;
-                    projects?: T;
-                    id?: T;
-                    blockName?: T;
+                    projectsBlock?:
+                      | T
+                      | {
+                          title?: T;
+                          featuredProject?: T;
+                          projects?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
             };
       };
-  meta?:
-    | T
-    | {
-        shortDescription?: T;
-        longDescription?: T;
-      };
+  meta?: T | {};
   _status?: T;
   updatedAt?: T;
   createdAt?: T;
