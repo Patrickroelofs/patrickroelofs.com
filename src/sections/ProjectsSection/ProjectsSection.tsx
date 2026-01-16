@@ -11,6 +11,10 @@ const ProjectsSection = async () => {
 		sort: "-createdAt",
 	});
 
+	if (projects.totalDocs === 0) {
+		return null;
+	}
+
 	return (
 		<section className="mx-auto mt-16 flex max-w-5xl flex-col gap-8">
 			<div className="flex flex-col gap-4">
