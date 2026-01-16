@@ -1,6 +1,6 @@
 import { ArrowBendDownRightIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
-import { payload } from "@/utils/get-payload-config";
+import { payload } from "@/utils/getPayloadConfig";
 
 const ProjectsSection = async () => {
 	const projects = await payload.find({

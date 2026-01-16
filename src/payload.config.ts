@@ -5,10 +5,12 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { s3Storage } from "@payloadcms/storage-s3";
 import { buildConfig } from "payload";
 import sharp from "sharp";
-import { Media } from "./collections/media";
-import { Projects } from "./collections/projects";
-import { Users } from "./collections/users";
+import { ProjectsBlock } from "./blocks/projects.block";
+import { MediaCollection } from "./collections/media.collection";
+import { ProjectsCollection } from "./collections/projects.collection";
+import { UsersCollection } from "./collections/users.collection";
 import { env } from "./env";
+import { HomepageGlobal } from "./globals/homepage.global";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -19,12 +21,14 @@ export default buildConfig({
 			email: env.ADMIN_EMAIL,
 			password: env.ADMIN_PASSWORD,
 		},
-		user: Users.slug,
+		user: UsersCollection.slug,
 		importMap: {
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Users, Media, Projects],
+	globals: [HomepageGlobal],
+	blocks: [ProjectsBlock],
+	collections: [UsersCollection, MediaCollection, ProjectsCollection],
 	editor: lexicalEditor({}),
 	secret: env.PAYLOAD_SECRET,
 	typescript: {

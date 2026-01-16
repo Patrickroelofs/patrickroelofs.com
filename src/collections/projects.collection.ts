@@ -1,6 +1,6 @@
 import { type CollectionConfig, slugField } from "payload";
 
-export const Projects: CollectionConfig = {
+export const ProjectsCollection: CollectionConfig = {
 	slug: "projects",
 	folders: true,
 	access: {
