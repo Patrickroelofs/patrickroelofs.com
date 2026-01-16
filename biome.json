@@ -32,5 +32,11 @@
   "assist": {
     "enabled": true
   },
-  "extends": ["ultracite/core", "ultracite/next"]
+  "extends": [
+    "ultracite/core",
+    "ultracite/next",
+    "ultracite/biome/core",
+    "ultracite/biome/react",
+    "ultracite/biome/next"
+  ]
 }

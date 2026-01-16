@@ -4,7 +4,7 @@ function Navigation() {
 	return (
 		<nav className="mx-auto mt-2xs flex max-w-5xl items-center justify-between px-3xs font-bold">
 			<Link
-				className="text-m"
+				className="text-m tracking-tighter"
 				href="/"
 			>
 				<h1>Patrick Roelofs</h1>

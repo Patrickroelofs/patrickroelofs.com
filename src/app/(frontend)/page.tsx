@@ -1,7 +1,13 @@
 import Hero from "@/components/Hero/hero";
+import ProjectsSection from "@/sections/ProjectsSection/ProjectsSection";
 
-function Page() {
-	return <Hero />;
+async function Page() {
+	return (
+		<>
+			<Hero />
+			<ProjectsSection />
+		</>
+	);
 }
 
 export default Page;

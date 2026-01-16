@@ -6,6 +6,7 @@ import { s3Storage } from "@payloadcms/storage-s3";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 import { Media } from "./collections/media";
+import { Projects } from "./collections/projects";
 import { Users } from "./collections/users";
 import { env } from "./env";
 
@@ -23,7 +24,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Users, Media],
+	collections: [Users, Media, Projects],
 	editor: lexicalEditor({}),
 	secret: env.PAYLOAD_SECRET,
 	typescript: {
