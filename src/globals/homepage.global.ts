@@ -23,6 +23,7 @@ export const HomepageGlobal: GlobalConfig = {
 						{
 							name: "hero",
 							type: "group",
+							interfaceName: "HomepageHero",
 							fields: [
 								{
 									name: "title",

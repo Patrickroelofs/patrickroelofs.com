@@ -13,9 +13,11 @@ async function Page() {
 		return notFound();
 	}
 
+	const hero = data.page?.hero;
+
 	return (
 		<>
-			<Hero />
+			{hero && <Hero {...hero} />}
 			<ProjectsSection />
 		</>
 	);

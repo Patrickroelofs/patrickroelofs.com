@@ -521,10 +521,7 @@ export interface Homepage {
   id: string;
   general?: {};
   page: {
-    hero: {
-      title: string;
-      image: string | Media;
-    };
+    hero: HomepageHero;
     content?: {
       blocks?:
         | {
@@ -545,6 +542,14 @@ export interface Homepage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HomepageHero".
+ */
+export interface HomepageHero {
+  title: string;
+  image: string | Media;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "homepage_select".
  */
 export interface HomepageSelect<T extends boolean = true> {
@@ -552,12 +557,7 @@ export interface HomepageSelect<T extends boolean = true> {
   page?:
     | T
     | {
-        hero?:
-          | T
-          | {
-              title?: T;
-              image?: T;
-            };
+        hero?: T | HomepageHeroSelect<T>;
         content?:
           | T
           | {
@@ -581,6 +581,14 @@ export interface HomepageSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HomepageHero_select".
+ */
+export interface HomepageHeroSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
