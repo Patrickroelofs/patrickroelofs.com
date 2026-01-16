@@ -14,8 +14,9 @@ const ProjectsSection = (props: ProjectsSectionProps) => {
 				<hr className="border-0 border-b-2 border-b-black" />
 			</div>
 			{typeof featuredProject !== "string" && (
-				<div
+				<Link
 					className="w-full"
+					href={`/projects/${featuredProject.slug}`}
 					key={featuredProject.id}
 				>
 					<div className="h-128 w-full rounded-2xl opacity-50" />
@@ -25,12 +26,10 @@ const ProjectsSection = (props: ProjectsSectionProps) => {
 							<p className="text-dark-grey text-xs">{featuredProject.meta.shortDescription}</p>
 						</div>
 						<div>
-							<Link href="#">
-								<ArrowBendDownRightIcon size={24} />
-							</Link>
+							<ArrowBendDownRightIcon size={24} />
 						</div>
 					</div>
-				</div>
+				</Link>
 			)}
 
 			{projects && (
@@ -41,8 +40,9 @@ const ProjectsSection = (props: ProjectsSectionProps) => {
 						}
 
 						return (
-							<div
+							<Link
 								className="flex flex-row gap-8"
+								href={`/projects/${project.slug}`}
 								key={project.id}
 							>
 								<div className="w-full">
@@ -53,13 +53,11 @@ const ProjectsSection = (props: ProjectsSectionProps) => {
 											<p className="text-dark-grey text-xs">{project.meta.shortDescription}</p>
 										</div>
 										<div>
-											<Link href="#">
-												<ArrowBendDownRightIcon size={24} />
-											</Link>
+											<ArrowBendDownRightIcon size={24} />
 										</div>
 									</div>
 								</div>
-							</div>
+							</Link>
 						);
 					})}
 				</div>
