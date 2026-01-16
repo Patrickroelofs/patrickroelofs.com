@@ -132,12 +132,12 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projectsBlock".
+ * via the `definition` "ProjectsBlock".
  */
 export interface ProjectsBlock {
   title: string;
-  featuredProject?: (string | null) | Project;
-  projects: (string | Project)[];
+  featuredProject: string | Project;
+  projects?: (string | Project)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'projectsBlock';
@@ -577,16 +577,7 @@ export interface Homepage {
   page: {
     hero: HomepageHero;
     content?: {
-      blocks?:
-        | {
-            title: string;
-            featuredProject?: (string | null) | Project;
-            projects: (string | Project)[];
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'projectsBlock';
-          }[]
-        | null;
+      blocks?: ProjectsBlock[] | null;
     };
   };
   meta?: {};
@@ -618,15 +609,7 @@ export interface HomepageSelect<T extends boolean = true> {
               blocks?:
                 | T
                 | {
-                    projectsBlock?:
-                      | T
-                      | {
-                          title?: T;
-                          featuredProject?: T;
-                          projects?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    projectsBlock?: T | ProjectsBlockSelect<T>;
                   };
             };
       };
@@ -643,6 +626,17 @@ export interface HomepageSelect<T extends boolean = true> {
 export interface HomepageHeroSelect<T extends boolean = true> {
   title?: T;
   image?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectsBlock_select".
+ */
+export interface ProjectsBlockSelect<T extends boolean = true> {
+  title?: T;
+  featuredProject?: T;
+  projects?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

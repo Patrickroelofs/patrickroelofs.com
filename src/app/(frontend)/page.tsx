@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
+import { BlocksMapper } from "@/components/BlocksMapper";
 import Hero from "@/components/Hero/hero";
 import { GLOBAL_SLUGS } from "@/globals";
-import ProjectsSection from "@/sections/ProjectsSection/ProjectsSection";
 import { payload } from "@/utils/getPayloadConfig";
 
 async function Page() {
@@ -18,7 +18,7 @@ async function Page() {
 	return (
 		<>
 			{hero && <Hero {...hero} />}
-			<ProjectsSection />
+			<BlocksMapper blocks={data.page.content?.blocks} />
 		</>
 	);
 }

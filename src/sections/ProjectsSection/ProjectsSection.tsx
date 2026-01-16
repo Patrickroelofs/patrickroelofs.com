@@ -1,78 +1,56 @@
 import { ArrowBendDownRightIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
-import { payload } from "@/utils/getPayloadConfig";
+import type { ProjectsBlock } from "@/payload-types";
 
-const ProjectsSection = async () => {
-	const projects = await payload.find({
-		collection: "projects",
-		where: {
-			_status: { equals: "published" },
-		},
-		sort: "-createdAt",
-	});
+interface ProjectsSectionProps extends ProjectsBlock {}
 
-	if (projects.totalDocs === 0) {
-		return null;
-	}
+const ProjectsSection = (props: ProjectsSectionProps) => {
+	const { title, featuredProject, projects } = props;
 
 	return (
-		<section className="mx-auto mt-16 flex max-w-5xl flex-col gap-8">
+		<section className="mx-auto mt-32 flex max-w-5xl flex-col gap-8">
 			<div className="flex flex-col gap-4">
-				<h2>Selected work</h2>
+				<h2>{title}</h2>
 				<hr className="border-0 border-b-2 border-b-black" />
 			</div>
-			{projects.docs.map((project, index) => {
-				if (index === 0) {
-					return (
-						<div
-							className="w-full"
-							key={project.id}
-						>
-							<div className="h-128 w-full rounded-2xl opacity-50" />
-							<div className="flex items-center justify-between">
-								<div>
-									<h3 className="mt-2 font-medium">{project.title}</h3>
-									<p className="text-dark-grey text-xs">{project.meta.shortDescription}</p>
-								</div>
-								<div>
-									<Link href="#">
-										<ArrowBendDownRightIcon size={24} />
-									</Link>
-								</div>
-							</div>
+			{typeof featuredProject !== "string" && (
+				<div
+					className="w-full"
+					key={featuredProject.id}
+				>
+					<div className="h-128 w-full rounded-2xl opacity-50" />
+					<div className="flex items-center justify-between">
+						<div>
+							<h3 className="mt-2 font-medium">{featuredProject.title}</h3>
+							<p className="text-dark-grey text-xs">{featuredProject.meta.shortDescription}</p>
 						</div>
-					);
-				}
+						<div>
+							<Link href="#">
+								<ArrowBendDownRightIcon size={24} />
+							</Link>
+						</div>
+					</div>
+				</div>
+			)}
 
-				if (index % 2 === 1) {
-					return (
-						<div
-							className="flex flex-row gap-8"
-							key={`row-${project.id}`}
-						>
-							<div className="w-full">
-								<div className="h-96 w-full rounded-2xl opacity-50" />
-								<div className="flex items-center justify-between">
-									<div>
-										<h3 className="mt-2 font-medium">{project.title}</h3>
-										<p className="text-dark-grey text-xs">{project.meta.shortDescription}</p>
-									</div>
-									<div>
-										<Link href="#">
-											<ArrowBendDownRightIcon size={24} />
-										</Link>
-									</div>
-								</div>
-							</div>
-							{projects.docs[index + 1] ? (
+			{projects && (
+				<div className="grid grid-cols-2 gap-8">
+					{projects?.map((project) => {
+						if (typeof project === "string") {
+							return null;
+						}
+
+						return (
+							<div
+								className="flex flex-row gap-8"
+								key={project.id}
+							>
 								<div className="w-full">
 									<div className="h-96 w-full rounded-2xl opacity-50" />
 									<div className="flex items-center justify-between">
 										<div>
-											<h3 className="mt-2 font-medium">{projects.docs[index + 1].title}</h3>
-											<p className="text-dark-grey text-xs">
-												{projects.docs[index + 1].meta.shortDescription}
-											</p>
+											<h3 className="mt-2 font-medium">{project.title}</h3>
+											<p className="text-dark-grey text-xs">{project.meta.shortDescription}</p>
 										</div>
 										<div>
 											<Link href="#">
@@ -81,13 +59,11 @@ const ProjectsSection = async () => {
 										</div>
 									</div>
 								</div>
-							) : null}
-						</div>
-					);
-				}
-
-				return null;
-			})}
+							</div>
+						);
+					})}
+				</div>
+			)}
 		</section>
 	);
 };

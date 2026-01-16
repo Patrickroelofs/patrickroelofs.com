@@ -1,7 +1,9 @@
 import type { Block } from "payload";
+import { BLOCK_SLUGS } from ".";
 
 export const ProjectsBlock: Block = {
-	slug: "projectsBlock",
+	slug: BLOCK_SLUGS.PROJECTS,
+	interfaceName: "ProjectsBlock",
 	fields: [
 		{
 			name: "title",
@@ -12,7 +14,7 @@ export const ProjectsBlock: Block = {
 			name: "featuredProject",
 			type: "relationship",
 			relationTo: "projects",
-			required: false,
+			required: true,
 			hasMany: false,
 		},
 		{
@@ -20,7 +22,7 @@ export const ProjectsBlock: Block = {
 			type: "relationship",
 			relationTo: "projects",
 			hasMany: true,
-			required: true,
+			required: false,
 			maxRows: 4,
 		},
 	],
