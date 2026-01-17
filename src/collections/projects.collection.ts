@@ -6,6 +6,9 @@ export const ProjectsCollection: CollectionConfig = {
 	access: {
 		read: () => true,
 	},
+	admin: {
+		useAsTitle: "title",
+	},
 	fields: [
 		{
 			name: "title",
