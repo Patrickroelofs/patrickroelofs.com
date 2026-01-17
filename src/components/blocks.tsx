@@ -1,7 +1,7 @@
 import { BLOCK_SLUGS } from "@/blocks";
 import ProjectsBlockComponent from "@/blocks/projects/projects.component";
 import TestimonialBlockComponent from "@/blocks/testimonials/testimonials.component";
-import type { ProjectsBlock } from "@/payload-types";
+import type { ProjectsBlock, TestimonialsBlock } from "@/payload-types";
 
 const blockComponents = {
 	[BLOCK_SLUGS.PROJECTS]: ProjectsBlockComponent,
@@ -9,7 +9,7 @@ const blockComponents = {
 };
 
 interface BlocksProps {
-	blocks?: ProjectsBlock[] | null;
+	blocks?: (ProjectsBlock | TestimonialsBlock)[] | null;
 }
 
 export const Blocks = (props: BlocksProps) => {
@@ -23,7 +23,7 @@ export const Blocks = (props: BlocksProps) => {
 
 	return (
 		<>
-			{blocks.map((block, index) => {
+			{blocks.map((block) => {
 				const { blockType } = block;
 
 				if (blockType && blockType in blockComponents) {
@@ -32,8 +32,8 @@ export const Blocks = (props: BlocksProps) => {
 					if (Block) {
 						return (
 							<Block
-								// biome-ignore lint/suspicious/noArrayIndexKey: Allowed here due to static content
-								key={index}
+								//@ts-expect-error this is allowed
+								key={block.id}
 								{...block}
 							/>
 						);
