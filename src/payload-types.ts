@@ -167,6 +167,7 @@ export interface Project {
     } | null;
   };
   meta: {
+    thumbnail?: (string | null) | Media;
     shortDescription: string;
     longDescription?: string | null;
   };
@@ -179,36 +180,6 @@ export interface Project {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-folders".
- */
-export interface FolderInterface {
-  id: string;
-  name: string;
-  folder?: (string | null) | FolderInterface;
-  documentsAndFolders?: {
-    docs?: (
-      | {
-          relationTo?: 'payload-folders';
-          value: string | FolderInterface;
-        }
-      | {
-          relationTo?: 'media';
-          value: string | Media;
-        }
-      | {
-          relationTo?: 'projects';
-          value: string | Project;
-        }
-    )[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  folderType?: ('media' | 'projects')[] | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -279,6 +250,36 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-folders".
+ */
+export interface FolderInterface {
+  id: string;
+  name: string;
+  folder?: (string | null) | FolderInterface;
+  documentsAndFolders?: {
+    docs?: (
+      | {
+          relationTo?: 'payload-folders';
+          value: string | FolderInterface;
+        }
+      | {
+          relationTo?: 'media';
+          value: string | Media;
+        }
+      | {
+          relationTo?: 'projects';
+          value: string | Project;
+        }
+    )[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  folderType?: ('media' | 'projects')[] | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -505,6 +506,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   meta?:
     | T
     | {
+        thumbnail?: T;
         shortDescription?: T;
         longDescription?: T;
       };

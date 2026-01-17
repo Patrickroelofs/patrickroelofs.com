@@ -17,7 +17,6 @@ function Hero(props: HeroProps) {
 					<ImageMedia
 						{...image}
 						alt=""
-						className="[&>img]:rounded-2xl [&>img]:object-cover [&>img]:object-center"
 						fill
 						loading="eager"
 						priority

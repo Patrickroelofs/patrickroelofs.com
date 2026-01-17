@@ -38,5 +38,6 @@
     {
       "text": "Use conventional commit message format."
     }
-  ]
+  ],
+  "tailwindCSS.classFunctions": ["cva", "cx"]
 }

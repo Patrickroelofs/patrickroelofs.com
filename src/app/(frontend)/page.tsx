@@ -9,15 +9,13 @@ async function Page() {
 		slug: GLOBAL_SLUGS.HOMEPAGE,
 	});
 
-	if (!data) {
+	if (!data || data._status === "draft") {
 		return notFound();
 	}
 
-	const hero = data.page?.hero;
-
 	return (
 		<>
-			{hero && <Hero {...hero} />}
+			{data.page?.hero && <Hero {...data.page.hero} />}
 			<BlocksMapper blocks={data.page.content?.blocks} />
 		</>
 	);

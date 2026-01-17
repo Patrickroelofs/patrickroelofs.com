@@ -1,5 +1,9 @@
+import { cva } from "class-variance-authority";
 import NextImage from "next/image";
+import { twMerge } from "tailwind-merge";
 import type { Media } from "@/payload-types";
+
+const pictureClasses = cva(["[&>img]:rounded-2xl [&>img]:object-cover [&>img]:object-center"]);
 
 interface ImageMediaProps extends Media {
 	className?: string;
@@ -18,7 +22,7 @@ export const ImageMedia = (props: ImageMediaProps) => {
 	}
 
 	return (
-		<picture className={className}>
+		<picture className={twMerge(pictureClasses({ className }))}>
 			<NextImage
 				alt={alt || ""}
 				fill={fill}

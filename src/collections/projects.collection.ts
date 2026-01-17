@@ -31,6 +31,12 @@ export const ProjectsCollection: CollectionConfig = {
 					name: "meta",
 					fields: [
 						{
+							name: "thumbnail",
+							type: "upload",
+							relationTo: "media",
+							required: false,
+						},
+						{
 							name: "shortDescription",
 							type: "text",
 							required: true,
