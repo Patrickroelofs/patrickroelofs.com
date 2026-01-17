@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
-import { ProjectsBlock } from "@/blocks/projects.block";
+import { ProjectsBlock } from "@/blocks/projects/projects.block";
+import { TestimonialsBlock } from "@/blocks/testimonials/testimonials.block";
 import { revalidatePaths } from "@/utils/revalidatePaths";
 import { GLOBAL_SLUGS } from ".";
 
@@ -47,7 +48,7 @@ export const HomepageGlobal: GlobalConfig = {
 									name: "blocks",
 									type: "blocks",
 									required: false,
-									blocks: [ProjectsBlock],
+									blocks: [ProjectsBlock, TestimonialsBlock],
 								},
 							],
 						},

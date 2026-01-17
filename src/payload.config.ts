@@ -5,7 +5,8 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { s3Storage } from "@payloadcms/storage-s3";
 import { buildConfig } from "payload";
 import sharp from "sharp";
-import { ProjectsBlock } from "./blocks/projects.block";
+import { ProjectsBlock } from "./blocks/projects/projects.block";
+import { TestimonialsBlock } from "./blocks/testimonials/testimonials.block";
 import { MediaCollection } from "./collections/media.collection";
 import { ProjectsCollection } from "./collections/projects.collection";
 import { UsersCollection } from "./collections/users.collection";
@@ -27,7 +28,7 @@ export default buildConfig({
 		},
 	},
 	globals: [HomepageGlobal],
-	blocks: [ProjectsBlock],
+	blocks: [ProjectsBlock, TestimonialsBlock],
 	collections: [UsersCollection, MediaCollection, ProjectsCollection],
 	editor: lexicalEditor({}),
 	secret: env.PAYLOAD_SECRET,

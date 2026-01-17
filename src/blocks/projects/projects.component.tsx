@@ -5,9 +5,9 @@ import { ImageMedia } from "@/components/Media/ImageMedia";
 import type { Media, ProjectsBlock } from "@/payload-types";
 import { payload } from "@/utils/getPayloadConfig";
 
-interface ProjectsSectionProps extends ProjectsBlock {}
+interface ProjectsBlockProps extends ProjectsBlock {}
 
-const ProjectsSection = async (props: ProjectsSectionProps) => {
+const ProjectsBlockComponent = async (props: ProjectsBlockProps) => {
 	const {
 		title,
 		featuredProject: featuredProjectFromProps,
@@ -110,4 +110,4 @@ const ProjectsSection = async (props: ProjectsSectionProps) => {
 	);
 };
 
-export default ProjectsSection;
+export default ProjectsBlockComponent;

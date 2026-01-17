@@ -1,9 +1,11 @@
 import { BLOCK_SLUGS } from "@/blocks";
+import ProjectsBlockComponent from "@/blocks/projects/projects.component";
+import TestimonialBlockComponent from "@/blocks/testimonials/testimonials.component";
 import type { ProjectsBlock } from "@/payload-types";
-import ProjectsSection from "@/sections/ProjectsSection/ProjectsSection";
 
 const blockComponents = {
-	[BLOCK_SLUGS.PROJECTS]: ProjectsSection,
+	[BLOCK_SLUGS.PROJECTS]: ProjectsBlockComponent,
+	[BLOCK_SLUGS.TESTIMONIALS]: TestimonialBlockComponent,
 };
 
 interface BlocksProps {

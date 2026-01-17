@@ -67,6 +67,7 @@ export interface Config {
   };
   blocks: {
     projectsBlock: ProjectsBlock;
+    testimonialsBlock: TestimonialsBlock;
   };
   collections: {
     users: User;
@@ -280,6 +281,26 @@ export interface FolderInterface {
   folderType?: ('media' | 'projects')[] | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock".
+ */
+export interface TestimonialsBlock {
+  title: string;
+  testimonials: {
+    quote: string;
+    author: {
+      authorName: string;
+      authorTitle: string;
+      authorCompany?: string | null;
+      authorCompanyLink?: string | null;
+    };
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonialsBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -579,7 +600,7 @@ export interface Homepage {
   page: {
     hero: HomepageHero;
     content?: {
-      blocks?: ProjectsBlock[] | null;
+      blocks?: (ProjectsBlock | TestimonialsBlock)[] | null;
     };
   };
   meta?: {};
@@ -612,6 +633,7 @@ export interface HomepageSelect<T extends boolean = true> {
                 | T
                 | {
                     projectsBlock?: T | ProjectsBlockSelect<T>;
+                    testimonialsBlock?: T | TestimonialsBlockSelect<T>;
                   };
             };
       };
@@ -637,6 +659,29 @@ export interface ProjectsBlockSelect<T extends boolean = true> {
   title?: T;
   featuredProject?: T;
   projects?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock_select".
+ */
+export interface TestimonialsBlockSelect<T extends boolean = true> {
+  title?: T;
+  testimonials?:
+    | T
+    | {
+        quote?: T;
+        author?:
+          | T
+          | {
+              authorName?: T;
+              authorTitle?: T;
+              authorCompany?: T;
+              authorCompanyLink?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

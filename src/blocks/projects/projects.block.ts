@@ -1,6 +1,6 @@
 import type { Block } from "payload";
 import { COLLECTION_SLUGS } from "@/collections";
-import { BLOCK_SLUGS } from ".";
+import { BLOCK_SLUGS } from "..";
 
 export const ProjectsBlock: Block = {
 	slug: BLOCK_SLUGS.PROJECTS,
