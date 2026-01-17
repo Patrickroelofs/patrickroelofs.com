@@ -49,8 +49,6 @@ const uniqueStrings = (values: readonly string[]): string[] => {
 
 /**
  * Revalidates multiple paths (and optionally tags) in Next.js App Router.
- *
- * Call this from a Server Action, Route Handler, or other server-only context.
  */
 export const revalidatePaths = (
 	paths: readonly string[],

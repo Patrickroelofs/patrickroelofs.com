@@ -6,11 +6,11 @@ const blockComponents = {
 	[BLOCK_SLUGS.PROJECTS]: ProjectsSection,
 };
 
-interface BlocksMapperProps {
+interface BlocksProps {
 	blocks?: ProjectsBlock[] | null;
 }
 
-export const BlocksMapper = (props: BlocksMapperProps) => {
+export const Blocks = (props: BlocksProps) => {
 	const { blocks } = props;
 
 	const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0;

@@ -15,7 +15,7 @@ function Footer() {
 				<div className="flex flex-wrap justify-center gap-s">
 					<Link
 						aria-label="Email"
-						className="hover:-translate-y-0.5 focus:-translate-y-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:bg-black hover:text-ginger focus:bg-black focus:text-ginger"
+						className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:-translate-y-0.5 hover:bg-black hover:text-ginger focus:-translate-y-0.5 focus:bg-black focus:text-ginger"
 						href="mailto:contact@patrickroelofs.com"
 						target="_blank"
 					>
@@ -26,7 +26,7 @@ function Footer() {
 					</Link>
 					<Link
 						aria-label="Github"
-						className="hover:-translate-y-0.5 focus:-translate-y-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:bg-black hover:text-ginger focus:bg-black focus:text-ginger"
+						className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:-translate-y-0.5 hover:bg-black hover:text-ginger focus:-translate-y-0.5 focus:bg-black focus:text-ginger"
 						href="https://github.com/patrickroelofs"
 						target="_blank"
 					>
@@ -37,7 +37,7 @@ function Footer() {
 					</Link>
 					<Link
 						aria-label="LinkedIn"
-						className="hover:-translate-y-0.5 focus:-translate-y-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:bg-black hover:text-ginger focus:bg-black focus:text-ginger"
+						className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:-translate-y-0.5 hover:bg-black hover:text-ginger focus:-translate-y-0.5 focus:bg-black focus:text-ginger"
 						href="https://www.linkedin.com/in/patrick-roelofs/"
 						target="_blank"
 					>
