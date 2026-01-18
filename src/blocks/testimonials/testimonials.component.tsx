@@ -1,10 +1,22 @@
 "use client";
 
 import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react/dist/ssr";
+import { cva } from "class-variance-authority";
 import { gsap } from "gsap";
 import Link from "next/link";
 import { useCallback, useId, useRef, useState } from "react";
 import type { TestimonialsBlock } from "@/payload-types";
+
+const sectionStyles = cva("mx-auto flex max-w-5xl flex-col gap-8", {
+	variants: {
+		spacing: {
+			none: "",
+			small: "px-4 py-4 md:px-8 md:py-6 lg:px-0 lg:py-8",
+			medium: "px-4 py-8 md:px-8 md:py-12 lg:px-0 lg:py-16",
+			large: "px-4 py-16 md:px-8 md:py-24 lg:px-0 lg:py-32",
+		},
+	},
+});
 
 interface TestimonialsBlockProps extends TestimonialsBlock {}
 
@@ -84,7 +96,7 @@ const TestimonialsBlockComponent = (props: TestimonialsBlockProps) => {
 	const activeTestimonial = testimonials[activeIndex];
 
 	return (
-		<section className="mx-auto flex max-w-5xl flex-col gap-8">
+		<section className={sectionStyles({ spacing: props.modifiers?.spacing })}>
 			<div className="flex flex-row gap-8">
 				<div className="flex w-full max-w-1/4 flex-col items-start">
 					<h2>{title}</h2>

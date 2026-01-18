@@ -136,9 +136,14 @@ export interface UserAuthOperations {
  * via the `definition` "ProjectsBlock".
  */
 export interface ProjectsBlock {
-  title: string;
-  featuredProject: string | Project;
-  projects?: (string | Project)[] | null;
+  content: {
+    title: string;
+    featuredProject: string | Project;
+    projects?: (string | Project)[] | null;
+  };
+  modifiers: {
+    spacing: 'none' | 'small' | 'medium' | 'large';
+  };
   id?: string | null;
   blockName?: string | null;
   blockType: 'projectsBlock';
@@ -298,6 +303,9 @@ export interface TestimonialsBlock {
     };
     id?: string | null;
   }[];
+  modifiers: {
+    spacing: 'none' | 'small' | 'medium' | 'large';
+  };
   id?: string | null;
   blockName?: string | null;
   blockType: 'testimonialsBlock';
@@ -656,9 +664,18 @@ export interface HomepageHeroSelect<T extends boolean = true> {
  * via the `definition` "ProjectsBlock_select".
  */
 export interface ProjectsBlockSelect<T extends boolean = true> {
-  title?: T;
-  featuredProject?: T;
-  projects?: T;
+  content?:
+    | T
+    | {
+        title?: T;
+        featuredProject?: T;
+        projects?: T;
+      };
+  modifiers?:
+    | T
+    | {
+        spacing?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -681,6 +698,11 @@ export interface TestimonialsBlockSelect<T extends boolean = true> {
               authorCompanyLink?: T;
             };
         id?: T;
+      };
+  modifiers?:
+    | T
+    | {
+        spacing?: T;
       };
   id?: T;
   blockName?: T;
