@@ -1,4 +1,5 @@
 import { type CollectionConfig, slugField } from "payload";
+import { revalidatePaths } from "@/utils/revalidatePaths";
 
 export const ProjectsCollection: CollectionConfig = {
 	slug: "projects",
@@ -60,5 +61,14 @@ export const ProjectsCollection: CollectionConfig = {
 	],
 	versions: {
 		drafts: true,
+	},
+	hooks: {
+		afterChange: [
+			({ data }) => {
+				if (data._status === "published") {
+					revalidatePaths(["/", `/projects/${data.slug}`]);
+				}
+			},
+		],
 	},
 };
