@@ -35,7 +35,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<head>
 				<HeadContent />
 			</head>
-			<body>
+			<body className="bg-ginger font-sans text-dark-grey">
 				{children}
 				<TanStackDevtools
 					config={{
