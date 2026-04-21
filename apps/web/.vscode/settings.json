@@ -1,4 +1,7 @@
 {
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "files.watcherExclude": {
     "**/routeTree.gen.ts": true
   },
@@ -30,6 +33,8 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "editor.codeActionsOnSave": {
-    "source.organizeImports.biome": "explicit"
+    "source.organizeImports.biome": "always",
+    "source.fixAll.biome": "always",
+    "source.biome": "always"
   }
 }
