@@ -1,36 +1,78 @@
 import { GithubLogoIcon, LinkedinLogoIcon, MailboxIcon } from "@phosphor-icons/react/ssr";
-import { Link } from "@tanstack/react-router";
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
 
 function Footer() {
 	const email = "contact@patrickroelofs.com";
+	const socialLinks = [
+		{
+			ariaLabel: "Email",
+			href: `mailto:${email}`,
+			icon: (
+				<MailboxIcon
+					size={32}
+					weight="duotone"
+				/>
+			),
+		},
+		{
+			ariaLabel: "Github",
+			href: "https://github.com/patrickroelofs",
+			icon: (
+				<GithubLogoIcon
+					size={32}
+					weight="duotone"
+				/>
+			),
+		},
+		{
+			ariaLabel: "LinkedIn",
+			href: "https://www.linkedin.com/in/patrickroelofs",
+			icon: (
+				<LinkedinLogoIcon
+					size={32}
+					weight="duotone"
+				/>
+			),
+		},
+	] as const;
 
 	const [isCopied, setIsCopied] = useState(false);
+	const [copyMessage, setCopyMessage] = useState("Click to copy email");
 	const cursorRef = useRef<HTMLDivElement>(null);
 	const cursorTextRef = useRef<HTMLSpanElement>(null);
-	const footerRef = useRef<HTMLButtonElement>(null);
+	const emailButtonRef = useRef<HTMLButtonElement>(null);
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const cursor = cursorRef.current;
 		const cursorText = cursorTextRef.current;
-		const footer = footerRef.current;
+		const emailButton = emailButtonRef.current;
+		const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
 
-		if (!(cursor && cursorText && footer)) {
+		if (!hasFinePointer) {
 			return;
 		}
 
+		if (!(cursor && cursorText && emailButton)) {
+			return;
+		}
+
+		const moveCursorToPointer = gsap.quickTo(cursor, "x", {
+			duration: 0.12,
+			ease: "power2.out",
+		});
+		const moveCursorToPointerY = gsap.quickTo(cursor, "y", {
+			duration: 0.12,
+			ease: "power2.out",
+		});
+
 		const handleMouseMove = (e: MouseEvent) => {
-			gsap.to(cursor, {
-				x: e.clientX,
-				y: e.clientY,
-				duration: 0.1,
-				ease: "power2.out",
-			});
+			moveCursorToPointer(e.clientX);
+			moveCursorToPointerY(e.clientY);
 		};
 
-		const handleFooterEnter = () => {
+		const handleEmailEnter = () => {
 			gsap.to(cursor, {
 				opacity: 1,
 				duration: 0.3,
@@ -43,9 +85,8 @@ function Footer() {
 			});
 		};
 
-		const handleFooterLeave = () => {
+		const handleEmailLeave = () => {
 			gsap.to(cursor, {
-				scale: 1,
 				duration: 0.3,
 				ease: "power2.out",
 				opacity: 0,
@@ -57,18 +98,19 @@ function Footer() {
 					ease: "power2.out",
 				})
 				.then(() => {
-					setIsCopied(false);
+					setCopyMessage("Click to copy email");
 				});
 		};
 
 		document.addEventListener("mousemove", handleMouseMove);
-		footer.addEventListener("mouseenter", handleFooterEnter);
-		footer.addEventListener("mouseleave", handleFooterLeave);
+		emailButton.addEventListener("mouseenter", handleEmailEnter);
+		emailButton.addEventListener("mouseleave", handleEmailLeave);
 
 		return () => {
 			document.removeEventListener("mousemove", handleMouseMove);
-			footer.removeEventListener("mouseenter", handleFooterEnter);
-			footer.removeEventListener("mouseleave", handleFooterLeave);
+			emailButton.removeEventListener("mouseenter", handleEmailEnter);
+			emailButton.removeEventListener("mouseleave", handleEmailLeave);
+			gsap.killTweensOf([cursor, cursorText]);
 		};
 	}, []);
 
@@ -131,8 +173,41 @@ function Footer() {
 		return () => {
 			container.removeEventListener("mouseenter", createWaveEffect);
 			container.removeEventListener("mouseleave", resetWaveEffect);
+			gsap.killTweensOf(letters);
 		};
 	}, []);
+
+	useEffect(() => {
+		if (!isCopied) {
+			return;
+		}
+
+		const timeout = window.setTimeout(() => {
+			setIsCopied(false);
+			setCopyMessage("Click to copy email");
+		}, 1800);
+
+		return () => {
+			window.clearTimeout(timeout);
+		};
+	}, [isCopied]);
+
+	const copyEmailToClipboard = async () => {
+		const clipboard = navigator.clipboard;
+
+		if (!window.isSecureContext || typeof clipboard?.writeText !== "function") {
+			setCopyMessage("Clipboard unavailable");
+			return;
+		}
+
+		try {
+			await clipboard.writeText(email);
+			setIsCopied(true);
+			setCopyMessage("Copied!");
+		} catch {
+			setCopyMessage("Failed to copy");
+		}
+	};
 
 	const renderLetters = (word: string) =>
 		word.split("").map((letter, index) => (
@@ -149,23 +224,8 @@ function Footer() {
 		<footer className="mx-auto my-3xl flex max-w-5xl flex-col gap-l px-2">
 			<button
 				aria-label="Copy email address"
-				onClick={async () => {
-					try {
-						if (
-							navigator.clipboard !== null &&
-							typeof navigator.clipboard.writeText === "function"
-						) {
-							await navigator.clipboard.writeText(email);
-							setIsCopied(true);
-						} else {
-							// Fallback for browsers that don't support clipboard API
-							console.warn("Clipboard API not available");
-						}
-					} catch (error) {
-						console.error("Failed to copy email to clipboard:", error);
-					}
-				}}
-				ref={footerRef}
+				onClick={copyEmailToClipboard}
+				ref={emailButtonRef}
 				type="button"
 			>
 				<div
@@ -176,7 +236,7 @@ function Footer() {
 						className="font-bold text-ginger text-xs"
 						ref={cursorTextRef}
 					>
-						{isCopied ? "Copied!" : "Click to copy email"}
+						{copyMessage}
 					</span>
 				</div>
 				<div>
@@ -193,39 +253,18 @@ function Footer() {
 			<div className="flex items-center justify-between border-t border-t-dark-grey pt-s">
 				<p className="text-xs">Developed with ❤️ by Patrick Roelofs.</p>
 				<div className="flex flex-wrap justify-center gap-s">
-					<Link
-						aria-label="Email"
-						className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:-translate-y-0.5 hover:bg-black hover:text-ginger focus:-translate-y-0.5 focus:bg-black focus:text-ginger"
-						target="_blank"
-						to="/"
-					>
-						<MailboxIcon
-							size={32}
-							weight="duotone"
-						/>
-					</Link>
-					<Link
-						aria-label="Github"
-						className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:-translate-y-0.5 hover:bg-black hover:text-ginger focus:-translate-y-0.5 focus:bg-black focus:text-ginger"
-						target="_blank"
-						to="/"
-					>
-						<GithubLogoIcon
-							size={32}
-							weight="duotone"
-						/>
-					</Link>
-					<Link
-						aria-label="LinkedIn"
-						className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:-translate-y-0.5 hover:bg-black hover:text-ginger focus:-translate-y-0.5 focus:bg-black focus:text-ginger"
-						target="_blank"
-						to="/"
-					>
-						<LinkedinLogoIcon
-							size={32}
-							weight="duotone"
-						/>
-					</Link>
+					{socialLinks.map((socialLink) => (
+						<a
+							aria-label={socialLink.ariaLabel}
+							className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition-all duration-300 ease-cubic hover:-translate-y-0.5 hover:bg-black hover:text-ginger focus-visible:-translate-y-0.5 focus-visible:bg-black focus-visible:text-ginger"
+							href={socialLink.href}
+							key={socialLink.ariaLabel}
+							rel="noopener noreferrer"
+							target="_blank"
+						>
+							{socialLink.icon}
+						</a>
+					))}
 				</div>
 			</div>
 		</footer>
