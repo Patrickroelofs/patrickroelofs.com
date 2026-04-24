@@ -1,4 +1,8 @@
-import { GithubLogoIcon, LinkedinLogoIcon, MailboxIcon } from "@phosphor-icons/react/ssr";
+import {
+	GithubLogoIcon,
+	LinkedinLogoIcon,
+	MailboxIcon,
+} from "@phosphor-icons/react/ssr";
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
 
@@ -8,32 +12,17 @@ function Footer() {
 		{
 			ariaLabel: "Email",
 			href: `mailto:${email}`,
-			icon: (
-				<MailboxIcon
-					size={32}
-					weight="duotone"
-				/>
-			),
+			icon: <MailboxIcon size={32} weight="duotone" />,
 		},
 		{
 			ariaLabel: "Github",
 			href: "https://github.com/patrickroelofs",
-			icon: (
-				<GithubLogoIcon
-					size={32}
-					weight="duotone"
-				/>
-			),
+			icon: <GithubLogoIcon size={32} weight="duotone" />,
 		},
 		{
 			ariaLabel: "LinkedIn",
 			href: "https://www.linkedin.com/in/patrickroelofs",
-			icon: (
-				<LinkedinLogoIcon
-					size={32}
-					weight="duotone"
-				/>
-			),
+			icon: <LinkedinLogoIcon size={32} weight="duotone" />,
 		},
 	] as const;
 
@@ -232,20 +221,21 @@ function Footer() {
 					className="pointer-events-none fixed top-0 left-0 z-50 flex rounded-full bg-black/30 p-2xs opacity-0 backdrop-blur-lg"
 					ref={cursorRef}
 				>
-					<span
-						className="font-bold text-ginger text-xs"
-						ref={cursorTextRef}
-					>
+					<span className="font-bold text-ginger text-xs" ref={cursorTextRef}>
 						{copyMessage}
 					</span>
 				</div>
 				<div>
 					<div
-						className="relative flex w-full cursor-pointer flex-wrap items-center justify-center transition-all duration-300 ease-cubic"
+						className="relative flex w-full cursor-pointer flex-wrap items-center justify-center transition-all duration-300 ease-cubic text-black"
 						ref={containerRef}
 					>
-						<span className="text-[clamp(2rem,8vw,6rem)]">{renderLetters("PATRICK")}</span>
-						<span className="text-[clamp(2rem,8vw,6rem)]">{renderLetters("ROELOFS")}</span>
+						<span className="text-[clamp(2rem,8vw,6rem)]">
+							{renderLetters("PATRICK")}
+						</span>
+						<span className="text-[clamp(2rem,8vw,6rem)]">
+							{renderLetters("ROELOFS")}
+						</span>
 					</div>
 				</div>
 			</button>
