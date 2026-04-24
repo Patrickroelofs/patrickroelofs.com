@@ -35,7 +35,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<head>
 				<HeadContent />
 			</head>
-			<body className="bg-ginger font-sans text-dark-grey">
+			<body className="bg-ginger font-sans text-base text-dark-grey">
 				{children}
 
 				<Footer />
