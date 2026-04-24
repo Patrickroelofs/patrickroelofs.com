@@ -4,9 +4,13 @@
 	"description": "",
 	"license": "MIT",
 	"type": "module",
-	"scripts": {},
+	"scripts": {
+		"dev": "pnpm -r run dev"
+	},
 	"dependencies": {},
-	"devDependencies": {},
+	"devDependencies": {
+    "@biomejs/biome": "2.4.12"
+	},
 	"engines": {
 		"node": "^18.20.2 || >=20.9.0",
 		"pnpm": "^9 || ^10"

@@ -6,7 +6,11 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 2.4.12
+        version: 2.4.12
 
   apps/web:
     dependencies:
@@ -68,9 +72,6 @@ importers:
         specifier: ^4.3.6
         version: 4.3.6
     devDependencies:
-      '@biomejs/biome':
-        specifier: 2.4.12
-        version: 2.4.12
       '@tailwindcss/typography':
         specifier: ^0.5.19
         version: 0.5.19(tailwindcss@4.2.4)
