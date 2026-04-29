@@ -1,4 +1,6 @@
 import { Image } from "@unpic/react";
+import Scotch1 from "#/assets/18.png";
+import Scotch2 from "#/assets/86.png";
 
 interface HeroProps {
 	title: string;
@@ -19,13 +21,29 @@ function Hero(props: HeroProps) {
 				</div>
 
 				{image && (
-					<div className="relative mx-auto w-full max-w-6xl">
+					<div className="relative mx-auto w-full max-w-6xl mt-6">
 						<Image
 							alt={image.alt}
 							className="object-cover rounded-3xl aspect-video"
 							height={650}
 							src={image.src}
 							width={1152}
+						/>
+
+						<Image
+							className="absolute -right-14 -top-28 w-64"
+							src={Scotch1}
+							alt=""
+							width={364}
+							height={405}
+						/>
+
+						<Image
+							className="absolute -left-16 -bottom-20 w-58"
+							src={Scotch2}
+							alt=""
+							width={340}
+							height={198}
 						/>
 					</div>
 				)}
