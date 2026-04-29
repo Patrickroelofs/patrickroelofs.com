@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"dev": "pnpm -r run dev"
+		"dev": "pnpm -r run dev",
+    "build": "pnpm -r run build"
 	},
 	"dependencies": {},
 	"devDependencies": {
