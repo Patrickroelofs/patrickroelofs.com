@@ -17,7 +17,7 @@ function Hero(props: HeroProps) {
 		<section className="bg-black text-ginger">
 			<div className="mx-auto pt-8 flex max-w-6xl flex-col gap-6 top-32 relative mb-32">
 				<div className="mx-auto flex max-w-6xl flex-col justify-start gap-1">
-					{title && <p className="text-l">{title}</p>}
+					{title && <p className="text-l indent-3xl">{title}</p>}
 				</div>
 
 				{image && (
