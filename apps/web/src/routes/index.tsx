@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Image from "#/assets/000008510008.jpg";
 import AboutMeSection from "#/components/about-me/about-me";
+import ExperienceSection from "#/components/experience/experience";
 import Hero from "#/components/hero/hero";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -17,6 +18,7 @@ function Home() {
 			/>
 
 			<AboutMeSection />
+			<ExperienceSection />
 		</>
 	);
 }
