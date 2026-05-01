@@ -21,7 +21,7 @@ function Hero(props: HeroProps) {
 				</div>
 
 				{image && (
-					<div className="relative mx-auto w-full max-w-6xl mt-6">
+					<div className="relative mx-auto w-full max-w-6xl mt-16">
 						<Image
 							alt={image.alt}
 							className="object-cover rounded-3xl aspect-video"
@@ -31,7 +31,7 @@ function Hero(props: HeroProps) {
 						/>
 
 						<Image
-							className="absolute -right-14 -top-28 w-64"
+							className="absolute -right-10 -top-22 w-52 -rotate-12"
 							src={Scotch1}
 							alt=""
 							width={364}
