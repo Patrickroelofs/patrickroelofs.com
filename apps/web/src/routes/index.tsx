@@ -1,17 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Image from "#/assets/000008510008.jpg";
+import AboutMeSection from "#/components/about-me/about-me";
 import Hero from "#/components/hero/hero";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
 	return (
-		<Hero
-			title="A dedicated developer, trusted advisor, and passionate front-end developer focused on creating accessible, high-performing, and user-friendly websites."
-			image={{
-				src: Image,
-				alt: "Placeholder image",
-			}}
-		/>
+		<>
+			<Hero
+				title="A dedicated developer, trusted advisor, and passionate front-end developer focused on creating accessible, high-performing, and user-friendly websites."
+				image={{
+					src: Image,
+					alt: "Placeholder image",
+				}}
+			/>
+
+			<AboutMeSection />
+		</>
 	);
 }
