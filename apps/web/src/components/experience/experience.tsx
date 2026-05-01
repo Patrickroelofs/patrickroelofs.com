@@ -1,3 +1,4 @@
+import { ArrowSquareOutIcon } from "@phosphor-icons/react/dist/ssr";
 import { Image } from "@unpic/react";
 import DividerImage from "#/assets/Line_062.png";
 
@@ -7,32 +8,9 @@ const experiences = [
 		role: "Medior front-end developer",
 		company: "iquality",
 		period: "2021 — Present",
+		link: "https://www.iquality.nl/",
 		description:
-			"Contributing to the development of high-quality web applications for various clients, utilizing modern front-end technologies and best practices to create engaging and user-friendly digital experiences.",
-	},
-	{
-		type: "internship",
-		role: "Front-end development intern",
-		company: "iquality",
-		period: "2022 - 2023",
-		description:
-			"Worked on researching and developing an application in Flutter, with a .NET API and Strapi CMS backend. Created a drag and drop UI with branching (tree like) flow structure.",
-	},
-	{
-		type: "internship",
-		role: "Front-end development intern",
-		company: "Linku",
-		period: "2021 - 2022",
-		description:
-			"Work experience internship focused on front-end development, gaining practical experience in building and maintaining websites and web applications.",
-	},
-	{
-		type: "education",
-		role: "Information Technology",
-		company: "Hogeschool van Arnhem en Nijmegen (HAN)",
-		period: "2019 - 2024",
-		description:
-			"Studied IT with a focus on web development, further developing a strong foundation in programming, and web technologies.",
+			"Contributing to the development of high-quality web-portals for various clients, utilizing modern front-end technologies and best practices to create efficient and user-friendly platforms.",
 	},
 ];
 
@@ -53,11 +31,11 @@ function ExperienceSection() {
 					className="mt-l w-40 sm:w-60"
 				/>
 
-				<div className="space-y-12 mt-12">
+				<div className="mt-12 space-y-14">
 					{experiences.map((exp) => (
 						<div
-							key={exp.role}
-							className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 border-b border-b-peach/50 last:border-0 pb-12"
+							key={`${exp.role}-${exp.company}-${exp.period}`}
+							className="grid grid-cols-1 gap-4 border-b border-b-peach/50 pb-12 last:border-0 md:grid-cols-12 md:gap-8"
 						>
 							<div className="md:col-span-3">
 								<span className="text-base text-muted-foreground">
@@ -65,13 +43,19 @@ function ExperienceSection() {
 								</span>
 							</div>
 							<div className="md:col-span-9">
-								<h3 className="text-m font-semibold text-foreground mb-1">
+								<h3 className="mb-1 text-m font-semibold text-foreground">
 									{exp.role}
 								</h3>
-								<p className="text-accent font-medium mb-3 text-base">
+								<a
+									href={exp.link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="mb-3 text-base font-medium text-accent inline-flex items-center gap-1 hover:underline group transition-all duration-300 ease-in-out"
+								>
 									{exp.company}
-								</p>
-								<p className="text-muted-foreground leading-relaxed text-base">
+									<ArrowSquareOutIcon className="opacity-40 group-hover:opacity-100 transition-all duration-300 ease-in-out" />
+								</a>
+								<p className="text-base leading-relaxed text-muted-foreground">
 									{exp.description}
 								</p>
 							</div>
