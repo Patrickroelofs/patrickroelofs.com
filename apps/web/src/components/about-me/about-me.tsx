@@ -13,9 +13,8 @@ function AboutMeSection(props: AboutMeSectionProps) {
 		<section>
 			<div className="mx-auto pt-8 flex max-w-6xl flex-col gap-6 top-32 relative mb-32">
 				<p className="text-l">
-					With over 8 years of experience in front-end development, I help
-					businesses transform their digital presence through thoughtful design
-					and robust engineering.
+					I am a creative with a passion for creating engaging and user-friendly
+					websites. With a strong background in front-end development.
 				</p>
 
 				<Image height={47} src={DividerImage} width={240} className="mt-l" />
