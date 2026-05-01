@@ -6,22 +6,25 @@ import {
 import { Image } from "@unpic/react";
 import DividerImage from "#/assets/Line_004.png";
 
-type AboutMeSectionProps = {};
-
-function AboutMeSection(props: AboutMeSectionProps) {
+function AboutMeSection() {
 	return (
-		<section>
-			<div className="mx-auto pt-8 flex max-w-6xl flex-col gap-6 top-32 relative mb-32">
-				<p className="text-l">
+		<section className="px-4">
+			<div className="relative top-16 mx-auto mb-20 flex max-w-6xl flex-col gap-6 px-4 pt-8 md:top-32 md:mb-32 md:px-0">
+				<p className="text-m md:text-l">
 					I am a creative with a passion for creating engaging and user-friendly
 					websites. With a strong background in front-end development.
 				</p>
 
-				<Image height={47} src={DividerImage} width={240} className="mt-l" />
+				<Image
+					height={47}
+					src={DividerImage}
+					width={240}
+					className="mt-l w-40 sm:w-60"
+				/>
 
 				<div>
-					<ul className="grid grid-cols-2 gap-l">
-						<li className="flex justify-center items-center gap-6">
+					<ul className="grid grid-cols-1 gap-m md:grid-cols-2 md:gap-l">
+						<li className="flex items-start justify-start gap-4 md:gap-6">
 							<div className="w-16 h-16 bg-redleather/30 rounded-full shrink-0 flex items-center justify-center">
 								<SmileyIcon className="fill-black w-8 h-8" />
 							</div>
@@ -35,7 +38,7 @@ function AboutMeSection(props: AboutMeSectionProps) {
 							</div>
 						</li>
 
-						<li className="flex justify-center items-center gap-6">
+						<li className="flex items-start justify-start gap-4 md:gap-6">
 							<div className="w-16 h-16 bg-redleather/30 rounded-full shrink-0 flex items-center justify-center">
 								<WheelchairIcon className="fill-black w-8 h-8" />
 							</div>
@@ -49,7 +52,7 @@ function AboutMeSection(props: AboutMeSectionProps) {
 							</div>
 						</li>
 
-						<li className="flex justify-center items-center gap-6">
+						<li className="flex items-start justify-start gap-4 md:gap-6">
 							<div className="w-16 h-16 bg-redleather/30 rounded-full shrink-0 flex items-center justify-center">
 								<GaugeIcon className="fill-black w-8 h-8" />
 							</div>

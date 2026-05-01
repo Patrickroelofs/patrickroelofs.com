@@ -14,10 +14,10 @@ function Hero(props: HeroProps) {
 	const { title, image } = props;
 
 	return (
-		<section className="bg-black text-ginger">
-			<div className="mx-auto pt-8 flex max-w-6xl flex-col gap-6 top-32 relative mb-32">
+		<section className="bg-black text-ginger px-4">
+			<div className="mx-auto pt-8 flex max-w-6xl flex-col gap-6 top-16 md:top-32 relative mb-32">
 				<div className="mx-auto flex max-w-6xl flex-col justify-start gap-1">
-					{title && <p className="text-l indent-3xl">{title}</p>}
+					{title && <p className="text-m md:text-l indent-3xl">{title}</p>}
 				</div>
 
 				{image && (
