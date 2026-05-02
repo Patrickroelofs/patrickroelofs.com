@@ -20,7 +20,7 @@ function Home() {
 
 			<AboutMeSection />
 			<ExperienceSection />
-			<WorkSection />
+			{/* <WorkSection /> */}
 		</>
 	);
 }
