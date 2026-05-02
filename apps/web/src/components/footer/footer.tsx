@@ -210,7 +210,7 @@ function Footer() {
 		));
 
 	return (
-		<footer className="mx-auto my-3xl pt-3xl flex max-w-5xl flex-col gap-l px-2">
+		<footer className="mx-auto my-3xl flex max-w-5xl flex-col gap-l px-s">
 			<button
 				aria-label="Copy email address"
 				onClick={copyEmailToClipboard}

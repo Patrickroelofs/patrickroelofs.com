@@ -24,6 +24,7 @@
 	--text-xl: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
 	--text-2xl: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
 
+	--spacing-*: initial;
 	--spacing-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
 	--spacing-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
 	--spacing-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);

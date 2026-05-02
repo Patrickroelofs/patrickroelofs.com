@@ -16,8 +16,8 @@ const experiences = [
 
 function ExperienceSection() {
 	return (
-		<section className="px-4">
-			<div className="relative top-16 mx-auto mb-20 flex max-w-6xl flex-col gap-6 px-4 pt-8 md:top-32 md:mb-32 md:px-0">
+		<section className="px-s pt-3xl">
+			<div className="relative mx-auto flex max-w-6xl flex-col gap-6">
 				<span>Experience</span>
 				<p className="text-m md:text-l">
 					A journey of continuous learning and growth in the world of software
@@ -28,40 +28,38 @@ function ExperienceSection() {
 					height={79}
 					src={DividerImage}
 					width={437}
-					className="mt-l w-40 sm:w-60"
+					className="my-l w-40 sm:w-60"
 				/>
 
-				<div className="mt-12 space-y-14">
-					{experiences.map((exp) => (
-						<div
-							key={`${exp.role}-${exp.company}-${exp.period}`}
-							className="grid grid-cols-1 gap-4 border-b border-b-peach/50 pb-12 last:border-0 md:grid-cols-12 md:gap-8"
-						>
-							<div className="md:col-span-3">
-								<span className="text-base text-muted-foreground">
-									{exp.period}
-								</span>
-							</div>
-							<div className="md:col-span-9">
-								<h3 className="mb-1 text-m font-semibold text-foreground">
-									{exp.role}
-								</h3>
-								<a
-									href={exp.link}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="mb-3 text-base font-medium text-accent inline-flex items-center gap-1 hover:underline group transition-all duration-300 ease-in-out"
-								>
-									{exp.company}
-									<ArrowSquareOutIcon className="opacity-40 group-hover:opacity-100 transition-all duration-300 ease-in-out" />
-								</a>
-								<p className="text-base leading-relaxed text-muted-foreground">
-									{exp.description}
-								</p>
-							</div>
+				{experiences.map((exp) => (
+					<div
+						key={`${exp.role}-${exp.company}-${exp.period}`}
+						className="grid grid-cols-1 gap-s border-b border-b-peach/50 pb-12 last:border-0 md:grid-cols-12"
+					>
+						<div className="md:col-span-3">
+							<span className="text-base text-muted-foreground">
+								{exp.period}
+							</span>
 						</div>
-					))}
-				</div>
+						<div className="md:col-span-9 flex flex-col gap-3xs">
+							<h3 className="mb-1 text-m font-semibold text-foreground">
+								{exp.role}
+							</h3>
+							<a
+								href={exp.link}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="mb-3 text-base font-medium text-accent inline-flex items-center gap-1 hover:underline group transition-all duration-300 ease-in-out"
+							>
+								{exp.company}
+								<ArrowSquareOutIcon className="opacity-40 group-hover:opacity-100 transition-all duration-300 ease-in-out" />
+							</a>
+							<p className="text-base leading-relaxed text-muted-foreground">
+								{exp.description}
+							</p>
+						</div>
+					</div>
+				))}
 			</div>
 		</section>
 	);
